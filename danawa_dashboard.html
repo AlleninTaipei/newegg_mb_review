@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motherboard Dashboard — Danawa</title>
+  <style>
+    :root {
+      --bg:       #0f1117;
+      --surface:  #1a1d27;
+      --surface2: #22263a;
+      --border:   #2e3350;
+      --text:     #e8eaf6;
+      --muted:    #8892a4;
+      --green:    #27ae60;
+      --yellow:   #f1c40f;
+      --red:      #e74c3c;
+      --accent:   #7c83fd;
+    }
+    *  { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      font-family:'Segoe UI',system-ui,sans-serif;
+      background:var(--bg); color:var(--text);
+      min-height:100vh; padding:24px;
+    }
+
+    /* ── Header ── */
+    header {
+      display:flex; align-items:center; gap:16px; margin-bottom:28px;
+      flex-wrap:wrap;
+    }
+    .brand-pills { display:flex; gap:8px; flex-wrap:wrap; }
+    .brand-pill {
+      font-size:.75rem; font-weight:800; padding:5px 12px;
+      border-radius:20px; color:#fff; letter-spacing:.6px;
+    }
+    .header-text h1  { font-size:1.4rem; font-weight:700; }
+    .header-text .sub { font-size:.82rem; color:var(--muted); margin-top:3px; }
+
+    /* ── KPI grid ── */
+    .kpi-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:14px; margin-bottom:28px;
+    }
+    .kpi {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:10px; padding:18px 20px;
+    }
+    .kpi .label { font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.8px; }
+    .kpi .value { font-size:1.9rem; font-weight:800; margin-top:6px; }
+    .kpi .value.green  { color:var(--green); }
+    .kpi .value.yellow { color:var(--yellow); }
+    .kpi .value.accent { color:var(--accent); }
+
+    /* ── Brand stat cards ── */
+    .brand-cards {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:14px; margin-bottom:28px;
+    }
+    .brand-card {
+      background:var(--surface); border-radius:10px;
+      padding:16px 18px; border-left:4px solid #888;
+    }
+    .brand-card h4 {
+      font-size:.78rem; font-weight:700; text-transform:uppercase;
+      letter-spacing:.7px; margin-bottom:10px;
+    }
+    .brand-stat { display:flex; justify-content:space-between; font-size:.82rem; margin-top:5px; }
+    .brand-stat .sv { font-weight:700; }
+
+    /* ── Filters ── */
+    .filters {
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-bottom:20px; align-items:center;
+    }
+    .filters label { font-size:.78rem; color:var(--muted); }
+    .filters select, .filters input[type=text] {
+      background:var(--surface); border:1px solid var(--border);
+      color:var(--text); padding:6px 10px; border-radius:6px;
+      font-size:.83rem; cursor:pointer;
+    }
+    .filters input[type=range] {
+      accent-color:var(--accent); width:110px; cursor:pointer;
+    }
+    .range-val { font-size:.78rem; color:var(--yellow); min-width:90px; }
+    .filters button {
+      background:var(--surface2); border:1px solid var(--border);
+      color:var(--muted); padding:6px 14px; border-radius:6px;
+      cursor:pointer; font-size:.82rem;
+    }
+    .filters button:hover { color:var(--text); }
+
+    /* ── Table ── */
+    .table-wrap {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:10px; overflow:auto; margin-bottom:28px;
+    }
+    table { width:100%; border-collapse:collapse; font-size:.86rem; min-width:720px; }
+    thead th {
+      background:var(--surface2); padding:11px 13px;
+      text-align:left; font-size:.72rem; text-transform:uppercase;
+      letter-spacing:.7px; color:var(--muted); white-space:nowrap;
+    }
+    tbody tr { border-top:1px solid var(--border); transition:background .12s; }
+    tbody tr:hover { background:var(--surface2); }
+    tbody td { padding:10px 13px; vertical-align:middle; }
+
+    .brand-dot {
+      display:inline-block; width:8px; height:8px;
+      border-radius:50%; margin-right:6px; vertical-align:middle;
+    }
+    .name-cell { font-weight:600; }
+    .badge {
+      display:inline-block; font-size:.68rem; font-weight:700;
+      padding:2px 7px; border-radius:20px; margin-left:5px;
+    }
+    .badge.amd   { background:#ed1c24; color:#fff; }
+    .badge.intel { background:#0071c5; color:#fff; }
+    .tag {
+      display:inline-block; font-size:.68rem; padding:2px 8px;
+      border-radius:10px; background:var(--surface2);
+      border:1px solid var(--border); color:var(--muted);
+    }
+    .price { font-weight:700; color:var(--yellow); }
+    .bar-wrap { display:flex; align-items:center; gap:7px; }
+    .bar {
+      height:7px; border-radius:4px;
+      background:var(--border); flex:1; overflow:hidden; min-width:60px;
+    }
+    .bar-fill { height:100%; border-radius:4px; transition:width .3s; }
+    .tally { font-size:.78rem; color:var(--muted); min-width:34px; text-align:right; }
+
+    /* ── Charts row ── */
+    .charts-row {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:20px; margin-bottom:28px;
+    }
+    .chart-card {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:10px; padding:20px;
+    }
+    .chart-card h3 {
+      font-size:.8rem; color:var(--muted); text-transform:uppercase;
+      letter-spacing:.7px; margin-bottom:16px;
+    }
+    .hbar-row  { display:flex; align-items:center; gap:9px; margin-bottom:9px; font-size:.8rem; }
+    .hbar-label { min-width:170px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .hbar-track { flex:1; height:11px; background:var(--border); border-radius:6px; overflow:hidden; }
+    .hbar-fill  { height:100%; border-radius:6px; }
+    .hbar-val   { min-width:34px; text-align:right; color:var(--muted); font-size:.78rem; }
+
+    .chipset-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+    .chipset-item {
+      background:var(--surface2); border:1px solid var(--border);
+      border-radius:8px; padding:10px 8px; text-align:center;
+    }
+    .ci-name   { font-size:.7rem; color:var(--muted); }
+    .ci-rating { font-size:1.25rem; font-weight:800; margin:4px 0; }
+    .ci-count  { font-size:.68rem; color:var(--muted); }
+
+    /* ── Picks row ── */
+    .picks-row {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px; margin-bottom:28px;
+    }
+    .pick-card {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:10px; padding:20px;
+    }
+    .pick-card h3 {
+      font-size:.8rem; color:var(--muted); text-transform:uppercase;
+      letter-spacing:.7px; margin-bottom:14px;
+    }
+    .pick-item {
+      display:flex; justify-content:space-between; align-items:flex-start;
+      padding:9px 0; border-top:1px solid var(--border);
+    }
+    .pick-item:first-of-type { border-top:none; padding-top:0; }
+    .pick-name { font-size:.83rem; font-weight:600; max-width:190px; line-height:1.4; }
+    .pick-brand { font-size:.7rem; color:var(--muted); }
+    .pick-meta  { text-align:right; }
+    .pick-rating { font-size:1.05rem; font-weight:800; color:var(--yellow); }
+    .pick-price  { font-size:.76rem; color:var(--muted); }
+
+    footer {
+      text-align:center; color:var(--muted); font-size:.76rem; margin-top:10px;
+    }
+
+    .empty {
+      text-align:center; color:var(--muted); padding:40px; font-size:.9rem;
+    }
+
+    ::-webkit-scrollbar { width:6px; height:6px; }
+    ::-webkit-scrollbar-track { background:var(--bg); }
+    ::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="brand-pills" id="brandPills"></div>
+  <div class="header-text">
+    <h1>Motherboard Market Dashboard</h1>
+    <div class="sub">
+      Danawa pricing &amp; availability &bull; Data as of 2026-04-15 &bull; Source: Danawa.com &bull; Prices in KRW (₩)
+    </div>
+  </div>
+</header>
+
+<!-- KPI row -->
+<div class="kpi-grid" id="kpiGrid"></div>
+
+<!-- Brand stat cards -->
+<div class="brand-cards" id="brandCards"></div>
+
+<!-- Filters -->
+<div class="filters">
+  <label>Brand</label>
+  <select id="fBrand">
+    <option value="">All Brands</option>
+    <option value="ASRock">ASRock</option><option value="ASUS">ASUS</option><option value="MSI">MSI</option><option value="Gigabyte">Gigabyte</option>
+  </select>
+
+  <label>Platform</label>
+  <select id="fPlatform">
+    <option value="">All</option>
+    <option value="AMD">AMD</option>
+    <option value="Intel">Intel</option>
+  </select>
+
+  <label>Chipset</label>
+  <select id="fChipset">
+    <option value="">All</option>
+    <option value="B650">B650</option><option value="B650E">B650E</option><option value="B760">B760</option><option value="B850">B850</option><option value="B860">B860</option><option value="H810">H810</option><option value="X670">X670</option><option value="X670E">X670E</option><option value="X870">X870</option><option value="X870E">X870E</option><option value="Z790">Z790</option><option value="Z890">Z890</option>
+  </select>
+
+  <label>Form</label>
+  <select id="fForm">
+    <option value="">All</option>
+    <option value="ATX">ATX</option><option value="E-ATX">E-ATX</option><option value="Micro ATX">Micro ATX</option><option value="Unknown">Unknown</option>
+  </select>
+
+  <label>Min Stores</label>
+  <input type="range" id="fStores" min="0" max="500" step="5" value="0" />
+  <span class="range-val" id="storesVal">0+</span>
+
+  <label>Max Price</label>
+  <input type="range" id="fPrice" min="10000" max="3200000" step="10000" value="3200000" />
+  <span class="range-val" id="priceVal">₩3,200,000</span>
+
+  <label>Sort</label>
+  <select id="fSort">
+    <option value="stores_desc">Stores ↓</option>
+    <option value="stores_asc">Stores ↑</option>
+    <option value="price_asc">Price ↑</option>
+    <option value="price_desc">Price ↓</option>
+    <option value="value_desc">Avail. Score ↓</option>
+    <option value="value_asc">Avail. Score ↑</option>
+  </select>
+
+  <button onclick="resetFilters()">Reset</button>
+  <span id="filterCount" style="font-size:.78rem;color:var(--muted);margin-left:4px;"></span>
+</div>
+
+<!-- Table -->
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Brand / Product</th>
+        <th>Chipset</th>
+        <th>Form</th>
+        <th>Stores</th>
+        <th>Price (KRW)</th>
+        <th>Avail. Score</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<!-- Charts -->
+<div class="charts-row">
+  <div class="chart-card">
+    <h3>Top 10 by Store Count</h3>
+    <div id="storeChart"></div>
+  </div>
+  <div class="chart-card">
+    <h3>Avg Stores by Chipset</h3>
+    <div class="chipset-grid" id="chipsetChart"></div>
+  </div>
+  <div class="chart-card">
+    <h3>Avg Stores by Brand</h3>
+    <div id="brandChart"></div>
+  </div>
+</div>
+
+<!-- Picks -->
+<div class="picks-row">
+  <div class="pick-card">
+    <h3>Most Available (Top Stores)</h3>
+    <div id="topPicks"></div>
+  </div>
+  <div class="pick-card">
+    <h3>Best Avail. Score (stores ÷ price × 1,000,000)</h3>
+    <div id="valuePicks"></div>
+  </div>
+  <div class="pick-card">
+    <h3>Budget Picks (Lowest Price)</h3>
+    <div id="popularPicks"></div>
+  </div>
+</div>
+
+<footer>
+  Data sourced from Danawa.com &bull; ASRock · ASUS · MSI · Gigabyte Motherboards &bull;
+  Dashboard generated 2026-04-15
+</footer>
+
+<script>
+const RAW = [{"brand": "ASRock", "name": "ASRock B850 Challenger WiFi 7 White", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 109, "price": 249000, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B850M Pro-A", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 188, "price": 164040, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650M Pro X3D", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 184, "price": 144920, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650M PG Lightning", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 188, "price": 115630, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B860M-X Gen5", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 95, "price": 162560, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B650 스틸레전드 WiFi", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 108, "price": 255320, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650 LiveMixer", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 1, "price": 405000, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock X870 Pro RS WiFi", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 147, "price": 309670, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock X870E Nova WiFi", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 148, "price": 470250, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650M Pro X3D WiFi", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 161, "price": 165780, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B760M Pro-A/D4", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 86, "price": 135560, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B860M Pro-A", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 91, "price": 173790, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock Z890 Pro-A", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 146, "price": 303300, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B860I WiFi", "socket": "LGA1851", "chipset": "B860", "form": "Unknown", "stores": 132, "price": 279310, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock H810M-P Gen5", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 89, "price": 109000, "platform": "Intel"}, {"brand": "ASRock", "name": "GIGABYTE B860M AORUS ELITE WIFI6E ICE", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 209, "price": 257660, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B860M Rock WiFi", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 72, "price": 193550, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock Z890I Nova WiFi", "socket": "LGA1851", "chipset": "Z890", "form": "Unknown", "stores": 127, "price": 504280, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850I Lightning WiFi", "socket": "AM5", "chipset": "B850", "form": "Unknown", "stores": 135, "price": 326100, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B860M-X Gen5 에즈윈 (벌크)", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 85, "price": 141550, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850 Pro-A", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 141, "price": 214730, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B760M Pro RS D5", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 179, "price": 148900, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B860M 스틸레전드 WiFi", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 109, "price": 263520, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B650M PG Riptide", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 145, "price": 169850, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock Z890 Nova WiFi", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 133, "price": 516780, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B860 Rock WiFi 7", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 77, "price": 222970, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B650M PG Riptide WiFi White", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 149, "price": 212860, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B850M Rock WiFi", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 84, "price": 189050, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B860M Pro RS", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 154, "price": 200680, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock X870E Taichi", "socket": "AM5", "chipset": "X870E", "form": "E-ATX", "stores": 3, "price": 815470, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock H810M-X Gen5", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 83, "price": 127500, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock X870 Pro-A WiFi", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 97, "price": 286570, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B760M-HDVP D5 에즈윈 (벌크)", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 133, "price": 115250, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock H810TM-ITX 에즈윈 (벌크)", "socket": "LGA1851", "chipset": "H810", "form": "Unknown", "stores": 65, "price": 175950, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock Z890 Taichi", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 140, "price": 674970, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850M 스틸레전드 WiFi", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 142, "price": 223000, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock Z890 Pro RS WiFi White", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 137, "price": 335880, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850 Rock WiFi 7", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 75, "price": 227050, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B860M Pro RS WiFi", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 136, "price": 213090, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock X870 Pro RS", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 144, "price": 286050, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock Z890 Pro-A WiFi", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 147, "price": 305500, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850 스틸레전드 WiFi", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 142, "price": 285270, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock Z790 Pro RS D5", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 85, "price": 349470, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850 Pro-A WiFi", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 139, "price": 232080, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B850M Challenger WiFi 7 White", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 82, "price": 242250, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock X870 스틸레전드 WiFi", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 132, "price": 345000, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock Z890 스틸레전드 WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 141, "price": 353620, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B860 Pro RS WiFi", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 148, "price": 250220, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B760M-X Gen5 에즈윈 (벌크)", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 78, "price": 125090, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850M-X R2.0", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 152, "price": 154200, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B850M Pro-A WiFi", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 159, "price": 181590, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650M PG Lightning + WiFi6E 모듈 패키지", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 115, "price": 144290, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B850M Pro RS WiFi WHITE", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 134, "price": 205000, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock Z890 Lightning WiFi", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 143, "price": 417230, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850M Pro Plus WiFi", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 134, "price": 233880, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B860 Pro RS", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 144, "price": 248620, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850 LiveMixer WiFi", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 107, "price": 279390, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B850 Pro RS", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 161, "price": 241410, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock H810M-HDVP", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 86, "price": 135870, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850 Pro RS WiFi", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 151, "price": 239590, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650M Pro RS WIFI", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 15, "price": 224000, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B850M Pro RS WiFi", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 137, "price": 201740, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock H810M-X Gen5 디앤디컴 (벌크)", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 61, "price": 132790, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850M-X", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 105, "price": 150570, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B860 Pro-A", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 109, "price": 231890, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850M Riptide WiFi", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 125, "price": 239590, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock Z890 Pro RS", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 132, "price": 315260, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B860M-HDVP 에즈윈 (벌크)", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 25, "price": 150380, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850M Pro RS", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 141, "price": 194560, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B850 Riptide WiFi", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 81, "price": 298305, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock H810M-X", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 132, "price": 130320, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B860 Pro-A WiFi", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 131, "price": 251280, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock H810M-P Gen5 디앤디컴 (벌크)", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 63, "price": 113520, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B760M Pro RS D5 + WiFi6E 모듈 패키지", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 118, "price": 179900, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B650M Pro RS", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 6, "price": 197000, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock H810M-P Gen5 + WiFi6E 랜카드 패키지", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 71, "price": 147980, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock H810M-X WIFI", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 93, "price": 149880, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B760M Pro-A 에즈윈 (벌크)", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 60, "price": 134990, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B760M Pro RS D5 + WiFi7 모듈 패키지", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 103, "price": 196660, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock Z790 PG Lightning D5", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 9, "price": 285900, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850 Challenger WiFi 7", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 66, "price": 250550, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock H810M-X 에즈윈 (벌크)", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 96, "price": 131870, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock Z790 Pro RS D5 + WiFi6E 모듈 패키지", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 73, "price": 352000, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock H810M-X Gen5 + WiFi7 랜카드 패키지", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 61, "price": 178330, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock H810M-X Gen5 + WiFi6E 랜카드 패키지", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 70, "price": 162980, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock Z790 Pro RS D5 + WiFi7 모듈 패키지", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 62, "price": 405000, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B850M Pro RS + WiFi6E 모듈 패키지", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 74, "price": 258880, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock H810M-X 디앤디컴 (벌크)", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 72, "price": 135680, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock H810M-HDVP 에즈윈 (벌크)", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 65, "price": 134990, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock H810M-P Gen5 + WiFi7 랜카드 패키지", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 60, "price": 162980, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B760M Pro-A", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 149, "price": 135000, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock Z790 PG Lightning D5 + WiFi6E 모듈 패키지", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 6, "price": 299000, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B650M-HDV/M.2", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 1, "price": 186680, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B860M-X", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 110, "price": 166140, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B650E 스틸레전드 WiFi", "socket": "AM5", "chipset": "B650E", "form": "ATX", "stores": 1, "price": 438970, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650M PG Lightning WiFi", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 20, "price": 170000, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650 Pro RS", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 5, "price": 310760, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650 PG Lightning", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 2, "price": 323750, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650M Pro RS + WiFi6E 모듈 패키지", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 4, "price": 227000, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650E PG Riptide WiFi", "socket": "AM5", "chipset": "B650E", "form": "ATX", "stores": 3, "price": 355100, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650 PG Lightning + WiFi6E 모듈 패키지", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 1, "price": 354790, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650 Pro RS + WiFi6E 모듈 패키지", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 1, "price": 379320, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock Z890 LiveMixer WiFi", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 131, "price": 354520, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B860M LiveMixer WiFi", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 133, "price": 240000, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock Z890 Taichi OCF", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 68, "price": 858890, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B860 LiveMixer WiFi", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 127, "price": 272000, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock Z890 Taichi AQUA", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 37, "price": 1494090, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock Z890 Pro RS WiFi", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 126, "price": 339450, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock H810M-H", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 85, "price": 112540, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B860 스틸레전드 WiFi", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 7, "price": 328580, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B760M-HDVP D5 인텍앤컴퍼니 (벌크)", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 62, "price": 129800, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock B760M-HDVP D5", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 1, "price": 176000, "platform": "Intel"}, {"brand": "ASRock", "name": "ASRock X870E Taichi Lite (해외구매)", "socket": "AM5", "chipset": "X870E", "form": "E-ATX", "stores": 1, "price": 868000, "platform": "AMD"}, {"brand": "ASRock", "name": "ASRock B650M PG Riptide WiFi White 디앤디컴 (중고)", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 1, "price": 211680, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME B860M-A-CSM", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 160, "price": 182000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B860-G GAMING WIFI", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 180, "price": 278900, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B850-PLUS WIFI", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 206, "price": 310600, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B650EM-E WIFI", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 147, "price": 179280, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B850M-PLUS WIFI7", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 154, "price": 240750, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B850M-PLUS II", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 136, "price": 243660, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG CROSSHAIR X870E DARK HERO", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 16, "price": 1058000, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B850-I GAMING WIFI", "socket": "AM5", "chipset": "B850", "form": "Unknown", "stores": 8, "price": 414850, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B850M-PLUS WIFI7 W", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 169, "price": 269790, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME B650EM-A", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 106, "price": 139980, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS B860M AYW GAMING WIFI", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 135, "price": 180530, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS Z890 AYW GAMING WIFI W", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 136, "price": 368980, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME H810M-A", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 145, "price": 120990, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG MAXIMUS Z890 HERO", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 142, "price": 909930, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX X870E-H GAMING WIFI7", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 96, "price": 474550, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG STRIX X870E-E GAMING WIFI", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 36, "price": 710000, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B850-G GAMING WIFI", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 90, "price": 327000, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME B760M-A D4", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 120, "price": 145900, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming X870E-PLUS WIFI7", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 102, "price": 401540, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME B650M-A II", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 106, "price": 124000, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B850M-PLUS", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 49, "price": 253990, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B760M-PLUS II", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 157, "price": 165480, "platform": "Intel"}, {"brand": "ASUS", "name": "GIGABYTE B860M AORUS ELITE WIFI6E ICE", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 209, "price": 257660, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming Z890-PLUS WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 137, "price": 380000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming X870-PRO WIFI7 W NEO", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 49, "price": 391550, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG MAXIMUS Z890 APEX", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 129, "price": 855000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG CROSSHAIR X870E APEX", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 105, "price": 960540, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B650E-E GAMING WIFI", "socket": "AM5", "chipset": "B650E", "form": "ATX", "stores": 117, "price": 333280, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B850-BTF WIFI W", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 104, "price": 395170, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG CROSSHAIR X870E HERO", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 125, "price": 929970, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B860-I GAMING WIFI", "socket": "LGA1851", "chipset": "B860", "form": "Unknown", "stores": 131, "price": 398990, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B860M-PLUS", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 142, "price": 238000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B760-G GAMING WIFI", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 148, "price": 219900, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME Z890-P-CSM", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 138, "price": 345000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B860M-PLUS WIFI", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 142, "price": 288890, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME H810M-E", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 100, "price": 114000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX X870-I GAMING WIFI", "socket": "AM5", "chipset": "X870", "form": "Unknown", "stores": 120, "price": 734980, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME Z890M-PLUS WIFI-CSM", "socket": "LGA1851", "chipset": "Z890", "form": "Micro ATX", "stores": 119, "price": 361000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME B760M-A", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 133, "price": 145000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B860-F GAMING WIFI", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 140, "price": 437000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG CROSSHAIR X870E HERO BTF", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 103, "price": 1049000, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B850M-E WIFI", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 110, "price": 228280, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ProArt X870E-CREATOR WIFI", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 6, "price": 658000, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG MAXIMUS Z890 EXTREME", "socket": "LGA1851", "chipset": "Z890", "form": "E-ATX", "stores": 117, "price": 1527970, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS B850M MAX GAMING WIFI", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 107, "price": 189780, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B850M-PLUS WIFI", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 37, "price": 245000, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming Z890-PRO WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 131, "price": 455170, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B650M-PLUS", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 126, "price": 218890, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG STRIX X870-A GAMING WIFI", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 85, "price": 532400, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRO WS Z890-ACE SE", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 109, "price": 859000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG CROSSHAIR X870E EXTREME", "socket": "AM5", "chipset": "X870E", "form": "E-ATX", "stores": 3, "price": 1460940, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME Z790-P-CSM", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 120, "price": 341920, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRO WS B850M-ACE SE", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 84, "price": 621700, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B760-PLUS WIFI", "socket": "LGA1700", "chipset": "B760", "form": "ATX", "stores": 127, "price": 284010, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B850-A GAMING WIFI", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 142, "price": 388600, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ProArt Z890-CREATOR WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 89, "price": 786360, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG MAXIMUS Z790 APEX ENCORE", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 115, "price": 868330, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX Z890-F GAMING WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 117, "price": 689000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B850-F GAMING WIFI", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 143, "price": 415890, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B650-A GAMING WIFI", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 89, "price": 276920, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME B760M-K D4", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 120, "price": 136340, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS H810M AYW GAMING WIFI", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 118, "price": 151140, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME B860M-K-CSM", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 122, "price": 186000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX Z890-E GAMING WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 128, "price": 751000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B860-PLUS WIFI", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 130, "price": 285000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B850-E GAMING WIFI", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 131, "price": 495970, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B860-A GAMING WIFI", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 137, "price": 369000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME Z890-P WIFI-CSM", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 127, "price": 365000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME X870-P WIFI-CSM", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 125, "price": 335340, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME X870-P-CSM", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 76, "price": 303690, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B760-I GAMING WIFI", "socket": "LGA1700", "chipset": "B760", "form": "Unknown", "stores": 110, "price": 376960, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME H810M-A WIFI", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 121, "price": 142000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME B760-PLUS", "socket": "LGA1700", "chipset": "B760", "form": "ATX", "stores": 105, "price": 247240, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX X670E-A GAMING WIFI", "socket": "AM5", "chipset": "X670E", "form": "ATX", "stores": 79, "price": 421680, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME B860-PLUS-CSM", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 153, "price": 274540, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS H810M AYW GAMING WIFI-CSM", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 112, "price": 160880, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX Z890-I GAMING WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "Unknown", "stores": 120, "price": 731990, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME H810M-A WIFI-CSM", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 111, "price": 154210, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B650M-PLUS WIFI", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 111, "price": 258890, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME B860-PLUS WIFI-CSM", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 72, "price": 318890, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS EX B760M-V5 D4", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 104, "price": 134590, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME H810M-A-CSM", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 113, "price": 143380, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B650E-I GAMING WIFI", "socket": "AM5", "chipset": "B650E", "form": "Unknown", "stores": 1, "price": 458660, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME Z790M-PLUS-CSM", "socket": "LGA1700", "chipset": "Z790", "form": "Micro ATX", "stores": 93, "price": 354880, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME B860M-A WIFI-CSM", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 117, "price": 208000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX X870-F GAMING WIFI", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 90, "price": 648420, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG MAXIMUS Z790 HERO", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 74, "price": 1022270, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX Z790-A GAMING WIFI", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 1, "price": 599740, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME B760M-KS 코잇 (벌크)", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 78, "price": 128700, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME B850M-A-CSM", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 87, "price": 199890, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME H810M-K", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 75, "price": 119920, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B760M-PLUS", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 88, "price": 188710, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME B760M-K", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 151, "price": 129890, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming X870-PLUS WIFI", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 100, "price": 387000, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B650E-F GAMING WIFI", "socket": "AM5", "chipset": "B650E", "form": "ATX", "stores": 8, "price": 367640, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME B650-PLUS", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 4, "price": 340000, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B650-PLUS WIFI", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 40, "price": 380920, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS ROG STRIX B760-A GAMING WIFI", "socket": "LGA1700", "chipset": "B760", "form": "ATX", "stores": 1, "price": 375000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B650M-E WIFI", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 4, "price": 186130, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B650M-E", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 8, "price": 218720, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME B760M-PLUS-CSM", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 10, "price": 200990, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS TUF Gaming B650-E WIFI", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 5, "price": 316000, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME B760M-A WIFI D4", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 1, "price": 207100, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX X670E-F GAMING WIFI", "socket": "AM5", "chipset": "X670E", "form": "ATX", "stores": 1, "price": 749000, "platform": "AMD"}, {"brand": "ASUS", "name": "ASUS PRIME Z790-P WIFI-CSM", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 3, "price": 389910, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS ROG STRIX Z890-A GAMING WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 2, "price": 560000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS Pro H810T-CSM", "socket": "LGA1851", "chipset": "H810", "form": "Unknown", "stores": 4, "price": 207430, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME B760M-A II", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 97, "price": 151000, "platform": "Intel"}, {"brand": "ASUS", "name": "ASUS PRIME H810M-X 2.5G Gen5", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 50, "price": 121000, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MAG X870E 토마호크 WIFI", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 186, "price": 487800, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MAG B850M 박격포 WIFI", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 212, "price": 267000, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MAG B860M 박격포 WIFI", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 207, "price": 269040, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MAG B850 토마호크 맥스 WIFI", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 137, "price": 327540, "platform": "AMD"}, {"brand": "MSI", "name": "MSI PRO B760M-P DDR4", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 25, "price": 128970, "platform": "Intel"}, {"brand": "MSI", "name": "MSI PRO B760M-A DDR4 II", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 85, "price": 145000, "platform": "Intel"}, {"brand": "MSI", "name": "MSI PRO B860M-A WIFI", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 201, "price": 205300, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MPG X870E 카본 WIFI", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 190, "price": 520560, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MAG B850M 박격포", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 211, "price": 236600, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MPG B850I 엣지 TI WIFI", "socket": "AM5", "chipset": "B850", "form": "Unknown", "stores": 134, "price": 374890, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MAG B760M 박격포 II", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 240, "price": 174130, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MAG Z890 토마호크 WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 177, "price": 457580, "platform": "Intel"}, {"brand": "MSI", "name": "MSI PRO B650M-A WIFI", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 224, "price": 170100, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MPG X870E 엣지 TI WIFI", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 161, "price": 489990, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MAG X870 토마호크 WIFI", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 180, "price": 448390, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MAG B650 토마호크 WIFI", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 220, "price": 248890, "platform": "AMD"}, {"brand": "MSI", "name": "MSI PRO B650M-A", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 174, "price": 158900, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MAG B860 토마호크 WIFI", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 179, "price": 287000, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MAG B650M 박격포 WIFI", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 251, "price": 203120, "platform": "AMD"}, {"brand": "MSI", "name": "ASUS ROG STRIX B860-G GAMING WIFI", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 180, "price": 278900, "platform": "Intel"}, {"brand": "MSI", "name": "MSI PRO B850M-A WIFI", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 176, "price": 198870, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MAG X870E 토마호크 맥스 WIFI PZ", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 73, "price": 522980, "platform": "AMD"}, {"brand": "MSI", "name": "MSI PRO B760M-P", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 156, "price": 144980, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MEG Z890 유니파이-X", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 159, "price": 688970, "platform": "Intel"}, {"brand": "MSI", "name": "MSI PRO Z890-A WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 177, "price": 388000, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MAG B760 토마호크 WIFI", "socket": "LGA1700", "chipset": "B760", "form": "ATX", "stores": 170, "price": 232320, "platform": "Intel"}, {"brand": "MSI", "name": "MSI PRO B650M-P", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 185, "price": 119100, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MEG Z890 에이스", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 4, "price": 990000, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MPG B850 엣지 TI WIFI", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 171, "price": 357500, "platform": "AMD"}, {"brand": "MSI", "name": "GIGABYTE B860M AORUS ELITE WIFI6E ICE", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 209, "price": 257660, "platform": "Intel"}, {"brand": "MSI", "name": "MSI PRO B760M-A WIFI", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 204, "price": 153520, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MPG Z890 카본 WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 155, "price": 639960, "platform": "Intel"}, {"brand": "MSI", "name": "MSI PRO Z790-A WIFI DDR4", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 1, "price": 395280, "platform": "Intel"}, {"brand": "MSI", "name": "MSI B650M 프로젝트 제로", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 149, "price": 265050, "platform": "AMD"}, {"brand": "MSI", "name": "MSI PRO B650M-B", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 168, "price": 115700, "platform": "AMD"}, {"brand": "MSI", "name": "MSI PRO B850M-P", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 115, "price": 179550, "platform": "AMD"}, {"brand": "MSI", "name": "MSI PRO H810M-B", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 160, "price": 131990, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MPG Z890 엣지 TI WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 104, "price": 549000, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MPG B650I 엣지 WIFI", "socket": "AM5", "chipset": "B650", "form": "Unknown", "stores": 42, "price": 349000, "platform": "AMD"}, {"brand": "MSI", "name": "MSI B760M 프로젝트 제로", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 76, "price": 246600, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MPG X670E 카본 WiFi", "socket": "AM5", "chipset": "X670E", "form": "ATX", "stores": 6, "price": 696900, "platform": "AMD"}, {"brand": "MSI", "name": "MSI PRO X870-P WIFI", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 5, "price": 427040, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MAG X670E 토마호크 WIFI", "socket": "AM5", "chipset": "X670E", "form": "ATX", "stores": 1, "price": 573300, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MPG B650 카본 WIFI", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 1, "price": 915000, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MEG Z790 에이스 (해외구매)", "socket": "LGA1700", "chipset": "Z790", "form": "E-ATX", "stores": 3, "price": 1382250, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MPG B650 엣지 WIFI", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 4, "price": 329000, "platform": "AMD"}, {"brand": "MSI", "name": "MSI PRO Z890-P WIFI", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 161, "price": 348000, "platform": "Intel"}, {"brand": "MSI", "name": "MSI PRO H810M-C EX", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 116, "price": 124690, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MPG B650I 엣지 WIFI (해외구매)", "socket": "AM5", "chipset": "B650", "form": "Unknown", "stores": 27, "price": 305510, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MPG B850I 엣지 TI WIFI (중고)", "socket": "AM5", "chipset": "B850", "form": "Unknown", "stores": 2, "price": 334350, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MPG X870E 엣지 TI WIFI (중고)", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 5, "price": 401200, "platform": "AMD"}, {"brand": "MSI", "name": "MSI PRO B760M-A WIFI (중고)", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 3, "price": 137280, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MAG Z790 토마호크 WIFI (해외구매)", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 3, "price": 400170, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MEG Z790 갓라이크 (해외구매)", "socket": "LGA1700", "chipset": "Z790", "form": "E-ATX", "stores": 5, "price": 1162000, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MEG Z890 유니파이-X (중고)", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 2, "price": 559200, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MAG B850M 박격포 WIFI (중고)", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 2, "price": 217200, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MPG X670E 카본 WiFi (중고)", "socket": "AM5", "chipset": "X670E", "form": "ATX", "stores": 2, "price": 519200, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MAG B650 토마호크 WIFI (해외구매)", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 11, "price": 227210, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MPG B650 엣지 WIFI (해외구매)", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 17, "price": 393390, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MPG X670E 카본 WiFi (해외구매)", "socket": "AM5", "chipset": "X670E", "form": "ATX", "stores": 26, "price": 526230, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MPG Z790I 엣지 WIFI (해외구매)", "socket": "LGA1700", "chipset": "Z790", "form": "Unknown", "stores": 4, "price": 604500, "platform": "Intel"}, {"brand": "MSI", "name": "MSI MAG X670E 토마호크 WIFI (해외구매)", "socket": "AM5", "chipset": "X670E", "form": "ATX", "stores": 19, "price": 428260, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MPG B650 카본 WIFI (해외구매)", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 9, "price": 469040, "platform": "AMD"}, {"brand": "MSI", "name": "MSI PRO X670-P WiFi (해외구매)", "socket": "AM5", "chipset": "X670", "form": "ATX", "stores": 2, "price": 535790, "platform": "AMD"}, {"brand": "MSI", "name": "MSI MPG Z790 카본 WIFI (해외구매)", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 1, "price": 761460, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B650M K", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 288, "price": 114570, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B760M AORUS ELITE D4 GEN5", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 72, "price": 181280, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B850M AORUS ELITE WIFI6E ICE", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 251, "price": 225060, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B850M FORCE", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 200, "price": 157540, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B860M AORUS ELITE WIFI6E ICE", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 211, "price": 257660, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE X870E AORUS PRO X3D ICE", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 145, "price": 600590, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE Z890 AORUS ELITE WIFI7", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 170, "price": 349520, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B650 AORUS ELITE AX ICE", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 105, "price": 216990, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B760M DS3H WIFI6E D4 GEN5", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 109, "price": 158800, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B760M DS3H GEN5", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 180, "price": 123000, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE H810M K", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 197, "price": 103690, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B760M DS3H D4", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 214, "price": 128480, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE X870E AORUS ELITE X3D", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 82, "price": 436420, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B760M DS3H D4 GEN5", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 113, "price": 140180, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B850M AORUS ELITE WIFI7 ICE-P", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 145, "price": 255380, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE X870E AORUS MASTER X3D ICE", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 67, "price": 790440, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B760M AORUS ELITE GEN5", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 163, "price": 165000, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B850 AORUS ELITE WIFI7", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 163, "price": 295170, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE X870E AORUS PRO", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 192, "price": 416380, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B650 AORUS ELITE V2", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 136, "price": 145000, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE X870 AORUS STEALTH ICE", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 127, "price": 442650, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE X870E AORUS PRO ICE", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 55, "price": 430170, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B650M AORUS ELITE", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 16, "price": 175350, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B850 AORUS ELITE WIFI7 ICE", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 167, "price": 305990, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B860M AORUS ELITE", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 190, "price": 226020, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE X870 AORUS STEALTH", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 74, "price": 444790, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B650 AORUS ELITE AX V2", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 152, "price": 216030, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE Z890 AORUS ELITE DUO X", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 80, "price": 454280, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE Z890 AORUS ELITE WIFI7 ICE", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 189, "price": 365520, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B850M AORUS ELITE WIFI6E", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 216, "price": 229530, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE X870 AORUS ELITE WIFI7", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 214, "price": 353670, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B860M DS3H", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 200, "price": 168000, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE X870E AORUS ELITE X3D ICE", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 93, "price": 433090, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B650EM DS3H WIFI6E", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 4, "price": 158500, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B850 AORUS STEALTH ICE", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 133, "price": 364910, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B850I AORUS PRO", "socket": "AM5", "chipset": "B850", "form": "Unknown", "stores": 137, "price": 336940, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE X870 AORUS ELITE WIFI7 ICE", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 217, "price": 362990, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B850M AORUS PRO WIFI7", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 94, "price": 248870, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE Z890 AORUS ELITE WIFI7 PLUS", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 62, "price": 387000, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE Z890 AORUS PRO ICE", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 173, "price": 430830, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B650E AORUS ELITE X AX ICE", "socket": "AM5", "chipset": "B650E", "form": "ATX", "stores": 141, "price": 259890, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B850 AORUS STEALTH", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 76, "price": 374880, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE Z890 AORUS XTREME AI TOP", "socket": "LGA1851", "chipset": "Z890", "form": "E-ATX", "stores": 136, "price": 1450480, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B850M DS3H ICE", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 189, "price": 174730, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE Z890 AORUS MASTER", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 132, "price": 645540, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B850M DS3H", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 216, "price": 164840, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE Z890M AORUS ELITE WIFI7 ICE", "socket": "LGA1851", "chipset": "Z890", "form": "Micro ATX", "stores": 38, "price": 347970, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B850 EAGLE ICE", "socket": "AM5", "chipset": "B850", "form": "ATX", "stores": 135, "price": 229000, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE Z890I AORUS ULTRA", "socket": "LGA1851", "chipset": "Z890", "form": "Unknown", "stores": 126, "price": 477930, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE X870I AORUS PRO ICE", "socket": "AM5", "chipset": "X870", "form": "Unknown", "stores": 142, "price": 477300, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B860 AORUS ELITE WIFI7 ICE", "socket": "LGA1851", "chipset": "B860", "form": "ATX", "stores": 188, "price": 288890, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE Z790 AORUS ELITE", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 3, "price": 261240, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE X870E AORUS XTREME AI TOP", "socket": "AM5", "chipset": "X870E", "form": "E-ATX", "stores": 135, "price": 905950, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE Z890 UD", "socket": "LGA1851", "chipset": "Z890", "form": "ATX", "stores": 150, "price": 313990, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B860M AORUS ELITE WIFI6E", "socket": "LGA1851", "chipset": "B860", "form": "Micro ATX", "stores": 202, "price": 258880, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE Z890M AORUS ELITE WIFI7", "socket": "LGA1851", "chipset": "Z890", "form": "Micro ATX", "stores": 62, "price": 320470, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE X870 EAGLE WIFI7", "socket": "AM5", "chipset": "X870", "form": "ATX", "stores": 189, "price": 306390, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE Z790 AORUS ELITE AX", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 2, "price": 426240, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE Z790 UD", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 119, "price": 304910, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE H810M D2HX SI GEN5", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 94, "price": 131500, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE H810M K GEN5", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 105, "price": 105380, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE H810M H", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 176, "price": 112670, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE H810M S2H", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 172, "price": 128770, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B650M AORUS ELITE AX ICE", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 5, "price": 222490, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE H810M S2H GEN5", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 90, "price": 127970, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE H810M H GEN5", "socket": "LGA1851", "chipset": "H810", "form": "Micro ATX", "stores": 96, "price": 117350, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE Z790 AORUS XTREME X ICE + AORUS 지포스 RTX 4080 SUPER XTREME ICE 패키지", "socket": "LGA1700", "chipset": "Z790", "form": "E-ATX", "stores": 47, "price": 3153600, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B760M AORUS ELITE AX", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 3, "price": 238580, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B760 AORUS ELITE", "socket": "LGA1700", "chipset": "B760", "form": "ATX", "stores": 1, "price": 292000, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B760M D2HX LITE SI GEN5 피씨디렉트 (벌크)", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 74, "price": 135850, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B650 AORUS ELITE", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 37, "price": 222310, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B760M AORUS ELITE", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 12, "price": 183900, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B760M DS3H", "socket": "LGA1700", "chipset": "B760", "form": "Micro ATX", "stores": 25, "price": 156990, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B650M AORUS ELITE AX", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 8, "price": 221610, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B650M S2H", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 2, "price": 172900, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B650 AORUS ELITE AX", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 7, "price": 233710, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B650 AERO G", "socket": "AM5", "chipset": "B650", "form": "ATX", "stores": 2, "price": 389000, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B650M K 제이씨현 (벌크)", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 83, "price": 115520, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE X870E AORUS ELITE WIFI7 (해외구매)", "socket": "AM5", "chipset": "X870E", "form": "ATX", "stores": 19, "price": 433500, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE B850M AORUS ELITE WIFI6E ICE 제이씨현 (중고)", "socket": "AM5", "chipset": "B850", "form": "Micro ATX", "stores": 3, "price": 229540, "platform": "AMD"}, {"brand": "Gigabyte", "name": "GIGABYTE Z790 AORUS ELITE AX (해외구매)", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 5, "price": 362190, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE Z790 AERO G (해외구매)", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 5, "price": 451340, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE Z790 GAMING X (해외구매)", "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "stores": 1, "price": 673930, "platform": "Intel"}, {"brand": "Gigabyte", "name": "GIGABYTE B650M AORUS ELITE AX (해외구매)", "socket": "AM5", "chipset": "B650", "form": "Micro ATX", "stores": 5, "price": 342000, "platform": "AMD"}];
+const BRAND_COLOR = {"ASRock": "#e84118", "ASUS": "#00adb5", "MSI": "#e94560", "Gigabyte": "#f5a623"};
+const BRAND_DARK  = {"ASRock": "#c0320e", "ASUS": "#007b82", "MSI": "#b02040", "Gigabyte": "#c07a00"};
+const PRICE_MAX   = 3200000;
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+function storeColor(s) {
+  return s >= 150 ? '#27ae60' : s >= 50 ? '#f1c40f' : '#e74c3c';
+}
+// Availability score: stores per million KRW
+function availScore(p) {
+  return p.price > 0 ? ((p.stores / p.price) * 1000000).toFixed(2) : '0.00';
+}
+function brandColor(b) { return BRAND_COLOR[b] || '#888'; }
+function brandDot(b) {
+  return `<span class="brand-dot" style="background:${brandColor(b)}"></span>`;
+}
+function fmtPrice(v) { return '₩' + Math.round(v).toLocaleString(); }
+
+// ── Brand pills ───────────────────────────────────────────────────────────────
+document.getElementById('brandPills').innerHTML =
+  Object.keys(BRAND_COLOR).map(b =>
+    `<span class="brand-pill" style="background:${brandColor(b)}">${b}</span>`
+  ).join('');
+
+// ── KPIs ──────────────────────────────────────────────────────────────────────
+function renderKPIs(data) {
+  if (!data.length) { document.getElementById('kpiGrid').innerHTML = ''; return; }
+  const avgS  = (data.reduce((s,p)=>s+p.stores,0)/data.length).toFixed(0);
+  const total = data.length;
+  const avgP  = Math.round(data.reduce((s,p)=>s+p.price,0)/data.length);
+  const high  = data.filter(p=>p.stores>=150).length;
+  const brands= [...new Set(data.map(p=>p.brand))].length;
+  document.getElementById('kpiGrid').innerHTML = `
+    <div class="kpi"><div class="label">Showing</div>
+      <div class="value accent">${total}</div></div>
+    <div class="kpi"><div class="label">Brands</div>
+      <div class="value">${brands}</div></div>
+    <div class="kpi"><div class="label">Avg Stores</div>
+      <div class="value yellow">${avgS}</div></div>
+    <div class="kpi"><div class="label">Products</div>
+      <div class="value">${total.toLocaleString()}</div></div>
+    <div class="kpi"><div class="label">Avg Price</div>
+      <div class="value">${fmtPrice(avgP)}</div></div>
+    <div class="kpi"><div class="label">150+ Stores</div>
+      <div class="value green">${high}</div></div>
+  `;
+}
+
+// ── Brand cards ───────────────────────────────────────────────────────────────
+function renderBrandCards(data) {
+  const map = {};
+  data.forEach(p => {
+    if (!map[p.brand]) map[p.brand] = { sumS:0, cnt:0, prices:[] };
+    map[p.brand].sumS += p.stores; map[p.brand].cnt++;
+    map[p.brand].prices.push(p.price);
+  });
+  const html = Object.entries(map).map(([b,v]) => {
+    const avg  = (v.sumS/v.cnt).toFixed(0);
+    const avgP = Math.round(v.prices.reduce((a,x)=>a+x,0)/v.prices.length);
+    const col  = brandColor(b);
+    return `<div class="brand-card" style="border-left-color:${col}">
+      <h4 style="color:${col}">${b}</h4>
+      <div class="brand-stat"><span>Products</span><span class="sv">${v.cnt}</span></div>
+      <div class="brand-stat"><span>Avg Stores</span>
+        <span class="sv" style="color:${storeColor(+avg)}">${avg}</span></div>
+      <div class="brand-stat"><span>Avg Price</span>
+        <span class="sv" style="color:var(--yellow)">${fmtPrice(avgP)}</span></div>
+    </div>`;
+  }).join('');
+  document.getElementById('brandCards').innerHTML = html;
+}
+
+// ── Table ─────────────────────────────────────────────────────────────────────
+function renderTable(data) {
+  const tbody = document.getElementById('tableBody');
+  if (!data.length) {
+    tbody.innerHTML = '<tr><td colspan="7" class="empty">No products match the current filters.</td></tr>';
+    return;
+  }
+  const maxS  = Math.max(...data.map(p=>p.stores));
+  const vsMax = Math.max(...data.map(p=>+availScore(p)));
+  tbody.innerHTML = data.map((p,i) => {
+    const col = storeColor(p.stores);
+    const vs  = availScore(p);
+    return `<tr>
+      <td style="color:var(--muted);font-size:.78rem">${i+1}</td>
+      <td class="name-cell">
+        ${brandDot(p.brand)}<span style="color:${brandColor(p.brand)};font-size:.72rem;font-weight:700;margin-right:5px">${p.brand}</span>
+        ${p.name}
+        <span class="badge ${p.platform.toLowerCase()}">${p.platform}</span>
+      </td>
+      <td><span class="tag">${p.chipset}</span></td>
+      <td style="font-size:.8rem;color:var(--muted)">${p.form}</td>
+      <td>
+        <div class="bar-wrap">
+          <div class="bar"><div class="bar-fill"
+            style="width:${maxS>0?(p.stores/maxS*100).toFixed(1):0}%;background:${col}"></div></div>
+          <span class="tally" style="color:${col}">${p.stores}</span>
+        </div>
+      </td>
+      <td class="price">${fmtPrice(p.price)}</td>
+      <td>
+        <div class="bar-wrap">
+          <div class="bar"><div class="bar-fill"
+            style="width:${vsMax>0?(+vs/vsMax*100).toFixed(1):0}%;background:var(--accent)"></div></div>
+          <span class="tally">${vs}</span>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+// ── Store chart ───────────────────────────────────────────────────────────────
+function renderStoreChart(data) {
+  const top = [...data].sort((a,b)=>b.stores-a.stores).slice(0,10);
+  const mx  = top[0]?.stores || 1;
+  document.getElementById('storeChart').innerHTML = top.map(p => `
+    <div class="hbar-row">
+      <div class="hbar-label" title="${p.brand} ${p.name}">
+        ${brandDot(p.brand)}${p.name.length>22 ? p.name.slice(0,22)+'…' : p.name}
+      </div>
+      <div class="hbar-track">
+        <div class="hbar-fill" style="width:${(p.stores/mx*100).toFixed(1)}%;background:${brandColor(p.brand)}"></div>
+      </div>
+      <div class="hbar-val">${p.stores}</div>
+    </div>`).join('') || '<div class="empty">No data</div>';
+}
+
+// ── Chipset chart ─────────────────────────────────────────────────────────────
+function renderChipsetChart(data) {
+  const map = {};
+  data.forEach(p => {
+    if (p.chipset === 'Unknown') return;
+    if (!map[p.chipset]) map[p.chipset] = { sum:0, cnt:0 };
+    map[p.chipset].sum += p.stores; map[p.chipset].cnt++;
+  });
+  const chips = Object.entries(map)
+    .map(([k,v]) => ({ name:k, avg:+(v.sum/v.cnt).toFixed(0), cnt:v.cnt }))
+    .sort((a,b) => b.avg-a.avg).slice(0,9);
+  document.getElementById('chipsetChart').innerHTML = chips.map(c =>
+    `<div class="chipset-item">
+      <div class="ci-name">${c.name}</div>
+      <div class="ci-rating" style="color:${storeColor(c.avg)}">${c.avg}</div>
+      <div class="ci-count">${c.cnt} model${c.cnt>1?'s':''}</div>
+    </div>`).join('') || '<div class="empty">No data</div>';
+}
+
+// ── Brand chart ───────────────────────────────────────────────────────────────
+function renderBrandChart(data) {
+  const map = {};
+  data.forEach(p => {
+    if (!map[p.brand]) map[p.brand] = { sum:0, cnt:0 };
+    map[p.brand].sum += p.stores; map[p.brand].cnt++;
+  });
+  const entries = Object.entries(map).map(([b,v]) => ({ b, avg:+(v.sum/v.cnt).toFixed(0) }))
+    .sort((a,c) => c.avg-a.avg);
+  const mx = entries[0]?.avg || 1;
+  document.getElementById('brandChart').innerHTML = entries.map(e =>
+    `<div class="hbar-row">
+      <div class="hbar-label">${brandDot(e.b)}<strong>${e.b}</strong></div>
+      <div class="hbar-track">
+        <div class="hbar-fill" style="width:${(e.avg/mx*100).toFixed(1)}%;background:${brandColor(e.b)}"></div>
+      </div>
+      <div class="hbar-val" style="color:${storeColor(e.avg)}">${e.avg}</div>
+    </div>`).join('') || '<div class="empty">No data</div>';
+}
+
+// ── Picks ─────────────────────────────────────────────────────────────────────
+function renderPicks(full) {
+  // Most Available
+  const top5 = [...full].sort((a,b)=>b.stores-a.stores).slice(0,5);
+  document.getElementById('topPicks').innerHTML = top5.map(p=>
+    `<div class="pick-item">
+      <div><div class="pick-name">${p.name}</div>
+        <div class="pick-brand" style="color:${brandColor(p.brand)}">${p.brand}</div></div>
+      <div class="pick-meta">
+        <div class="pick-rating" style="color:${storeColor(p.stores)}">${p.stores} 몰</div>
+        <div class="pick-price">${fmtPrice(p.price)}</div>
+      </div>
+    </div>`).join('') || '<div class="empty">Not enough data</div>';
+
+  // Best Avail Score
+  const val5 = [...full].sort((a,b)=>+availScore(b)-+availScore(a)).slice(0,5);
+  document.getElementById('valuePicks').innerHTML = val5.map(p=>
+    `<div class="pick-item">
+      <div><div class="pick-name">${p.name}</div>
+        <div class="pick-brand" style="color:${brandColor(p.brand)}">${p.brand}</div></div>
+      <div class="pick-meta">
+        <div class="pick-rating" style="color:var(--accent)">${availScore(p)}</div>
+        <div class="pick-price">${fmtPrice(p.price)}</div>
+      </div>
+    </div>`).join('') || '<div class="empty">Not enough data</div>';
+
+  // Budget Picks
+  const bud5 = [...full].filter(p=>p.price>0).sort((a,b)=>a.price-b.price).slice(0,5);
+  document.getElementById('popularPicks').innerHTML = bud5.map(p=>
+    `<div class="pick-item">
+      <div><div class="pick-name">${p.name}</div>
+        <div class="pick-brand" style="color:${brandColor(p.brand)}">${p.brand}</div></div>
+      <div class="pick-meta">
+        <div class="pick-rating" style="color:var(--yellow)">${fmtPrice(p.price)}</div>
+        <div class="pick-price">${p.stores} 몰</div>
+      </div>
+    </div>`).join('') || '<div class="empty">Not enough data</div>';
+}
+
+// ── Filter & sort ─────────────────────────────────────────────────────────────
+function getFiltered() {
+  const brand   = document.getElementById('fBrand').value;
+  const plat    = document.getElementById('fPlatform').value;
+  const chipset = document.getElementById('fChipset').value;
+  const form    = document.getElementById('fForm').value;
+  const minS    = +document.getElementById('fStores').value;
+  const maxP    = +document.getElementById('fPrice').value;
+  const sort    = document.getElementById('fSort').value;
+
+  let data = RAW.filter(p =>
+    (!brand   || p.brand    === brand)   &&
+    (!plat    || p.platform === plat)    &&
+    (!chipset || p.chipset  === chipset) &&
+    (!form    || p.form     === form)    &&
+    p.stores >= minS &&
+    p.price  <= maxP
+  );
+
+  data.sort((a,b) => {
+    switch(sort) {
+      case 'stores_desc': return b.stores - a.stores;
+      case 'stores_asc':  return a.stores - b.stores;
+      case 'price_asc':   return a.price  - b.price;
+      case 'price_desc':  return b.price  - a.price;
+      case 'value_desc':  return +availScore(b) - +availScore(a);
+      case 'value_asc':   return +availScore(a) - +availScore(b);
+    }
+    return 0;
+  });
+  return data;
+}
+
+function resetFilters() {
+  ['fBrand','fPlatform','fChipset','fForm','fSort'].forEach(id =>
+    document.getElementById(id).value = '');
+  document.getElementById('fSort').value   = 'stores_desc';
+  document.getElementById('fStores').value = '0';
+  document.getElementById('fPrice').value  = String(PRICE_MAX);
+  document.getElementById('storesVal').textContent = '0+';
+  document.getElementById('priceVal').textContent  = '₩' + PRICE_MAX.toLocaleString();
+  render();
+}
+
+function render() {
+  const data = getFiltered();
+  document.getElementById('filterCount').textContent =
+    data.length < RAW.length ? `${data.length} / ${RAW.length} shown` : '';
+  renderKPIs(data);
+  renderBrandCards(data);
+  renderTable(data);
+  renderStoreChart(data);
+  renderChipsetChart(data);
+  renderBrandChart(data);
+  renderPicks(RAW);
+}
+
+// ── Chipset dropdown — update options based on Brand + Platform ───────────────
+function updateChipsetOptions() {
+  const brand = document.getElementById('fBrand').value;
+  const plat  = document.getElementById('fPlatform').value;
+  const cur   = document.getElementById('fChipset').value;
+  const visible = new Set(
+    RAW
+      .filter(p => (!brand || p.brand === brand) && (!plat || p.platform === plat))
+      .map(p => p.chipset)
+      .filter(cs => cs !== 'Unknown')
+  );
+  const sel = document.getElementById('fChipset');
+  Array.from(sel.options).forEach(opt => {
+    if (opt.value === '') return;
+    opt.hidden = !visible.has(opt.value);
+  });
+  if (cur && !visible.has(cur)) sel.value = '';
+}
+
+// ── Wire controls ─────────────────────────────────────────────────────────────
+['fBrand','fPlatform','fChipset','fForm','fSort'].forEach(id =>
+  document.getElementById(id).addEventListener('change', render));
+
+['fBrand','fPlatform'].forEach(id =>
+  document.getElementById(id).addEventListener('change', updateChipsetOptions));
+
+document.getElementById('fStores').addEventListener('input', function() {
+  document.getElementById('storesVal').textContent = (+this.value) + '+';
+  render();
+});
+document.getElementById('fPrice').addEventListener('input', function() {
+  document.getElementById('priceVal').textContent = '₩' + parseInt(this.value).toLocaleString();
+  render();
+});
+
+updateChipsetOptions();
+render();
+</script>
+</body>
+</html>
