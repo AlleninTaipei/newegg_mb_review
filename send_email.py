@@ -177,6 +177,13 @@ def build_html_body(s: dict) -> str:
   .footer   {{ font-size:.73rem; color:#b2bec3; text-align:center; margin-top:18px; }}
   .hl       {{ color:#6c5ce7; font-weight:700; }}
   .divider  {{ border:none; border-top:1px solid #f0f3ff; margin:16px 0; }}
+  .tip      {{ background:#f0edff; border-left:4px solid #6c5ce7; border-radius:6px;
+               padding:12px 16px; margin-top:20px; }}
+  .tip-head {{ font-size:.72rem; font-weight:800; text-transform:uppercase;
+               letter-spacing:.6px; color:#6c5ce7; margin-bottom:6px; }}
+  .tip-row  {{ display:flex; gap:8px; align-items:baseline; margin-top:4px; font-size:.8rem; }}
+  .tip-icon {{ font-size:.85rem; }}
+  .tip-text {{ color:#2d3436; line-height:1.45; }}
 </style>
 </head>
 <body>
@@ -224,8 +231,16 @@ def build_html_body(s: dict) -> str:
     {asrock_html}
   </div>
 
-  <div class="footer">
-    Full interactive dashboard attached as dashboard.html — open in any browser.
+  <div class="tip">
+    <div class="tip-head">How to use this report</div>
+    <div class="tip-row">
+      <span class="tip-icon">📱</span>
+      <span class="tip-text"><strong>This email</strong> — a mobile-ready summary for quick review on any device.</span>
+    </div>
+    <div class="tip-row">
+      <span class="tip-icon">🖥️</span>
+      <span class="tip-text"><strong>dashboard.html</strong> (attached) — full interactive dashboard with filters, charts, and sortable table. Best opened on a desktop browser.</span>
+    </div>
   </div>
 </div>
 </body>
