@@ -1,9 +1,11 @@
 # MotherboardAgent
 
-A two-step pipeline that scrapes motherboard listings from Newegg and generates a self-contained interactive HTML dashboard.
+A pipeline that scrapes motherboard listings from Newegg, generates a self-contained interactive HTML dashboard, and optionally delivers it by email.
 
 ```
 scraper.py  →  motherboard_reviews.json  →  generate_dashboard.py  →  dashboard.html
+                                                                              ↓
+                                                                       send_email.py
 ```
 
 ## Features
@@ -27,6 +29,12 @@ scraper.py  →  motherboard_reviews.json  →  generate_dashboard.py  →  dash
 - Charts: Top 10 by review count · Avg rating by chipset (top 9) · Avg rating by brand
 - Pick panels: Top Rated (min 10 reviews) · Best Value (rating ÷ price × 100) · Most Reviewed
 
+**Email sender (`send_email.py`)**
+- Sends `dashboard.html` as an attachment via SMTP (default: Gmail / port 587)
+- Email body includes an HTML summary: KPI cards, avg rating per brand, top-rated pick, best-value pick, and ASRock models below 3 ★
+- Plain-text fallback included for non-HTML email clients
+- Configured entirely through environment variables (see [Environment variables](#environment-variables))
+
 ## Requirements
 
 Python 3.11+ with:
@@ -35,12 +43,14 @@ Python 3.11+ with:
 requests
 beautifulsoup4
 lxml
+python-dotenv  # optional — loads .env automatically
 ```
 
 Install dependencies:
 
 ```bash
 pip install requests beautifulsoup4 lxml
+pip install python-dotenv   # optional, for .env file support
 ```
 
 ## Usage
@@ -63,11 +73,47 @@ python3 generate_dashboard.py
 Reads `motherboard_reviews.json` and writes `dashboard.html`.  
 Open `dashboard.html` in any browser — no server needed.
 
-### Full refresh (one-liner)
+### 3. Send the dashboard by email
+
+```bash
+python3 send_email.py
+```
+
+Sends `dashboard.html` as an attachment with an HTML summary in the email body.  
+Requires environment variables to be set — see [Environment variables](#environment-variables).
+
+### Full refresh and deliver (one-liner)
+
+```bash
+python3 scraper.py && python3 generate_dashboard.py && python3 send_email.py
+```
+
+### Full refresh (no email)
 
 ```bash
 python3 scraper.py && python3 generate_dashboard.py
 ```
+
+## Environment variables
+
+Copy `.env.example` to `.env` and fill in your values:
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `EMAIL_SENDER` | Yes | — | Sending address (e.g. `you@gmail.com`) |
+| `EMAIL_PASSWORD` | Yes | — | SMTP password or Gmail App Password |
+| `EMAIL_RECIPIENT` | Yes | — | Comma-separated list of recipients |
+| `SMTP_HOST` | No | `smtp.gmail.com` | SMTP server hostname |
+| `SMTP_PORT` | No | `587` | SMTP port (STARTTLS) |
+| `EMAIL_SUBJECT` | No | `Motherboard Dashboard` | Custom subject prefix |
+
+**Gmail setup:** enable 2-Step Verification, then create a 16-character App Password at <https://myaccount.google.com/apppasswords> and set it as `EMAIL_PASSWORD`.
+
+> `.env` is listed in `.gitignore` and will never be committed.
 
 ## Project structure
 
@@ -75,6 +121,9 @@ python3 scraper.py && python3 generate_dashboard.py
 MotherboardAgent/
 ├── scraper.py               # Newegg scraper → motherboard_reviews.json
 ├── generate_dashboard.py    # JSON → dashboard.html
+├── send_email.py            # Sends dashboard.html via SMTP
+├── .env.example             # Environment variable template
+├── .env                     # Your credentials (git-ignored)
 ├── motherboard_reviews.json # Scraped data (auto-generated)
 └── dashboard.html           # Self-contained dashboard (auto-generated)
 ```
