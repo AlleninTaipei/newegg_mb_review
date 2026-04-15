@@ -1,0 +1,207 @@
+<section class="module" id="module-1" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="module-title">Your Market Intelligence Robot</h1>
+      <p class="module-subtitle">One command. Three countries. Your inbox. Here's what actually happens.</p>
+    </header>
+
+    <div class="module-body">
+
+      <!-- Screen 1: What the app does -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Imagine waking up to a motherboard report</h2>
+        <p>Every morning, three markets' worth of motherboard data — prices, ratings, store counts — lands in your inbox as a beautiful interactive dashboard. You didn't click anything. You didn't open a browser. It just appeared.</p>
+        <p>That's what <strong>MotherboardAgent</strong> does. It's a <span class="term" data-definition="A pipeline is a series of steps where the output of one step becomes the input of the next — like an assembly line. In software, this is very common for data processing tasks.">pipeline</span> that runs three independent missions in parallel — one for the US (Newegg), one for Japan (Kakaku.com), and one for Korea (Danawa) — each ending with a detailed HTML report delivered to your inbox.</p>
+
+        <div class="pattern-cards stagger-children">
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background:#E4F2F7">🇺🇸</div>
+            <p class="pattern-title">North America</p>
+            <p class="pattern-desc">Newegg · USD · Star ratings &amp; review counts for ASRock, ASUS, MSI, Gigabyte</p>
+          </div>
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background:#E4F2F7">🇯🇵</div>
+            <p class="pattern-title">Japan</p>
+            <p class="pattern-desc">Kakaku.com · JPY · Review counts as proxy for product popularity</p>
+          </div>
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background:#E4F2F7">🇰🇷</div>
+            <p class="pattern-title">Korea</p>
+            <p class="pattern-desc">Danawa · KRW · Store count shows how many retailers carry each board</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 2: The pipeline -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Three steps, run three times</h2>
+        <p>Each region follows the exact same three-step playbook. Think of it like a recipe photocopied for three chefs — same steps, different ingredients.</p>
+
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-step-num">1</div>
+            <p><strong>Scrape</strong></p>
+            <p>Visit the shopping site, collect product data</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-step-num">2</div>
+            <p><strong>Generate</strong></p>
+            <p>Transform raw data into an interactive HTML dashboard</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-step-num">3</div>
+            <p><strong>Send</strong></p>
+            <p>Email the dashboard as an attachment</p>
+          </div>
+        </div>
+
+        <div class="callout callout-accent animate-in">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content">
+            <span class="callout-title">Why three separate programs instead of one?</span>
+            <p>Each region runs independently so a failure in Japan (say, Kakaku blocks the scraper) doesn't stop the US report from being sent. Isolation = resilience. This is a classic architectural pattern called <strong>decoupling</strong> — systems that don't share state can fail independently.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 3: The full data journey (flow animation) -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Trace a product from website to inbox</h2>
+        <p>Click "Next Step" to follow what happens when you run the full Newegg pipeline:</p>
+
+        <div class="flow-animation" data-steps='[
+          {"highlight":"flow-actor-1","label":"Step 1: scraper.py fires up. It knows which brands to search and which pages to visit on Newegg."},
+          {"highlight":"flow-actor-1","label":"Step 2: The scraper sends HTTP requests to Newegg — like a browser loading pages, but automated. It reads hundreds of product listings.","packet":true,"from":"actor-1","to":"actor-2"},
+          {"highlight":"flow-actor-2","label":"Step 3: Newegg sends back HTML pages full of product data — names, prices, star ratings, review counts.","packet":true,"from":"actor-2","to":"actor-1"},
+          {"highlight":"flow-actor-1","label":"Step 4: The scraper parses each product, extracts the data it needs, and saves everything to motherboard_reviews.json.","packet":true,"from":"actor-1","to":"actor-3"},
+          {"highlight":"flow-actor-3","label":"Step 5: generate_dashboard.py reads the JSON file and bakes all the data into a self-contained dashboard.html file.","packet":true,"from":"actor-3","to":"actor-4"},
+          {"highlight":"flow-actor-4","label":"Step 6: send_email.py reads the JSON for a summary, attaches dashboard.html, and sends the email via Gmail SMTP.","packet":true,"from":"actor-4","to":"actor-5"},
+          {"highlight":"flow-actor-5","label":"Step 7: The dashboard arrives in your inbox. Open it in a browser — no server needed, all the data is already inside the file."}
+        ]'>
+          <div class="flow-actors">
+            <div class="flow-actor" id="flow-actor-1">
+              <div class="flow-actor-icon">🤖</div>
+              <span>scraper.py</span>
+            </div>
+            <div class="flow-actor" id="flow-actor-2">
+              <div class="flow-actor-icon">🌐</div>
+              <span>Newegg</span>
+            </div>
+            <div class="flow-actor" id="flow-actor-3">
+              <div class="flow-actor-icon">📄</div>
+              <span>reviews.json</span>
+            </div>
+            <div class="flow-actor" id="flow-actor-4">
+              <div class="flow-actor-icon">📊</div>
+              <span>dashboard.py</span>
+            </div>
+            <div class="flow-actor" id="flow-actor-5">
+              <div class="flow-actor-icon">📬</div>
+              <span>Your inbox</span>
+            </div>
+          </div>
+          <div class="flow-packet" id="flow-packet"></div>
+          <div class="flow-step-label" id="flow-label">Click "Next Step" to begin</div>
+          <div class="flow-controls">
+            <button class="btn flow-next-btn">Next Step</button>
+            <button class="btn flow-reset-btn">Restart</button>
+            <span class="flow-progress"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 4: File tree overview -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Meet the cast of files</h2>
+        <p>Nine <span class="term" data-definition="A Python script is a text file ending in .py that contains Python code. When you run it with 'python3 filename.py', the computer executes the instructions inside it from top to bottom.">Python scripts</span>, three <span class="term" data-definition="JSON (JavaScript Object Notation) is a text format for storing structured data. It looks like a list of labeled boxes — each box has a name and a value, and boxes can be nested inside each other.">JSON</span> data files, three HTML dashboards. Everything is generated — nothing is hand-written except the scripts themselves.</p>
+
+        <div class="file-tree">
+          <div class="ft-folder">
+            <div class="ft-name">MotherboardAgent/</div>
+            <div class="ft-children">
+              <div class="ft-file"><div class="ft-name">scraper.py <span class="ft-desc">— Visits Newegg, collects US data</span></div></div>
+              <div class="ft-file"><div class="ft-name">generate_dashboard.py <span class="ft-desc">— Builds the US HTML dashboard</span></div></div>
+              <div class="ft-file"><div class="ft-name">send_email.py <span class="ft-desc">— Emails the US dashboard</span></div></div>
+              <div class="ft-file"><div class="ft-name">kakaku_scraper.py <span class="ft-desc">— Visits Kakaku.com, collects Japan data</span></div></div>
+              <div class="ft-file"><div class="ft-name">generate_kakaku_dashboard.py <span class="ft-desc">— Builds the Japan dashboard</span></div></div>
+              <div class="ft-file"><div class="ft-name">kakaku_send_email.py <span class="ft-desc">— Emails the Japan dashboard</span></div></div>
+              <div class="ft-file"><div class="ft-name">danawa_scraper.py <span class="ft-desc">— Visits Danawa, collects Korea data</span></div></div>
+              <div class="ft-file"><div class="ft-name">generate_danawa_dashboard.py <span class="ft-desc">— Builds the Korea dashboard</span></div></div>
+              <div class="ft-file"><div class="ft-name">danawa_send_email.py <span class="ft-desc">— Emails the Korea dashboard</span></div></div>
+              <div class="ft-file"><div class="ft-name">motherboard_reviews.json <span class="ft-desc">— Auto-generated US data</span></div></div>
+              <div class="ft-file"><div class="ft-name">kakaku_reviews.json <span class="ft-desc">— Auto-generated Japan data</span></div></div>
+              <div class="ft-file"><div class="ft-name">danawa_reviews.json <span class="ft-desc">— Auto-generated Korea data</span></div></div>
+              <div class="ft-file"><div class="ft-name">.env <span class="ft-desc">— Your email credentials (never shared)</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-info animate-in">
+          <span class="callout-icon">🔑</span>
+          <div class="callout-content">
+            <span class="callout-title">The .env file is a secrets locker</span>
+            <p>Your email password and sender address live in a file called <code>.env</code> — and it's listed in <code>.gitignore</code> so it's <em>never</em> accidentally uploaded to GitHub. This pattern of separating secrets from code is a fundamental security practice.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 5: Quiz -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Check your understanding</h2>
+
+        <div class="quiz-container" id="quiz-module1">
+          <div class="quiz-question-block"
+               data-correct="option-b"
+               data-explanation-right="Exactly. Each region's pipeline is completely independent, so a scraper failure in Korea won't affect the US or Japan reports."
+               data-explanation-wrong="Think about what happens if Danawa blocks the scraper. Would you want that to stop your Newegg report from going out?">
+            <h3 class="quiz-question">Why does MotherboardAgent use three separate sets of scripts instead of one combined script for all three regions?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Because each region uses a different programming language</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>So a failure in one region doesn't break the other two</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Because the files would be too large if combined</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question-block"
+               data-correct="option-c"
+               data-explanation-right="Right — generate_dashboard.py reads the JSON (the structured data file) and uses it to build the HTML dashboard."
+               data-explanation-wrong="Look at the pipeline again: scraper → JSON → generator → HTML → email. What feeds the dashboard generator?">
+            <h3 class="quiz-question">A teammate says the dashboard looks outdated. You want to refresh it with fresh data. What's the correct order of operations?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Run send_email.py first, then scraper.py</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Edit the .env file, then run generate_dashboard.py</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Run scraper.py first, then generate_dashboard.py</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module1')">Try Again</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</section>

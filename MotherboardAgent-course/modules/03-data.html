@@ -1,0 +1,194 @@
+<section class="module" id="module-3" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">The Data Warehouse</h1>
+      <p class="module-subtitle">How nine scraped fields become a structured JSON file — the shared language between scraper and dashboard.</p>
+    </header>
+
+    <div class="module-body">
+
+      <!-- Screen 1: What JSON is -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">JSON: the sticky note that everyone can read</h2>
+        <p>After the scraper visits hundreds of Newegg pages, it needs to save the data somewhere that the dashboard generator can read later. It uses a format called <span class="term" data-definition="JSON (JavaScript Object Notation) is a text format for storing structured data. It looks like nested dictionaries and lists, using curly braces {} for named groups and square brackets [] for ordered lists.">JSON</span> — a text file with a very specific structure that every programming language can read and write.</p>
+        <p>Think of JSON like a well-organized filing cabinet where every drawer is clearly labeled, every folder has a consistent layout, and any coworker — regardless of their background — can find exactly what they need.</p>
+
+        <div class="pattern-cards stagger-children">
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background:#E4F2F7">{ }</div>
+            <p class="pattern-title">Object / Dictionary</p>
+            <p class="pattern-desc">A set of labeled values. Like a named box: <code>"brand": "ASRock"</code>. Keys are always strings in quotes.</p>
+          </div>
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background:#E4F2F7">[ ]</div>
+            <p class="pattern-title">Array / List</p>
+            <p class="pattern-desc">An ordered collection of items. Like a numbered row of shelves: <code>["ASRock", "ASUS", "MSI"]</code></p>
+          </div>
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background:#E4F2F7">42</div>
+            <p class="pattern-title">Number / String</p>
+            <p class="pattern-desc">Raw values. Numbers need no quotes: <code>4.6</code>. Text needs quotes: <code>"X870E"</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 2: The actual JSON schema -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Inside motherboard_reviews.json</h2>
+        <p>Here's what one product looks like after the scraper is done with it. This is the exact format stored in the file:</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">JSON STRUCTURE</span>
+            <pre><code><span class="code-line">{</span>
+<span class="code-line">  <span class="code-property">"source"</span>: <span class="code-string">"Newegg"</span>,</span>
+<span class="code-line">  <span class="code-property">"retrieved_date"</span>: <span class="code-string">"2026-04-14"</span>,</span>
+<span class="code-line">  <span class="code-property">"brands"</span>: {</span>
+<span class="code-line">    <span class="code-property">"ASRock"</span>: {</span>
+<span class="code-line">      <span class="code-property">"products"</span>: [</span>
+<span class="code-line">        {</span>
+<span class="code-line">          <span class="code-property">"name"</span>: <span class="code-string">"X870E Nova WiFi"</span>,</span>
+<span class="code-line">          <span class="code-property">"socket"</span>: <span class="code-string">"AM5"</span>,</span>
+<span class="code-line">          <span class="code-property">"chipset"</span>: <span class="code-string">"X870E"</span>,</span>
+<span class="code-line">          <span class="code-property">"form_factor"</span>: <span class="code-string">"ATX"</span>,</span>
+<span class="code-line">          <span class="code-property">"rating"</span>: <span class="code-number">4.6</span>,</span>
+<span class="code-line">          <span class="code-property">"review_count"</span>: <span class="code-number">282</span>,</span>
+<span class="code-line">          <span class="code-property">"price_usd"</span>: <span class="code-number">259.99</span>,</span>
+<span class="code-line">          <span class="code-property">"category"</span>: <span class="code-string">"AMD"</span></span>
+<span class="code-line">        }</span>
+<span class="code-line">      ]</span>
+<span class="code-line">    }</span>
+<span class="code-line">  }</span>
+<span class="code-line">}</span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">The outer object is the whole file. Everything lives inside it.</p>
+              <p class="tl">"source" tells us this data came from Newegg — useful if you ever mix data from multiple sources.</p>
+              <p class="tl">"retrieved_date" is a timestamp — so the dashboard can show "data as of April 14."</p>
+              <p class="tl">"brands" contains one entry per brand scraped. Each brand is its own labeled box.</p>
+              <p class="tl">Inside each brand is a list called "products" — an array of product objects.</p>
+              <p class="tl">Each product is its own object with these labeled fields.</p>
+              <p class="tl">"name" is the product model (brand prefix stripped off).</p>
+              <p class="tl">"socket" — which CPU generation this board supports. Extracted from the product name.</p>
+              <p class="tl">"chipset" — the feature tier of the board. Also extracted from the name.</p>
+              <p class="tl">"form_factor" — the physical size of the board.</p>
+              <p class="tl">"rating" — average star rating (1.0–5.0).</p>
+              <p class="tl">"review_count" — how many reviews have been written. More reviews = more reliable rating.</p>
+              <p class="tl">"price_usd" — price in US dollars, rounded to two decimal places.</p>
+              <p class="tl">"category" — derived from the socket: AM5/AM4 = AMD, LGA = Intel.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 3: The three schemas side by side -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Three markets, three different metrics</h2>
+        <p>Not every market measures popularity the same way. The three regional schemas differ in one key column because each site exposes different data:</p>
+
+        <div class="icon-rows stagger-children">
+          <div class="icon-row animate-in">
+            <div class="icon-circle" style="background:#E4F2F7; font-size:1.1rem">🇺🇸</div>
+            <div>
+              <strong>Newegg (USD) — <code>rating</code> + <code>review_count</code></strong>
+              <p>Newegg shows star ratings and review counts. Both fields are available and meaningful.</p>
+            </div>
+          </div>
+          <div class="icon-row animate-in">
+            <div class="icon-circle" style="background:#E4F2F7; font-size:1.1rem">🇯🇵</div>
+            <div>
+              <strong>Kakaku (JPY) — <code>review_count</code> only (no rating)</strong>
+              <p>Kakaku.com shows review counts but not simple star ratings. Review volume is used as the popularity proxy.</p>
+            </div>
+          </div>
+          <div class="icon-row animate-in">
+            <div class="icon-circle" style="background:#E4F2F7; font-size:1.1rem">🇰🇷</div>
+            <div>
+              <strong>Danawa (KRW) — <code>store_count</code> (no ratings at all)</strong>
+              <p>Danawa is a price comparison site. It shows how many stores carry a product — more stores = more popular/established product.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-accent animate-in">
+          <span class="callout-icon">🧠</span>
+          <div class="callout-content">
+            <span class="callout-title">Why different metrics matter for your AI instructions</span>
+            <p>When you ask an AI to "add a bestsellers chart to the Korea dashboard," you now know to say: "use <code>store_count</code> as the ranking metric, since Danawa doesn't have review ratings." Being precise about the data schema means the AI makes the right architectural choice the first time.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 4: Deduplication logic -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">The deduplification trick</h2>
+        <p>When you scrape multiple pages for the same brand, the same product can appear on both page 1 and page 2. The scraper prevents duplicates using a <span class="term" data-definition="A set is a collection that automatically rejects duplicates. Unlike a list, you can't add the same value twice. Sets are used here to track which product names have already been saved.">set</span> — a special data structure that refuses duplicate entries, like a guest list that bounces people who are already inside.</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code><span class="code-line"><span class="code-property">seen_names</span>: <span class="code-function">set</span>[<span class="code-function">str</span>] <span class="code-operator">=</span> <span class="code-function">set</span>()</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="code-comment"># ... inside the product loop:</span></span>
+<span class="code-line"><span class="code-property">key</span> <span class="code-operator">=</span> model.<span class="code-function">lower</span>()</span>
+<span class="code-line"><span class="code-keyword">if</span> key <span class="code-keyword">in</span> seen_names:</span>
+<span class="code-line">    <span class="code-keyword">continue</span></span>
+<span class="code-line">seen_names.<span class="code-function">add</span>(key)</span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">Create an empty set called seen_names. It will track every product name we have already saved.</p>
+              <p class="tl">(Inside the loop, for each product we find:)</p>
+              <p class="tl">Convert the model name to lowercase — so "X870E NOVA WIFI" and "x870e nova wifi" count as the same product.</p>
+              <p class="tl">If this lowercase name is already in our seen_names set, it is a duplicate...</p>
+              <p class="tl">...skip it and move to the next product (the "continue" command jumps to the next loop iteration).</p>
+              <p class="tl">Otherwise, add this name to the set — it's now "registered" and won't be added again.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 5: Drag and drop matching -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Match each JSON field to its purpose</h2>
+        <p>Drag each chip to the description that best matches it:</p>
+
+        <div class="dnd-container" id="dnd-module3">
+          <div class="dnd-chips">
+            <div class="dnd-chip" draggable="true" data-answer="source">source</div>
+            <div class="dnd-chip" draggable="true" data-answer="category">category</div>
+            <div class="dnd-chip" draggable="true" data-answer="store_count">store_count</div>
+            <div class="dnd-chip" draggable="true" data-answer="form_factor">form_factor</div>
+          </div>
+          <div class="dnd-zones">
+            <div class="dnd-zone" data-correct="form_factor">
+              <p class="dnd-zone-label">The physical size of the motherboard (ATX, Micro ATX, Mini-ITX)</p>
+              <div class="dnd-zone-target">Drop here</div>
+            </div>
+            <div class="dnd-zone" data-correct="category">
+              <p class="dnd-zone-label">Whether the board is for AMD or Intel processors — derived from the socket type</p>
+              <div class="dnd-zone-target">Drop here</div>
+            </div>
+            <div class="dnd-zone" data-correct="source">
+              <p class="dnd-zone-label">Which shopping website the data came from — e.g. "Newegg" or "Kakaku"</p>
+              <div class="dnd-zone-target">Drop here</div>
+            </div>
+            <div class="dnd-zone" data-correct="store_count">
+              <p class="dnd-zone-label">The Korea-specific popularity metric: how many retailers carry a product on Danawa</p>
+              <div class="dnd-zone-target">Drop here</div>
+            </div>
+          </div>
+          <button class="btn" style="margin-top: 1rem" onclick="checkDnD('dnd-module3')">Check Matches</button>
+          <button class="btn" style="margin-top: 1rem; margin-left: 0.5rem" onclick="resetDnD('dnd-module3')">Reset</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</section>

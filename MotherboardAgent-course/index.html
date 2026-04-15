@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotherboardAgent: Inside Your Market Intelligence Robot</title>
+
+  <!-- Google Fonts: Bricolage Grotesque · DM Sans · JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- teal accent palette -->
+  <style>
+    :root {
+      --color-accent:       #2A7B9B;
+      --color-accent-hover: #1F6280;
+      --color-accent-light: #E4F2F7;
+      --color-accent-muted: #5A9DB8;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title">MotherboardAgent</span>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <button class="nav-dot" data-target="module-1" data-tooltip="Your Market Intelligence Robot" role="tab" aria-label="Module 1: Your Market Intelligence Robot"></button>
+        <button class="nav-dot" data-target="module-2" data-tooltip="The Web Scrapers" role="tab" aria-label="Module 2: The Web Scrapers"></button>
+        <button class="nav-dot" data-target="module-3" data-tooltip="The Data Warehouse" role="tab" aria-label="Module 3: The Data Warehouse"></button>
+        <button class="nav-dot" data-target="module-4" data-tooltip="The Dashboard Factory" role="tab" aria-label="Module 4: The Dashboard Factory"></button>
+        <button class="nav-dot" data-target="module-5" data-tooltip="The Mail Room" role="tab" aria-label="Module 5: The Mail Room"></button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- modules/*.html content is assembled here by build.sh -->
+<section class="module" id="module-1" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="module-title">Your Market Intelligence Robot</h1>
+      <p class="module-subtitle">One command. Three countries. Your inbox. Here's what actually happens.</p>
+    </header>
+
+    <div class="module-body">
+
+      <!-- Screen 1: What the app does -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Imagine waking up to a motherboard report</h2>
+        <p>Every morning, three markets' worth of motherboard data — prices, ratings, store counts — lands in your inbox as a beautiful interactive dashboard. You didn't click anything. You didn't open a browser. It just appeared.</p>
+        <p>That's what <strong>MotherboardAgent</strong> does. It's a <span class="term" data-definition="A pipeline is a series of steps where the output of one step becomes the input of the next — like an assembly line. In software, this is very common for data processing tasks.">pipeline</span> that runs three independent missions in parallel — one for the US (Newegg), one for Japan (Kakaku.com), and one for Korea (Danawa) — each ending with a detailed HTML report delivered to your inbox.</p>
+
+        <div class="pattern-cards stagger-children">
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background:#E4F2F7">🇺🇸</div>
+            <p class="pattern-title">North America</p>
+            <p class="pattern-desc">Newegg · USD · Star ratings &amp; review counts for ASRock, ASUS, MSI, Gigabyte</p>
+          </div>
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background:#E4F2F7">🇯🇵</div>
+            <p class="pattern-title">Japan</p>
+            <p class="pattern-desc">Kakaku.com · JPY · Review counts as proxy for product popularity</p>
+          </div>
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background:#E4F2F7">🇰🇷</div>
+            <p class="pattern-title">Korea</p>
+            <p class="pattern-desc">Danawa · KRW · Store count shows how many retailers carry each board</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 2: The pipeline -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Three steps, run three times</h2>
+        <p>Each region follows the exact same three-step playbook. Think of it like a recipe photocopied for three chefs — same steps, different ingredients.</p>
+
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-step-num">1</div>
+            <p><strong>Scrape</strong></p>
+            <p>Visit the shopping site, collect product data</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-step-num">2</div>
+            <p><strong>Generate</strong></p>
+            <p>Transform raw data into an interactive HTML dashboard</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-step-num">3</div>
+            <p><strong>Send</strong></p>
+            <p>Email the dashboard as an attachment</p>
+          </div>
+        </div>
+
+        <div class="callout callout-accent animate-in">
+          <span class="callout-icon">💡</span>
+          <div class="callout-content">
+            <span class="callout-title">Why three separate programs instead of one?</span>
+            <p>Each region runs independently so a failure in Japan (say, Kakaku blocks the scraper) doesn't stop the US report from being sent. Isolation = resilience. This is a classic architectural pattern called <strong>decoupling</strong> — systems that don't share state can fail independently.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 3: The full data journey (flow animation) -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Trace a product from website to inbox</h2>
+        <p>Click "Next Step" to follow what happens when you run the full Newegg pipeline:</p>
+
+        <div class="flow-animation" data-steps='[
+          {"highlight":"flow-actor-1","label":"Step 1: scraper.py fires up. It knows which brands to search and which pages to visit on Newegg."},
+          {"highlight":"flow-actor-1","label":"Step 2: The scraper sends HTTP requests to Newegg — like a browser loading pages, but automated. It reads hundreds of product listings.","packet":true,"from":"actor-1","to":"actor-2"},
+          {"highlight":"flow-actor-2","label":"Step 3: Newegg sends back HTML pages full of product data — names, prices, star ratings, review counts.","packet":true,"from":"actor-2","to":"actor-1"},
+          {"highlight":"flow-actor-1","label":"Step 4: The scraper parses each product, extracts the data it needs, and saves everything to motherboard_reviews.json.","packet":true,"from":"actor-1","to":"actor-3"},
+          {"highlight":"flow-actor-3","label":"Step 5: generate_dashboard.py reads the JSON file and bakes all the data into a self-contained dashboard.html file.","packet":true,"from":"actor-3","to":"actor-4"},
+          {"highlight":"flow-actor-4","label":"Step 6: send_email.py reads the JSON for a summary, attaches dashboard.html, and sends the email via Gmail SMTP.","packet":true,"from":"actor-4","to":"actor-5"},
+          {"highlight":"flow-actor-5","label":"Step 7: The dashboard arrives in your inbox. Open it in a browser — no server needed, all the data is already inside the file."}
+        ]'>
+          <div class="flow-actors">
+            <div class="flow-actor" id="flow-actor-1">
+              <div class="flow-actor-icon">🤖</div>
+              <span>scraper.py</span>
+            </div>
+            <div class="flow-actor" id="flow-actor-2">
+              <div class="flow-actor-icon">🌐</div>
+              <span>Newegg</span>
+            </div>
+            <div class="flow-actor" id="flow-actor-3">
+              <div class="flow-actor-icon">📄</div>
+              <span>reviews.json</span>
+            </div>
+            <div class="flow-actor" id="flow-actor-4">
+              <div class="flow-actor-icon">📊</div>
+              <span>dashboard.py</span>
+            </div>
+            <div class="flow-actor" id="flow-actor-5">
+              <div class="flow-actor-icon">📬</div>
+              <span>Your inbox</span>
+            </div>
+          </div>
+          <div class="flow-packet" id="flow-packet"></div>
+          <div class="flow-step-label" id="flow-label">Click "Next Step" to begin</div>
+          <div class="flow-controls">
+            <button class="btn flow-next-btn">Next Step</button>
+            <button class="btn flow-reset-btn">Restart</button>
+            <span class="flow-progress"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 4: File tree overview -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Meet the cast of files</h2>
+        <p>Nine <span class="term" data-definition="A Python script is a text file ending in .py that contains Python code. When you run it with 'python3 filename.py', the computer executes the instructions inside it from top to bottom.">Python scripts</span>, three <span class="term" data-definition="JSON (JavaScript Object Notation) is a text format for storing structured data. It looks like a list of labeled boxes — each box has a name and a value, and boxes can be nested inside each other.">JSON</span> data files, three HTML dashboards. Everything is generated — nothing is hand-written except the scripts themselves.</p>
+
+        <div class="file-tree">
+          <div class="ft-folder">
+            <div class="ft-name">MotherboardAgent/</div>
+            <div class="ft-children">
+              <div class="ft-file"><div class="ft-name">scraper.py <span class="ft-desc">— Visits Newegg, collects US data</span></div></div>
+              <div class="ft-file"><div class="ft-name">generate_dashboard.py <span class="ft-desc">— Builds the US HTML dashboard</span></div></div>
+              <div class="ft-file"><div class="ft-name">send_email.py <span class="ft-desc">— Emails the US dashboard</span></div></div>
+              <div class="ft-file"><div class="ft-name">kakaku_scraper.py <span class="ft-desc">— Visits Kakaku.com, collects Japan data</span></div></div>
+              <div class="ft-file"><div class="ft-name">generate_kakaku_dashboard.py <span class="ft-desc">— Builds the Japan dashboard</span></div></div>
+              <div class="ft-file"><div class="ft-name">kakaku_send_email.py <span class="ft-desc">— Emails the Japan dashboard</span></div></div>
+              <div class="ft-file"><div class="ft-name">danawa_scraper.py <span class="ft-desc">— Visits Danawa, collects Korea data</span></div></div>
+              <div class="ft-file"><div class="ft-name">generate_danawa_dashboard.py <span class="ft-desc">— Builds the Korea dashboard</span></div></div>
+              <div class="ft-file"><div class="ft-name">danawa_send_email.py <span class="ft-desc">— Emails the Korea dashboard</span></div></div>
+              <div class="ft-file"><div class="ft-name">motherboard_reviews.json <span class="ft-desc">— Auto-generated US data</span></div></div>
+              <div class="ft-file"><div class="ft-name">kakaku_reviews.json <span class="ft-desc">— Auto-generated Japan data</span></div></div>
+              <div class="ft-file"><div class="ft-name">danawa_reviews.json <span class="ft-desc">— Auto-generated Korea data</span></div></div>
+              <div class="ft-file"><div class="ft-name">.env <span class="ft-desc">— Your email credentials (never shared)</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-info animate-in">
+          <span class="callout-icon">🔑</span>
+          <div class="callout-content">
+            <span class="callout-title">The .env file is a secrets locker</span>
+            <p>Your email password and sender address live in a file called <code>.env</code> — and it's listed in <code>.gitignore</code> so it's <em>never</em> accidentally uploaded to GitHub. This pattern of separating secrets from code is a fundamental security practice.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 5: Quiz -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Check your understanding</h2>
+
+        <div class="quiz-container" id="quiz-module1">
+          <div class="quiz-question-block"
+               data-correct="option-b"
+               data-explanation-right="Exactly. Each region's pipeline is completely independent, so a scraper failure in Korea won't affect the US or Japan reports."
+               data-explanation-wrong="Think about what happens if Danawa blocks the scraper. Would you want that to stop your Newegg report from going out?">
+            <h3 class="quiz-question">Why does MotherboardAgent use three separate sets of scripts instead of one combined script for all three regions?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Because each region uses a different programming language</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>So a failure in one region doesn't break the other two</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Because the files would be too large if combined</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question-block"
+               data-correct="option-c"
+               data-explanation-right="Right — generate_dashboard.py reads the JSON (the structured data file) and uses it to build the HTML dashboard."
+               data-explanation-wrong="Look at the pipeline again: scraper → JSON → generator → HTML → email. What feeds the dashboard generator?">
+            <h3 class="quiz-question">A teammate says the dashboard looks outdated. You want to refresh it with fresh data. What's the correct order of operations?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Run send_email.py first, then scraper.py</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Edit the .env file, then run generate_dashboard.py</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Run scraper.py first, then generate_dashboard.py</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module1')">Try Again</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">The Web Scrapers</h1>
+      <p class="module-subtitle">How a Python script reads a shopping website like a robot detective.</p>
+    </header>
+
+    <div class="module-body">
+
+      <!-- Screen 1: What is scraping -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">A browser, minus the human</h2>
+        <p>When you visit Newegg in your browser, here's what actually happens: your browser sends a <span class="term" data-definition="An HTTP request is a message your browser (or script) sends to a web server saying 'please give me this page.' The server responds with the page content — usually as HTML text.">HTTP request</span> to Newegg's server, the server sends back an <span class="term" data-definition="HTML (HyperText Markup Language) is the text format websites use to describe their content. It uses tags like &lt;div&gt;, &lt;span&gt;, and &lt;p&gt; to organize text, images, and buttons.">HTML</span> page, and your browser renders it visually.</p>
+        <p>The scraper does the first part — sending the request and receiving HTML — but skips the visual part entirely. Instead, it reads the HTML text and extracts just the data it needs: product names, prices, ratings.</p>
+
+        <div class="icon-rows stagger-children">
+          <div class="icon-row animate-in">
+            <div class="icon-circle" style="background:#E4F2F7">🧑</div>
+            <div>
+              <strong>A human with a browser</strong>
+              <p>Loads page → sees pretty visuals → reads prices with eyes</p>
+            </div>
+          </div>
+          <div class="icon-row animate-in">
+            <div class="icon-circle" style="background:#E4F2F7">🤖</div>
+            <div>
+              <strong>A scraper script</strong>
+              <p>Loads page → receives raw HTML text → extracts prices with code</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-accent animate-in">
+          <span class="callout-icon">🎭</span>
+          <div class="callout-content">
+            <span class="callout-title">The scraper pretends to be a browser</span>
+            <p>The scraper sets a <code>User-Agent</code> header — a label that tells the server what kind of software is making the request. It uses a real Chrome browser's User-Agent string so Newegg treats it like a regular visitor, not a bot.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 2: How the scraper is configured -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Knowing where to look</h2>
+        <p>Before the scraper visits a single page, it needs to know which brands to search for and which <span class="term" data-definition="A URL (Uniform Resource Locator) is the web address of a specific page — like 'newegg.com/p/pl?N=100006654+50001944&amp;Page=1'. Each part of the URL is a parameter that tells the server exactly what to show.">URLs</span> to construct. Newegg uses a filter system based on "N-values" — numeric codes that represent brands in their catalog.</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code><span class="code-line"><span class="code-comment"># Newegg N-values (discovered from filter sidebar JSON)</span></span>
+<span class="code-line"><span class="code-property">MOTHERBOARD_N</span> <span class="code-operator">=</span> <span class="code-number">100006654</span></span>
+<span class="code-line"><span class="code-property">BRANDS</span> <span class="code-operator">=</span> {</span>
+<span class="code-line">    <span class="code-string">"ASRock"</span>:  {<span class="code-string">"n_val"</span>: <span class="code-number">50001944</span>, <span class="code-string">"max_pages"</span>: <span class="code-number">3</span>},</span>
+<span class="code-line">    <span class="code-string">"ASUS"</span>:    {<span class="code-string">"n_val"</span>: <span class="code-number">50001315</span>, <span class="code-string">"max_pages"</span>: <span class="code-number">5</span>},</span>
+<span class="code-line">    <span class="code-string">"MSI"</span>:     {<span class="code-string">"n_val"</span>: <span class="code-number">50001312</span>, <span class="code-string">"max_pages"</span>: <span class="code-number">5</span>},</span>
+<span class="code-line">    <span class="code-string">"Gigabyte"</span>:{<span class="code-string">"n_val"</span>: <span class="code-number">50001314</span>, <span class="code-string">"max_pages"</span>: <span class="code-number">5</span>},</span>
+<span class="code-line">}</span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">This is a comment — a note to humans, ignored by the computer. It explains where these numbers came from.</p>
+              <p class="tl">100006654 is Newegg's internal code for "show me all motherboards" (AMD + Intel combined).</p>
+              <p class="tl">BRANDS is a dictionary — a lookup table. The brand name is the key; the value is another small table with that brand's details.</p>
+              <p class="tl">ASRock's Newegg brand code is 50001944. Only scrape up to 3 pages for ASRock.</p>
+              <p class="tl">ASUS, MSI, Gigabyte each have their own brand codes and get 5 pages scraped each — they have larger catalogs.</p>
+              <p class="tl">The closing brace ends the BRANDS dictionary.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 3: How it reads HTML — BeautifulSoup -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Parsing HTML: reading the page like a map</h2>
+        <p>Once the scraper downloads the HTML text of a Newegg page, it needs to find the product listings inside it. This is where <span class="term" data-definition="BeautifulSoup is a Python library (a collection of pre-written tools) that parses HTML — it turns a wall of raw HTML text into a navigable tree structure you can search, like a GPS map instead of a paper printout.">BeautifulSoup</span> comes in. It turns the raw HTML into a tree you can navigate.</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code><span class="code-line"><span class="code-property">soup</span>  <span class="code-operator">=</span> <span class="code-function">BeautifulSoup</span>(resp.text, <span class="code-string">"lxml"</span>)</span>
+<span class="code-line"><span class="code-property">items</span> <span class="code-operator">=</span> soup.<span class="code-function">select</span>(<span class="code-string">".item-container"</span>)</span>
+<span class="code-line"><span class="code-keyword">if not</span> items:</span>
+<span class="code-line">    <span class="code-function">print</span>(<span class="code-string">f"  [{brand}] No items found – stopping."</span>)</span>
+<span class="code-line">    <span class="code-keyword">break</span></span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">Parse the HTML text of the response into a navigable structure called "soup." Use lxml as the parsing engine — it's fast.</p>
+              <p class="tl">Find all HTML elements with the CSS class "item-container" — this is the CSS class Newegg uses for each product card on a listing page.</p>
+              <p class="tl">If the list is empty, nothing was found on this page.</p>
+              <p class="tl">Print a message saying no items were found for this brand.</p>
+              <p class="tl">Stop the scraping loop — no more pages to process.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-info animate-in">
+          <span class="callout-icon">🔍</span>
+          <div class="callout-content">
+            <span class="callout-title">CSS classes as treasure map coordinates</span>
+            <p>Web developers use <span class="term" data-definition="A CSS class is a label applied to HTML elements (like class='item-container') that lets you style or find groups of elements. Scrapers exploit this — if Newegg calls every product card 'item-container', you can find them all at once.">CSS classes</span> to style groups of elements. Scrapers exploit this: if every product card has <code>class="item-container"</code>, you can locate all products at once with <code>.select(".item-container")</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 4: The polite scraper (group chat) -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">The scraper is polite on purpose</h2>
+        <p>The scraper deliberately pauses between requests. This isn't inefficiency — it's courtesy. A scraper that hammers a server with hundreds of requests per second looks like a <span class="term" data-definition="A DDoS (Distributed Denial of Service) attack is when many computers flood a server with requests to overload it. Even accidental overloading from a fast scraper can get your IP address blocked or banned.">DDoS attack</span> and will get your IP blocked. Watch the scraper and Newegg discuss this:</p>
+
+        <div class="chat-window" id="chat-scraper">
+          <div class="chat-messages">
+            <div class="chat-message" data-msg="0" data-sender="scraper" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-1)">S</div>
+              <div class="chat-bubble">
+                <span class="chat-sender" style="color: var(--color-actor-1)">scraper.py</span>
+                <p>Hey Newegg, can I have page 1 of ASRock motherboards sorted by rating?</p>
+              </div>
+            </div>
+            <div class="chat-message" data-msg="1" data-sender="newegg" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-2)">N</div>
+              <div class="chat-bubble">
+                <span class="chat-sender" style="color: var(--color-actor-2)">Newegg</span>
+                <p>Sure, here are 96 product listings! (HTML with prices, ratings, names...)</p>
+              </div>
+            </div>
+            <div class="chat-message" data-msg="2" data-sender="scraper" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-1)">S</div>
+              <div class="chat-bubble">
+                <span class="chat-sender" style="color: var(--color-actor-1)">scraper.py</span>
+                <p>Got 28 new products. Waiting 1.5 seconds before the next page... <em>(time.sleep(1.5))</em></p>
+              </div>
+            </div>
+            <div class="chat-message" data-msg="3" data-sender="scraper" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-1)">S</div>
+              <div class="chat-bubble">
+                <span class="chat-sender" style="color: var(--color-actor-1)">scraper.py</span>
+                <p>OK, now page 2 please.</p>
+              </div>
+            </div>
+            <div class="chat-message" data-msg="4" data-sender="newegg" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-2)">N</div>
+              <div class="chat-bubble">
+                <span class="chat-sender" style="color: var(--color-actor-2)">Newegg</span>
+                <p>Here you go! And page 2 of 2 — that means you've reached the end of ASRock listings.</p>
+              </div>
+            </div>
+            <div class="chat-message" data-msg="5" data-sender="scraper" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-1)">S</div>
+              <div class="chat-bubble">
+                <span class="chat-sender" style="color: var(--color-actor-1)">scraper.py</span>
+                <p>Perfect — I see "2/2" in the pagination. ASRock done! Waiting 2 seconds before switching to ASUS...</p>
+              </div>
+            </div>
+          </div>
+          <div class="chat-typing" style="display:none">
+            <div class="chat-avatar" id="chat-scraper-typing-avatar">?</div>
+            <div class="chat-typing-dots">
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+            </div>
+          </div>
+          <div class="chat-controls">
+            <button class="btn chat-next-btn">Next Message</button>
+            <button class="btn chat-all-btn">Play All</button>
+            <button class="btn chat-reset-btn">Replay</button>
+            <span class="chat-progress"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 5: Parsing logic (chipset, socket, form factor) -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Extracting meaning from a product name</h2>
+        <p>Newegg doesn't have separate database fields for "socket" or "chipset." That information is hidden inside the product name: <em>"ASRock X870E Nova WiFi ATX AM5 Motherboard"</em>. The scraper reads the name and infers the specs using pattern matching.</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code><span class="code-line"><span class="code-keyword">def</span> <span class="code-function">parse_chipset</span>(name: <span class="code-function">str</span>) -> <span class="code-function">str</span>:</span>
+<span class="code-line">    <span class="code-property">u</span> <span class="code-operator">=</span> name.<span class="code-function">upper</span>()</span>
+<span class="code-line">    <span class="code-keyword">for</span> cs <span class="code-keyword">in</span> [</span>
+<span class="code-line">        <span class="code-string">"X870E"</span>, <span class="code-string">"X870"</span>, <span class="code-string">"X670E"</span>, <span class="code-string">"Z890"</span>, <span class="code-string">"B860"</span>,</span>
+<span class="code-line">    ]:</span>
+<span class="code-line">        <span class="code-keyword">if</span> cs <span class="code-keyword">in</span> u:</span>
+<span class="code-line">            <span class="code-keyword">return</span> cs</span>
+<span class="code-line">    <span class="code-keyword">return</span> <span class="code-string">"Unknown"</span></span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">Define a function called parse_chipset that takes a product name as input and returns a string (the chipset name).</p>
+              <p class="tl">Convert the name to uppercase so "x870e" and "X870E" both match — case-insensitive search.</p>
+              <p class="tl">Loop through a list of known chipset names in order, most specific first. (X870E before X870, so "X870E Nova" doesn't accidentally return just "X870".)</p>
+              <p class="tl">If this chipset name appears anywhere in the uppercase product name...</p>
+              <p class="tl">Return it immediately — we found it!</p>
+              <p class="tl">If no chipset name matched, return "Unknown" — better to admit ignorance than guess wrong.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-accent animate-in">
+          <span class="callout-icon">🧩</span>
+          <div class="callout-content">
+            <span class="callout-title">Order matters: most specific first</span>
+            <p>The list checks "X870E" before "X870." If you reversed this order, "X870E Nova WiFi" would match "X870" first and return the wrong answer. This "most specific first" trick prevents <span class="term" data-definition="A false positive is when a test incorrectly says 'yes' to something that should be 'no.' In this context: matching 'X870' when the product is actually 'X870E' would be a false positive on the broader pattern.">false positives</span> and is a common pattern in parsing logic.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 6: Quiz -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Check your understanding</h2>
+
+        <div class="quiz-container" id="quiz-module2">
+          <div class="quiz-question-block"
+               data-correct="option-b"
+               data-explanation-right="Right — the scraper disguises itself as a regular Chrome browser using the User-Agent header, so Newegg treats it like a normal visitor."
+               data-explanation-wrong="The scraper doesn't log in or get an API key. It sends HTTP requests just like your browser does, but identifies itself as Chrome to avoid being blocked.">
+            <h3 class="quiz-question">You want to add a new shopping site to MotherboardAgent. The first thing you'd investigate is what CSS class that site uses for each product card. Why?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Because scraping only works on sites that use the same CSS as Newegg</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Because BeautifulSoup uses CSS class names to locate and extract specific elements from the HTML</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Because CSS classes determine the color scheme of the scraped data</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question-block"
+               data-correct="option-a"
+               data-explanation-right="Exactly — the 1.5s delay between pages and 2s delay between brands prevents the scraper from looking like a bot attack. Without it, Newegg would block the IP address."
+               data-explanation-wrong="The delay is specifically for rate limiting — being polite to Newegg's servers. Removing it would make the scraper faster but risk getting the IP blocked.">
+            <h3 class="quiz-question">Someone on your team suggests removing the time.sleep() calls to make the scraper run faster. What's the most likely consequence?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Newegg might block the script's IP address for making too many requests too quickly</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>The JSON file would become corrupted without delays between writes</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>The dashboard would contain duplicate products</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module2')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module2')">Try Again</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">The Data Warehouse</h1>
+      <p class="module-subtitle">How nine scraped fields become a structured JSON file — the shared language between scraper and dashboard.</p>
+    </header>
+
+    <div class="module-body">
+
+      <!-- Screen 1: What JSON is -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">JSON: the sticky note that everyone can read</h2>
+        <p>After the scraper visits hundreds of Newegg pages, it needs to save the data somewhere that the dashboard generator can read later. It uses a format called <span class="term" data-definition="JSON (JavaScript Object Notation) is a text format for storing structured data. It looks like nested dictionaries and lists, using curly braces {} for named groups and square brackets [] for ordered lists.">JSON</span> — a text file with a very specific structure that every programming language can read and write.</p>
+        <p>Think of JSON like a well-organized filing cabinet where every drawer is clearly labeled, every folder has a consistent layout, and any coworker — regardless of their background — can find exactly what they need.</p>
+
+        <div class="pattern-cards stagger-children">
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background:#E4F2F7">{ }</div>
+            <p class="pattern-title">Object / Dictionary</p>
+            <p class="pattern-desc">A set of labeled values. Like a named box: <code>"brand": "ASRock"</code>. Keys are always strings in quotes.</p>
+          </div>
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background:#E4F2F7">[ ]</div>
+            <p class="pattern-title">Array / List</p>
+            <p class="pattern-desc">An ordered collection of items. Like a numbered row of shelves: <code>["ASRock", "ASUS", "MSI"]</code></p>
+          </div>
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background:#E4F2F7">42</div>
+            <p class="pattern-title">Number / String</p>
+            <p class="pattern-desc">Raw values. Numbers need no quotes: <code>4.6</code>. Text needs quotes: <code>"X870E"</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 2: The actual JSON schema -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Inside motherboard_reviews.json</h2>
+        <p>Here's what one product looks like after the scraper is done with it. This is the exact format stored in the file:</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">JSON STRUCTURE</span>
+            <pre><code><span class="code-line">{</span>
+<span class="code-line">  <span class="code-property">"source"</span>: <span class="code-string">"Newegg"</span>,</span>
+<span class="code-line">  <span class="code-property">"retrieved_date"</span>: <span class="code-string">"2026-04-14"</span>,</span>
+<span class="code-line">  <span class="code-property">"brands"</span>: {</span>
+<span class="code-line">    <span class="code-property">"ASRock"</span>: {</span>
+<span class="code-line">      <span class="code-property">"products"</span>: [</span>
+<span class="code-line">        {</span>
+<span class="code-line">          <span class="code-property">"name"</span>: <span class="code-string">"X870E Nova WiFi"</span>,</span>
+<span class="code-line">          <span class="code-property">"socket"</span>: <span class="code-string">"AM5"</span>,</span>
+<span class="code-line">          <span class="code-property">"chipset"</span>: <span class="code-string">"X870E"</span>,</span>
+<span class="code-line">          <span class="code-property">"form_factor"</span>: <span class="code-string">"ATX"</span>,</span>
+<span class="code-line">          <span class="code-property">"rating"</span>: <span class="code-number">4.6</span>,</span>
+<span class="code-line">          <span class="code-property">"review_count"</span>: <span class="code-number">282</span>,</span>
+<span class="code-line">          <span class="code-property">"price_usd"</span>: <span class="code-number">259.99</span>,</span>
+<span class="code-line">          <span class="code-property">"category"</span>: <span class="code-string">"AMD"</span></span>
+<span class="code-line">        }</span>
+<span class="code-line">      ]</span>
+<span class="code-line">    }</span>
+<span class="code-line">  }</span>
+<span class="code-line">}</span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">The outer object is the whole file. Everything lives inside it.</p>
+              <p class="tl">"source" tells us this data came from Newegg — useful if you ever mix data from multiple sources.</p>
+              <p class="tl">"retrieved_date" is a timestamp — so the dashboard can show "data as of April 14."</p>
+              <p class="tl">"brands" contains one entry per brand scraped. Each brand is its own labeled box.</p>
+              <p class="tl">Inside each brand is a list called "products" — an array of product objects.</p>
+              <p class="tl">Each product is its own object with these labeled fields.</p>
+              <p class="tl">"name" is the product model (brand prefix stripped off).</p>
+              <p class="tl">"socket" — which CPU generation this board supports. Extracted from the product name.</p>
+              <p class="tl">"chipset" — the feature tier of the board. Also extracted from the name.</p>
+              <p class="tl">"form_factor" — the physical size of the board.</p>
+              <p class="tl">"rating" — average star rating (1.0–5.0).</p>
+              <p class="tl">"review_count" — how many reviews have been written. More reviews = more reliable rating.</p>
+              <p class="tl">"price_usd" — price in US dollars, rounded to two decimal places.</p>
+              <p class="tl">"category" — derived from the socket: AM5/AM4 = AMD, LGA = Intel.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 3: The three schemas side by side -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Three markets, three different metrics</h2>
+        <p>Not every market measures popularity the same way. The three regional schemas differ in one key column because each site exposes different data:</p>
+
+        <div class="icon-rows stagger-children">
+          <div class="icon-row animate-in">
+            <div class="icon-circle" style="background:#E4F2F7; font-size:1.1rem">🇺🇸</div>
+            <div>
+              <strong>Newegg (USD) — <code>rating</code> + <code>review_count</code></strong>
+              <p>Newegg shows star ratings and review counts. Both fields are available and meaningful.</p>
+            </div>
+          </div>
+          <div class="icon-row animate-in">
+            <div class="icon-circle" style="background:#E4F2F7; font-size:1.1rem">🇯🇵</div>
+            <div>
+              <strong>Kakaku (JPY) — <code>review_count</code> only (no rating)</strong>
+              <p>Kakaku.com shows review counts but not simple star ratings. Review volume is used as the popularity proxy.</p>
+            </div>
+          </div>
+          <div class="icon-row animate-in">
+            <div class="icon-circle" style="background:#E4F2F7; font-size:1.1rem">🇰🇷</div>
+            <div>
+              <strong>Danawa (KRW) — <code>store_count</code> (no ratings at all)</strong>
+              <p>Danawa is a price comparison site. It shows how many stores carry a product — more stores = more popular/established product.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-accent animate-in">
+          <span class="callout-icon">🧠</span>
+          <div class="callout-content">
+            <span class="callout-title">Why different metrics matter for your AI instructions</span>
+            <p>When you ask an AI to "add a bestsellers chart to the Korea dashboard," you now know to say: "use <code>store_count</code> as the ranking metric, since Danawa doesn't have review ratings." Being precise about the data schema means the AI makes the right architectural choice the first time.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 4: Deduplication logic -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">The deduplification trick</h2>
+        <p>When you scrape multiple pages for the same brand, the same product can appear on both page 1 and page 2. The scraper prevents duplicates using a <span class="term" data-definition="A set is a collection that automatically rejects duplicates. Unlike a list, you can't add the same value twice. Sets are used here to track which product names have already been saved.">set</span> — a special data structure that refuses duplicate entries, like a guest list that bounces people who are already inside.</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code><span class="code-line"><span class="code-property">seen_names</span>: <span class="code-function">set</span>[<span class="code-function">str</span>] <span class="code-operator">=</span> <span class="code-function">set</span>()</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="code-comment"># ... inside the product loop:</span></span>
+<span class="code-line"><span class="code-property">key</span> <span class="code-operator">=</span> model.<span class="code-function">lower</span>()</span>
+<span class="code-line"><span class="code-keyword">if</span> key <span class="code-keyword">in</span> seen_names:</span>
+<span class="code-line">    <span class="code-keyword">continue</span></span>
+<span class="code-line">seen_names.<span class="code-function">add</span>(key)</span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">Create an empty set called seen_names. It will track every product name we have already saved.</p>
+              <p class="tl">(Inside the loop, for each product we find:)</p>
+              <p class="tl">Convert the model name to lowercase — so "X870E NOVA WIFI" and "x870e nova wifi" count as the same product.</p>
+              <p class="tl">If this lowercase name is already in our seen_names set, it is a duplicate...</p>
+              <p class="tl">...skip it and move to the next product (the "continue" command jumps to the next loop iteration).</p>
+              <p class="tl">Otherwise, add this name to the set — it's now "registered" and won't be added again.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 5: Drag and drop matching -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Match each JSON field to its purpose</h2>
+        <p>Drag each chip to the description that best matches it:</p>
+
+        <div class="dnd-container" id="dnd-module3">
+          <div class="dnd-chips">
+            <div class="dnd-chip" draggable="true" data-answer="source">source</div>
+            <div class="dnd-chip" draggable="true" data-answer="category">category</div>
+            <div class="dnd-chip" draggable="true" data-answer="store_count">store_count</div>
+            <div class="dnd-chip" draggable="true" data-answer="form_factor">form_factor</div>
+          </div>
+          <div class="dnd-zones">
+            <div class="dnd-zone" data-correct="form_factor">
+              <p class="dnd-zone-label">The physical size of the motherboard (ATX, Micro ATX, Mini-ITX)</p>
+              <div class="dnd-zone-target">Drop here</div>
+            </div>
+            <div class="dnd-zone" data-correct="category">
+              <p class="dnd-zone-label">Whether the board is for AMD or Intel processors — derived from the socket type</p>
+              <div class="dnd-zone-target">Drop here</div>
+            </div>
+            <div class="dnd-zone" data-correct="source">
+              <p class="dnd-zone-label">Which shopping website the data came from — e.g. "Newegg" or "Kakaku"</p>
+              <div class="dnd-zone-target">Drop here</div>
+            </div>
+            <div class="dnd-zone" data-correct="store_count">
+              <p class="dnd-zone-label">The Korea-specific popularity metric: how many retailers carry a product on Danawa</p>
+              <div class="dnd-zone-target">Drop here</div>
+            </div>
+          </div>
+          <button class="btn" style="margin-top: 1rem" onclick="checkDnD('dnd-module3')">Check Matches</button>
+          <button class="btn" style="margin-top: 1rem; margin-left: 0.5rem" onclick="resetDnD('dnd-module3')">Reset</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">The Dashboard Factory</h1>
+      <p class="module-subtitle">How Python bakes 750 products into a single self-contained HTML file that works in any browser.</p>
+    </header>
+
+    <div class="module-body">
+
+      <!-- Screen 1: What "self-contained" means -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">A file that carries its own furniture</h2>
+        <p>Most websites require a web server — a computer that stays running and serves files on demand. But <code>dashboard.html</code> is different: it works when you double-click it in Finder, even with no internet connection. How?</p>
+        <p>The generator bakes <em>all the data</em> directly into the HTML file as a <span class="term" data-definition="A JavaScript variable is a named storage slot inside a running webpage. When the page loads, the browser reads all the script tags and stores any declared variables in memory. RAW = [...] creates one giant variable containing the entire product dataset.">JavaScript variable</span>. The browser loads the file, reads the embedded data, and renders the entire interactive dashboard — charts, filters, sorts — using only what's already in the file.</p>
+
+        <div class="callout callout-accent animate-in">
+          <span class="callout-icon">📦</span>
+          <div class="callout-content">
+            <span class="callout-title">Self-contained vs. server-dependent</span>
+            <p>A typical web app loads data by calling an <span class="term" data-definition="An API (Application Programming Interface) is an address you can send requests to in order to get data. Most web apps load data by calling an API URL — but this requires a server to be running. A self-contained file has no API and needs no server.">API</span>. Dashboard.html skips the API entirely — the data is already inside it. The tradeoff: the file is larger (~1MB), and to refresh the data you must regenerate the whole file. But for a daily email attachment, this is the perfect tradeoff.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 2: How the data gets baked in -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Python writes JavaScript</h2>
+        <p>The most elegant part of <code>generate_dashboard.py</code> is a single trick: it reads the JSON, converts it to a JavaScript-compatible format, and embeds it inside a <code>&lt;script&gt;</code> tag in the HTML file. Python generates JavaScript.</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code><span class="code-line"><span class="code-keyword">def</span> <span class="code-function">js_literal</span>(obj) -> <span class="code-function">str</span>:</span>
+<span class="code-line">    <span class="code-keyword">return</span> json.<span class="code-function">dumps</span>(obj, ensure_ascii<span class="code-operator">=</span><span class="code-keyword">False</span>)</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="code-comment"># Inside the HTML template:</span></span>
+<span class="code-line"><span class="code-keyword">return</span> <span class="code-string">f"""</span></span>
+<span class="code-line"><span class="code-string">&lt;script&gt;</span></span>
+<span class="code-line"><span class="code-string">const RAW = {js_literal(products)};</span></span>
+<span class="code-line"><span class="code-string">&lt;/script&gt;</span></span>
+<span class="code-line"><span class="code-string">"""</span></span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">Define a helper function that converts a Python object (list or dictionary) into its JSON text form — which is also valid JavaScript syntax.</p>
+              <p class="tl">ensure_ascii=False means Japanese or Korean characters are kept as-is instead of being escaped.</p>
+              <p class="tl">Inside the big HTML template string we're building...</p>
+              <p class="tl">Write an opening script tag — this tells the browser "JavaScript code follows."</p>
+              <p class="tl">Write "const RAW = " followed by all 750+ products as a JavaScript array literal. When the browser loads this file, RAW becomes available instantly — no network request needed.</p>
+              <p class="tl">Close the script tag.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 3: How the browser renders it -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">The browser as a rendering engine</h2>
+        <p>Once the HTML file loads, the JavaScript inside it takes over. It reads the RAW array and dynamically builds every table row, every chart bar, and every KPI card. None of this HTML existed when the file was generated — it's created live by the browser.</p>
+
+        <div class="step-cards stagger-children">
+          <div class="step-card animate-in">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <strong>Page loads, RAW variable is set</strong>
+              <p>The browser parses the script tag and stores all 750 products as a JavaScript array in memory. This takes milliseconds.</p>
+            </div>
+          </div>
+          <div class="step-card animate-in">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <strong>render() is called</strong>
+              <p>The <code>render()</code> function runs immediately. It passes all products through the active filter settings (brand, chipset, price range...).</p>
+            </div>
+          </div>
+          <div class="step-card animate-in">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <strong>DOM is populated</strong>
+              <p>renderTable(), renderKPIs(), renderReviewChart() each build their HTML strings and inject them into the page using <code>innerHTML</code>.</p>
+            </div>
+          </div>
+          <div class="step-card animate-in">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <strong>Filter change → re-render</strong>
+              <p>Every time you change a filter dropdown, render() runs again with the new settings — the whole table rebuilds in under 10ms.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 4: Value score formula -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Turning two numbers into one insight</h2>
+        <p>The "Value Score" column in the dashboard is a calculated metric — not scraped from Newegg, but computed fresh each time. It answers the question: "Which board gives the best rating per dollar spent?"</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code><span class="code-line"><span class="code-keyword">function</span> <span class="code-function">valueScore</span>(p) {</span>
+<span class="code-line">  <span class="code-keyword">return</span> p.price <span class="code-operator">></span> <span class="code-number">0</span></span>
+<span class="code-line">    <span class="code-operator">?</span> ((p.rating / p.price) <span class="code-operator">*</span> <span class="code-number">100</span>).<span class="code-function">toFixed</span>(<span class="code-number">2</span>)</span>
+<span class="code-line">    : <span class="code-string">'0.00'</span>;</span>
+<span class="code-line">}</span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">Define a function called valueScore that takes a product (p) as input.</p>
+              <p class="tl">If the price is greater than zero (so we don't divide by zero)...</p>
+              <p class="tl">...calculate: (rating divided by price) multiplied by 100, rounded to 2 decimal places. A 4.6-star board at $259 scores: (4.6/259)*100 = 1.78.</p>
+              <p class="tl">Otherwise (price is zero, no data), return "0.00" to avoid a math error.</p>
+              <p class="tl">End of function.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-info animate-in">
+          <span class="callout-icon">📐</span>
+          <div class="callout-content">
+            <span class="callout-title">Derived metrics are a superpower</span>
+            <p>Raw data shows you what exists. Derived metrics (like value score) reveal relationships the raw data hides. Any time you're combining two columns into an insight — ratio, difference, rank — that's a derived metric. This is one of the most powerful things you can ask an AI to add to a dashboard.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 5: Group chat — Python generating HTML -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Python talks to the HTML template</h2>
+        <p>Watch how generate_dashboard.py and the HTML template work together to produce the finished file:</p>
+
+        <div class="chat-window" id="chat-dashboard">
+          <div class="chat-messages">
+            <div class="chat-message" data-msg="0" data-sender="py" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-3)">P</div>
+              <div class="chat-bubble">
+                <span class="chat-sender" style="color: var(--color-actor-3)">generate_dashboard.py</span>
+                <p>I have loaded 612 products from motherboard_reviews.json. Building the dashboard...</p>
+              </div>
+            </div>
+            <div class="chat-message" data-msg="1" data-sender="template" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-4)">T</div>
+              <div class="chat-bubble">
+                <span class="chat-sender" style="color: var(--color-actor-4)">HTML Template</span>
+                <p>I have placeholder {js_literal(products)} in my script tag. Fill me in with the actual data.</p>
+              </div>
+            </div>
+            <div class="chat-message" data-msg="2" data-sender="py" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-3)">P</div>
+              <div class="chat-bubble">
+                <span class="chat-sender" style="color: var(--color-actor-3)">generate_dashboard.py</span>
+                <p>Done. I replaced {js_literal(products)} with a 800KB JavaScript array literal containing all 612 boards.</p>
+              </div>
+            </div>
+            <div class="chat-message" data-msg="3" data-sender="browser" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-2)">B</div>
+              <div class="chat-bubble">
+                <span class="chat-sender" style="color: var(--color-actor-2)">Browser (when user opens file)</span>
+                <p>I see the script tag! Loading all 612 products into the RAW variable...</p>
+              </div>
+            </div>
+            <div class="chat-message" data-msg="4" data-sender="browser" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-2)">B</div>
+              <div class="chat-bubble">
+                <span class="chat-sender" style="color: var(--color-actor-2)">Browser</span>
+                <p>render() called! Building 612 table rows, calculating KPIs, drawing 3 charts. Done in 8ms. Dashboard is ready!</p>
+              </div>
+            </div>
+          </div>
+          <div class="chat-typing" style="display:none">
+            <div class="chat-avatar" id="chat-dashboard-typing-avatar">?</div>
+            <div class="chat-typing-dots">
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+            </div>
+          </div>
+          <div class="chat-controls">
+            <button class="btn chat-next-btn">Next Message</button>
+            <button class="btn chat-all-btn">Play All</button>
+            <button class="btn chat-reset-btn">Replay</button>
+            <span class="chat-progress"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 6: Quiz -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Check your understanding</h2>
+
+        <div class="quiz-container" id="quiz-module4">
+          <div class="quiz-question-block"
+               data-correct="option-b"
+               data-explanation-right="Exactly — you would need to regenerate the dashboard from fresh scraped data. The dashboard is a static snapshot; updating it means re-running the full scrape → generate pipeline."
+               data-explanation-wrong="Think about how the data gets into dashboard.html — it is baked in at generation time. To change the data, you need to regenerate the file.">
+            <h3 class="quiz-question">A colleague opens dashboard.html and notices the prices are 3 weeks old. What's the correct way to refresh them?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Edit the HTML file directly and update the price values manually</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Run scraper.py again, then generate_dashboard.py to create a fresh file</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Clear the browser cache and reload the file</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question-block"
+               data-correct="option-c"
+               data-explanation-right="Correct — you would add a new derived field calculation in the JavaScript section of generate_dashboard.py, similar to how valueScore() works. The data is already there; you just need a new formula."
+               data-explanation-wrong="The existing scraper data already has rating and price. A new metric would be calculated from existing fields in the dashboard generator's JavaScript template, not by changing what the scraper collects.">
+            <h3 class="quiz-question">You want to add a "Bang per Buck Index" (review_count divided by price) to the dashboard. Where in the code would you add this calculation?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>In the scraper, as a new field to collect from Newegg</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>In the .env configuration file</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>In generate_dashboard.py, as a new JavaScript function similar to valueScore()</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module4')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module4')">Try Again</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">The Mail Room</h1>
+      <p class="module-subtitle">Environment variables, SMTP, MIME — and how a Python script sends a polished email with a dashboard attached.</p>
+    </header>
+
+    <div class="module-body">
+
+      <!-- Screen 1: The credentials problem -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">The secrets problem</h2>
+        <p>To send an email, the script needs your Gmail address and password. But hardcoding a password directly in a Python file is a serious security risk — anyone who sees the code sees the password. The solution: environment variables.</p>
+        <p>Think of environment variables as a keychain that lives outside the codebase. The script borrows the key when it needs it, but the keychain itself is never left lying around in the code.</p>
+
+        <div class="pattern-cards stagger-children">
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background: #FDE8E8">❌</div>
+            <p class="pattern-title">Wrong: hardcoded secret</p>
+            <p class="pattern-desc"><code>password = "mypassword123"</code> — anyone who reads or shares the file now has your password.</p>
+          </div>
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background: #E8F5EE">✅</div>
+            <p class="pattern-title">Right: environment variable</p>
+            <p class="pattern-desc"><code>password = os.environ.get("EMAIL_PASSWORD")</code> — the code reads the password from the system at runtime. The password lives only in <code>.env</code>, which is never committed to git.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 2: How .env works -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">The .env file: your local secrets locker</h2>
+        <p>The <code>.env</code> file is a plain text file that lives in the project folder. It lists the environment variables you want available when you run the scripts. The <span class="term" data-definition="python-dotenv is a Python library that reads a .env file and loads its contents into the process's environment variables — making os.environ.get() work even when the variables aren't set system-wide.">python-dotenv</span> library reads this file automatically when the script starts.</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">.env FILE</span>
+            <pre><code><span class="code-line"><span class="code-property">EMAIL_SENDER</span><span class="code-operator">=</span><span class="code-string">you@gmail.com</span></span>
+<span class="code-line"><span class="code-property">EMAIL_PASSWORD</span><span class="code-operator">=</span><span class="code-string">abcd efgh ijkl mnop</span></span>
+<span class="code-line"><span class="code-property">EMAIL_RECIPIENT</span><span class="code-operator">=</span><span class="code-string">boss@company.com,team@company.com</span></span>
+<span class="code-line"><span class="code-property">SMTP_HOST</span><span class="code-operator">=</span><span class="code-string">smtp.gmail.com</span></span>
+<span class="code-line"><span class="code-property">SMTP_PORT</span><span class="code-operator">=</span><span class="code-number">587</span></span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">The Gmail address the email is sent FROM. This must be the account whose app password you are using.</p>
+              <p class="tl">A 16-character Gmail App Password — NOT your regular password. You create this in Google Account settings under Security. It looks like 4 groups of 4 letters.</p>
+              <p class="tl">Who receives the email. Multiple addresses are separated by commas — the script splits this string and sends to each one.</p>
+              <p class="tl">Gmail's outgoing mail server address. For Gmail this never changes.</p>
+              <p class="tl">Port 587 is the standard port for SMTP with STARTTLS encryption — secure email submission.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 3: What SMTP is -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">SMTP: the postal protocol</h2>
+        <p><span class="term" data-definition="SMTP (Simple Mail Transfer Protocol) is the protocol computers use to send email. Just like postal mail follows rules about envelopes, addresses, and stamps, SMTP defines exactly how a sender connects to a mail server and hands off a message for delivery.">SMTP</span> is the protocol for sending email — the set of rules that governs how email travels from your Python script to Gmail's servers and onward to the recipient.</p>
+
+        <div class="flow-animation" data-steps='[
+          {"highlight":"flow-actor-1","label":"Step 1: smtplib.SMTP connects to smtp.gmail.com on port 587."},
+          {"highlight":"flow-actor-1","label":"Step 2: EHLO handshake — the script introduces itself to Gmail and announces its capabilities.","packet":true,"from":"actor-1","to":"actor-2"},
+          {"highlight":"flow-actor-2","label":"Step 3: Gmail says hello back and lists what encryption methods it supports.","packet":true,"from":"actor-2","to":"actor-1"},
+          {"highlight":"flow-actor-1","label":"Step 4: STARTTLS — the connection is upgraded to encrypted (TLS). After this, no one can intercept the password.","packet":true,"from":"actor-1","to":"actor-2"},
+          {"highlight":"flow-actor-1","label":"Step 5: Login — the script sends EMAIL_SENDER and EMAIL_PASSWORD. Gmail verifies the App Password.","packet":true,"from":"actor-1","to":"actor-2"},
+          {"highlight":"flow-actor-2","label":"Step 6: Authentication successful! Gmail is ready to accept a message.","packet":true,"from":"actor-2","to":"actor-1"},
+          {"highlight":"flow-actor-1","label":"Step 7: sendmail() — the assembled MIME message is transmitted. Gmail queues it for delivery.","packet":true,"from":"actor-1","to":"actor-3"},
+          {"highlight":"flow-actor-3","label":"Step 8: The email arrives in the recipient inbox within seconds."}
+        ]'>
+          <div class="flow-actors">
+            <div class="flow-actor" id="flow-actor-1">
+              <div class="flow-actor-icon">🐍</div>
+              <span>send_email.py</span>
+            </div>
+            <div class="flow-actor" id="flow-actor-2">
+              <div class="flow-actor-icon">📮</div>
+              <span>Gmail SMTP</span>
+            </div>
+            <div class="flow-actor" id="flow-actor-3">
+              <div class="flow-actor-icon">📬</div>
+              <span>Recipient</span>
+            </div>
+          </div>
+          <div class="flow-packet" id="flow-packet"></div>
+          <div class="flow-step-label" id="flow-label">Click "Next Step" to trace the SMTP handshake</div>
+          <div class="flow-controls">
+            <button class="btn flow-next-btn">Next Step</button>
+            <button class="btn flow-reset-btn">Restart</button>
+            <span class="flow-progress"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 4: How the email is assembled (MIME) -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Building a MIME message: the email sandwich</h2>
+        <p>An email is not just text — it can contain multiple parts: plain text, styled HTML, and file attachments. The <span class="term" data-definition="MIME (Multipurpose Internet Mail Extensions) is the standard for building emails with multiple parts. A MIME message is like a sandwich container: the outer wrapper holds multiple fillings — plain text, HTML body, and attachments — all packaged together.">MIME</span> standard defines how to package all these parts into one message that email clients can interpret correctly.</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code><span class="code-line"><span class="code-property">msg</span> <span class="code-operator">=</span> <span class="code-function">MIMEMultipart</span>(<span class="code-string">"mixed"</span>)</span>
+<span class="code-line"><span class="code-property">msg</span>[<span class="code-string">"From"</span>]    <span class="code-operator">=</span> SENDER</span>
+<span class="code-line"><span class="code-property">msg</span>[<span class="code-string">"To"</span>]      <span class="code-operator">=</span> <span class="code-string">", "</span>.<span class="code-function">join</span>(recipients)</span>
+<span class="code-line"><span class="code-property">msg</span>[<span class="code-string">"Subject"</span>] <span class="code-operator">=</span> subject</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="code-property">alt</span> <span class="code-operator">=</span> <span class="code-function">MIMEMultipart</span>(<span class="code-string">"alternative"</span>)</span>
+<span class="code-line">alt.<span class="code-function">attach</span>(<span class="code-function">MIMEText</span>(<span class="code-function">build_text_body</span>(summary), <span class="code-string">"plain"</span>, <span class="code-string">"utf-8"</span>))</span>
+<span class="code-line">alt.<span class="code-function">attach</span>(<span class="code-function">MIMEText</span>(<span class="code-function">build_html_body</span>(summary), <span class="code-string">"html"</span>,  <span class="code-string">"utf-8"</span>))</span>
+<span class="code-line">msg.<span class="code-function">attach</span>(alt)</span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">Create the outer container for the whole email. "mixed" means it will hold both a body and file attachments.</p>
+              <p class="tl">Set the From header — who the email appears to come from.</p>
+              <p class="tl">Set the To header. If there are multiple recipients, join their addresses with commas.</p>
+              <p class="tl">Set the Subject line — includes the date tag like "[Newegg] Motherboard Dashboard [2026-04-15]".</p>
+              <p class="tl">Create an inner container for the email body. "alternative" means: here are two versions — plain text AND HTML. The email client picks whichever it supports.</p>
+              <p class="tl">Attach the plain-text version — a simple text summary for clients that don&apos;t render HTML.</p>
+              <p class="tl">Attach the HTML version — the styled email body with KPI cards, brand table, and picks.</p>
+              <p class="tl">Attach the inner body container to the outer message container.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 5: The attachment -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Attaching the dashboard file</h2>
+        <p>The HTML summary in the email body is designed for mobile — quick scanning on a phone. The full interactive dashboard is attached as a file, meant to be opened on a desktop browser where the filters and charts really shine.</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code><span class="code-line"><span class="code-property">html_bytes</span> <span class="code-operator">=</span> DASHBOARD_FILE.<span class="code-function">read_bytes</span>()</span>
+<span class="code-line"><span class="code-property">attachment</span> <span class="code-operator">=</span> <span class="code-function">MIMEApplication</span>(html_bytes, <span class="code-property">Name</span><span class="code-operator">=</span><span class="code-string">"dashboard.html"</span>)</span>
+<span class="code-line">attachment[<span class="code-string">"Content-Disposition"</span>] <span class="code-operator">=</span> \</span>
+<span class="code-line">    <span class="code-string">'attachment; filename="dashboard.html"'</span></span>
+<span class="code-line">msg.<span class="code-function">attach</span>(attachment)</span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">Read the entire dashboard.html file as raw bytes (binary data — the computer's native format for files).</p>
+              <p class="tl">Wrap the bytes in a MIME attachment object. Give it the filename "dashboard.html" so email clients know what to call it.</p>
+              <p class="tl">Set the Content-Disposition header — this tells the email client "this is an attachment" (as opposed to inline content that should display in the email body).</p>
+              <p class="tl">The filename appears in the email&apos;s attachment tray — what the recipient sees and downloads.</p>
+              <p class="tl">Attach this file to the outer message. The email now has: body text, HTML body, and dashboard.html attached.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-info animate-in">
+          <span class="callout-icon">🔒</span>
+          <div class="callout-content">
+            <span class="callout-title">Why App Passwords, not your regular password</span>
+            <p>Gmail blocks "less secure" direct logins. An <span class="term" data-definition="A Gmail App Password is a 16-character code that grants access to your Gmail account for one specific app. If the app is compromised, you revoke only this code — your main password remains safe. It is the recommended way to authenticate scripts.">App Password</span> is a 16-character code specific to this script. If it ever leaks, you revoke just that code without changing your main password. This is called <strong>least privilege</strong> — granting only the minimum access needed.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 6: Final quiz -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Final check: putting it all together</h2>
+
+        <div class="quiz-container" id="quiz-module5">
+          <div class="quiz-question-block"
+               data-correct="option-b"
+               data-explanation-right="Right — the .env file stores secrets outside the code, and .gitignore prevents it from being committed. This is the standard pattern for keeping credentials out of version control."
+               data-explanation-wrong="The key insight is that the .env file must also be listed in .gitignore — otherwise it would be committed to GitHub along with all the credentials inside it.">
+            <h3 class="quiz-question">You are setting up MotherboardAgent on a new machine for a colleague. They ask why there is a .env.example file but no .env file. What do you tell them?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>The .env file was accidentally deleted and needs to be restored from backup</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>The .env file is intentionally excluded from git because it contains real credentials — they need to create their own .env from the .env.example template</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>The .env file is automatically created when you run the script for the first time</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question-block"
+               data-correct="option-c"
+               data-explanation-right="Exactly — port 587 is STARTTLS (secure connection upgrade), and port 465 is SMTPS (SSL from the start). If you switch SMTP providers, the port number is likely the first config change needed."
+               data-explanation-wrong="The SMTP port determines the security protocol used for the connection. Most modern mail servers use port 587 for STARTTLS. This is a key detail when connecting to a corporate mail server.">
+            <h3 class="quiz-question">Your company wants to use their own corporate SMTP server instead of Gmail. The IT team says to use port 465 instead of 587. Which file and variable do you change?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Change the EMAIL_RECIPIENT variable in send_email.py</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Change the MIME type to "smtps" in the message assembly</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Update SMTP_HOST and SMTP_PORT in the .env file</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question-block"
+               data-correct="option-a"
+               data-explanation-right="Correct — the plain text version is the fallback for email clients that cannot render HTML. It is always attached alongside the HTML version in the alternative MIME container."
+               data-explanation-wrong="The MIMEMultipart alternative container always includes both versions. The email client automatically picks the best one it can display — HTML for modern clients, plain text as fallback.">
+            <h3 class="quiz-question">A team member receives the email on an old government system that strips all HTML. What do they see?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>A plain-text summary with the same KPI data — because build_text_body() is always included as a fallback</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>An empty email — the script only sends HTML</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Raw HTML code displayed as unformatted text</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module5')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module5')">Try Again</button>
+        </div>
+
+        <div class="callout callout-accent animate-in" style="margin-top: var(--space-12)">
+          <span class="callout-icon">🎓</span>
+          <div class="callout-content">
+            <span class="callout-title">You now understand the full pipeline</span>
+            <p>From a shopping website to your inbox: HTTP requests, HTML parsing, JSON schemas, self-contained HTML generation, JavaScript rendering, SMTP handshakes, and MIME message assembly. Every step is a learnable, reusable pattern — and now you have the vocabulary to direct AI to build more of them.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</section>
+  </main>
+
+</body>
+</html>

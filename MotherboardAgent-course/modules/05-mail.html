@@ -1,0 +1,255 @@
+<section class="module" id="module-5" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">The Mail Room</h1>
+      <p class="module-subtitle">Environment variables, SMTP, MIME — and how a Python script sends a polished email with a dashboard attached.</p>
+    </header>
+
+    <div class="module-body">
+
+      <!-- Screen 1: The credentials problem -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">The secrets problem</h2>
+        <p>To send an email, the script needs your Gmail address and password. But hardcoding a password directly in a Python file is a serious security risk — anyone who sees the code sees the password. The solution: environment variables.</p>
+        <p>Think of environment variables as a keychain that lives outside the codebase. The script borrows the key when it needs it, but the keychain itself is never left lying around in the code.</p>
+
+        <div class="pattern-cards stagger-children">
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background: #FDE8E8">❌</div>
+            <p class="pattern-title">Wrong: hardcoded secret</p>
+            <p class="pattern-desc"><code>password = "mypassword123"</code> — anyone who reads or shares the file now has your password.</p>
+          </div>
+          <div class="pattern-card animate-in">
+            <div class="pattern-icon" style="background: #E8F5EE">✅</div>
+            <p class="pattern-title">Right: environment variable</p>
+            <p class="pattern-desc"><code>password = os.environ.get("EMAIL_PASSWORD")</code> — the code reads the password from the system at runtime. The password lives only in <code>.env</code>, which is never committed to git.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 2: How .env works -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">The .env file: your local secrets locker</h2>
+        <p>The <code>.env</code> file is a plain text file that lives in the project folder. It lists the environment variables you want available when you run the scripts. The <span class="term" data-definition="python-dotenv is a Python library that reads a .env file and loads its contents into the process's environment variables — making os.environ.get() work even when the variables aren't set system-wide.">python-dotenv</span> library reads this file automatically when the script starts.</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">.env FILE</span>
+            <pre><code><span class="code-line"><span class="code-property">EMAIL_SENDER</span><span class="code-operator">=</span><span class="code-string">you@gmail.com</span></span>
+<span class="code-line"><span class="code-property">EMAIL_PASSWORD</span><span class="code-operator">=</span><span class="code-string">abcd efgh ijkl mnop</span></span>
+<span class="code-line"><span class="code-property">EMAIL_RECIPIENT</span><span class="code-operator">=</span><span class="code-string">boss@company.com,team@company.com</span></span>
+<span class="code-line"><span class="code-property">SMTP_HOST</span><span class="code-operator">=</span><span class="code-string">smtp.gmail.com</span></span>
+<span class="code-line"><span class="code-property">SMTP_PORT</span><span class="code-operator">=</span><span class="code-number">587</span></span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">The Gmail address the email is sent FROM. This must be the account whose app password you are using.</p>
+              <p class="tl">A 16-character Gmail App Password — NOT your regular password. You create this in Google Account settings under Security. It looks like 4 groups of 4 letters.</p>
+              <p class="tl">Who receives the email. Multiple addresses are separated by commas — the script splits this string and sends to each one.</p>
+              <p class="tl">Gmail's outgoing mail server address. For Gmail this never changes.</p>
+              <p class="tl">Port 587 is the standard port for SMTP with STARTTLS encryption — secure email submission.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 3: What SMTP is -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">SMTP: the postal protocol</h2>
+        <p><span class="term" data-definition="SMTP (Simple Mail Transfer Protocol) is the protocol computers use to send email. Just like postal mail follows rules about envelopes, addresses, and stamps, SMTP defines exactly how a sender connects to a mail server and hands off a message for delivery.">SMTP</span> is the protocol for sending email — the set of rules that governs how email travels from your Python script to Gmail's servers and onward to the recipient.</p>
+
+        <div class="flow-animation" data-steps='[
+          {"highlight":"flow-actor-1","label":"Step 1: smtplib.SMTP connects to smtp.gmail.com on port 587."},
+          {"highlight":"flow-actor-1","label":"Step 2: EHLO handshake — the script introduces itself to Gmail and announces its capabilities.","packet":true,"from":"actor-1","to":"actor-2"},
+          {"highlight":"flow-actor-2","label":"Step 3: Gmail says hello back and lists what encryption methods it supports.","packet":true,"from":"actor-2","to":"actor-1"},
+          {"highlight":"flow-actor-1","label":"Step 4: STARTTLS — the connection is upgraded to encrypted (TLS). After this, no one can intercept the password.","packet":true,"from":"actor-1","to":"actor-2"},
+          {"highlight":"flow-actor-1","label":"Step 5: Login — the script sends EMAIL_SENDER and EMAIL_PASSWORD. Gmail verifies the App Password.","packet":true,"from":"actor-1","to":"actor-2"},
+          {"highlight":"flow-actor-2","label":"Step 6: Authentication successful! Gmail is ready to accept a message.","packet":true,"from":"actor-2","to":"actor-1"},
+          {"highlight":"flow-actor-1","label":"Step 7: sendmail() — the assembled MIME message is transmitted. Gmail queues it for delivery.","packet":true,"from":"actor-1","to":"actor-3"},
+          {"highlight":"flow-actor-3","label":"Step 8: The email arrives in the recipient inbox within seconds."}
+        ]'>
+          <div class="flow-actors">
+            <div class="flow-actor" id="flow-actor-1">
+              <div class="flow-actor-icon">🐍</div>
+              <span>send_email.py</span>
+            </div>
+            <div class="flow-actor" id="flow-actor-2">
+              <div class="flow-actor-icon">📮</div>
+              <span>Gmail SMTP</span>
+            </div>
+            <div class="flow-actor" id="flow-actor-3">
+              <div class="flow-actor-icon">📬</div>
+              <span>Recipient</span>
+            </div>
+          </div>
+          <div class="flow-packet" id="flow-packet"></div>
+          <div class="flow-step-label" id="flow-label">Click "Next Step" to trace the SMTP handshake</div>
+          <div class="flow-controls">
+            <button class="btn flow-next-btn">Next Step</button>
+            <button class="btn flow-reset-btn">Restart</button>
+            <span class="flow-progress"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 4: How the email is assembled (MIME) -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Building a MIME message: the email sandwich</h2>
+        <p>An email is not just text — it can contain multiple parts: plain text, styled HTML, and file attachments. The <span class="term" data-definition="MIME (Multipurpose Internet Mail Extensions) is the standard for building emails with multiple parts. A MIME message is like a sandwich container: the outer wrapper holds multiple fillings — plain text, HTML body, and attachments — all packaged together.">MIME</span> standard defines how to package all these parts into one message that email clients can interpret correctly.</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code><span class="code-line"><span class="code-property">msg</span> <span class="code-operator">=</span> <span class="code-function">MIMEMultipart</span>(<span class="code-string">"mixed"</span>)</span>
+<span class="code-line"><span class="code-property">msg</span>[<span class="code-string">"From"</span>]    <span class="code-operator">=</span> SENDER</span>
+<span class="code-line"><span class="code-property">msg</span>[<span class="code-string">"To"</span>]      <span class="code-operator">=</span> <span class="code-string">", "</span>.<span class="code-function">join</span>(recipients)</span>
+<span class="code-line"><span class="code-property">msg</span>[<span class="code-string">"Subject"</span>] <span class="code-operator">=</span> subject</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="code-property">alt</span> <span class="code-operator">=</span> <span class="code-function">MIMEMultipart</span>(<span class="code-string">"alternative"</span>)</span>
+<span class="code-line">alt.<span class="code-function">attach</span>(<span class="code-function">MIMEText</span>(<span class="code-function">build_text_body</span>(summary), <span class="code-string">"plain"</span>, <span class="code-string">"utf-8"</span>))</span>
+<span class="code-line">alt.<span class="code-function">attach</span>(<span class="code-function">MIMEText</span>(<span class="code-function">build_html_body</span>(summary), <span class="code-string">"html"</span>,  <span class="code-string">"utf-8"</span>))</span>
+<span class="code-line">msg.<span class="code-function">attach</span>(alt)</span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">Create the outer container for the whole email. "mixed" means it will hold both a body and file attachments.</p>
+              <p class="tl">Set the From header — who the email appears to come from.</p>
+              <p class="tl">Set the To header. If there are multiple recipients, join their addresses with commas.</p>
+              <p class="tl">Set the Subject line — includes the date tag like "[Newegg] Motherboard Dashboard [2026-04-15]".</p>
+              <p class="tl">Create an inner container for the email body. "alternative" means: here are two versions — plain text AND HTML. The email client picks whichever it supports.</p>
+              <p class="tl">Attach the plain-text version — a simple text summary for clients that don&apos;t render HTML.</p>
+              <p class="tl">Attach the HTML version — the styled email body with KPI cards, brand table, and picks.</p>
+              <p class="tl">Attach the inner body container to the outer message container.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 5: The attachment -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Attaching the dashboard file</h2>
+        <p>The HTML summary in the email body is designed for mobile — quick scanning on a phone. The full interactive dashboard is attached as a file, meant to be opened on a desktop browser where the filters and charts really shine.</p>
+
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code><span class="code-line"><span class="code-property">html_bytes</span> <span class="code-operator">=</span> DASHBOARD_FILE.<span class="code-function">read_bytes</span>()</span>
+<span class="code-line"><span class="code-property">attachment</span> <span class="code-operator">=</span> <span class="code-function">MIMEApplication</span>(html_bytes, <span class="code-property">Name</span><span class="code-operator">=</span><span class="code-string">"dashboard.html"</span>)</span>
+<span class="code-line">attachment[<span class="code-string">"Content-Disposition"</span>] <span class="code-operator">=</span> \</span>
+<span class="code-line">    <span class="code-string">'attachment; filename="dashboard.html"'</span></span>
+<span class="code-line">msg.<span class="code-function">attach</span>(attachment)</span>
+</code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">Read the entire dashboard.html file as raw bytes (binary data — the computer's native format for files).</p>
+              <p class="tl">Wrap the bytes in a MIME attachment object. Give it the filename "dashboard.html" so email clients know what to call it.</p>
+              <p class="tl">Set the Content-Disposition header — this tells the email client "this is an attachment" (as opposed to inline content that should display in the email body).</p>
+              <p class="tl">The filename appears in the email&apos;s attachment tray — what the recipient sees and downloads.</p>
+              <p class="tl">Attach this file to the outer message. The email now has: body text, HTML body, and dashboard.html attached.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-info animate-in">
+          <span class="callout-icon">🔒</span>
+          <div class="callout-content">
+            <span class="callout-title">Why App Passwords, not your regular password</span>
+            <p>Gmail blocks "less secure" direct logins. An <span class="term" data-definition="A Gmail App Password is a 16-character code that grants access to your Gmail account for one specific app. If the app is compromised, you revoke only this code — your main password remains safe. It is the recommended way to authenticate scripts.">App Password</span> is a 16-character code specific to this script. If it ever leaks, you revoke just that code without changing your main password. This is called <strong>least privilege</strong> — granting only the minimum access needed.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 6: Final quiz -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">Final check: putting it all together</h2>
+
+        <div class="quiz-container" id="quiz-module5">
+          <div class="quiz-question-block"
+               data-correct="option-b"
+               data-explanation-right="Right — the .env file stores secrets outside the code, and .gitignore prevents it from being committed. This is the standard pattern for keeping credentials out of version control."
+               data-explanation-wrong="The key insight is that the .env file must also be listed in .gitignore — otherwise it would be committed to GitHub along with all the credentials inside it.">
+            <h3 class="quiz-question">You are setting up MotherboardAgent on a new machine for a colleague. They ask why there is a .env.example file but no .env file. What do you tell them?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>The .env file was accidentally deleted and needs to be restored from backup</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>The .env file is intentionally excluded from git because it contains real credentials — they need to create their own .env from the .env.example template</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>The .env file is automatically created when you run the script for the first time</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question-block"
+               data-correct="option-c"
+               data-explanation-right="Exactly — port 587 is STARTTLS (secure connection upgrade), and port 465 is SMTPS (SSL from the start). If you switch SMTP providers, the port number is likely the first config change needed."
+               data-explanation-wrong="The SMTP port determines the security protocol used for the connection. Most modern mail servers use port 587 for STARTTLS. This is a key detail when connecting to a corporate mail server.">
+            <h3 class="quiz-question">Your company wants to use their own corporate SMTP server instead of Gmail. The IT team says to use port 465 instead of 587. Which file and variable do you change?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Change the EMAIL_RECIPIENT variable in send_email.py</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Change the MIME type to "smtps" in the message assembly</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Update SMTP_HOST and SMTP_PORT in the .env file</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question-block"
+               data-correct="option-a"
+               data-explanation-right="Correct — the plain text version is the fallback for email clients that cannot render HTML. It is always attached alongside the HTML version in the alternative MIME container."
+               data-explanation-wrong="The MIMEMultipart alternative container always includes both versions. The email client automatically picks the best one it can display — HTML for modern clients, plain text as fallback.">
+            <h3 class="quiz-question">A team member receives the email on an old government system that strips all HTML. What do they see?</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>A plain-text summary with the same KPI data — because build_text_body() is always included as a fallback</span>
+              </button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>An empty email — the script only sends HTML</span>
+              </button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)">
+                <div class="quiz-option-radio"></div>
+                <span>Raw HTML code displayed as unformatted text</span>
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module5')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module5')">Try Again</button>
+        </div>
+
+        <div class="callout callout-accent animate-in" style="margin-top: var(--space-12)">
+          <span class="callout-icon">🎓</span>
+          <div class="callout-content">
+            <span class="callout-title">You now understand the full pipeline</span>
+            <p>From a shopping website to your inbox: HTTP requests, HTML parsing, JSON schemas, self-contained HTML generation, JavaScript rendering, SMTP handshakes, and MIME message assembly. Every step is a learnable, reusable pattern — and now you have the vocabulary to direct AI to build more of them.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</section>
