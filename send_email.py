@@ -321,7 +321,7 @@ def send(subject: str | None = None) -> None:
     recipients = [r.strip() for r in RECIPIENT.split(",") if r.strip()]
     summary    = load_summary()
     date_tag   = summary.get("retrieved_date") or datetime.today().strftime("%Y-%m-%d")
-    subject    = (subject or os.environ.get("EMAIL_SUBJECT") or "Motherboard Dashboard") + f" [{date_tag}]"
+    subject    = (subject or os.environ.get("EMAIL_SUBJECT") or "[Newegg] Motherboard Dashboard") + f" [{date_tag}]"
 
     # ── assemble message ───────────────────────────────────────────────────────
     msg = MIMEMultipart("mixed")
