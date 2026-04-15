@@ -168,11 +168,8 @@ def build_html(products: list[dict], meta: dict) -> str:
     thead th {{
       background:var(--surface2); padding:11px 13px;
       text-align:left; font-size:.72rem; text-transform:uppercase;
-      letter-spacing:.7px; color:var(--muted); cursor:pointer;
-      user-select:none; white-space:nowrap;
+      letter-spacing:.7px; color:var(--muted); white-space:nowrap;
     }}
-    thead th:hover {{ color:var(--text); }}
-    thead th.sorted {{ color:var(--accent); }}
     tbody tr {{ border-top:1px solid var(--border); transition:background .12s; }}
     tbody tr:hover {{ background:var(--surface2); }}
     tbody td {{ padding:10px 13px; vertical-align:middle; }}
@@ -333,7 +330,9 @@ def build_html(products: list[dict], meta: dict) -> str:
     <option value="price_asc">Price ↑</option>
     <option value="price_desc">Price ↓</option>
     <option value="reviews_desc">Reviews ↓</option>
-    <option value="name_asc">Name A→Z</option>
+    <option value="reviews_asc">Reviews ↑</option>
+    <option value="value_desc">Value Score ↓</option>
+    <option value="value_asc">Value Score ↑</option>
   </select>
 
   <button onclick="resetFilters()">Reset</button>
@@ -346,12 +345,12 @@ def build_html(products: list[dict], meta: dict) -> str:
     <thead>
       <tr>
         <th>#</th>
-        <th onclick="setSort('name_asc')">Brand / Product</th>
-        <th onclick="setSort('rating_desc')">Chipset</th>
+        <th>Brand / Product</th>
+        <th>Chipset</th>
         <th>Form</th>
-        <th onclick="setSort('rating_desc')">Rating ↕</th>
-        <th onclick="setSort('reviews_desc')">Reviews ↕</th>
-        <th onclick="setSort('price_asc')">Price ↕</th>
+        <th>Rating</th>
+        <th>Reviews</th>
+        <th>Price</th>
         <th>Value Score</th>
       </tr>
     </thead>
@@ -637,16 +636,13 @@ function getFiltered() {{
       case 'price_asc':    return a.price   - b.price;
       case 'price_desc':   return b.price   - a.price;
       case 'reviews_desc': return b.reviews - a.reviews;
-      case 'name_asc':     return a.name.localeCompare(b.name);
+      case 'reviews_asc':  return a.reviews - b.reviews;
+      case 'value_desc':   return +valueScore(b) - +valueScore(a);
+      case 'value_asc':    return +valueScore(a) - +valueScore(b);
     }}
     return 0;
   }});
   return data;
-}}
-
-function setSort(val) {{
-  document.getElementById('fSort').value = val;
-  render();
 }}
 
 function resetFilters() {{
