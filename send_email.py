@@ -43,6 +43,7 @@ SMTP_PORT  = int(os.environ.get("SMTP_PORT", "587"))
 
 DASHBOARD_FILE = Path("dashboard.html")
 DATA_FILE      = Path("motherboard_reviews.json")
+PRE_FILE       = Path("motherboard_reviews_pre.json")
 
 
 # ── helpers ───────────────────────────────────────────────────────────────────
@@ -99,6 +100,37 @@ def load_summary() -> dict:
     }
 
 
+def compute_price_diff() -> list:
+    """Return list of (name, old_price, new_price, diff) for changed/new products."""
+    if not PRE_FILE.exists() or not DATA_FILE.exists():
+        return []
+    with open(DATA_FILE, encoding="utf-8") as fh:
+        cur = json.load(fh)
+    with open(PRE_FILE, encoding="utf-8") as fh:
+        pre = json.load(fh)
+
+    def flatten(data):
+        result = {}
+        for brand_obj in data.get("brands", {}).values():
+            for item in brand_obj.get("products", []):
+                result[item["name"]] = item
+        return result
+
+    cur_map = flatten(cur)
+    pre_map = flatten(pre)
+    diffs = []
+    for name, ni in cur_map.items():
+        np = ni.get("price_usd")
+        if np is None:
+            continue
+        oi = pre_map.get(name)
+        if oi is None:
+            diffs.append((name, None, np, None))
+        elif oi.get("price_usd") != np:
+            diffs.append((name, oi["price_usd"], np, np - oi["price_usd"]))
+    return diffs
+
+
 def build_html_body(s: dict) -> str:
     """Build a compact HTML summary for the email body."""
     if not s:
@@ -147,6 +179,43 @@ def build_html_body(s: dict) -> str:
         asrock_html = f"<table><thead><tr><th>Model</th><th style='text-align:right'>Rating</th></tr></thead><tbody>{asrock_rows}</tbody></table>"
     else:
         asrock_html = "<p style='color:#636e72;font-size:.82rem'>No ASRock models below 3 ★.</p>"
+
+    # Price diff section
+    all_diffs = compute_price_diff()
+    changed = sorted(
+        [(n, o, p, d) for n, o, p, d in all_diffs if o is not None],
+        key=lambda x: abs(x[3]), reverse=True
+    )[:20]
+    new_items = [(n, p) for n, o, p, d in all_diffs if o is None][:5]
+    if changed or new_items:
+        diff_rows = ""
+        for name, old_p, new_p, diff in changed:
+            color = "#c0392b" if diff > 0 else "#27ae60"
+            sign = "+" if diff > 0 else ""
+            diff_rows += (
+                f"<tr><td style='font-size:.78rem'>{name}</td>"
+                f"<td style='text-align:right;white-space:nowrap'>${old_p:.2f}</td>"
+                f"<td style='text-align:right;white-space:nowrap'>${new_p:.2f}</td>"
+                f"<td style='text-align:right;white-space:nowrap;color:{color};font-weight:700'>"
+                f"{sign}${abs(diff):.2f}</td></tr>"
+            )
+        for name, new_p in new_items:
+            diff_rows += (
+                f"<tr><td style='font-size:.78rem'>{name}</td>"
+                f"<td style='text-align:right;white-space:nowrap;color:#636e72'>—</td>"
+                f"<td style='text-align:right;white-space:nowrap'>${new_p:.2f}</td>"
+                f"<td style='text-align:right;white-space:nowrap;color:#6c5ce7;font-weight:700'>[NEW]</td></tr>"
+            )
+        diff_html = (
+            "<div class='section'><div class='sec-title'>Price Changes Since Last Run</div>"
+            "<table><thead><tr><th>Product</th>"
+            "<th style='text-align:right'>Prev</th>"
+            "<th style='text-align:right'>Now</th>"
+            "<th style='text-align:right'>Change</th>"
+            f"</tr></thead><tbody>{diff_rows}</tbody></table></div><hr class='divider'>"
+        )
+    else:
+        diff_html = ""
 
     return f"""
 <!DOCTYPE html>
@@ -200,6 +269,7 @@ def build_html_body(s: dict) -> str:
     </div>
   </div>
 
+  {diff_html}
   <span class="label">{s['source']}</span>
   <h2>Motherboard Review Dashboard</h2>
   <div class="sub">Data as of {s['retrieved_date']} &bull; {', '.join(s['brands'])}</div>
@@ -302,6 +372,20 @@ def build_text_body(s: dict) -> str:
             lines.append(f"   {p['rating']} ★  {p['name']}")
     else:
         lines.append("   No ASRock models below 3 ★.")
+
+    all_diffs = compute_price_diff()
+    changed = sorted(
+        [(n, o, p, d) for n, o, p, d in all_diffs if o is not None],
+        key=lambda x: abs(x[3]), reverse=True
+    )[:20]
+    new_items = [(n, p) for n, o, p, d in all_diffs if o is None][:5]
+    if changed or new_items:
+        lines += ["", "─" * 50, "PRICE CHANGES SINCE LAST RUN"]
+        for name, old_p, new_p, diff in changed:
+            sign = "▲" if diff > 0 else "▼"
+            lines.append(f"  {sign} {name}: ${old_p:.2f} → ${new_p:.2f}  ({'+' if diff>0 else ''}${diff:.2f})")
+        for name, new_p in new_items:
+            lines.append(f"  [NEW] {name}: ${new_p:.2f}")
 
     lines += ["", "Full interactive dashboard attached — open dashboard.html in a browser."]
     return "\n".join(lines)

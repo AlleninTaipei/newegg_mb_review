@@ -7,6 +7,8 @@ Output format mirrors motherboard_reviews.json (Newegg scraper) except:
   - source is "Kakaku"
 """
 
+import os
+import shutil
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -34,6 +36,7 @@ BRANDS = {
 }
 
 OUTPUT_FILE = "kakaku_reviews.json"
+PRE_FILE    = "kakaku_reviews_pre.json"
 
 # Leave empty to collect all; add chipset strings to restrict
 FILTER_CHIPSETS: set[str] = {
@@ -249,6 +252,8 @@ def main():
         print(f"  → {len(products)} products collected for {brand}")
         time.sleep(2)
 
+    if os.path.exists(OUTPUT_FILE):
+        shutil.copy2(OUTPUT_FILE, PRE_FILE)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as fh:
         json.dump(result, fh, indent=2, ensure_ascii=False)
 

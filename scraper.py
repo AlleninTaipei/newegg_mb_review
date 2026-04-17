@@ -3,6 +3,8 @@ Newegg Motherboard Scraper
 Fetches ASRock, ASUS, Gigabyte, MSI motherboard listings and saves to motherboard_reviews.json
 """
 
+import os
+import shutil
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -32,6 +34,7 @@ BRANDS = {
 }
 
 OUTPUT_FILE = "motherboard_reviews.json"
+PRE_FILE    = "motherboard_reviews_pre.json"
 
 # ── Scope filters ─────────────────────────────────────────────────────────────
 # Leave as empty set() to collect everything; add values to restrict.
@@ -267,6 +270,8 @@ def main():
         print(f"  → {len(products)} products collected for {brand}")
         time.sleep(2)
 
+    if os.path.exists(OUTPUT_FILE):
+        shutil.copy2(OUTPUT_FILE, PRE_FILE)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as fh:
         json.dump(result, fh, indent=2, ensure_ascii=False)
 

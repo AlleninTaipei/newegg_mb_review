@@ -10,6 +10,8 @@ Output format mirrors motherboard_reviews.json (Newegg scraper) except:
 Uses the AJAX endpoint that backs the Danawa listing page JS pagination.
 """
 
+import os
+import shutil
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -42,6 +44,7 @@ BRANDS = {
 }
 
 OUTPUT_FILE = "danawa_reviews.json"
+PRE_FILE    = "danawa_reviews_pre.json"
 
 # Known Korean distributor/importer suffixes — stripped before deduplication
 DISTRIBUTORS = {
@@ -312,6 +315,8 @@ def main():
         print(f"  → {len(products)} products collected for {brand}")
         time.sleep(2)
 
+    if os.path.exists(OUTPUT_FILE):
+        shutil.copy2(OUTPUT_FILE, PRE_FILE)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as fh:
         json.dump(result, fh, indent=2, ensure_ascii=False)
 
