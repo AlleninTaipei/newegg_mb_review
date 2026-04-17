@@ -5,7 +5,7 @@ Sends the Kakaku Motherboard Dashboard (kakaku_dashboard.html) via email.
 Configuration — set these environment variables (or create a .env file):
   EMAIL_SENDER       your sending address, e.g. you@gmail.com
   EMAIL_PASSWORD     app-password / SMTP password
-  EMAIL_RECIPIENT    comma-separated list of recipients
+  EMAIL_RECIPIENT_KAKAKU    comma-separated list of recipients
   SMTP_HOST          (optional) default: smtp.gmail.com
   SMTP_PORT          (optional) default: 587
   EMAIL_SUBJECT      (optional) custom subject line
@@ -37,7 +37,7 @@ except ImportError:
 # ── configuration ─────────────────────────────────────────────────────────────
 SENDER     = os.environ.get("EMAIL_SENDER", "")
 PASSWORD   = os.environ.get("EMAIL_PASSWORD", "")
-RECIPIENT  = os.environ.get("EMAIL_RECIPIENT", "")
+RECIPIENT  = os.environ.get("EMAIL_RECIPIENT_KAKAKU", "")
 SMTP_HOST  = os.environ.get("SMTP_HOST", "smtp.gmail.com")
 SMTP_PORT  = int(os.environ.get("SMTP_PORT", "587"))
 
@@ -309,7 +309,7 @@ def build_text_body(s: dict) -> str:
 
 
 def send(subject: str | None = None) -> None:
-    missing = [v for v in ("EMAIL_SENDER", "EMAIL_PASSWORD", "EMAIL_RECIPIENT") if not os.environ.get(v)]
+    missing = [v for v in ("EMAIL_SENDER", "EMAIL_PASSWORD", "EMAIL_RECIPIENT_KAKAKU") if not os.environ.get(v)]
     if missing:
         print("ERROR: Missing environment variables:", ", ".join(missing))
         print(__doc__)
