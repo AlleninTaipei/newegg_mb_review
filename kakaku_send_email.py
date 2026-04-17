@@ -183,7 +183,7 @@ def build_html_body(s: dict) -> str:
   .hl       {{ color:#6c5ce7; font-weight:700; }}
   .divider  {{ border:none; border-top:1px solid #f0f3ff; margin:16px 0; }}
   .tip      {{ background:#f0edff; border-left:4px solid #6c5ce7; border-radius:6px;
-               padding:12px 16px; margin-top:20px; }}
+               padding:12px 16px; margin-bottom:20px; }}
   .tip-head {{ font-size:.72rem; font-weight:800; text-transform:uppercase;
                letter-spacing:.6px; color:#6c5ce7; margin-bottom:6px; }}
   .tip-row  {{ display:flex; gap:8px; align-items:baseline; margin-top:4px; font-size:.8rem; }}
@@ -193,6 +193,18 @@ def build_html_body(s: dict) -> str:
 </head>
 <body>
 <div class="card">
+  <div class="tip">
+    <div class="tip-head">How to use this report</div>
+    <div class="tip-row">
+      <span class="tip-icon">📱</span>
+      <span class="tip-text"><strong>This email</strong> — a mobile-ready summary for quick review on any device.</span>
+    </div>
+    <div class="tip-row">
+      <span class="tip-icon">🖥️</span>
+      <span class="tip-text"><strong>kakaku_dashboard.html</strong> (attached) — full interactive dashboard with filters, charts, and sortable table. Best opened on a desktop browser.</span>
+    </div>
+  </div>
+
   <span class="label">{s['source']} · {s['currency']}</span>
   <h2>Motherboard Review Dashboard</h2>
   <div class="sub">Data as of {s['retrieved_date']} &bull; {', '.join(s['brands'])}</div>
@@ -236,17 +248,6 @@ def build_html_body(s: dict) -> str:
     {asrock_html}
   </div>
 
-  <div class="tip">
-    <div class="tip-head">How to use this report</div>
-    <div class="tip-row">
-      <span class="tip-icon">📱</span>
-      <span class="tip-text"><strong>This email</strong> — a mobile-ready summary for quick review on any device.</span>
-    </div>
-    <div class="tip-row">
-      <span class="tip-icon">🖥️</span>
-      <span class="tip-text"><strong>kakaku_dashboard.html</strong> (attached) — full interactive dashboard with filters, charts, and sortable table. Best opened on a desktop browser.</span>
-    </div>
-  </div>
 </div>
 </body>
 </html>
