@@ -173,6 +173,16 @@ python3 danawa_send_email.py
 python3 danawa_scraper.py && python3 generate_danawa_dashboard.py && python3 danawa_send_email.py
 ```
 
+---
+
+### Batch — all regions at once
+
+```bash
+bash run_all.sh
+```
+
+Runs all three pipelines in parallel. Each region completes its own scrape → dashboard → email sequence independently. The script exits 0 only if all three succeed; any failure is reported with the region name.
+
 ## Environment variables
 
 Copy `.env.example` to `.env` and fill in your values:
