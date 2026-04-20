@@ -477,7 +477,7 @@ function renderTable(data) {{
       <td style="color:var(--muted);font-size:.78rem">${{i+1}}</td>
       <td class="name-cell">
         ${{brandDot(p.brand)}}<span style="color:${{brandColor(p.brand)}};font-size:.72rem;font-weight:700;margin-right:5px">${{p.brand}}</span>
-        ${{p.name}}
+        <a href="https://search.danawa.com/dsearch.php?query=${{encodeURIComponent(p.name)}}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted)">${{p.name}}</a>
         <span class="badge ${{p.platform.toLowerCase()}}">${{p.platform}}</span>
       </td>
       <td><span class="tag">${{p.chipset}}</span></td>
