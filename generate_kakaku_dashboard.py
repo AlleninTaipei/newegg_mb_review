@@ -414,6 +414,7 @@ function brandDot(b) {{
   return `<span class="brand-dot" style="background:${{brandColor(b)}}"></span>`;
 }}
 function fmtPrice(v) {{ return '¥' + Math.round(v).toLocaleString(); }}
+function searchQuery(name) {{ return name.replace(/[\u3000-\u9fff\uff00-\uffef].*$/, '').trim(); }}
 
 // ── Brand pills ───────────────────────────────────────────────────────────────
 document.getElementById('brandPills').innerHTML =
@@ -487,7 +488,7 @@ function renderTable(data) {{
       <td style="color:var(--muted);font-size:.78rem">${{i+1}}</td>
       <td class="name-cell">
         ${{brandDot(p.brand)}}<span style="color:${{brandColor(p.brand)}};font-size:.72rem;font-weight:700;margin-right:5px">${{p.brand}}</span>
-        <a href="https://kakaku.com/search_results/?query=${{encodeURIComponent(p.name)}}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted)">${{p.name}}</a>
+        <a href="https://kakaku.com/search_results/?query=${{encodeURIComponent(searchQuery(p.name))}}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted)">${{p.name}}</a>
         <span class="badge ${{p.platform.toLowerCase()}}">${{p.platform}}</span>
       </td>
       <td><span class="tag">${{p.chipset}}</span></td>
