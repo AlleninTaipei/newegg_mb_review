@@ -43,6 +43,14 @@ BRANDS = {
     "Gigabyte": 3148,
 }
 
+# Brand-name tokens used to detect the true owner of a product by name
+BRAND_TOKENS: dict[str, list[str]] = {
+    "ASRock":   ["ASRock"],
+    "ASUS":     ["ASUS", "ROG", "TUF"],
+    "MSI":      ["MSI"],
+    "Gigabyte": ["GIGABYTE", "AORUS"],
+}
+
 OUTPUT_FILE = "danawa_reviews.json"
 PRE_FILE    = "danawa_reviews_pre.json"
 
@@ -314,6 +322,37 @@ def main():
         result["brands"][brand] = {"brand": brand, "products": products}
         print(f"  → {len(products)} products collected for {brand}")
         time.sleep(2)
+
+    # ── Cross-brand deduplication ─────────────────────────────────────────────
+    # Danawa's API occasionally returns products from other brands (ads/promotions).
+    # For any product key that appears in multiple brand buckets, keep it only in
+    # the bucket whose BRAND_TOKENS match the product name. Unrecognised names are
+    # kept in whichever bucket first claimed them.
+    key_to_brand: dict[str, str] = {}
+    for brand, bdata in result["brands"].items():
+        for p in bdata["products"]:
+            key = p["name"].lower()
+            if key not in key_to_brand:
+                key_to_brand[key] = brand
+
+    def true_brand(name: str, first_seen: str) -> str:
+        nu = name.upper()
+        for b, tokens in BRAND_TOKENS.items():
+            if any(t.upper() in nu for t in tokens):
+                return b
+        return first_seen
+
+    removed = 0
+    for brand, bdata in result["brands"].items():
+        before = len(bdata["products"])
+        bdata["products"] = [
+            p for p in bdata["products"]
+            if true_brand(p["name"], key_to_brand[p["name"].lower()]) == brand
+        ]
+        removed += before - len(bdata["products"])
+
+    if removed:
+        print(f"\n  [dedup] Removed {removed} misattributed products across brands")
 
     if os.path.exists(OUTPUT_FILE):
         shutil.copy2(OUTPUT_FILE, PRE_FILE)
