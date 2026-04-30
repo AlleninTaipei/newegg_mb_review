@@ -1,0 +1,29 @@
+name: Send MB Review Reports
+
+on:
+  schedule:
+    - cron: '0 1 * * 1-5'  # 週一至週五 UTC 01:00（台灣時間早上 9 點）
+  workflow_dispatch:       # 允許在 GitHub UI 手動觸發
+
+jobs:
+  send-reports:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run all region pipelines
+        run: bash run_all.sh
+        env:
+          EMAIL_SENDER:           ${{ vars.EMAIL_SENDER }}
+          EMAIL_PASSWORD:         ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECIPIENT_NEWEGG: ${{ vars.EMAIL_RECIPIENT_NEWEGG }}
+          EMAIL_RECIPIENT_KAKAKU: ${{ vars.EMAIL_RECIPIENT_KAKAKU }}
+          EMAIL_RECIPIENT_DANAWA: ${{ vars.EMAIL_RECIPIENT_DANAWA }}

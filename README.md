@@ -59,15 +59,13 @@ Python 3.11+ with:
 ```
 requests
 beautifulsoup4
-lxml
 python-dotenv  # optional — loads .env automatically
 ```
 
 Install dependencies:
 
 ```bash
-pip install requests beautifulsoup4 lxml
-pip install python-dotenv   # optional, for .env file support
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -195,14 +193,48 @@ cp .env.example .env
 |----------|----------|---------|-------------|
 | `EMAIL_SENDER` | Yes | — | Sending address (e.g. `you@gmail.com`) |
 | `EMAIL_PASSWORD` | Yes | — | SMTP password or Gmail App Password |
-| `EMAIL_RECIPIENT` | Yes | — | Comma-separated list of recipients |
+| `EMAIL_RECIPIENT_NEWEGG` | Yes | — | Comma-separated recipients for Newegg report |
+| `EMAIL_RECIPIENT_KAKAKU` | Yes | — | Comma-separated recipients for Kakaku report |
+| `EMAIL_RECIPIENT_DANAWA` | Yes | — | Comma-separated recipients for Danawa report |
 | `SMTP_HOST` | No | `smtp.gmail.com` | SMTP server hostname |
 | `SMTP_PORT` | No | `587` | SMTP port (STARTTLS) |
-| `EMAIL_SUBJECT` | No | `Motherboard Dashboard` | Custom subject prefix |
+| `EMAIL_SUBJECT` | No | Region-specific default | Custom subject prefix |
 
 **Gmail setup:** enable 2-Step Verification, then create a 16-character App Password at <https://myaccount.google.com/apppasswords> and set it as `EMAIL_PASSWORD`.
 
 > `.env` is listed in `.gitignore` and will never be committed.
+
+## Automated scheduling (GitHub Actions)
+
+The workflow `.github/workflows/send_reports.yml` runs all three region pipelines automatically every weekday at UTC 01:00 (09:00 Taipei time). It can also be triggered manually from the GitHub Actions UI.
+
+### Setup
+
+Since `.env` is git-ignored, credentials and recipients must be stored in the repository's **Secrets and Variables** (`Settings → Secrets and variables → Actions`):
+
+| Name | Type | Value |
+|------|------|-------|
+| `EMAIL_PASSWORD` | **Secret** | Gmail App Password (16 chars, no spaces) |
+| `EMAIL_SENDER` | Variable | `you@gmail.com` |
+| `EMAIL_RECIPIENT_NEWEGG` | Variable | Comma-separated recipient list |
+| `EMAIL_RECIPIENT_KAKAKU` | Variable | Comma-separated recipient list |
+| `EMAIL_RECIPIENT_DANAWA` | Variable | Comma-separated recipient list |
+
+`SMTP_HOST` and `SMTP_PORT` default to `smtp.gmail.com:587` and do not need to be set.
+
+### Adding or removing recipients
+
+Edit the relevant Variable directly in the GitHub UI — no code change required. The next scheduled run will use the updated list immediately.
+
+```
+allen1_sun@example.com,iris_y@example.com,newperson@example.com
+```
+
+### Manual trigger
+
+Go to **Actions → Send MB Review Reports → Run workflow** to trigger a one-off run at any time.
+
+---
 
 ## Project structure
 
@@ -219,6 +251,12 @@ MotherboardAgent/
 ├── danawa_scraper.py             # Danawa scraper → danawa_reviews.json
 ├── generate_danawa_dashboard.py  # JSON → danawa_dashboard.html
 ├── danawa_send_email.py          # Sends danawa_dashboard.html via SMTP
+│
+├── run_all.sh                    # Runs all three pipelines in parallel
+├── requirements.txt              # Python dependencies
+├── .github/
+│   └── workflows/
+│       └── send_reports.yml      # GitHub Actions scheduled workflow
 │
 ├── .env.example             # Environment variable template
 ├── .env                     # Your credentials (git-ignored)
