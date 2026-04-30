@@ -7,16 +7,6 @@
       "brand": "ASRock",
       "products": [
         {
-          "name": "ASRock B850M Pro-A",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 164030,
-          "store_count": 188,
-          "category": "AMD",
-          "pcode": "74341163"
-        },
-        {
           "name": "ASRock B850 Challenger WiFi 7 White",
           "socket": "AM5",
           "chipset": "B850",
@@ -25,6 +15,16 @@
           "store_count": 129,
           "category": "AMD",
           "pcode": "97702355"
+        },
+        {
+          "name": "ASRock B850M Pro-A",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 164030,
+          "store_count": 188,
+          "category": "AMD",
+          "pcode": "74341163"
         },
         {
           "name": "ASRock B650M PG Riptide WiFi White",
@@ -1152,16 +1152,6 @@
           "pcode": "74337680"
         },
         {
-          "name": "ASUS ROG STRIX B860-G GAMING WIFI",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Micro ATX",
-          "price_krw": 283300,
-          "store_count": 177,
-          "category": "Intel",
-          "pcode": "74338115"
-        },
-        {
           "name": "ASUS TUF Gaming B850-PLUS WIFI",
           "socket": "AM5",
           "chipset": "B850",
@@ -1170,6 +1160,16 @@
           "store_count": 206,
           "category": "AMD",
           "pcode": "73884083"
+        },
+        {
+          "name": "ASUS ROG STRIX B860-G GAMING WIFI",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "price_krw": 283300,
+          "store_count": 177,
+          "category": "Intel",
+          "pcode": "74338115"
         },
         {
           "name": "ASUS TUF Gaming B650EM-E WIFI",
@@ -2247,14 +2247,14 @@
       "brand": "MSI",
       "products": [
         {
-          "name": "MSI MAG X870E 토마호크 WIFI",
-          "socket": "AM5",
-          "chipset": "X870E",
-          "form_factor": "ATX",
-          "price_krw": 457690,
-          "store_count": 193,
-          "category": "AMD",
-          "pcode": "75857021"
+          "name": "MSI MAG B860M 박격포 WIFI",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "price_krw": 266690,
+          "store_count": 228,
+          "category": "Intel",
+          "pcode": "74340266"
         },
         {
           "name": "MSI MAG B850M 박격포 WIFI",
@@ -2267,14 +2267,14 @@
           "pcode": "79397648"
         },
         {
-          "name": "MSI MAG B860M 박격포 WIFI",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Micro ATX",
-          "price_krw": 266690,
-          "store_count": 228,
-          "category": "Intel",
-          "pcode": "74340266"
+          "name": "MSI MAG X870E 토마호크 WIFI",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "price_krw": 457690,
+          "store_count": 193,
+          "category": "AMD",
+          "pcode": "75857021"
         },
         {
           "name": "MSI MAG B850 토마호크 맥스 WIFI",
