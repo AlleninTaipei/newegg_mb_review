@@ -59,6 +59,7 @@ Python 3.11+ with:
 ```
 requests
 beautifulsoup4
+lxml
 python-dotenv  # optional — loads .env automatically
 ```
 
