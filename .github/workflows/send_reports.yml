@@ -11,6 +11,8 @@ env:
 jobs:
   send-reports:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -30,3 +32,11 @@ jobs:
           EMAIL_RECIPIENT_NEWEGG: ${{ vars.EMAIL_RECIPIENT_NEWEGG }}
           EMAIL_RECIPIENT_KAKAKU: ${{ vars.EMAIL_RECIPIENT_KAKAKU }}
           EMAIL_RECIPIENT_DANAWA: ${{ vars.EMAIL_RECIPIENT_DANAWA }}
+
+      - name: Commit updated market data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add motherboard_reviews.json kakaku_reviews.json danawa_reviews.json
+          git diff --staged --quiet || git commit -m "chore: update market data [skip ci]"
+          git push
