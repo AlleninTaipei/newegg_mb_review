@@ -1,6 +1,6 @@
 {
   "source": "Kakaku",
-  "retrieved_date": "2026-06-23",
+  "retrieved_date": "2026-06-24",
   "currency": "JPY",
   "brands": {
     "ASRock": {
@@ -17,16 +17,6 @@
           "category": "AMD"
         },
         {
-          "name": "X870 Taichi Creator",
-          "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 4,
-          "price_jpy": 66090,
-          "category": "AMD"
-        },
-        {
           "name": "B650M Pro X3D WiFi",
           "socket": "AM5",
           "chipset": "B650",
@@ -37,13 +27,23 @@
           "category": "AMD"
         },
         {
-          "name": "B850M-X WiFi R2.0",
+          "name": "X870 Taichi Creator",
           "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "rating": 4.68,
-          "review_count": 3,
-          "price_jpy": 14380,
+          "chipset": "X870",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 4,
+          "price_jpy": 66090,
+          "category": "AMD"
+        },
+        {
+          "name": "B650I Lightning WiFi",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Mini-ITX",
+          "rating": 4.3,
+          "review_count": 6,
+          "price_jpy": 30518,
           "category": "AMD"
         },
         {
@@ -57,23 +57,13 @@
           "category": "Intel"
         },
         {
-          "name": "X870E Nova WiFi",
+          "name": "B850 LiveMixer WiFi",
           "socket": "AM5",
-          "chipset": "X870E",
+          "chipset": "B850",
           "form_factor": "ATX",
-          "rating": 4.24,
-          "review_count": 21,
-          "price_jpy": 51738,
-          "category": "AMD"
-        },
-        {
-          "name": "B650I Lightning WiFi",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Mini-ITX",
-          "rating": 4.3,
-          "review_count": 6,
-          "price_jpy": 27800,
+          "rating": 5.0,
+          "review_count": 3,
+          "price_jpy": 29100,
           "category": "AMD"
         },
         {
@@ -83,7 +73,7 @@
           "form_factor": "Mini-ITX",
           "rating": 3.75,
           "review_count": 4,
-          "price_jpy": 32700,
+          "price_jpy": 35000,
           "category": "AMD"
         },
         {
@@ -97,13 +87,23 @@
           "category": "AMD"
         },
         {
-          "name": "B850 LiveMixer WiFi",
+          "name": "X870E Nova WiFi",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "rating": 4.24,
+          "review_count": 21,
+          "price_jpy": 49791,
+          "category": "AMD"
+        },
+        {
+          "name": "B850M-X WiFi R2.0",
           "socket": "AM5",
           "chipset": "B850",
-          "form_factor": "ATX",
-          "rating": 5.0,
+          "form_factor": "Micro ATX",
+          "rating": 4.68,
           "review_count": 3,
-          "price_jpy": 29200,
+          "price_jpy": 14380,
           "category": "AMD"
         },
         {
@@ -127,26 +127,6 @@
           "category": "AMD"
         },
         {
-          "name": "B760M-HDV/M.2",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "rating": 3.86,
-          "review_count": 6,
-          "price_jpy": 8980,
-          "category": "Intel"
-        },
-        {
-          "name": "B760 Pro RS/D4 WiFi (B760 1700 ATX) ドスパラ限定モデル",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "ATX",
-          "rating": 2.5,
-          "review_count": 2,
-          "price_jpy": 16980,
-          "category": "Intel"
-        },
-        {
           "name": "B850M Steel Legend WiFi",
           "socket": "AM5",
           "chipset": "B850",
@@ -167,6 +147,16 @@
           "category": "AMD"
         },
         {
+          "name": "B760M-HDV/M.2",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "rating": 3.86,
+          "review_count": 6,
+          "price_jpy": 9300,
+          "category": "Intel"
+        },
+        {
           "name": "Z890 LiveMixer WiFi",
           "socket": "LGA1851",
           "chipset": "Z890",
@@ -177,14 +167,14 @@
           "category": "Intel"
         },
         {
-          "name": "B850 Pro RS WiFi",
-          "socket": "AM5",
-          "chipset": "B850",
+          "name": "B760 Pro RS/D4 WiFi (B760 1700 ATX) ドスパラ限定モデル",
+          "socket": "LGA1700",
+          "chipset": "B760",
           "form_factor": "ATX",
-          "rating": 4.0,
-          "review_count": 1,
-          "price_jpy": 21980,
-          "category": "AMD"
+          "rating": 2.5,
+          "review_count": 2,
+          "price_jpy": 16980,
+          "category": "Intel"
         },
         {
           "name": "X870 Pro-A WiFi",
@@ -193,7 +183,7 @@
           "form_factor": "ATX",
           "rating": 5.0,
           "review_count": 1,
-          "price_jpy": 27980,
+          "price_jpy": 27973,
           "category": "AMD"
         },
         {
@@ -207,66 +197,6 @@
           "category": "Intel"
         },
         {
-          "name": "B650 Pro RS WiFi",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "ATX",
-          "rating": 4.0,
-          "review_count": 1,
-          "price_jpy": 17980,
-          "category": "AMD"
-        },
-        {
-          "name": "Z790 Steel Legend WiFi",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "ATX",
-          "rating": 4.42,
-          "review_count": 7,
-          "price_jpy": 27800,
-          "category": "Intel"
-        },
-        {
-          "name": "B860I WiFi",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Mini-ITX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 28060,
-          "category": "Intel"
-        },
-        {
-          "name": "B760M Pro RS/D4 WiFi",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "rating": 4.77,
-          "review_count": 4,
-          "price_jpy": 16480,
-          "category": "Intel"
-        },
-        {
-          "name": "X870 Steel Legend WiFi",
-          "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 34309,
-          "category": "AMD"
-        },
-        {
-          "name": "B760M Pro RS",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "rating": 5.0,
-          "review_count": 3,
-          "price_jpy": 14980,
-          "category": "Intel"
-        },
-        {
           "name": "B650M Pro RS WiFi (B650 AM5 MicroATX) ドスパラ限定モデル",
           "socket": "AM5",
           "chipset": "B650",
@@ -277,43 +207,23 @@
           "category": "AMD"
         },
         {
-          "name": "B760M Steel Legend WiFi",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "rating": 5.0,
-          "review_count": 7,
-          "price_jpy": 22000,
-          "category": "Intel"
+          "name": "B850 Pro RS WiFi",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "ATX",
+          "rating": 4.0,
+          "review_count": 1,
+          "price_jpy": 21980,
+          "category": "AMD"
         },
         {
-          "name": "B860M Pro RS WiFi",
+          "name": "B860I WiFi",
           "socket": "LGA1851",
           "chipset": "B860",
-          "form_factor": "Micro ATX",
-          "rating": 4.0,
-          "review_count": 1,
-          "price_jpy": 26050,
-          "category": "Intel"
-        },
-        {
-          "name": "B760 Pro RS/D4",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "ATX",
-          "rating": 4.0,
-          "review_count": 1,
-          "price_jpy": 17809,
-          "category": "Intel"
-        },
-        {
-          "name": "Z890 Steel Legend WiFi",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
+          "form_factor": "Mini-ITX",
           "rating": 5.0,
           "review_count": 1,
-          "price_jpy": 45210,
+          "price_jpy": 28060,
           "category": "Intel"
         },
         {
@@ -327,13 +237,113 @@
           "category": "AMD"
         },
         {
+          "name": "B650 Pro RS WiFi",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "rating": 4.0,
+          "review_count": 1,
+          "price_jpy": 17980,
+          "category": "AMD"
+        },
+        {
+          "name": "X870 Steel Legend WiFi",
+          "socket": "AM5",
+          "chipset": "X870",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 34309,
+          "category": "AMD"
+        },
+        {
+          "name": "B760M Pro RS/D4 WiFi",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "rating": 4.77,
+          "review_count": 4,
+          "price_jpy": 16480,
+          "category": "Intel"
+        },
+        {
+          "name": "Z790 Steel Legend WiFi",
+          "socket": "LGA1700",
+          "chipset": "Z790",
+          "form_factor": "ATX",
+          "rating": 4.42,
+          "review_count": 7,
+          "price_jpy": 29980,
+          "category": "Intel"
+        },
+        {
+          "name": "Z890 Steel Legend WiFi",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 45210,
+          "category": "Intel"
+        },
+        {
+          "name": "B760M Pro RS",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "rating": 5.0,
+          "review_count": 3,
+          "price_jpy": 14980,
+          "category": "Intel"
+        },
+        {
+          "name": "B650E Steel Legend WiFi",
+          "socket": "AM5",
+          "chipset": "B650E",
+          "form_factor": "ATX",
+          "rating": 4.24,
+          "review_count": 16,
+          "price_jpy": 28000,
+          "category": "AMD"
+        },
+        {
+          "name": "B760M PG Lightning/D4",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "rating": 4.32,
+          "review_count": 4,
+          "price_jpy": 13980,
+          "category": "Intel"
+        },
+        {
+          "name": "B860M Pro RS WiFi",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "rating": 4.0,
+          "review_count": 1,
+          "price_jpy": 26050,
+          "category": "Intel"
+        },
+        {
+          "name": "B850M Pro RS WiFi",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 27800,
+          "category": "AMD"
+        },
+        {
           "name": "Z890 Taichi AQUA",
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "E-ATX",
           "rating": 4.5,
           "review_count": 2,
-          "price_jpy": 141288,
+          "price_jpy": 140286,
           "category": "Intel"
         },
         {
@@ -347,13 +357,13 @@
           "category": "AMD"
         },
         {
-          "name": "B760M Pro RS/D4",
+          "name": "B760 Pro RS/D4",
           "socket": "LGA1700",
           "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "rating": 4.84,
-          "review_count": 5,
-          "price_jpy": 17622,
+          "form_factor": "ATX",
+          "rating": 4.0,
+          "review_count": 1,
+          "price_jpy": 17809,
           "category": "Intel"
         },
         {
@@ -367,24 +377,34 @@
           "category": "AMD"
         },
         {
-          "name": "B850M Pro RS WiFi",
-          "socket": "AM5",
-          "chipset": "B850",
+          "name": "B760M Pro RS/D4",
+          "socket": "LGA1700",
+          "chipset": "B760",
           "form_factor": "Micro ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 27800,
+          "rating": 4.84,
+          "review_count": 5,
+          "price_jpy": 17622,
+          "category": "Intel"
+        },
+        {
+          "name": "B650 Pro RS",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "rating": 4.32,
+          "review_count": 17,
+          "price_jpy": 20000,
           "category": "AMD"
         },
         {
-          "name": "B650E Steel Legend WiFi",
-          "socket": "AM5",
-          "chipset": "B650E",
-          "form_factor": "ATX",
-          "rating": 4.24,
-          "review_count": 16,
-          "price_jpy": 28000,
-          "category": "AMD"
+          "name": "B760M Steel Legend WiFi",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "rating": 5.0,
+          "review_count": 7,
+          "price_jpy": 22000,
+          "category": "Intel"
         },
         {
           "name": "B860M Steel Legend WiFi",
@@ -407,24 +427,14 @@
           "category": "AMD"
         },
         {
-          "name": "B650 Pro RS",
+          "name": "X670E Steel Legend",
           "socket": "AM5",
-          "chipset": "B650",
+          "chipset": "X670E",
           "form_factor": "ATX",
-          "rating": 4.32,
+          "rating": 4.76,
           "review_count": 17,
-          "price_jpy": 20000,
+          "price_jpy": 34980,
           "category": "AMD"
-        },
-        {
-          "name": "B760M PG Lightning/D4",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "rating": 4.32,
-          "review_count": 4,
-          "price_jpy": 13980,
-          "category": "Intel"
         },
         {
           "name": "Z890 Pro-A",
@@ -457,14 +467,24 @@
           "category": "Intel"
         },
         {
-          "name": "X670E Steel Legend",
+          "name": "B650 LiveMixer",
           "socket": "AM5",
-          "chipset": "X670E",
+          "chipset": "B650",
           "form_factor": "ATX",
-          "rating": 4.76,
-          "review_count": 17,
-          "price_jpy": 34980,
+          "rating": 4.72,
+          "review_count": 8,
+          "price_jpy": 34780,
           "category": "AMD"
+        },
+        {
+          "name": "Z890 Nova WiFi",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 59198,
+          "category": "Intel"
         },
         {
           "name": "Z890 Taichi OCF",
@@ -473,17 +493,7 @@
           "form_factor": "ATX",
           "rating": 4.5,
           "review_count": 2,
-          "price_jpy": 87129,
-          "category": "Intel"
-        },
-        {
-          "name": "B760 Pro RS WiFi White (B760 1700 ATX) ドスパラ限定モデル",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 17480,
+          "price_jpy": 86953,
           "category": "Intel"
         },
         {
@@ -493,7 +503,17 @@
           "form_factor": "Micro ATX",
           "rating": 5.0,
           "review_count": 3,
-          "price_jpy": 18860,
+          "price_jpy": 17164,
+          "category": "AMD"
+        },
+        {
+          "name": "B650 PG Lightning",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "rating": 4.91,
+          "review_count": 11,
+          "price_jpy": 21700,
           "category": "AMD"
         },
         {
@@ -504,16 +524,6 @@
           "rating": 3.67,
           "review_count": 13,
           "price_jpy": 24738,
-          "category": "AMD"
-        },
-        {
-          "name": "B650 LiveMixer",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "ATX",
-          "rating": 4.72,
-          "review_count": 8,
-          "price_jpy": 34780,
           "category": "AMD"
         },
         {
@@ -537,16 +547,6 @@
           "category": "AMD"
         },
         {
-          "name": "Z890 Nova WiFi",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 59800,
-          "category": "Intel"
-        },
-        {
           "name": "B760M Pro RS WiFi (B760 1700 MicroATX) ドスパラ限定モデル",
           "socket": "LGA1700",
           "chipset": "B760",
@@ -557,14 +557,14 @@
           "category": "Intel"
         },
         {
-          "name": "B650 PG Lightning",
-          "socket": "AM5",
-          "chipset": "B650",
+          "name": "B760 Pro RS WiFi White (B760 1700 ATX) ドスパラ限定モデル",
+          "socket": "LGA1700",
+          "chipset": "B760",
           "form_factor": "ATX",
-          "rating": 4.91,
-          "review_count": 11,
-          "price_jpy": 21700,
-          "category": "AMD"
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 17480,
+          "category": "Intel"
         },
         {
           "name": "B650E PG-ITX WiFi",
@@ -577,16 +577,6 @@
           "category": "AMD"
         },
         {
-          "name": "Z890I Nova WiFi",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "Mini-ITX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 54950,
-          "category": "Intel"
-        },
-        {
           "name": "B650E Taichi",
           "socket": "AM5",
           "chipset": "B650E",
@@ -595,16 +585,6 @@
           "review_count": 4,
           "price_jpy": 54980,
           "category": "AMD"
-        },
-        {
-          "name": "Z890 Taichi",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "rating": 3.0,
-          "review_count": 1,
-          "price_jpy": 82216,
-          "category": "Intel"
         },
         {
           "name": "B760M Pro-A",
@@ -643,7 +623,7 @@
           "form_factor": "ATX",
           "rating": 4.3,
           "review_count": 6,
-          "price_jpy": 38813,
+          "price_jpy": 38491,
           "category": "Intel"
         },
         {
@@ -664,6 +644,26 @@
           "rating": 4.72,
           "review_count": 12,
           "price_jpy": 49970,
+          "category": "Intel"
+        },
+        {
+          "name": "Z890I Nova WiFi",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "Mini-ITX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 54950,
+          "category": "Intel"
+        },
+        {
+          "name": "Z890 Taichi",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 3.0,
+          "review_count": 1,
+          "price_jpy": 74048,
           "category": "Intel"
         },
         {
@@ -698,27 +698,7 @@
           "form_factor": "ATX",
           "rating": 4.71,
           "review_count": 4,
-          "price_jpy": 39140,
-          "category": "Intel"
-        },
-        {
-          "name": "TUF GAMING B760M-PLUS WIFI D4",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "rating": 4.35,
-          "review_count": 6,
-          "price_jpy": 19400,
-          "category": "Intel"
-        },
-        {
-          "name": "TUF GAMING B760-PLUS WIFI D4",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 23644,
+          "price_jpy": 32300,
           "category": "Intel"
         },
         {
@@ -732,6 +712,16 @@
           "category": "AMD"
         },
         {
+          "name": "TUF GAMING B650E-E WIFI (B650E AM5 ATX) ドスパラ限定モデル",
+          "socket": "AM5",
+          "chipset": "B650E",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 19800,
+          "category": "AMD"
+        },
+        {
           "name": "TUF GAMING B650M-PLUS",
           "socket": "AM5",
           "chipset": "B650",
@@ -742,14 +732,24 @@
           "category": "AMD"
         },
         {
-          "name": "TUF GAMING B650E-E WIFI (B650E AM5 ATX) ドスパラ限定モデル",
-          "socket": "AM5",
-          "chipset": "B650E",
+          "name": "TUF GAMING B760-PLUS WIFI D4",
+          "socket": "LGA1700",
+          "chipset": "B760",
           "form_factor": "ATX",
           "rating": 5.0,
           "review_count": 1,
-          "price_jpy": 19800,
-          "category": "AMD"
+          "price_jpy": 23644,
+          "category": "Intel"
+        },
+        {
+          "name": "TUF GAMING B760M-PLUS WIFI D4",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "rating": 4.35,
+          "review_count": 6,
+          "price_jpy": 19742,
+          "category": "Intel"
         },
         {
           "name": "PRIME B760M-A D4",
@@ -762,16 +762,6 @@
           "category": "Intel"
         },
         {
-          "name": "ProArt X870E-CREATOR WIFI",
-          "socket": "AM5",
-          "chipset": "X870E",
-          "form_factor": "ATX",
-          "rating": 4.78,
-          "review_count": 5,
-          "price_jpy": 74800,
-          "category": "AMD"
-        },
-        {
           "name": "ROG STRIX B850-I GAMING WIFI",
           "socket": "AM5",
           "chipset": "B850",
@@ -779,6 +769,16 @@
           "rating": 5.0,
           "review_count": 1,
           "price_jpy": 44600,
+          "category": "AMD"
+        },
+        {
+          "name": "ProArt X870E-CREATOR WIFI",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "rating": 4.78,
+          "review_count": 5,
+          "price_jpy": 74800,
           "category": "AMD"
         },
         {
@@ -792,6 +792,16 @@
           "category": "AMD"
         },
         {
+          "name": "TUF GAMING B650-PLUS WIFI",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "rating": 4.37,
+          "review_count": 9,
+          "price_jpy": 30980,
+          "category": "AMD"
+        },
+        {
           "name": "PRIME B760-PLUS D4",
           "socket": "LGA1700",
           "chipset": "B760",
@@ -802,13 +812,33 @@
           "category": "Intel"
         },
         {
-          "name": "TUF GAMING B650-PLUS WIFI",
+          "name": "B850M MAX GAMING WIFI (B850 AM5 MicroATX) ドスパラ限定モデル",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "rating": 4.67,
+          "review_count": 2,
+          "price_jpy": 19980,
+          "category": "AMD"
+        },
+        {
+          "name": "ROG STRIX B860-G GAMING WIFI",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "rating": 4.67,
+          "review_count": 3,
+          "price_jpy": 41280,
+          "category": "Intel"
+        },
+        {
+          "name": "TUF GAMING B650M-PLUS WIFI",
           "socket": "AM5",
           "chipset": "B650",
-          "form_factor": "ATX",
-          "rating": 4.37,
-          "review_count": 9,
-          "price_jpy": 23600,
+          "form_factor": "Micro ATX",
+          "rating": 3.0,
+          "review_count": 1,
+          "price_jpy": 19480,
           "category": "AMD"
         },
         {
@@ -822,53 +852,13 @@
           "category": "AMD"
         },
         {
-          "name": "PRIME B860M-A WIFI-CSM",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Micro ATX",
-          "rating": 3.17,
-          "review_count": 2,
-          "price_jpy": 22770,
-          "category": "Intel"
-        },
-        {
-          "name": "ROG STRIX B860-G GAMING WIFI",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Micro ATX",
-          "rating": 4.67,
-          "review_count": 3,
-          "price_jpy": 41280,
-          "category": "Intel"
-        },
-        {
-          "name": "TUF GAMING X870-PLUS WIFI",
+          "name": "TUF GAMING B850-PLUS WIFI",
           "socket": "AM5",
-          "chipset": "X870",
+          "chipset": "B850",
           "form_factor": "ATX",
           "rating": 4.0,
           "review_count": 2,
-          "price_jpy": 41540,
-          "category": "AMD"
-        },
-        {
-          "name": "TUF GAMING B650M-PLUS WIFI",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "rating": 3.0,
-          "review_count": 1,
-          "price_jpy": 19480,
-          "category": "AMD"
-        },
-        {
-          "name": "B850M MAX GAMING WIFI (B850 AM5 MicroATX) ドスパラ限定モデル",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "rating": 4.67,
-          "review_count": 2,
-          "price_jpy": 19980,
+          "price_jpy": 35610,
           "category": "AMD"
         },
         {
@@ -878,7 +868,17 @@
           "form_factor": "ATX",
           "rating": 4.0,
           "review_count": 1,
-          "price_jpy": 39771,
+          "price_jpy": 40200,
+          "category": "AMD"
+        },
+        {
+          "name": "TUF GAMING X870-PLUS WIFI",
+          "socket": "AM5",
+          "chipset": "X870",
+          "form_factor": "ATX",
+          "rating": 4.0,
+          "review_count": 2,
+          "price_jpy": 41540,
           "category": "AMD"
         },
         {
@@ -892,14 +892,14 @@
           "category": "AMD"
         },
         {
-          "name": "TUF GAMING B850-PLUS WIFI",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "ATX",
-          "rating": 4.0,
+          "name": "PRIME B860M-A WIFI-CSM",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "rating": 3.17,
           "review_count": 2,
-          "price_jpy": 35610,
-          "category": "AMD"
+          "price_jpy": 22770,
+          "category": "Intel"
         },
         {
           "name": "ROG STRIX X870-I GAMING WIFI",
@@ -912,23 +912,13 @@
           "category": "AMD"
         },
         {
-          "name": "TUF GAMING B760M-PLUS D4",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "rating": 4.36,
-          "review_count": 8,
-          "price_jpy": 22200,
-          "category": "Intel"
-        },
-        {
           "name": "ROG STRIX B650E-I GAMING WIFI",
           "socket": "AM5",
           "chipset": "B650E",
           "form_factor": "Mini-ITX",
           "rating": 4.46,
           "review_count": 7,
-          "price_jpy": 41267,
+          "price_jpy": 37353,
           "category": "AMD"
         },
         {
@@ -962,6 +952,16 @@
           "category": "Intel"
         },
         {
+          "name": "TUF GAMING B760M-PLUS D4",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "rating": 4.36,
+          "review_count": 8,
+          "price_jpy": 22200,
+          "category": "Intel"
+        },
+        {
           "name": "PRIME H770-PLUS D4",
           "socket": "LGA1700",
           "chipset": "H770",
@@ -992,16 +992,6 @@
           "category": "AMD"
         },
         {
-          "name": "PRIME B850M-K-CSM",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "rating": 4.0,
-          "review_count": 1,
-          "price_jpy": 16610,
-          "category": "AMD"
-        },
-        {
           "name": "Z890 MAX GAMING WIFI7 パソコン工房限定モデル",
           "socket": "LGA1851",
           "chipset": "Z890",
@@ -1010,26 +1000,6 @@
           "review_count": 1,
           "price_jpy": 30800,
           "category": "Intel"
-        },
-        {
-          "name": "TUF GAMING B850M-PLUS WIFI",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "rating": 2.5,
-          "review_count": 2,
-          "price_jpy": 35400,
-          "category": "AMD"
-        },
-        {
-          "name": "ROG STRIX B650E-F GAMING WIFI",
-          "socket": "AM5",
-          "chipset": "B650E",
-          "form_factor": "ATX",
-          "rating": 4.33,
-          "review_count": 6,
-          "price_jpy": 36850,
-          "category": "AMD"
         },
         {
           "name": "ROG STRIX Z890-F GAMING WIFI",
@@ -1042,23 +1012,23 @@
           "category": "Intel"
         },
         {
-          "name": "ROG STRIX X870-A GAMING WIFI",
+          "name": "PRIME B850M-K-CSM",
           "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "ATX",
-          "rating": 3.5,
-          "review_count": 2,
-          "price_jpy": 53810,
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "rating": 4.0,
+          "review_count": 1,
+          "price_jpy": 16610,
           "category": "AMD"
         },
         {
-          "name": "ROG CROSSHAIR X870E APEX",
+          "name": "ROG STRIX B650E-F GAMING WIFI",
           "socket": "AM5",
-          "chipset": "X870E",
+          "chipset": "B650E",
           "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 135000,
+          "rating": 4.33,
+          "review_count": 6,
+          "price_jpy": 36850,
           "category": "AMD"
         },
         {
@@ -1082,6 +1052,36 @@
           "category": "Intel"
         },
         {
+          "name": "ROG CROSSHAIR X870E APEX",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 135000,
+          "category": "AMD"
+        },
+        {
+          "name": "ROG CROSSHAIR X870E HERO",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 139200,
+          "category": "AMD"
+        },
+        {
+          "name": "ROG CROSSHAIR X870E EXTREME",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "E-ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 219800,
+          "category": "AMD"
+        },
+        {
           "name": "ROG STRIX B650-A GAMING WIFI",
           "socket": "AM5",
           "chipset": "B650",
@@ -1098,28 +1098,8 @@
           "form_factor": "ATX",
           "rating": 4.0,
           "review_count": 1,
-          "price_jpy": 122069,
+          "price_jpy": 122590,
           "category": "Intel"
-        },
-        {
-          "name": "ROG CROSSHAIR X870E HERO",
-          "socket": "AM5",
-          "chipset": "X870E",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 138679,
-          "category": "AMD"
-        },
-        {
-          "name": "ROG CROSSHAIR X870E EXTREME",
-          "socket": "AM5",
-          "chipset": "X870E",
-          "form_factor": "E-ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 219800,
-          "category": "AMD"
         },
         {
           "name": "TUF GAMING B650M-E WIFI",
@@ -1132,14 +1112,24 @@
           "category": "AMD"
         },
         {
-          "name": "ROG STRIX B760-F GAMING WIFI",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "ATX",
-          "rating": 5.0,
+          "name": "TUF GAMING B850M-PLUS WIFI",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "rating": 2.5,
           "review_count": 2,
-          "price_jpy": 34980,
-          "category": "Intel"
+          "price_jpy": 35400,
+          "category": "AMD"
+        },
+        {
+          "name": "ROG STRIX X870-A GAMING WIFI",
+          "socket": "AM5",
+          "chipset": "X870",
+          "form_factor": "ATX",
+          "rating": 3.5,
+          "review_count": 2,
+          "price_jpy": 53810,
+          "category": "AMD"
         },
         {
           "name": "ROG STRIX Z890-I GAMING WIFI",
@@ -1160,6 +1150,16 @@
           "review_count": 6,
           "price_jpy": 18800,
           "category": "AMD"
+        },
+        {
+          "name": "ROG STRIX B760-F GAMING WIFI",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 2,
+          "price_jpy": 34980,
+          "category": "Intel"
         },
         {
           "name": "TUF GAMING Z890-PRO WIFI",
@@ -1223,7 +1223,7 @@
           "form_factor": "Micro ATX",
           "rating": 4.69,
           "review_count": 3,
-          "price_jpy": 18980,
+          "price_jpy": 18590,
           "category": "AMD"
         },
         {
@@ -1267,26 +1267,6 @@
           "category": "AMD"
         },
         {
-          "name": "B760 GAMING PLUS WIFI DDR4",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "ATX",
-          "rating": 3.0,
-          "review_count": 2,
-          "price_jpy": 17980,
-          "category": "Intel"
-        },
-        {
-          "name": "B760M GAMING PLUS WIFI DDR4",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "rating": 5.0,
-          "review_count": 2,
-          "price_jpy": 15980,
-          "category": "Intel"
-        },
-        {
           "name": "MAG Z890 TOMAHAWK WIFI",
           "socket": "LGA1851",
           "chipset": "Z890",
@@ -1307,6 +1287,26 @@
           "category": "AMD"
         },
         {
+          "name": "B760M GAMING PLUS WIFI DDR4",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "rating": 5.0,
+          "review_count": 2,
+          "price_jpy": 15980,
+          "category": "Intel"
+        },
+        {
+          "name": "B760 GAMING PLUS WIFI DDR4",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "ATX",
+          "rating": 3.0,
+          "review_count": 2,
+          "price_jpy": 17980,
+          "category": "Intel"
+        },
+        {
           "name": "PRO B850-P WIFI",
           "socket": "AM5",
           "chipset": "B850",
@@ -1325,16 +1325,6 @@
           "review_count": 2,
           "price_jpy": 35975,
           "category": "AMD"
-        },
-        {
-          "name": "Z790 GAMING PLUS WIFI",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "ATX",
-          "rating": 4.55,
-          "review_count": 5,
-          "price_jpy": 28980,
-          "category": "Intel"
         },
         {
           "name": "B860M GAMING PLUS WIFI",
@@ -1377,6 +1367,16 @@
           "category": "Intel"
         },
         {
+          "name": "Z790 GAMING PLUS WIFI",
+          "socket": "LGA1700",
+          "chipset": "Z790",
+          "form_factor": "ATX",
+          "rating": 4.55,
+          "review_count": 5,
+          "price_jpy": 27200,
+          "category": "Intel"
+        },
+        {
           "name": "MAG X870 TOMAHAWK WIFI",
           "socket": "AM5",
           "chipset": "X870",
@@ -1407,6 +1407,16 @@
           "category": "Intel"
         },
         {
+          "name": "MAG B650 TOMAHAWK WIFI",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "rating": 4.68,
+          "review_count": 85,
+          "price_jpy": 35343,
+          "category": "AMD"
+        },
+        {
           "name": "MAG B650M MORTAR WIFI",
           "socket": "AM5",
           "chipset": "B650",
@@ -1414,16 +1424,6 @@
           "rating": 4.2,
           "review_count": 26,
           "price_jpy": 26300,
-          "category": "AMD"
-        },
-        {
-          "name": "MPG X670E CARBON WIFI",
-          "socket": "AM5",
-          "chipset": "X670E",
-          "form_factor": "ATX",
-          "rating": 4.79,
-          "review_count": 18,
-          "price_jpy": 53000,
           "category": "AMD"
         },
         {
@@ -1437,14 +1437,14 @@
           "category": "Intel"
         },
         {
-          "name": "PRO B850M-A WIFI PZ",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
+          "name": "MAG B860 TOMAHAWK WIFI",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "ATX",
           "rating": 5.0,
           "review_count": 1,
-          "price_jpy": 32980,
-          "category": "AMD"
+          "price_jpy": 28980,
+          "category": "Intel"
         },
         {
           "name": "MPG B850 EDGE TI WIFI",
@@ -1454,6 +1454,26 @@
           "rating": 5.0,
           "review_count": 1,
           "price_jpy": 37980,
+          "category": "AMD"
+        },
+        {
+          "name": "MPG X670E CARBON WIFI",
+          "socket": "AM5",
+          "chipset": "X670E",
+          "form_factor": "ATX",
+          "rating": 4.79,
+          "review_count": 18,
+          "price_jpy": 53000,
+          "category": "AMD"
+        },
+        {
+          "name": "PRO B650M-A WIFI",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Micro ATX",
+          "rating": 4.37,
+          "review_count": 24,
+          "price_jpy": 18167,
           "category": "AMD"
         },
         {
@@ -1467,84 +1487,14 @@
           "category": "Intel"
         },
         {
-          "name": "B650 GAMING PLUS WIFI",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "ATX",
-          "rating": 4.82,
-          "review_count": 16,
-          "price_jpy": 26980,
-          "category": "AMD"
-        },
-        {
-          "name": "MAG B860 TOMAHAWK WIFI",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 28980,
-          "category": "Intel"
-        },
-        {
           "name": "MPG B650I EDGE WIFI",
           "socket": "AM5",
           "chipset": "B650",
           "form_factor": "Mini-ITX",
           "rating": 4.36,
           "review_count": 11,
-          "price_jpy": 34000,
+          "price_jpy": 34343,
           "category": "AMD"
-        },
-        {
-          "name": "MAG B650 TOMAHAWK WIFI",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "ATX",
-          "rating": 4.68,
-          "review_count": 85,
-          "price_jpy": 35343,
-          "category": "AMD"
-        },
-        {
-          "name": "B760M GAMING PLUS WIFI",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "rating": 4.74,
-          "review_count": 7,
-          "price_jpy": 15669,
-          "category": "Intel"
-        },
-        {
-          "name": "PRO B650M-A WIFI",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "rating": 4.37,
-          "review_count": 24,
-          "price_jpy": 18167,
-          "category": "AMD"
-        },
-        {
-          "name": "PRO H810I WIFI",
-          "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Mini-ITX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 25780,
-          "category": "Intel"
-        },
-        {
-          "name": "B760M PROJECT ZERO",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "rating": 3.0,
-          "review_count": 1,
-          "price_jpy": 29626,
-          "category": "Intel"
         },
         {
           "name": "MPG Z890 CARBON WIFI",
@@ -1567,6 +1517,36 @@
           "category": "Intel"
         },
         {
+          "name": "B650 GAMING PLUS WIFI",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "rating": 4.82,
+          "review_count": 16,
+          "price_jpy": 26980,
+          "category": "AMD"
+        },
+        {
+          "name": "PRO B850M-A WIFI PZ",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 32980,
+          "category": "AMD"
+        },
+        {
+          "name": "B760M GAMING PLUS WIFI",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "rating": 4.74,
+          "review_count": 7,
+          "price_jpy": 15669,
+          "category": "Intel"
+        },
+        {
           "name": "PRO B850M-P WIFI パソコン工房限定モデル",
           "socket": "AM5",
           "chipset": "B850",
@@ -1577,14 +1557,14 @@
           "category": "AMD"
         },
         {
-          "name": "B850MPOWER",
-          "socket": "AM5",
-          "chipset": "B850",
+          "name": "B760M PROJECT ZERO",
+          "socket": "LGA1700",
+          "chipset": "B760",
           "form_factor": "Micro ATX",
-          "rating": 4.0,
+          "rating": 3.0,
           "review_count": 1,
-          "price_jpy": 41400,
-          "category": "AMD"
+          "price_jpy": 29626,
+          "category": "Intel"
         },
         {
           "name": "MPG Z890 EDGE TI WIFI",
@@ -1617,6 +1597,26 @@
           "category": "AMD"
         },
         {
+          "name": "PRO H810I WIFI",
+          "socket": "LGA1851",
+          "chipset": "H810",
+          "form_factor": "Mini-ITX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 25780,
+          "category": "Intel"
+        },
+        {
+          "name": "B850MPOWER",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "rating": 4.0,
+          "review_count": 1,
+          "price_jpy": 41400,
+          "category": "AMD"
+        },
+        {
           "name": "MEG Z890 GODLIKE",
           "socket": "LGA1851",
           "chipset": "Z890",
@@ -1627,14 +1627,14 @@
           "category": "Intel"
         },
         {
-          "name": "B650M GAMING PLUS WIFI",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "rating": 4.69,
-          "review_count": 27,
-          "price_jpy": 24400,
-          "category": "AMD"
+          "name": "PRO Z890-S WIFI パソコン工房限定モデル",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 3.43,
+          "review_count": 2,
+          "price_jpy": 24979,
+          "category": "Intel"
         },
         {
           "name": "PRO Z890-A WIFI",
@@ -1647,16 +1647,6 @@
           "category": "Intel"
         },
         {
-          "name": "MAG X670E TOMAHAWK WIFI",
-          "socket": "AM5",
-          "chipset": "X670E",
-          "form_factor": "ATX",
-          "rating": 4.61,
-          "review_count": 31,
-          "price_jpy": 40980,
-          "category": "AMD"
-        },
-        {
           "name": "PRO B650M-P",
           "socket": "AM5",
           "chipset": "B650",
@@ -1665,16 +1655,6 @@
           "review_count": 2,
           "price_jpy": 17100,
           "category": "AMD"
-        },
-        {
-          "name": "PRO Z890-S WIFI パソコン工房限定モデル",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "rating": 3.43,
-          "review_count": 2,
-          "price_jpy": 24979,
-          "category": "Intel"
         },
         {
           "name": "Z890 GAMING PLUS WIFI",
@@ -1707,13 +1687,13 @@
           "category": "AMD"
         },
         {
-          "name": "PRO X870-P WIFI",
+          "name": "MAG X670E TOMAHAWK WIFI",
           "socket": "AM5",
-          "chipset": "X870",
+          "chipset": "X670E",
           "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 2,
-          "price_jpy": 43976,
+          "rating": 4.61,
+          "review_count": 31,
+          "price_jpy": 40980,
           "category": "AMD"
         },
         {
@@ -1727,6 +1707,16 @@
           "category": "Intel"
         },
         {
+          "name": "B650M GAMING PLUS WIFI",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Micro ATX",
+          "rating": 4.69,
+          "review_count": 27,
+          "price_jpy": 24400,
+          "category": "AMD"
+        },
+        {
           "name": "PRO Z790-A WIFI",
           "socket": "LGA1700",
           "chipset": "Z790",
@@ -1735,6 +1725,16 @@
           "review_count": 4,
           "price_jpy": 39800,
           "category": "Intel"
+        },
+        {
+          "name": "PRO X870-P WIFI",
+          "socket": "AM5",
+          "chipset": "X870",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 2,
+          "price_jpy": 43980,
+          "category": "AMD"
         }
       ]
     },
@@ -1758,18 +1758,8 @@
           "form_factor": "ATX",
           "rating": 3.5,
           "review_count": 2,
-          "price_jpy": 14370,
+          "price_jpy": 13756,
           "category": "Intel"
-        },
-        {
-          "name": "X870M A ELITE WF7 ICE",
-          "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "Micro ATX",
-          "rating": 4.44,
-          "review_count": 4,
-          "price_jpy": 33588,
-          "category": "AMD"
         },
         {
           "name": "B850 A ELITE WF7",
@@ -1779,6 +1769,16 @@
           "rating": 5.0,
           "review_count": 3,
           "price_jpy": 27792,
+          "category": "AMD"
+        },
+        {
+          "name": "X870M A ELITE WF7 ICE",
+          "socket": "AM5",
+          "chipset": "X870",
+          "form_factor": "Micro ATX",
+          "rating": 4.44,
+          "review_count": 4,
+          "price_jpy": 33588,
           "category": "AMD"
         },
         {
@@ -1802,13 +1802,13 @@
           "category": "AMD"
         },
         {
-          "name": "B760M DS3H DDR4 (B760 1700 MicroATX) ドスパラ限定モデル",
-          "socket": "LGA1700",
-          "chipset": "B760",
+          "name": "H810M K",
+          "socket": "LGA1851",
+          "chipset": "H810",
           "form_factor": "Micro ATX",
-          "rating": 3.0,
+          "rating": 5.0,
           "review_count": 1,
-          "price_jpy": 10980,
+          "price_jpy": 8820,
           "category": "Intel"
         },
         {
@@ -1838,18 +1838,8 @@
           "form_factor": "ATX",
           "rating": 5.0,
           "review_count": 3,
-          "price_jpy": 34800,
+          "price_jpy": 39266,
           "category": "AMD"
-        },
-        {
-          "name": "H810M K",
-          "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Micro ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 8820,
-          "category": "Intel"
         },
         {
           "name": "B850M EAGLE WF6E ICE",
@@ -1872,6 +1862,16 @@
           "category": "AMD"
         },
         {
+          "name": "B760M DS3H DDR4 (B760 1700 MicroATX) ドスパラ限定モデル",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "rating": 3.0,
+          "review_count": 1,
+          "price_jpy": 10980,
+          "category": "Intel"
+        },
+        {
           "name": "Z890 A ELITE WIFI7",
           "socket": "LGA1851",
           "chipset": "Z890",
@@ -1879,16 +1879,6 @@
           "rating": 4.0,
           "review_count": 3,
           "price_jpy": 27091,
-          "category": "Intel"
-        },
-        {
-          "name": "B760M G AC D4 GEN5",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 11480,
           "category": "Intel"
         },
         {
@@ -1902,14 +1892,24 @@
           "category": "AMD"
         },
         {
-          "name": "X870E AERO X WOOD",
-          "socket": "AM5",
-          "chipset": "X870E",
+          "name": "Z890 AERO G",
+          "socket": "LGA1851",
+          "chipset": "Z890",
           "form_factor": "ATX",
           "rating": 5.0,
           "review_count": 1,
-          "price_jpy": 58185,
-          "category": "AMD"
+          "price_jpy": 46673,
+          "category": "Intel"
+        },
+        {
+          "name": "B760M G AC D4 GEN5",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 11480,
+          "category": "Intel"
         },
         {
           "name": "B860 DS3H",
@@ -1922,24 +1922,14 @@
           "category": "Intel"
         },
         {
-          "name": "B650I AORUS ULTRA [Rev.1.0]",
+          "name": "X870E AERO X WOOD",
           "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Mini-ITX",
-          "rating": 3.0,
-          "review_count": 1,
-          "price_jpy": 38815,
-          "category": "AMD"
-        },
-        {
-          "name": "Z890 AERO G",
-          "socket": "LGA1851",
-          "chipset": "Z890",
+          "chipset": "X870E",
           "form_factor": "ATX",
           "rating": 5.0,
           "review_count": 1,
-          "price_jpy": 53236,
-          "category": "Intel"
+          "price_jpy": 58185,
+          "category": "AMD"
         },
         {
           "name": "B650M AORUS ELITE AX ICE",
@@ -1949,6 +1939,16 @@
           "rating": 3.79,
           "review_count": 5,
           "price_jpy": 22980,
+          "category": "AMD"
+        },
+        {
+          "name": "B650I AORUS ULTRA [Rev.1.0]",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Mini-ITX",
+          "rating": 3.0,
+          "review_count": 1,
+          "price_jpy": 38815,
           "category": "AMD"
         },
         {
@@ -1962,6 +1962,16 @@
           "category": "Intel"
         },
         {
+          "name": "X870 A ELITE WIFI7",
+          "socket": "AM5",
+          "chipset": "X870",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 40759,
+          "category": "AMD"
+        },
+        {
           "name": "X870E A ELITE WIFI7",
           "socket": "AM5",
           "chipset": "X870E",
@@ -1969,46 +1979,6 @@
           "rating": 5.0,
           "review_count": 1,
           "price_jpy": 44700,
-          "category": "AMD"
-        },
-        {
-          "name": "X870E AORUS MASTER",
-          "socket": "AM5",
-          "chipset": "X870E",
-          "form_factor": "ATX",
-          "rating": 4.49,
-          "review_count": 4,
-          "price_jpy": 80362,
-          "category": "AMD"
-        },
-        {
-          "name": "B850M DS3H",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 16460,
-          "category": "AMD"
-        },
-        {
-          "name": "B850M DS3H ICE",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "rating": 4.2,
-          "review_count": 5,
-          "price_jpy": 18866,
-          "category": "AMD"
-        },
-        {
-          "name": "X870 A ELITE WIFI7",
-          "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 42379,
           "category": "AMD"
         },
         {
@@ -2022,6 +1992,16 @@
           "category": "AMD"
         },
         {
+          "name": "X870E AORUS MASTER",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "rating": 4.49,
+          "review_count": 4,
+          "price_jpy": 81217,
+          "category": "AMD"
+        },
+        {
           "name": "X870E AORUS PRO ICE",
           "socket": "AM5",
           "chipset": "X870E",
@@ -2029,6 +2009,16 @@
           "rating": 4.46,
           "review_count": 13,
           "price_jpy": 61088,
+          "category": "AMD"
+        },
+        {
+          "name": "B850M DS3H",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 16460,
           "category": "AMD"
         },
         {
@@ -2042,6 +2032,56 @@
           "category": "AMD"
         },
         {
+          "name": "B850M DS3H ICE",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "rating": 4.2,
+          "review_count": 5,
+          "price_jpy": 18866,
+          "category": "AMD"
+        },
+        {
+          "name": "Z890 A ELITE X ICE",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.0,
+          "review_count": 1,
+          "price_jpy": 34800,
+          "category": "Intel"
+        },
+        {
+          "name": "B650E A STEALTH ICE",
+          "socket": "AM5",
+          "chipset": "B650E",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_jpy": 43500,
+          "category": "AMD"
+        },
+        {
+          "name": "B760I AORUS PRO DDR4 [Rev.1.0]",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Mini-ITX",
+          "rating": 3.0,
+          "review_count": 1,
+          "price_jpy": 59058,
+          "category": "Intel"
+        },
+        {
+          "name": "X870E A PRO X ICE",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "rating": 3.0,
+          "review_count": 1,
+          "price_jpy": 64413,
+          "category": "AMD"
+        },
+        {
           "name": "Z790 EAGLE AX [Rev.1.0]",
           "socket": "LGA1700",
           "chipset": "Z790",
@@ -2052,13 +2092,13 @@
           "category": "Intel"
         },
         {
-          "name": "Z890 A ELITE X ICE",
+          "name": "Z890 EAGLE WIFI7",
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "ATX",
-          "rating": 4.0,
+          "rating": 5.0,
           "review_count": 1,
-          "price_jpy": 34800,
+          "price_jpy": 30500,
           "category": "Intel"
         },
         {
@@ -2072,23 +2112,13 @@
           "category": "AMD"
         },
         {
-          "name": "B650E A STEALTH ICE",
-          "socket": "AM5",
-          "chipset": "B650E",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 43500,
-          "category": "AMD"
-        },
-        {
-          "name": "X870E A PRO X ICE",
+          "name": "X870E AORUS XTREME AI TOP",
           "socket": "AM5",
           "chipset": "X870E",
-          "form_factor": "ATX",
-          "rating": 3.0,
+          "form_factor": "E-ATX",
+          "rating": 4.0,
           "review_count": 1,
-          "price_jpy": 64413,
+          "price_jpy": 165615,
           "category": "AMD"
         },
         {
@@ -2109,16 +2139,6 @@
           "rating": 5.0,
           "review_count": 1,
           "price_jpy": 20889,
-          "category": "Intel"
-        },
-        {
-          "name": "Z890 EAGLE WIFI7",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_jpy": 30500,
           "category": "Intel"
         },
         {
@@ -2149,16 +2169,6 @@
           "rating": 3.0,
           "review_count": 1,
           "price_jpy": 74278,
-          "category": "AMD"
-        },
-        {
-          "name": "X870E AORUS XTREME AI TOP",
-          "socket": "AM5",
-          "chipset": "X870E",
-          "form_factor": "E-ATX",
-          "rating": 4.0,
-          "review_count": 1,
-          "price_jpy": 165731,
           "category": "AMD"
         }
       ]
