@@ -1,6 +1,6 @@
 {
   "source": "Newegg",
-  "retrieved_date": "2026-07-14",
+  "retrieved_date": "2026-07-15",
   "brands": {
     "ASRock": {
       "brand": "ASRock",
@@ -131,7 +131,7 @@
           "chipset": "B850",
           "form_factor": "ATX",
           "rating": 4.4,
-          "review_count": 26,
+          "review_count": 27,
           "price_usd": 179.99,
           "category": "AMD"
         },
@@ -156,6 +156,16 @@
           "category": "Intel"
         },
         {
+          "name": "Z790 PG Lightning Intel LGA1700 (14th,13th,12th Gen) ATX Motherboard, 4 slots DDR5, PCIE 5.0 x16, Quad Hyper M.2 slots, 2.5Gb Lan, 7.1 Nahimic Audio, 14+1+1 Power Phase",
+          "socket": "LGA1700",
+          "chipset": "Z790",
+          "form_factor": "ATX",
+          "rating": 4.3,
+          "review_count": 440,
+          "price_usd": 475.32,
+          "category": "Intel"
+        },
+        {
           "name": "Z790M-ITX WIFI Intel LGA1700 (14th,13th,12th Gen) Mini-ITX Mainboard, 2 slots DDR5, PCIE 5.0 x16, Dual Lan 2.5Gb, 1Gb, Dual M.2 slots 7.1 Nahimic Audio, USB3.2 Gen2X2 Type_C, 7+1+1 Power Phase",
           "socket": "LGA1700",
           "chipset": "Z790",
@@ -163,16 +173,6 @@
           "rating": 4.3,
           "review_count": 440,
           "price_usd": 232.0,
-          "category": "Intel"
-        },
-        {
-          "name": "Z790 PG Lightning Intel LGA1700 (14th,13th,12th Gen) ATX Motherboard, 4 slots DDR5, PCIE 5.0 x16, Quad Hyper M.2 slots, 2.5Gb Lan, 7.1 Nahimic Audio, 14+1+1 Power Phase",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "ATX",
-          "rating": 4.3,
-          "review_count": 440,
-          "price_usd": 382.33,
           "category": "Intel"
         },
         {
@@ -216,7 +216,7 @@
           "category": "AMD"
         },
         {
-          "name": "Z890 Lightning WiFi LGA 1851 Intel Z890 ATX Motherboard",
+          "name": "Z890 Nova WiFi LGA 1851 Intel Z890 ATX Motherboard",
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "ATX",
@@ -236,6 +236,16 @@
           "category": "Intel"
         },
         {
+          "name": "Z890 Pro RS WiFi LGA 1851 Intel Z890 ATX Motherboard",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.2,
+          "review_count": 76,
+          "price_usd": 204.28,
+          "category": "Intel"
+        },
+        {
           "name": "Z890 Pro RS LGA 1851 Intel Z890 ATX Motherboard",
           "socket": "LGA1851",
           "chipset": "Z890",
@@ -246,36 +256,6 @@
           "category": "Intel"
         },
         {
-          "name": "Z890I Nova WiFi LGA 1851 Intel Z890 Mini ITX Motherboard",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "Mini-ITX",
-          "rating": 4.2,
-          "review_count": 76,
-          "price_usd": 276.0,
-          "category": "Intel"
-        },
-        {
-          "name": "Z890 Nova WiFi LGA 1851 Intel Z890 ATX Motherboard",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "rating": 4.2,
-          "review_count": 76,
-          "price_usd": 199.99,
-          "category": "Intel"
-        },
-        {
-          "name": "Z890 LiveMixer WiFi LGA 1851 Intel Z890 ATX Motherboard",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "rating": 4.2,
-          "review_count": 76,
-          "price_usd": 209.99,
-          "category": "Intel"
-        },
-        {
           "name": "Z890 Taichi Lite LGA 1851 Intel Z890 ATX Motherboard",
           "socket": "LGA1851",
           "chipset": "Z890",
@@ -283,6 +263,26 @@
           "rating": 4.2,
           "review_count": 76,
           "price_usd": 319.99,
+          "category": "Intel"
+        },
+        {
+          "name": "Z890 Taichi OCF LGA 1851 Intel Z890 SATA 6Gb/s ATX Motherboard",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.2,
+          "review_count": 76,
+          "price_usd": 475.99,
+          "category": "Intel"
+        },
+        {
+          "name": "Z890 Lightning WiFi LGA 1851 Intel Z890 ATX Motherboard",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.2,
+          "review_count": 76,
+          "price_usd": 199.99,
           "category": "Intel"
         },
         {
@@ -306,6 +306,16 @@
           "category": "Intel"
         },
         {
+          "name": "Z890 LiveMixer WiFi LGA 1851 Intel Z890 ATX Motherboard",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.2,
+          "review_count": 76,
+          "price_usd": 209.99,
+          "category": "Intel"
+        },
+        {
           "name": "Z890 Taichi LGA 1851 Intel Z890 ATX Motherboard",
           "socket": "LGA1851",
           "chipset": "Z890",
@@ -316,23 +326,13 @@
           "category": "Intel"
         },
         {
-          "name": "Z890 Taichi OCF LGA 1851 Intel Z890 SATA 6Gb/s ATX Motherboard",
+          "name": "Z890I Nova WiFi LGA 1851 Intel Z890 Mini ITX Motherboard",
           "socket": "LGA1851",
           "chipset": "Z890",
-          "form_factor": "ATX",
+          "form_factor": "Mini-ITX",
           "rating": 4.2,
           "review_count": 76,
-          "price_usd": 475.99,
-          "category": "Intel"
-        },
-        {
-          "name": "Z890 Pro RS WiFi White LGA 1851 Intel Z890 ATX Motherboard",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "rating": 4.2,
-          "review_count": 76,
-          "price_usd": 459.0,
+          "price_usd": 566.84,
           "category": "Intel"
         },
         {
@@ -343,6 +343,16 @@
           "rating": 4.2,
           "review_count": 76,
           "price_usd": 539.0,
+          "category": "Intel"
+        },
+        {
+          "name": "Z890 Pro RS WiFi White LGA 1851 Intel Z890 ATX Motherboard",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.2,
+          "review_count": 76,
+          "price_usd": 459.0,
           "category": "Intel"
         },
         {
@@ -452,18 +462,18 @@
           "form_factor": "Micro ATX",
           "rating": 3.9,
           "review_count": 10,
-          "price_usd": 129.99,
+          "price_usd": 113.99,
           "category": "AMD"
         },
         {
-          "name": "B650I LIGHTNING WIFI AM5 Ryzen 7000 AMD B650 SATA 6Gb/s Mini-ITX s DDR5 7200+ (OC) 2.5G LAN x WiFi 6E + Bluetooth Motherboards - AMD",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Mini-ITX",
+          "name": "B860 Steel Legend WiFi LGA 1851 Intel B860 SATA 6Gb/s DDR5 ATX Motherboard",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "ATX",
           "rating": 3.8,
-          "review_count": 45,
-          "price_usd": 169.99,
-          "category": "AMD"
+          "review_count": 15,
+          "price_usd": 139.99,
+          "category": "Intel"
         },
         {
           "name": "B860 Pro-A LGA 1851 Intel B860 SATA 6Gb/s DDR5 Intel Core Ultra  ATX Motherboard",
@@ -486,16 +496,6 @@
           "category": "Intel"
         },
         {
-          "name": "B860 Steel Legend WiFi LGA 1851 Intel B860 SATA 6Gb/s DDR5 ATX Motherboard",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "ATX",
-          "rating": 3.8,
-          "review_count": 15,
-          "price_usd": 139.99,
-          "category": "Intel"
-        },
-        {
           "name": "B860 LiveMixer WiFi LGA 1851 Intel B860 SATA 6Gb/s DDR5 Intel Core Ultra ATX  Motherboard",
           "socket": "LGA1851",
           "chipset": "B860",
@@ -503,6 +503,16 @@
           "rating": 3.8,
           "review_count": 15,
           "price_usd": 159.99,
+          "category": "Intel"
+        },
+        {
+          "name": "B860I Lightning WiFi LGA 1851 Intel B860 SATA 6Gb/s Intel Core Ultra DDR5 Mini ITX Motherboard",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Mini-ITX",
+          "rating": 3.8,
+          "review_count": 15,
+          "price_usd": 174.99,
           "category": "Intel"
         },
         {
@@ -526,16 +536,6 @@
           "category": "Intel"
         },
         {
-          "name": "B860I Lightning WiFi LGA 1851 Intel B860 SATA 6Gb/s Intel Core Ultra DDR5 Mini ITX Motherboard",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Mini-ITX",
-          "rating": 3.8,
-          "review_count": 15,
-          "price_usd": 174.99,
-          "category": "Intel"
-        },
-        {
           "name": "B860I WiFi LGA 1851 Intel B860 SATA 6Gb/s Intel Core Ultra DDR5 Mini ITX Motherboard",
           "socket": "LGA1851",
           "chipset": "B860",
@@ -552,7 +552,7 @@
           "form_factor": "Micro ATX",
           "rating": 3.8,
           "review_count": 15,
-          "price_usd": 235.3,
+          "price_usd": 228.13,
           "category": "Intel"
         },
         {
@@ -602,7 +602,7 @@
           "form_factor": "Micro ATX",
           "rating": 3.8,
           "review_count": 15,
-          "price_usd": 163.77,
+          "price_usd": 160.04,
           "category": "Intel"
         },
         {
@@ -614,6 +614,16 @@
           "review_count": 5,
           "price_usd": 139.99,
           "category": "Unknown"
+        },
+        {
+          "name": "B650I LIGHTNING WIFI AM5 Ryzen 7000 AMD B650 SATA 6Gb/s Mini-ITX s DDR5 7200+ (OC) 2.5G LAN x WiFi 6E + Bluetooth Motherboards - AMD",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Mini-ITX",
+          "rating": 3.7,
+          "review_count": 46,
+          "price_usd": 169.99,
+          "category": "AMD"
         },
         {
           "name": "B760M-HDV/M.2 LGA1700 Micro ATX (280) Intel B760 SATA 6Gb/s DDR5 1 PCIe 4.0 x16 Motherboards - Intel",
@@ -641,7 +651,7 @@
           "chipset": "B850",
           "form_factor": "Micro ATX",
           "rating": 3.3,
-          "review_count": 20,
+          "review_count": 19,
           "price_usd": 149.99,
           "category": "AMD"
         },
@@ -797,7 +807,7 @@
           "form_factor": "ATX",
           "rating": 5.0,
           "review_count": 1,
-          "price_usd": 388.0,
+          "price_usd": 381.72,
           "category": "AMD"
         },
         {
@@ -817,7 +827,7 @@
           "form_factor": "ATX",
           "rating": 5.0,
           "review_count": 1,
-          "price_usd": 949.99,
+          "price_usd": 919.24,
           "category": "Intel"
         },
         {
@@ -837,7 +847,7 @@
           "form_factor": "Micro ATX",
           "rating": 5.0,
           "review_count": 1,
-          "price_usd": 254.7,
+          "price_usd": 240.91,
           "category": "Intel"
         },
         {
@@ -847,7 +857,7 @@
           "form_factor": "Micro ATX",
           "rating": 5.0,
           "review_count": 1,
-          "price_usd": 285.48,
+          "price_usd": 298.08,
           "category": "AMD"
         },
         {
@@ -857,7 +867,7 @@
           "form_factor": "ATX",
           "rating": 5.0,
           "review_count": 1,
-          "price_usd": 2281.91,
+          "price_usd": 2247.22,
           "category": "Intel"
         },
         {
@@ -927,7 +937,7 @@
           "form_factor": "Micro ATX",
           "rating": 4.8,
           "review_count": 12,
-          "price_usd": 165.32,
+          "price_usd": 161.56,
           "category": "Intel"
         },
         {
@@ -947,7 +957,7 @@
           "form_factor": "ATX",
           "rating": 4.7,
           "review_count": 49,
-          "price_usd": 229.99,
+          "price_usd": 227.99,
           "category": "AMD"
         },
         {
@@ -967,7 +977,7 @@
           "form_factor": "ATX",
           "rating": 4.7,
           "review_count": 14,
-          "price_usd": 234.72,
+          "price_usd": 220.21,
           "category": "Intel"
         },
         {
@@ -986,7 +996,7 @@
           "chipset": "B850",
           "form_factor": "ATX",
           "rating": 4.6,
-          "review_count": 33,
+          "review_count": 34,
           "price_usd": 169.99,
           "category": "AMD"
         },
@@ -1007,7 +1017,7 @@
           "form_factor": "ATX",
           "rating": 4.6,
           "review_count": 14,
-          "price_usd": 1262.87,
+          "price_usd": 1233.26,
           "category": "Intel"
         },
         {
@@ -1036,19 +1046,9 @@
           "chipset": "X870E",
           "form_factor": "ATX",
           "rating": 4.4,
-          "review_count": 94,
+          "review_count": 95,
           "price_usd": 399.99,
           "category": "Unknown"
-        },
-        {
-          "name": "TUF GAMING B850M-PLUS WIFI AMD AM5 B850 mATX motherboard, 14+2+1 80A DrMOS stages, DDR5, PCIe 5.0, 3x M.2, Wi-Fi 6E, 2.5Gb LAN, DP, HDMI, USB 10Gbps & 20Gbps Type-C, BIOS FlashBack, Aura Sync",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "rating": 4.4,
-          "review_count": 26,
-          "price_usd": 257.88,
-          "category": "AMD"
         },
         {
           "name": "ROG STRIX B850-A GAMING WIFI R2 AMD AM5 B850 ATX motherboard with 14+2+1 power stages, DDR5 support with AEMP, WiFi 7, 4x M.2, PCIe 5.0 x16, USB 20Gbps Type-C, ASUS AI Advisor, AI Networking II",
@@ -1058,6 +1058,16 @@
           "rating": 4.4,
           "review_count": 25,
           "price_usd": 199.99,
+          "category": "AMD"
+        },
+        {
+          "name": "TUF GAMING B850M-PLUS WIFI AMD AM5 B850 mATX motherboard, 14+2+1 80A DrMOS stages, DDR5, PCIe 5.0, 3x M.2, Wi-Fi 6E, 2.5Gb LAN, DP, HDMI, USB 10Gbps & 20Gbps Type-C, BIOS FlashBack, Aura Sync",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "rating": 4.4,
+          "review_count": 25,
+          "price_usd": 265.33,
           "category": "AMD"
         },
         {
@@ -1127,7 +1137,7 @@
           "form_factor": "ATX",
           "rating": 4.2,
           "review_count": 5,
-          "price_usd": 262.44,
+          "price_usd": 257.44,
           "category": "Intel"
         },
         {
@@ -1148,6 +1158,26 @@
           "rating": 4.1,
           "review_count": 142,
           "price_usd": 249.99,
+          "category": "Intel"
+        },
+        {
+          "name": "ROG MAXIMUS Z890 HERO Intel® Z890 LGA 1851 ATX motherboard, Advanced AI PC-ready, 22+2+1+2 stages, DDR5, WiFi 7, 3x PCIe® 5.0 M.2, Thunderbolt™ 4, USB Type-C®, AI Overclocking/Cooling/Networking",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.1,
+          "review_count": 142,
+          "price_usd": 433.99,
+          "category": "Intel"
+        },
+        {
+          "name": "ROG MAXIMUS Z890 APEX Intel® Z890 LGA 1851 ATX motherboard, Advanced AI PC-ready, 22+2+1+2 stages, DDR5, WiFi 7, 5G LAN, 3x PCIe® 5.0 M.2, Thunderbolt™ 4, USB Type-C®, AI OC, Cooling & Networking",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.1,
+          "review_count": 142,
+          "price_usd": 399.99,
           "category": "Intel"
         },
         {
@@ -1177,17 +1207,7 @@
           "form_factor": "ATX",
           "rating": 4.1,
           "review_count": 142,
-          "price_usd": 454.99,
-          "category": "Intel"
-        },
-        {
-          "name": "ROG MAXIMUS Z890 APEX Intel® Z890 LGA 1851 ATX motherboard, Advanced AI PC-ready, 22+2+1+2 stages, DDR5, WiFi 7, 5G LAN, 3x PCIe® 5.0 M.2, Thunderbolt™ 4, USB Type-C®, AI OC, Cooling & Networking",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "rating": 4.1,
-          "review_count": 142,
-          "price_usd": 399.99,
+          "price_usd": 453.99,
           "category": "Intel"
         },
         {
@@ -1198,16 +1218,6 @@
           "rating": 4.1,
           "review_count": 142,
           "price_usd": 849.99,
-          "category": "Intel"
-        },
-        {
-          "name": "ROG MAXIMUS Z890 HERO Intel® Z890 LGA 1851 ATX motherboard, Advanced AI PC-ready, 22+2+1+2 stages, DDR5, WiFi 7, 3x PCIe® 5.0 M.2, Thunderbolt™ 4, USB Type-C®, AI Overclocking/Cooling/Networking",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "rating": 4.1,
-          "review_count": 142,
-          "price_usd": 433.99,
           "category": "Intel"
         },
         {
@@ -1257,7 +1267,7 @@
           "form_factor": "Mini-ITX",
           "rating": 4.1,
           "review_count": 142,
-          "price_usd": 461.1,
+          "price_usd": 505.7,
           "category": "Intel"
         },
         {
@@ -1277,7 +1287,7 @@
           "form_factor": "ATX",
           "rating": 4.1,
           "review_count": 27,
-          "price_usd": 185.49,
+          "price_usd": 198.09,
           "category": "AMD"
         },
         {
@@ -1317,7 +1327,7 @@
           "form_factor": "ATX",
           "rating": 4.0,
           "review_count": 166,
-          "price_usd": 414.61,
+          "price_usd": 412.6,
           "category": "Intel"
         },
         {
@@ -1327,7 +1337,7 @@
           "form_factor": "ATX",
           "rating": 4.0,
           "review_count": 105,
-          "price_usd": 305.16,
+          "price_usd": 299.73,
           "category": "Intel"
         },
         {
@@ -1347,7 +1357,7 @@
           "form_factor": "Micro ATX",
           "rating": 4.0,
           "review_count": 72,
-          "price_usd": 190.08,
+          "price_usd": 184.37,
           "category": "Intel"
         },
         {
@@ -1357,7 +1367,7 @@
           "form_factor": "ATX",
           "rating": 4.0,
           "review_count": 68,
-          "price_usd": 360.85,
+          "price_usd": 446.44,
           "category": "Intel"
         },
         {
@@ -1376,7 +1386,7 @@
           "chipset": "X870E",
           "form_factor": "ATX",
           "rating": 4.0,
-          "review_count": 55,
+          "review_count": 56,
           "price_usd": 569.99,
           "category": "AMD"
         },
@@ -1387,7 +1397,7 @@
           "form_factor": "E-ATX",
           "rating": 4.0,
           "review_count": 27,
-          "price_usd": 954.84,
+          "price_usd": 948.19,
           "category": "Intel"
         },
         {
@@ -1407,7 +1417,7 @@
           "form_factor": "ATX",
           "rating": 4.0,
           "review_count": 7,
-          "price_usd": 211.94,
+          "price_usd": 197.36,
           "category": "Intel"
         },
         {
@@ -1417,7 +1427,7 @@
           "form_factor": "ATX",
           "rating": 4.0,
           "review_count": 4,
-          "price_usd": 435.27,
+          "price_usd": 401.42,
           "category": "Intel"
         },
         {
@@ -1427,7 +1437,7 @@
           "form_factor": "ATX",
           "rating": 4.0,
           "review_count": 3,
-          "price_usd": 743.99,
+          "price_usd": 736.99,
           "category": "Unknown"
         },
         {
@@ -1437,7 +1447,7 @@
           "form_factor": "Micro ATX",
           "rating": 4.0,
           "review_count": 2,
-          "price_usd": 258.58,
+          "price_usd": 228.27,
           "category": "Intel"
         },
         {
@@ -1447,7 +1457,7 @@
           "form_factor": "ATX",
           "rating": 3.9,
           "review_count": 115,
-          "price_usd": 439.17,
+          "price_usd": 433.52,
           "category": "Intel"
         },
         {
@@ -1467,7 +1477,7 @@
           "form_factor": "ATX",
           "rating": 3.9,
           "review_count": 30,
-          "price_usd": 383.71,
+          "price_usd": 409.05,
           "category": "Intel"
         },
         {
@@ -1477,7 +1487,7 @@
           "form_factor": "ATX",
           "rating": 3.8,
           "review_count": 82,
-          "price_usd": 244.99,
+          "price_usd": 241.99,
           "category": "Intel"
         },
         {
@@ -1547,7 +1557,7 @@
           "form_factor": "ATX",
           "rating": 3.8,
           "review_count": 22,
-          "price_usd": 283.65,
+          "price_usd": 281.69,
           "category": "Intel"
         },
         {
@@ -1567,7 +1577,7 @@
           "form_factor": "ATX",
           "rating": 3.7,
           "review_count": 31,
-          "price_usd": 399.36,
+          "price_usd": 367.44,
           "category": "Intel"
         },
         {
@@ -1577,7 +1587,7 @@
           "form_factor": "ATX",
           "rating": 3.7,
           "review_count": 27,
-          "price_usd": 389.44,
+          "price_usd": 345.24,
           "category": "Intel"
         },
         {
@@ -1587,7 +1597,7 @@
           "form_factor": "Micro ATX",
           "rating": 3.7,
           "review_count": 19,
-          "price_usd": 288.99,
+          "price_usd": 274.89,
           "category": "Intel"
         },
         {
@@ -1607,7 +1617,7 @@
           "form_factor": "ATX",
           "rating": 3.7,
           "review_count": 3,
-          "price_usd": 277.99,
+          "price_usd": 275.99,
           "category": "Unknown"
         },
         {
@@ -1657,7 +1667,7 @@
           "form_factor": "ATX",
           "rating": 3.5,
           "review_count": 15,
-          "price_usd": 1314.03,
+          "price_usd": 1283.23,
           "category": "Intel"
         },
         {
@@ -1667,7 +1677,7 @@
           "form_factor": "Micro ATX",
           "rating": 3.5,
           "review_count": 4,
-          "price_usd": 291.76,
+          "price_usd": 265.62,
           "category": "Intel"
         },
         {
@@ -1697,7 +1707,7 @@
           "form_factor": "Mini-ITX",
           "rating": 3.0,
           "review_count": 14,
-          "price_usd": 383.8,
+          "price_usd": 378.3,
           "category": "Intel"
         },
         {
@@ -1707,7 +1717,7 @@
           "form_factor": "ATX",
           "rating": 3.0,
           "review_count": 14,
-          "price_usd": 274.48,
+          "price_usd": 275.76,
           "category": "AMD"
         },
         {
@@ -1717,7 +1727,7 @@
           "form_factor": "ATX",
           "rating": 3.0,
           "review_count": 2,
-          "price_usd": 319.05,
+          "price_usd": 322.38,
           "category": "Intel"
         },
         {
@@ -1737,7 +1747,7 @@
           "form_factor": "ATX",
           "rating": 3.0,
           "review_count": 2,
-          "price_usd": 260.28,
+          "price_usd": 326.83,
           "category": "Intel"
         },
         {
@@ -1876,16 +1886,6 @@
           "category": "Intel"
         },
         {
-          "name": "Pro B850M-A WiFi Bundle - Motherboard & 1TB NVMe SSD",
-          "socket": "Unknown",
-          "chipset": "B850",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_usd": 295.99,
-          "category": "Unknown"
-        },
-        {
           "name": "MPG X870I EDGE TI EVO WIFI White Motherboard, ITX - Supports AMD Ryzen 9000 / 8000 / 7000 Processors, AM5 - 110A SPS VRM, DDR5 Memory Boost, PCIe 5.0 x16, M.2 Gen5, Wi-Fi 7,  5G LAN",
           "socket": "AM5",
           "chipset": "X870",
@@ -1894,6 +1894,16 @@
           "review_count": 1,
           "price_usd": 339.99,
           "category": "AMD"
+        },
+        {
+          "name": "Pro B850M-A WiFi Bundle - Motherboard & 1TB NVMe SSD",
+          "socket": "Unknown",
+          "chipset": "B850",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_usd": 295.99,
+          "category": "Unknown"
         },
         {
           "name": "MPG X870E CARBON MAX WIFI Motherboard, ATX - Supports AMD Ryzen 9000 / 8000 / 7000 Processors, AM5 - 64MB BIOS ROM, 110A SPS VRM, DDR5 Memory Boost 8400+MT/s (OC), PCIe 5.0 x16, M.2 Gen5, Wi-Fi 7,",
@@ -2041,19 +2051,9 @@
           "chipset": "X870",
           "form_factor": "ATX",
           "rating": 4.5,
-          "review_count": 585,
+          "review_count": 586,
           "price_usd": 229.99,
           "category": "AMD"
-        },
-        {
-          "name": "MPG Z890 CARBON WIFI Motherboard, ATX - Supports Intel Core Ultra Processors (Series 2), LGA 1851 - 110A SPS VRM, DDR5 Memory Boost 9200+ MT/s (OC), PCIe 5.0 x16 & 4.0 x16, M.2 Gen5, Wi-Fi 7, 5G L",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "rating": 4.5,
-          "review_count": 197,
-          "price_usd": 361.99,
-          "category": "Intel"
         },
         {
           "name": "MAG Z890 TOMAHAWK WIFI Motherboard, ATX - Supports Intel Core Ultra Processors (Series 2), LGA 1851 - DDR5 Memory Boost 4 x DDR5 (9200+ MT/s OC), 1 x PCIe 5.0 x16, 1 x M.2 Gen5, Wi-Fi 7, 5G LAN",
@@ -2063,6 +2063,16 @@
           "rating": 4.5,
           "review_count": 197,
           "price_usd": 239.99,
+          "category": "Intel"
+        },
+        {
+          "name": "MPG Z890 CARBON WIFI Motherboard, ATX - Supports Intel Core Ultra Processors (Series 2), LGA 1851 - 110A SPS VRM, DDR5 Memory Boost 9200+ MT/s (OC), PCIe 5.0 x16 & 4.0 x16, M.2 Gen5, Wi-Fi 7, 5G L",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.5,
+          "review_count": 197,
+          "price_usd": 361.99,
           "category": "Intel"
         },
         {
@@ -2076,16 +2086,6 @@
           "category": "Intel"
         },
         {
-          "name": "MPG Z890I EDGE TI WIFI White Motherboard, Mini-ITX - Supports Intel Core Ultra Processors (Series 2), LGA 1851 - 110A SPS VRM, DDR5 Memory Boost (8600+ MT/s OC), PCIe 5.0 x16, M.2 Gen5, Wi-Fi 7, 5",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "Mini-ITX",
-          "rating": 4.5,
-          "review_count": 197,
-          "price_usd": 287.99,
-          "category": "Intel"
-        },
-        {
           "name": "MEG Z890 ACE Motherboard, ATX - Supports Intel Core Ultra Processors (Series 2), LGA 1851 - 110A SPS VRM, DDR5 Memory (9200+MT/s OC), PCIe 5.0 & 4.0 x16, M.2 Gen5, Thunderbolt 4, Wi-Fi 7, 10G LAN",
           "socket": "LGA1851",
           "chipset": "Z890",
@@ -2093,6 +2093,16 @@
           "rating": 4.5,
           "review_count": 197,
           "price_usd": 637.99,
+          "category": "Intel"
+        },
+        {
+          "name": "MPG Z890I EDGE TI WIFI White Motherboard, Mini-ITX - Supports Intel Core Ultra Processors (Series 2), LGA 1851 - 110A SPS VRM, DDR5 Memory Boost (8600+ MT/s OC), PCIe 5.0 x16, M.2 Gen5, Wi-Fi 7, 5",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "Mini-ITX",
+          "rating": 4.5,
+          "review_count": 197,
+          "price_usd": 299.99,
           "category": "Intel"
         },
         {
@@ -2112,7 +2122,7 @@
           "form_factor": "ATX",
           "rating": 4.5,
           "review_count": 197,
-          "price_usd": 392.72,
+          "price_usd": 383.5,
           "category": "Intel"
         },
         {
@@ -2122,7 +2132,7 @@
           "form_factor": "ATX",
           "rating": 4.5,
           "review_count": 197,
-          "price_usd": 384.32,
+          "price_usd": 389.14,
           "category": "Intel"
         },
         {
@@ -2242,7 +2252,7 @@
           "form_factor": "ATX",
           "rating": 4.3,
           "review_count": 68,
-          "price_usd": 228.99,
+          "price_usd": 227.99,
           "category": "AMD"
         },
         {
@@ -2261,7 +2271,7 @@
           "chipset": "B650",
           "form_factor": "Micro ATX",
           "rating": 4.3,
-          "review_count": 23,
+          "review_count": 24,
           "price_usd": 147.87,
           "category": "AMD"
         },
@@ -2332,7 +2342,7 @@
           "form_factor": "ATX",
           "rating": 4.2,
           "review_count": 0,
-          "price_usd": 383.78,
+          "price_usd": 385.0,
           "category": "Intel"
         },
         {
@@ -2342,7 +2352,7 @@
           "form_factor": "ATX",
           "rating": 4.2,
           "review_count": 0,
-          "price_usd": 246.5,
+          "price_usd": 240.84,
           "category": "Intel"
         },
         {
@@ -2372,7 +2382,7 @@
           "form_factor": "ATX",
           "rating": 4.2,
           "review_count": 0,
-          "price_usd": 183.32,
+          "price_usd": 195.92,
           "category": "Intel"
         },
         {
@@ -2382,7 +2392,7 @@
           "form_factor": "ATX",
           "rating": 4.2,
           "review_count": 0,
-          "price_usd": 239.47,
+          "price_usd": 234.79,
           "category": "Intel"
         },
         {
@@ -2392,7 +2402,7 @@
           "form_factor": "ATX",
           "rating": 4.2,
           "review_count": 0,
-          "price_usd": 296.42,
+          "price_usd": 391.86,
           "category": "Intel"
         },
         {
@@ -2402,7 +2412,7 @@
           "form_factor": "ATX",
           "rating": 4.2,
           "review_count": 0,
-          "price_usd": 265.9,
+          "price_usd": 263.9,
           "category": "Intel"
         },
         {
@@ -2412,7 +2422,7 @@
           "form_factor": "ATX",
           "rating": 4.2,
           "review_count": 0,
-          "price_usd": 314.21,
+          "price_usd": 312.21,
           "category": "Intel"
         },
         {
@@ -2422,7 +2432,7 @@
           "form_factor": "ATX",
           "rating": 4.2,
           "review_count": 0,
-          "price_usd": 203.4,
+          "price_usd": 199.2,
           "category": "Intel"
         },
         {
@@ -2432,7 +2442,7 @@
           "form_factor": "E-ATX",
           "rating": 4.2,
           "review_count": 0,
-          "price_usd": 1157.99,
+          "price_usd": 1127.4,
           "category": "Intel"
         },
         {
@@ -2442,7 +2452,17 @@
           "form_factor": "ATX",
           "rating": 4.2,
           "review_count": 0,
-          "price_usd": 458.29,
+          "price_usd": 428.15,
+          "category": "Intel"
+        },
+        {
+          "name": "MPG Z790 EDGE TI MAX WIFI LGA 1700(14th,13th,12th Gen) DDR5 Intel Z790 SATA 6Gb/s ATX Motherboard 2x PCI-E x16 slot Wi-Fi 7 Solution 2.5Gbps LAN",
+          "socket": "LGA1700",
+          "chipset": "Z790",
+          "form_factor": "ATX",
+          "rating": 4.2,
+          "review_count": 0,
+          "price_usd": 297.74,
           "category": "Intel"
         },
         {
@@ -2452,7 +2472,7 @@
           "form_factor": "E-ATX",
           "rating": 4.2,
           "review_count": 0,
-          "price_usd": 726.55,
+          "price_usd": 722.65,
           "category": "Intel"
         },
         {
@@ -2466,23 +2486,13 @@
           "category": "Intel"
         },
         {
-          "name": "MPG Z790 EDGE TI MAX WIFI LGA 1700(14th,13th,12th Gen) DDR5 Intel Z790 SATA 6Gb/s ATX Motherboard 2x PCI-E x16 slot Wi-Fi 7 Solution 2.5Gbps LAN",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "ATX",
-          "rating": 4.2,
-          "review_count": 0,
-          "price_usd": 277.6,
-          "category": "Intel"
-        },
-        {
           "name": "MEG Z790 ACE LGA 1700 Intel Z790 SATA 6Gb/s DDR5 Extended ATX Motherboard",
           "socket": "LGA1700",
           "chipset": "Z790",
           "form_factor": "E-ATX",
           "rating": 4.2,
           "review_count": 0,
-          "price_usd": 590.87,
+          "price_usd": 576.57,
           "category": "Intel"
         },
         {
@@ -2562,7 +2572,7 @@
           "form_factor": "Micro ATX",
           "rating": 4.1,
           "review_count": 160,
-          "price_usd": 217.18,
+          "price_usd": 180.2,
           "category": "Intel"
         },
         {
@@ -2582,7 +2592,7 @@
           "form_factor": "Micro ATX",
           "rating": 4.1,
           "review_count": 160,
-          "price_usd": 181.61,
+          "price_usd": 184.55,
           "category": "Intel"
         },
         {
@@ -2612,7 +2622,7 @@
           "form_factor": "ATX",
           "rating": 4.1,
           "review_count": 160,
-          "price_usd": 651.97,
+          "price_usd": 651.95,
           "category": "Intel"
         },
         {
@@ -2631,7 +2641,7 @@
           "chipset": "B650",
           "form_factor": "ATX",
           "rating": 4.0,
-          "review_count": 774,
+          "review_count": 772,
           "price_usd": 119.99,
           "category": "AMD"
         },
@@ -2641,8 +2651,8 @@
           "chipset": "B650",
           "form_factor": "ATX",
           "rating": 4.0,
-          "review_count": 774,
-          "price_usd": 175.99,
+          "review_count": 772,
+          "price_usd": 168.59,
           "category": "AMD"
         },
         {
@@ -2651,8 +2661,8 @@
           "chipset": "B650",
           "form_factor": "ATX",
           "rating": 4.0,
-          "review_count": 774,
-          "price_usd": 225.88,
+          "review_count": 772,
+          "price_usd": 230.96,
           "category": "AMD"
         },
         {
@@ -2661,7 +2671,7 @@
           "chipset": "B650",
           "form_factor": "Mini-ITX",
           "rating": 4.0,
-          "review_count": 774,
+          "review_count": 772,
           "price_usd": 249.36,
           "category": "AMD"
         },
@@ -2671,7 +2681,7 @@
           "chipset": "B650",
           "form_factor": "ATX",
           "rating": 4.0,
-          "review_count": 774,
+          "review_count": 772,
           "price_usd": 375.0,
           "category": "AMD"
         },
@@ -2681,7 +2691,7 @@
           "chipset": "B650",
           "form_factor": "ATX",
           "rating": 4.0,
-          "review_count": 774,
+          "review_count": 772,
           "price_usd": 599.0,
           "category": "AMD"
         },
@@ -2691,7 +2701,7 @@
           "chipset": "B650",
           "form_factor": "Micro ATX",
           "rating": 4.0,
-          "review_count": 774,
+          "review_count": 772,
           "price_usd": 189.99,
           "category": "AMD"
         },
@@ -2701,7 +2711,7 @@
           "chipset": "B650",
           "form_factor": "Micro ATX",
           "rating": 4.0,
-          "review_count": 774,
+          "review_count": 772,
           "price_usd": 544.44,
           "category": "AMD"
         },
@@ -2711,7 +2721,7 @@
           "chipset": "B650",
           "form_factor": "ATX",
           "rating": 4.0,
-          "review_count": 774,
+          "review_count": 772,
           "price_usd": 499.99,
           "category": "AMD"
         },
@@ -2721,8 +2731,8 @@
           "chipset": "X870E",
           "form_factor": "E-ATX",
           "rating": 3.8,
-          "review_count": 102,
-          "price_usd": 1056.99,
+          "review_count": 101,
+          "price_usd": 1050.99,
           "category": "AMD"
         },
         {
@@ -2744,22 +2754,22 @@
           "review_count": 1,
           "price_usd": 217.99,
           "category": "Unknown"
+        },
+        {
+          "name": "D3051GB2N-1G Micro ATX Server Motherboard (1) AMD Socket AM5 AMD B650",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Micro ATX",
+          "rating": 1.0,
+          "review_count": 1,
+          "price_usd": 251.99,
+          "category": "AMD"
         }
       ]
     },
     "Gigabyte": {
       "brand": "Gigabyte",
       "products": [
-        {
-          "name": "X870 AORUS STEALTH ICE AMD AM5 Motherboard, ATX, DDR5, 4x M.2, PCIe 5.0, 2xUSB-4,USB-C, WIFI7, 5GbE LAN, EZ-Latch",
-          "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 10,
-          "price_usd": 301.99,
-          "category": "AMD"
-        },
         {
           "name": "X870E AORUS ELITE X3D ICE AM5 AMD X870E ATX Motherboard",
           "socket": "AM5",
@@ -2781,6 +2791,16 @@
           "category": "AMD"
         },
         {
+          "name": "X870E AERO X3D WOOD AMD AM5 LGA 1718 Motherboard, ATX, Supports AMD Ryzen 9000/8000/7000 Series Processors, DDR5, 16+2+2 Total Power Phase, 4x M.2, PCIe 5.0, USB4 Type-C, WIFI7, Dual 5 GbE LA",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 2,
+          "price_usd": 499.99,
+          "category": "AMD"
+        },
+        {
           "name": "B850 EAGLE WIFI7 ICE AMD AM5 LGA 1718 Motherboard, ATX, DDR5, 3x M.2, PCIe 5.0, USB-C, WIFI7, 2.5GbE LAN, EZ-Latch",
           "socket": "AM5",
           "chipset": "B850",
@@ -2791,23 +2811,13 @@
           "category": "AMD"
         },
         {
-          "name": "X870E AERO X3D WOOD AMD AM5 LGA 1718 Motherboard, ATX, Supports AMD Ryzen 9000/8000/7000 Series Processors, DDR5, 16+2+2 Total Power Phase, 4x M.2, PCIe 5.0, USB4 Type-C, WIFI7, Dual 5 GbE LA",
-          "socket": "AM5",
-          "chipset": "X870E",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 2,
-          "price_usd": 544.44,
-          "category": "AMD"
-        },
-        {
           "name": "B860M AORUS ELITE WIFI6E Intel Core Ultra (Series 2) LGA 1851 Motherboard, mATX, DDR5, 3x M.2, PCIe 5.0, USB-C, WIFI6E, 2.5GbE LAN, EZ-Latch",
           "socket": "LGA1851",
           "chipset": "B860",
           "form_factor": "Micro ATX",
           "rating": 5.0,
           "review_count": 2,
-          "price_usd": 222.8,
+          "price_usd": 188.99,
           "category": "Intel"
         },
         {
@@ -2817,7 +2827,7 @@
           "form_factor": "Micro ATX",
           "rating": 5.0,
           "review_count": 2,
-          "price_usd": 173.0,
+          "price_usd": 129.99,
           "category": "Intel"
         },
         {
@@ -2831,16 +2841,6 @@
           "category": "AMD"
         },
         {
-          "name": "B860 AORUS ELITE WIFI7 ICE Intel Core Ultra (Series 2) LGA 1851 Motherboard, ATX, DDR5, 3x M.2, PCIe 5.0, USB-C, WIFI7, 2.5GbE LAN, EZ-Latch",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "ATX",
-          "rating": 5.0,
-          "review_count": 1,
-          "price_usd": 179.99,
-          "category": "Intel"
-        },
-        {
           "name": "B760M DS3H WIFI6E GEN5 LGA 1700 Intel B760 M-ATX Motherboard with DDR5, M.2, PCIe 5.0, USB 3.2 Gen 2 Type-C, WIFI6E 2.5GbE LAN, WIFI EZ-Plug, PCIe EZ-Latch",
           "socket": "LGA1700",
           "chipset": "B760",
@@ -2848,6 +2848,16 @@
           "rating": 5.0,
           "review_count": 1,
           "price_usd": 146.99,
+          "category": "Intel"
+        },
+        {
+          "name": "B860 AORUS ELITE WIFI7 ICE Intel Core Ultra (Series 2) LGA 1851 Motherboard, ATX, DDR5, 3x M.2, PCIe 5.0, USB-C, WIFI7, 2.5GbE LAN, EZ-Latch",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_usd": 179.99,
           "category": "Intel"
         },
         {
@@ -2877,7 +2887,7 @@
           "form_factor": "Micro ATX",
           "rating": 5.0,
           "review_count": 1,
-          "price_usd": 285.1,
+          "price_usd": 285.09,
           "category": "AMD"
         },
         {
@@ -2889,6 +2899,16 @@
           "review_count": 1,
           "price_usd": 299.0,
           "category": "Intel"
+        },
+        {
+          "name": "B650 AORUS ELITE AX ICE AM5 LGA 1718 AMD B650 ATX Motherboard, DDR5, Triple M.2, PCIe 5.0, USB 3.2 Gen2X2 Type-C, WiFi 6E, 2.5GbE LAN, Snow White, EZ-Latch",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "rating": 5.0,
+          "review_count": 1,
+          "price_usd": 129.99,
+          "category": "AMD"
         },
         {
           "name": "X870E AORUS ELITE WIFI7 AM5 LGA 1718, ATX, DDR5, 4x M.2, PCIe 5.0, USB4, Wi-Fi 7, 2.5GbE LAN, EZ-Latch",
@@ -2957,7 +2977,7 @@
           "form_factor": "ATX",
           "rating": 4.8,
           "review_count": 5,
-          "price_usd": 584.99,
+          "price_usd": 571.99,
           "category": "AMD"
         },
         {
@@ -2987,7 +3007,7 @@
           "form_factor": "ATX",
           "rating": 4.7,
           "review_count": 3,
-          "price_usd": 266.25,
+          "price_usd": 262.62,
           "category": "Intel"
         },
         {
@@ -3028,6 +3048,26 @@
           "rating": 4.4,
           "review_count": 8,
           "price_usd": 156.99,
+          "category": "AMD"
+        },
+        {
+          "name": "X870 AORUS ELITE WIFI7 AM5 LGA 1718, ATX, DDR5, 4x M.2, PCIe 5.0, USB4, Wi-Fi 7, 2.5GbE LAN, EZ-Latch, 5-Year Warranty",
+          "socket": "AM5",
+          "chipset": "X870",
+          "form_factor": "ATX",
+          "rating": 4.3,
+          "review_count": 639,
+          "price_usd": 229.99,
+          "category": "AMD"
+        },
+        {
+          "name": "X870E AORUS ELITE WIFI7 AM5 LGA 1718, ATX, DDR5, 4x M.2, PCIe 5.0, USB4, Wi-Fi 7, 2.5GbE LAN, EZ-Latch, 5-Year Warranty",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "rating": 4.3,
+          "review_count": 639,
+          "price_usd": 279.99,
           "category": "AMD"
         },
         {
@@ -3087,27 +3127,7 @@
           "form_factor": "E-ATX",
           "rating": 4.3,
           "review_count": 639,
-          "price_usd": 1269.3,
-          "category": "AMD"
-        },
-        {
-          "name": "X870 AORUS ELITE WIFI7 AM5 LGA 1718, ATX, DDR5, 4x M.2, PCIe 5.0, USB4, Wi-Fi 7, 2.5GbE LAN, EZ-Latch, 5-Year Warranty",
-          "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "ATX",
-          "rating": 4.3,
-          "review_count": 639,
-          "price_usd": 229.99,
-          "category": "AMD"
-        },
-        {
-          "name": "X870E AORUS ELITE WIFI7 AM5 LGA 1718, ATX, DDR5, 4x M.2, PCIe 5.0, USB4, Wi-Fi 7, 2.5GbE LAN, EZ-Latch, 5-Year Warranty",
-          "socket": "AM5",
-          "chipset": "X870E",
-          "form_factor": "ATX",
-          "rating": 4.3,
-          "review_count": 639,
-          "price_usd": 279.99,
+          "price_usd": 1330.0,
           "category": "AMD"
         },
         {
@@ -3127,7 +3147,7 @@
           "form_factor": "ATX",
           "rating": 4.3,
           "review_count": 36,
-          "price_usd": 159.99,
+          "price_usd": 147.0,
           "category": "AMD"
         },
         {
@@ -3137,7 +3157,7 @@
           "form_factor": "ATX",
           "rating": 4.3,
           "review_count": 3,
-          "price_usd": 844.44,
+          "price_usd": 589.99,
           "category": "AMD"
         },
         {
@@ -3151,23 +3171,33 @@
           "category": "AMD"
         },
         {
-          "name": "Z890 AORUS ELITE WIFI7 Ultra Core (Series 2) LGA 1851, ATX, DDR5, 4x M.2, PCIe 5.0, Thunderbolt 4, WIFI7, 2.5GbE LAN, EZ-Latch",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "rating": 4.1,
-          "review_count": 116,
-          "price_usd": 249.99,
-          "category": "Intel"
-        },
-        {
           "name": "Z890 AORUS ELITE WIFI7 ICE Ultra Core (Series 2) LGA 1851, ATX, DDR5, 4x M.2, PCIe 5.0, Thunderbolt 4, WIFI7, 2.5GbE LAN, EZ-Latch",
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "ATX",
           "rating": 4.1,
-          "review_count": 116,
+          "review_count": 117,
           "price_usd": 247.99,
+          "category": "Intel"
+        },
+        {
+          "name": "Z890 AORUS MASTER Ultra Core (Series 2) LGA 1851, ATX, DDR5, 5x M.2, PCIe 5.0, Thunderbolt 4, WIFI7, 10GbE LAN, EZ-Latch",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.1,
+          "review_count": 117,
+          "price_usd": 499.99,
+          "category": "Intel"
+        },
+        {
+          "name": "Z890 AORUS ELITE WIFI7 Ultra Core (Series 2) LGA 1851, ATX, DDR5, 4x M.2, PCIe 5.0, Thunderbolt 4, WIFI7, 2.5GbE LAN, EZ-Latch",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.1,
+          "review_count": 117,
+          "price_usd": 249.99,
           "category": "Intel"
         },
         {
@@ -3176,8 +3206,28 @@
           "chipset": "Z890",
           "form_factor": "Micro ATX",
           "rating": 4.1,
-          "review_count": 116,
-          "price_usd": 181.99,
+          "review_count": 117,
+          "price_usd": 180.99,
+          "category": "Intel"
+        },
+        {
+          "name": "Z890 AERO G Ultra Core (Series 2) LGA 1851, ATX, DDR5, 5xM.2, PCIe 5.0, Thunderbolt 4, WIFI7, Dual 2.5Gbe LAN, EZ-Latch",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.1,
+          "review_count": 117,
+          "price_usd": 249.99,
+          "category": "Intel"
+        },
+        {
+          "name": "Z890M AORUS ELITE WIFI7 ICE Ultra Core (Series 2) LGA 1851, ATX, DDR5, 3x M.2, PCIe 5.0, Thunderbolt 4, WIFI7, 2.5GbE LAN, EZ-Latch",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "rating": 4.1,
+          "review_count": 117,
+          "price_usd": 189.99,
           "category": "Intel"
         },
         {
@@ -3186,7 +3236,7 @@
           "chipset": "Z890",
           "form_factor": "ATX",
           "rating": 4.1,
-          "review_count": 116,
+          "review_count": 117,
           "price_usd": 179.99,
           "category": "Intel"
         },
@@ -3196,7 +3246,7 @@
           "chipset": "Z890",
           "form_factor": "Mini-ITX",
           "rating": 4.1,
-          "review_count": 116,
+          "review_count": 117,
           "price_usd": 349.99,
           "category": "Intel"
         },
@@ -3206,7 +3256,7 @@
           "chipset": "Z890",
           "form_factor": "ATX",
           "rating": 4.1,
-          "review_count": 116,
+          "review_count": 117,
           "price_usd": 394.99,
           "category": "Intel"
         },
@@ -3216,7 +3266,7 @@
           "chipset": "Z890",
           "form_factor": "ATX",
           "rating": 4.1,
-          "review_count": 116,
+          "review_count": 117,
           "price_usd": 194.0,
           "category": "Intel"
         },
@@ -3226,18 +3276,8 @@
           "chipset": "Z890",
           "form_factor": "ATX",
           "rating": 4.1,
-          "review_count": 116,
+          "review_count": 117,
           "price_usd": 245.0,
-          "category": "Intel"
-        },
-        {
-          "name": "Z890 AORUS MASTER Ultra Core (Series 2) LGA 1851, ATX, DDR5, 5x M.2, PCIe 5.0, Thunderbolt 4, WIFI7, 10GbE LAN, EZ-Latch",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "rating": 4.1,
-          "review_count": 116,
-          "price_usd": 499.99,
           "category": "Intel"
         },
         {
@@ -3246,7 +3286,7 @@
           "chipset": "Z890",
           "form_factor": "ATX",
           "rating": 4.1,
-          "review_count": 116,
+          "review_count": 117,
           "price_usd": 219.0,
           "category": "Intel"
         },
@@ -3297,7 +3337,7 @@
           "form_factor": "Mini-ITX",
           "rating": 4.0,
           "review_count": 6,
-          "price_usd": 506.11,
+          "price_usd": 487.39,
           "category": "Intel"
         },
         {
@@ -3307,7 +3347,7 @@
           "form_factor": "ATX",
           "rating": 4.0,
           "review_count": 4,
-          "price_usd": 460.2,
+          "price_usd": 259.99,
           "category": "AMD"
         },
         {
@@ -3337,7 +3377,7 @@
           "form_factor": "Micro ATX",
           "rating": 4.0,
           "review_count": 2,
-          "price_usd": 240.55,
+          "price_usd": 169.99,
           "category": "Intel"
         },
         {
@@ -3387,7 +3427,7 @@
           "form_factor": "Micro ATX",
           "rating": 3.9,
           "review_count": 722,
-          "price_usd": 169.56,
+          "price_usd": 178.56,
           "category": "Intel"
         },
         {
@@ -3417,7 +3457,7 @@
           "form_factor": "ATX",
           "rating": 3.9,
           "review_count": 722,
-          "price_usd": 319.94,
+          "price_usd": 349.55,
           "category": "Intel"
         },
         {
@@ -3431,16 +3471,6 @@
           "category": "Intel"
         },
         {
-          "name": "Z790 AERO G LGA 1700 Intel Z790 ATX Motherboard with DDR5, 5* 5.0 M.2, PCIe 5.0, USB 3.2 Gen2X2 Type-C, WiFi 6E, Intel 2.5GbE LAN",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "ATX",
-          "rating": 3.9,
-          "review_count": 722,
-          "price_usd": 410.87,
-          "category": "Intel"
-        },
-        {
           "name": "Z790 AORUS ELITE X WIFI7 LGA 1700(14th,13th,12th Gen) Intel Z790 X ATX Motherboard with DDR5, 4 M.2, PCIe 5.0, USB 3.2 Type-C, Wi-Fi 7, 2.5GbE LAN, Q-Flash Plus, EZ-Latch Plus",
           "socket": "LGA1700",
           "chipset": "Z790",
@@ -3451,13 +3481,13 @@
           "category": "Intel"
         },
         {
-          "name": "Z790 AORUS TACHYON LGA 1700 Intel Z790 Extended ATX Motherboard",
+          "name": "Z790 AERO G LGA 1700 Intel Z790 ATX Motherboard with DDR5, 5* 5.0 M.2, PCIe 5.0, USB 3.2 Gen2X2 Type-C, WiFi 6E, Intel 2.5GbE LAN",
           "socket": "LGA1700",
           "chipset": "Z790",
-          "form_factor": "E-ATX",
+          "form_factor": "ATX",
           "rating": 3.9,
           "review_count": 722,
-          "price_usd": 452.0,
+          "price_usd": 410.87,
           "category": "Intel"
         },
         {
@@ -3468,6 +3498,16 @@
           "rating": 3.9,
           "review_count": 722,
           "price_usd": 264.04,
+          "category": "Intel"
+        },
+        {
+          "name": "Z790 AORUS TACHYON LGA 1700 Intel Z790 Extended ATX Motherboard",
+          "socket": "LGA1700",
+          "chipset": "Z790",
+          "form_factor": "E-ATX",
+          "rating": 3.9,
+          "review_count": 722,
+          "price_usd": 452.0,
           "category": "Intel"
         },
         {
@@ -3517,7 +3557,7 @@
           "form_factor": "E-ATX",
           "rating": 3.9,
           "review_count": 722,
-          "price_usd": 572.72,
+          "price_usd": 546.82,
           "category": "Intel"
         },
         {
@@ -3557,7 +3597,7 @@
           "form_factor": "Micro ATX",
           "rating": 3.9,
           "review_count": 160,
-          "price_usd": 194.12,
+          "price_usd": 193.01,
           "category": "Intel"
         },
         {
@@ -3587,7 +3627,7 @@
           "form_factor": "Micro ATX",
           "rating": 3.9,
           "review_count": 160,
-          "price_usd": 252.13,
+          "price_usd": 253.31,
           "category": "Intel"
         },
         {
@@ -3597,7 +3637,7 @@
           "form_factor": "ATX",
           "rating": 3.9,
           "review_count": 160,
-          "price_usd": 229.84,
+          "price_usd": 235.05,
           "category": "Intel"
         },
         {
@@ -3631,6 +3671,16 @@
           "category": "AMD"
         },
         {
+          "name": "B650 EAGLE AX AM5 LGA 1718 AMD B650 ATX , DDR5 Triple M.2, PCIe 5.0, USB 3.2 Gen2x2 Type-C, AMD Wi-Fi 6E, Realtek GbE LAN",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "rating": 3.7,
+          "review_count": 943,
+          "price_usd": 140.99,
+          "category": "AMD"
+        },
+        {
           "name": "B650 AORUS ELITE AX AM5 LGA 1718 AMD B650 ATX Motherboard DDR5, M.2, PCIe 5.0, USB 3.2 Gen2X2 Type-C, WiFi 6E, 2.5GbE LAN, Q-Flash Plus, EZ-Latch",
           "socket": "AM5",
           "chipset": "B650",
@@ -3638,26 +3688,6 @@
           "rating": 3.7,
           "review_count": 943,
           "price_usd": 149.99,
-          "category": "AMD"
-        },
-        {
-          "name": "B650 EAGLE AX AM5 LGA 1718 AMD B650 ATX , DDR5 Triple M.2, PCIe 5.0, USB 3.2 Gen2x2 Type-C, AMD Wi-Fi 6E, Realtek GbE LAN",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "ATX",
-          "rating": 3.7,
-          "review_count": 943,
-          "price_usd": 144.98,
-          "category": "AMD"
-        },
-        {
-          "name": "B650 AERO G AM5 LGA 1718 AMD B650 ATX Motherboard with 5-Year Warranty, DDR5, PCIe 5.0 M.2, PCIe 5.0, USB 3.2 Gen2X2 Type-C, Wi-Fi 6E, Intel 2.5GbE LAN",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "ATX",
-          "rating": 3.7,
-          "review_count": 943,
-          "price_usd": 199.99,
           "category": "AMD"
         },
         {
@@ -3701,13 +3731,13 @@
           "category": "AMD"
         },
         {
-          "name": "B650 GAMING X AX V2 AM5 LGA 1718 AMD B650 ATX DDR5, Triple M.2, PCIe 5.0, USB 3.2 Gen2x2 Type-C, AMD Wi-Fi 6E, Realtek 2.5GbE LAN",
+          "name": "B650 AERO G AM5 LGA 1718 AMD B650 ATX Motherboard with 5-Year Warranty, DDR5, PCIe 5.0 M.2, PCIe 5.0, USB 3.2 Gen2X2 Type-C, Wi-Fi 6E, Intel 2.5GbE LAN",
           "socket": "AM5",
           "chipset": "B650",
           "form_factor": "ATX",
           "rating": 3.7,
           "review_count": 943,
-          "price_usd": 169.55,
+          "price_usd": 199.99,
           "category": "AMD"
         },
         {
@@ -3718,6 +3748,16 @@
           "rating": 3.7,
           "review_count": 943,
           "price_usd": 241.97,
+          "category": "AMD"
+        },
+        {
+          "name": "B650 GAMING X AX V2 AM5 LGA 1718 AMD B650 ATX DDR5, Triple M.2, PCIe 5.0, USB 3.2 Gen2x2 Type-C, AMD Wi-Fi 6E, Realtek 2.5GbE LAN",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "rating": 3.7,
+          "review_count": 943,
+          "price_usd": 169.55,
           "category": "AMD"
         },
         {
@@ -3757,7 +3797,7 @@
           "form_factor": "Micro ATX",
           "rating": 3.7,
           "review_count": 943,
-          "price_usd": 182.45,
+          "price_usd": 151.33,
           "category": "AMD"
         },
         {
@@ -3767,17 +3807,7 @@
           "form_factor": "Micro ATX",
           "rating": 3.7,
           "review_count": 943,
-          "price_usd": 193.71,
-          "category": "AMD"
-        },
-        {
-          "name": "B650 GAMING X AX  AM5 LGA 1718 AMD B650 ATX Motherboard with 5-Year Warranty, DDR5, PCIe 4.0 M.2, PCIe 4.0, USB 3.2 Gen2x2 Type-C, AMD Wi-Fi 6E, Realtek 2.5GbE LAN",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "ATX",
-          "rating": 3.7,
-          "review_count": 943,
-          "price_usd": 221.0,
+          "price_usd": 193.09,
           "category": "AMD"
         },
         {
@@ -3788,6 +3818,16 @@
           "rating": 3.7,
           "review_count": 943,
           "price_usd": 619.32,
+          "category": "AMD"
+        },
+        {
+          "name": "B650 GAMING X AX  AM5 LGA 1718 AMD B650 ATX Motherboard with 5-Year Warranty, DDR5, PCIe 4.0 M.2, PCIe 4.0, USB 3.2 Gen2x2 Type-C, AMD Wi-Fi 6E, Realtek 2.5GbE LAN",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "rating": 3.7,
+          "review_count": 943,
+          "price_usd": 221.0,
           "category": "AMD"
         },
         {
@@ -3807,7 +3847,7 @@
           "form_factor": "Micro ATX",
           "rating": 3.7,
           "review_count": 3,
-          "price_usd": 151.98,
+          "price_usd": 149.99,
           "category": "AMD"
         },
         {
@@ -3847,7 +3887,7 @@
           "form_factor": "Micro ATX",
           "rating": 3.2,
           "review_count": 21,
-          "price_usd": 168.19,
+          "price_usd": 170.15,
           "category": "AMD"
         },
         {
