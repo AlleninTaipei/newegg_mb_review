@@ -1,0 +1,218 @@
+<section class="module" id="module-5">
+  <div class="module-content">
+
+    <div class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h2 class="module-title">The Clever Tricks</h2>
+      <p class="module-subtitle">A handful of small, reusable ideas do most of the heavy lifting in this codebase, from spotting a chipset buried in messy text to catching a price change overnight.</p>
+    </div>
+
+    <!-- SCREEN 1: Opening hook -->
+    <div class="screen">
+      <h3 class="screen-heading animate-in">A product title that hides everything</h3>
+      <div class="pattern-card animate-in" style="border-top: 3px solid var(--color-accent); text-align: center;">
+        <p style="font-family: var(--font-mono); font-size: var(--text-lg); line-height: 1.9; margin: 0;">
+          ASRock <span style="background: var(--color-accent-light); padding: 2px 6px; border-radius: 4px;">X870E</span> Nova WiFi 5G
+          <span style="background: var(--color-accent-light); padding: 2px 6px; border-radius: 4px;">AM5</span>
+          <span style="background: var(--color-accent-light); padding: 2px 6px; border-radius: 4px;">ATX</span> Motherboard
+        </p>
+      </div>
+      <p class="animate-in">No box on that listing says "chipset: X870E" in a clean, labeled field. Every time the code sees a title like this, for every brand and every language, it has to figure out the socket, the chipset, and the form factor entirely on its own.</p>
+    </div>
+
+    <!-- SCREEN 2: Birdwatcher metaphor + translation block 1 -->
+    <div class="screen">
+      <h3 class="screen-heading animate-in">Playing birdwatcher with a blurry photo</h3>
+      <p class="animate-in">A birdwatcher spotting a rare species through the trees doesn't wait for the bird to introduce itself. One distinctive marking, a wing bar, an eye ring, is enough to name the species with confidence.</p>
+      <p class="animate-in"><code>parse_chipset</code> works the same way: instead of asking the page for a clean field, it scans the messy title for one distinctive marking, an exact chunk of text like "X870E", and the moment it spots one, the identification is done.</p>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">CODE</span>
+          <pre><code>
+<span class="code-line"><span class="code-keyword">def</span> <span class="code-function">parse_chipset</span>(name: <span class="code-keyword">str</span>) -&gt; <span class="code-keyword">str</span>:</span>
+<span class="code-line">    u = name.<span class="code-function">upper</span>()</span>
+<span class="code-line">    <span class="code-comment"># Ordered: more specific first</span></span>
+<span class="code-line">    <span class="code-keyword">for</span> cs <span class="code-keyword">in</span> [</span>
+<span class="code-line">        <span class="code-string">"X870E"</span>, <span class="code-string">"X870"</span>, <span class="code-string">"X670E"</span>, <span class="code-string">"X670"</span>, <span class="code-string">"X570"</span>, <span class="code-string">"X470"</span>, <span class="code-string">"X370"</span>,</span>
+<span class="code-line">        <span class="code-string">"B850"</span>,  <span class="code-string">"B650E"</span>,<span class="code-string">"B650"</span>,  <span class="code-string">"B550"</span>, <span class="code-string">"B450"</span>, <span class="code-string">"B350"</span>, <span class="code-string">"A520"</span>,</span>
+<span class="code-line">        <span class="code-string">"Z890"</span>,  <span class="code-string">"Z790"</span>, <span class="code-string">"Z690"</span>,  <span class="code-string">"Z590"</span>, <span class="code-string">"Z490"</span>, <span class="code-string">"Z390"</span>, <span class="code-string">"Z370"</span>, <span class="code-string">"Z270"</span>, <span class="code-string">"Z170"</span>,</span>
+<span class="code-line">        <span class="code-string">"W790"</span>,  <span class="code-string">"W680"</span>,</span>
+<span class="code-line">        <span class="code-string">"B860"</span>,  <span class="code-string">"B760"</span>, <span class="code-string">"B660"</span>,  <span class="code-string">"B560"</span>, <span class="code-string">"B460"</span>, <span class="code-string">"B365"</span>, <span class="code-string">"B360"</span>, <span class="code-string">"B250"</span>,</span>
+<span class="code-line">        <span class="code-string">"H810"</span>,  <span class="code-string">"H770"</span>, <span class="code-string">"H670"</span>,  <span class="code-string">"H570"</span>, <span class="code-string">"H470"</span>, <span class="code-string">"H410"</span>, <span class="code-string">"H370"</span>, <span class="code-string">"H310"</span>,</span>
+<span class="code-line">        <span class="code-string">"H270"</span>,  <span class="code-string">"H170"</span>, <span class="code-string">"H110"</span>,</span>
+<span class="code-line">        <span class="code-string">"N100"</span>,  <span class="code-string">"N305"</span>, <span class="code-string">"N97"</span>,   <span class="code-string">"J6412"</span>,</span>
+<span class="code-line">        <span class="code-string">"X299"</span>,  <span class="code-string">"X399"</span>, <span class="code-string">"TRX40"</span>, <span class="code-string">"TRX50"</span>,</span>
+<span class="code-line">    ]:</span>
+<span class="code-line">        <span class="code-keyword">if</span> cs <span class="code-keyword">in</span> u:</span>
+<span class="code-line">            <span class="code-keyword">return</span> cs</span>
+<span class="code-line">    <span class="code-keyword">return</span> <span class="code-string">"Unknown"</span></span>
+          </code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">PLAIN ENGLISH</span>
+          <div class="translation-lines">
+            <p class="tl">First, make the whole title uppercase, so "x870e" and "X870E" both match the same way.</p>
+            <p class="tl">Then walk down a long list of every known chipset code, but in a very deliberate order, most specific first.</p>
+            <p class="tl">The moment one of these exact chunks of text, a <span class="term" data-definition="A substring is a smaller piece of text found inside a longer piece of text, like finding &quot;cat&quot; inside &quot;category&quot;. Checking whether &quot;X870E&quot; appears inside a title is a substring check, not a full pattern match.">substring</span>, turns up anywhere inside the title, that is the answer.</p>
+            <p class="tl">If nothing on the whole list ever turns up, admit it: the chipset is "Unknown".</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="animate-in">Notice there's no <span class="term" data-definition="Regex (short for &quot;regular expression&quot;) is a mini pattern-matching language for finding complex text patterns, like &quot;any five digits in a row&quot;. This code skips it entirely, a plain substring check is all it needs.">regex</span> here, no clever pattern language. Just a plain "is this text inside that text" check, repeated down a carefully ordered list.</p>
+    </div>
+
+    <!-- SCREEN 3: Callout — greedy matching order -->
+    <div class="screen">
+      <p class="animate-in">Look at that list again: "X870E" sits right before "X870". That's not an accident, it's the whole trick.</p>
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">💡</div>
+        <div class="callout-content">
+          <strong class="callout-title">Greedy Matching Order</strong>
+          <p>Checking longer, more specific strings before shorter, more general ones is a pattern engineers call <span class="term" data-definition="Greedy matching order means checking the longest, most specific possibilities before the shorter, more general ones, so a specific match never gets caught by a broader one first.">greedy matching</span> order. Get the order wrong, put "X870" before "X870E", and every X870E board silently gets misidentified as a plain X870, with no error and no warning, just a quietly wrong answer.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 4: Key insight — pattern cards -->
+    <div class="screen">
+      <h3 class="screen-heading animate-in">Five tricks doing most of the work</h3>
+      <p class="animate-in">Once you can name these five patterns, you'll spot them everywhere else too.</p>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in" style="border-top: 3px solid var(--color-accent)">
+          <div class="pattern-icon" style="background: var(--color-accent)">🔍</div>
+          <h4 class="pattern-title">Ordered Substring Matching</h4>
+          <p class="pattern-desc">Like a birdwatcher spotting one marking in a blurry photo, the code scans messy titles for exact chipset text, most specific names checked first.</p>
+        </div>
+        <div class="pattern-card animate-in" style="border-top: 3px solid var(--color-accent)">
+          <div class="pattern-icon" style="background: var(--color-accent)">🗂️</div>
+          <h4 class="pattern-title">Dedup by Normalized Key</h4>
+          <p class="pattern-desc">Before counting a product, its name is lowercased and checked against every name already seen. Spotted on two different pages? It's only counted once.</p>
+        </div>
+        <div class="pattern-card animate-in" style="border-top: 3px solid var(--color-accent)">
+          <div class="pattern-icon" style="background: var(--color-accent)">✂️</div>
+          <h4 class="pattern-title">Distributor-Suffix Stripping</h4>
+          <p class="pattern-desc">Korean listings often tack a distributor's name onto the end of a product name. This code chops it off, word by word, before anything else happens.</p>
+        </div>
+        <div class="pattern-card animate-in" style="border-top: 3px solid var(--color-accent)">
+          <div class="pattern-icon" style="background: var(--color-accent)">📸</div>
+          <h4 class="pattern-title">Yesterday-vs-Today Diffing</h4>
+          <p class="pattern-desc">Like a spot-the-difference puzzle between two photos, the code keeps yesterday's data and compares it to today's, product by product, to catch every price change.</p>
+        </div>
+        <div class="pattern-card animate-in" style="border-top: 3px solid var(--color-accent)">
+          <div class="pattern-icon" style="background: var(--color-accent)">📦</div>
+          <h4 class="pattern-title">Self-Contained HTML</h4>
+          <p class="pattern-desc">All the data a browser needs is baked directly into one HTML file as plain JavaScript. No server, no database, just open the file and it works.</p>
+        </div>
+      </div>
+
+      <div class="animate-in" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-4); margin-top: var(--space-8);">
+        <div class="translation-code" style="border-radius: var(--radius-md);">
+          <span class="translation-label">DEDUP</span>
+          <pre><code>
+<span class="code-line"><span class="code-comment"># Deduplicate</span></span>
+<span class="code-line">            key = model.<span class="code-function">lower</span>()</span>
+<span class="code-line">            <span class="code-keyword">if</span> key <span class="code-keyword">in</span> seen_names:</span>
+<span class="code-line">                <span class="code-keyword">continue</span></span>
+<span class="code-line">            seen_names.<span class="code-function">add</span>(key)</span>
+          </code></pre>
+        </div>
+        <div class="translation-code" style="border-radius: var(--radius-md);">
+          <span class="translation-label">DISTRIBUTOR STRIP</span>
+          <pre><code>
+<span class="code-line"><span class="code-keyword">def</span> <span class="code-function">strip_distributor</span>(name: <span class="code-keyword">str</span>) -&gt; <span class="code-keyword">str</span>:</span>
+<span class="code-line">    <span class="code-string">"""Remove trailing Korean distributor/importer name from product name."""</span></span>
+<span class="code-line">    parts = name.<span class="code-function">split</span>()</span>
+<span class="code-line">    <span class="code-keyword">while</span> parts <span class="code-keyword">and</span> parts[-1] <span class="code-keyword">in</span> DISTRIBUTORS:</span>
+<span class="code-line">        parts.<span class="code-function">pop</span>()</span>
+<span class="code-line">    <span class="code-keyword">return</span> <span class="code-string">" "</span>.<span class="code-function">join</span>(parts)</span>
+          </code></pre>
+        </div>
+        <div class="translation-code" style="border-radius: var(--radius-md);">
+          <span class="translation-label">SELF-CONTAINED</span>
+          <pre><code>
+<span class="code-line">&lt;script&gt;</span>
+<span class="code-line"><span class="code-keyword">const</span> RAW = {js_literal(products)};</span>
+<span class="code-line"><span class="code-keyword">const</span> BRAND_COLOR = {brand_color_map};</span>
+<span class="code-line"><span class="code-keyword">const</span> BRAND_DARK  = {brand_dark_map};</span>
+<span class="code-line"><span class="code-keyword">const</span> PRICE_MAX   = {price_ceil};</span>
+          </code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 5: Spot-the-difference metaphor + snapshot + translation block 2 -->
+    <div class="screen">
+      <h3 class="screen-heading animate-in">Spot the difference, but for prices</h3>
+      <p class="animate-in">Remember those kids' puzzles with two nearly-identical photos side by side, and you had to circle everything that changed between them? That's exactly the game the code plays with yesterday's prices and today's.</p>
+      <p class="animate-in">But to play that game, it first needs to keep yesterday's photo instead of throwing it away the moment today's arrives.</p>
+
+      <div class="translation-code animate-in" style="border-radius: var(--radius-md);">
+        <span class="translation-label">CODE</span>
+        <pre><code>
+<span class="code-line">    <span class="code-keyword">if</span> os.path.<span class="code-function">exists</span>(OUTPUT_FILE):</span>
+<span class="code-line">        shutil.<span class="code-function">copy2</span>(OUTPUT_FILE, PRE_FILE)</span>
+        </code></pre>
+      </div>
+      <p class="animate-in">Right before overwriting the results, the old file is copied to a "pre" file first. That copy is a <span class="term" data-definition="A snapshot is a frozen copy of data at one specific moment, like a photograph, so you can compare it against a later moment to see what changed.">snapshot</span>, a frozen photo of yesterday, kept around just long enough to compare against.</p>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">CODE</span>
+          <pre><code>
+<span class="code-line"><span class="code-keyword">def</span> <span class="code-function">compute_price_diff</span>() -&gt; <span class="code-keyword">list</span>:</span>
+<span class="code-line">    <span class="code-string">"""Return list of (name, old_price, new_price, diff) for changed/new products."""</span></span>
+<span class="code-line">    <span class="code-keyword">if</span> <span class="code-keyword">not</span> PRE_FILE.<span class="code-function">exists</span>() <span class="code-keyword">or</span> <span class="code-keyword">not</span> DATA_FILE.<span class="code-function">exists</span>():</span>
+<span class="code-line">        <span class="code-keyword">return</span> []</span>
+<span class="code-line">    <span class="code-keyword">with</span> <span class="code-function">open</span>(DATA_FILE, encoding=<span class="code-string">"utf-8"</span>) <span class="code-keyword">as</span> fh:</span>
+<span class="code-line">        cur = json.<span class="code-function">load</span>(fh)</span>
+<span class="code-line">    <span class="code-keyword">with</span> <span class="code-function">open</span>(PRE_FILE, encoding=<span class="code-string">"utf-8"</span>) <span class="code-keyword">as</span> fh:</span>
+<span class="code-line">        pre = json.<span class="code-function">load</span>(fh)</span>
+<span class="code-line"></span>
+<span class="code-line">    <span class="code-keyword">def</span> <span class="code-function">flatten</span>(data):</span>
+<span class="code-line">        result = {}</span>
+<span class="code-line">        <span class="code-keyword">for</span> brand_obj <span class="code-keyword">in</span> data.<span class="code-function">get</span>(<span class="code-string">"brands"</span>, {}).<span class="code-function">values</span>():</span>
+<span class="code-line">            <span class="code-keyword">for</span> item <span class="code-keyword">in</span> brand_obj.<span class="code-function">get</span>(<span class="code-string">"products"</span>, []):</span>
+<span class="code-line">                result[item[<span class="code-string">"name"</span>]] = item</span>
+<span class="code-line">        <span class="code-keyword">return</span> result</span>
+<span class="code-line"></span>
+<span class="code-line">    cur_map = <span class="code-function">flatten</span>(cur)</span>
+<span class="code-line">    pre_map = <span class="code-function">flatten</span>(pre)</span>
+<span class="code-line">    diffs = []</span>
+<span class="code-line">    <span class="code-keyword">for</span> name, ni <span class="code-keyword">in</span> cur_map.<span class="code-function">items</span>():</span>
+<span class="code-line">        np = ni.<span class="code-function">get</span>(<span class="code-string">"price_usd"</span>)</span>
+<span class="code-line">        <span class="code-keyword">if</span> np <span class="code-keyword">is</span> <span class="code-keyword">None</span>:</span>
+<span class="code-line">            <span class="code-keyword">continue</span></span>
+<span class="code-line">        oi = pre_map.<span class="code-function">get</span>(name)</span>
+<span class="code-line">        <span class="code-keyword">if</span> oi <span class="code-keyword">is</span> <span class="code-keyword">None</span>:</span>
+<span class="code-line">            diffs.<span class="code-function">append</span>((name, <span class="code-keyword">None</span>, np, <span class="code-keyword">None</span>))</span>
+<span class="code-line">        <span class="code-keyword">elif</span> oi.<span class="code-function">get</span>(<span class="code-string">"price_usd"</span>) != np:</span>
+<span class="code-line">            diffs.<span class="code-function">append</span>((name, oi[<span class="code-string">"price_usd"</span>], np, np - oi[<span class="code-string">"price_usd"</span>]))</span>
+<span class="code-line">    <span class="code-keyword">return</span> diffs</span>
+          </code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">PLAIN ENGLISH</span>
+          <div class="translation-lines">
+            <p class="tl">First, check both files actually exist. If either the old snapshot or the new one is missing, there's nothing to compare, so give up with an empty list.</p>
+            <p class="tl">Open today's data and yesterday's data, both saved as <span class="term" data-definition="JSON is a simple text format for storing structured data, lists and name/value pairs, that both humans and computers can read easily.">JSON</span>, a plain-text way of storing structured data.</p>
+            <p class="tl"><code>flatten()</code> digs every product out of its brand grouping and builds one big <span class="term" data-definition="A lookup table (or key/value table) pairs a key, like a product name, with its matching value, so you can find data instantly instead of searching through a whole list one item at a time.">lookup table</span>, keyed by the product's name, so any product can be found instantly instead of searched for.</p>
+            <p class="tl">Build two of these lookup tables: one from today's data, one from yesterday's.</p>
+            <p class="tl">For every product in today's list, skip anything that doesn't have a listed price.</p>
+            <p class="tl">Look that same product name up in yesterday's table. Never seen before? It's new. Price changed? Record the old price, the new price, and the <span class="term" data-definition="A diff is a comparison between two versions of the same thing that highlights exactly what changed, the same idea behind &quot;track changes&quot; in a word processor.">diff</span> between them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 6: Why it matters -->
+    <div class="screen">
+      <h3 class="screen-heading animate-in">Same tricks, every project</h3>
+      <p class="animate-in">None of these five patterns are special to motherboards or chipsets. They show up in nearly every AI-assisted data project you'll ever ask someone, or something, to build.</p>
+      <p class="animate-in">Next time you're describing a task to an AI assistant, you now have the words for it: "strip the noise before deduplicating," "diff this against yesterday's snapshot," "ship it as a self-contained HTML file." Naming the pattern is half of asking for it correctly.</p>
+    </div>
+
+  </div>
+</section>

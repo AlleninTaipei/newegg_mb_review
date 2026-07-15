@@ -1,0 +1,171 @@
+<section class="module" id="module-2">
+  <div class="module-content">
+
+    <div class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h2 class="module-title">Meet the Pipeline Cast</h2>
+      <p class="module-subtitle">Three roles, three regions, nine files, one shared toolkit that runs them all.</p>
+    </div>
+
+    <div class="screen">
+      <p class="animate-in">Picture a shipping dock with three loading bays, one bound for Newegg, one for Kakaku, one for Danawa. Module 1 showed you the diagram of all three bays working at once. This module walks the dock and puts a name and a job title on every crate in that diagram.</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading animate-in">The Cargo Manifest</h3>
+      <p class="animate-in">Here's the whole dock. Three regional <span class="term" data-definition="A pipeline is a chain of steps where each step's output feeds the next, like an assembly line: scrape, then build a report, then email it.">pipelines</span> each turn raw listings into a <span class="term" data-definition="JSON is a plain-text format for storing structured data. Think of it as a filing format every program agrees on, so any script can read the data back correctly.">JSON</span> file, build a dashboard, and email it out over <span class="term" data-definition="SMTP is the standard system email programs use to hand a message off to a mail server for delivery. It's the plumbing behind every 'Send' button.">SMTP</span>, plus one shared toolkit that runs and schedules all three at once.</p>
+
+      <div class="file-tree animate-in">
+        <div class="ft-folder open">
+          <span class="ft-name">Newegg pipeline</span>
+          <span class="ft-desc">North America, priced in USD</span>
+          <div class="ft-children">
+            <div class="ft-file"><span class="ft-name">scraper.py</span><span class="ft-desc">Fetches ASRock, ASUS, Gigabyte, MSI listings, saves to motherboard_reviews.json</span></div>
+            <div class="ft-file"><span class="ft-name">generate_dashboard.py</span><span class="ft-desc">Turns that JSON into dashboard.html</span></div>
+            <div class="ft-file"><span class="ft-name">send_email.py</span><span class="ft-desc">Emails dashboard.html via SMTP</span></div>
+            <div class="ft-file"><span class="ft-name">motherboard_reviews.json</span><span class="ft-desc">Newegg data, auto-generated</span></div>
+            <div class="ft-file"><span class="ft-name">dashboard.html</span><span class="ft-desc">Newegg dashboard, auto-generated</span></div>
+          </div>
+        </div>
+        <div class="ft-folder open">
+          <span class="ft-name">Kakaku pipeline</span>
+          <span class="ft-desc">Japan, priced in JPY</span>
+          <div class="ft-children">
+            <div class="ft-file"><span class="ft-name">kakaku_scraper.py</span><span class="ft-desc">Kakaku scraper, saves to kakaku_reviews.json</span></div>
+            <div class="ft-file"><span class="ft-name">generate_kakaku_dashboard.py</span><span class="ft-desc">JSON, kakaku_dashboard.html</span></div>
+            <div class="ft-file"><span class="ft-name">kakaku_send_email.py</span><span class="ft-desc">Sends kakaku_dashboard.html via SMTP</span></div>
+            <div class="ft-file"><span class="ft-name">kakaku_reviews.json</span><span class="ft-desc">Kakaku data, auto-generated</span></div>
+            <div class="ft-file"><span class="ft-name">kakaku_dashboard.html</span><span class="ft-desc">Kakaku dashboard, auto-generated</span></div>
+          </div>
+        </div>
+        <div class="ft-folder open">
+          <span class="ft-name">Danawa pipeline</span>
+          <span class="ft-desc">Korea, priced in KRW</span>
+          <div class="ft-children">
+            <div class="ft-file"><span class="ft-name">danawa_scraper.py</span><span class="ft-desc">Danawa scraper, saves to danawa_reviews.json</span></div>
+            <div class="ft-file"><span class="ft-name">generate_danawa_dashboard.py</span><span class="ft-desc">JSON, danawa_dashboard.html</span></div>
+            <div class="ft-file"><span class="ft-name">danawa_send_email.py</span><span class="ft-desc">Sends danawa_dashboard.html via SMTP</span></div>
+            <div class="ft-file"><span class="ft-name">danawa_reviews.json</span><span class="ft-desc">Danawa data, auto-generated</span></div>
+            <div class="ft-file"><span class="ft-name">danawa_dashboard.html</span><span class="ft-desc">Danawa dashboard, auto-generated</span></div>
+          </div>
+        </div>
+        <div class="ft-folder open">
+          <span class="ft-name">Shared / orchestration</span>
+          <span class="ft-desc">Runs and schedules all three at once</span>
+          <div class="ft-children">
+            <div class="ft-file"><span class="ft-name">run_all.sh</span><span class="ft-desc">Runs all three pipelines in parallel</span></div>
+            <div class="ft-file"><span class="ft-name">requirements.txt</span><span class="ft-desc">Python dependencies list</span></div>
+            <div class="ft-file"><span class="ft-name">.github/workflows/send_reports.yml</span><span class="ft-desc">GitHub Actions scheduled workflow</span></div>
+            <div class="ft-file"><span class="ft-name">.env.example</span><span class="ft-desc">Environment variable template</span></div>
+            <div class="ft-file"><span class="ft-name">.env</span><span class="ft-desc">Your real credentials, git-ignored</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading animate-in">Same Three Job Titles, Every Port</h3>
+      <p class="animate-in">Every bay stamps the same three job titles on its crates. Only the contents inside differ by port.</p>
+
+      <div class="icon-rows stagger-children">
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: var(--color-actor-1)">🔍</div>
+          <div>
+            <strong>Scraper</strong>
+            <p>Visits the marketplace site and copies every motherboard listing it finds into a raw JSON file.</p>
+          </div>
+        </div>
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: var(--color-actor-2)">📊</div>
+          <div>
+            <strong>Dashboard Generator</strong>
+            <p>Reads that JSON file and builds the ranked, human-readable dashboard.html report.</p>
+          </div>
+        </div>
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: var(--color-actor-3)">✉️</div>
+          <div>
+            <strong>Email Sender</strong>
+            <p>Takes the finished dashboard and delivers it straight to an inbox over SMTP.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">💡</div>
+        <div class="callout-content">
+          <strong class="callout-title">Key Insight</strong>
+          <p>Three roles (Scraper, Generator, Sender) times three regions (Newegg, Kakaku, Danawa) is nine files. Add the shared <span class="term" data-definition="An orchestrator is a script whose only job is to start and coordinate other scripts. It doesn't do the work itself, it just conducts.">orchestrator</span> (run_all.sh) and the shared <span class="term" data-definition="GitHub Actions is GitHub's built-in scheduler and automation runner. It can trigger scripts automatically on a timer, with nobody needing to open a laptop.">GitHub Actions</span> <span class="term" data-definition="A workflow is the file that tells an automation tool like GitHub Actions what to run and when, essentially a recipe for a scheduled job.">workflow</span> that schedules everything, and that's the entire cast. Nine files isn't nine things to learn, it's the same three things, times three.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading animate-in">Same Paperwork, Different Port</h3>
+      <p class="animate-in">Every scraper file opens with a <span class="term" data-definition="A docstring is a comment block at the top of a file or function that explains, in plain language, what the code does and why.">docstring</span>, a plain-language note explaining what's inside the crate. Compare Newegg's label to Danawa's.</p>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in" style="border-top: 3px solid var(--color-actor-1)">
+          <h4 class="pattern-title">scraper.py</h4>
+          <pre style="white-space:pre-wrap; word-break:break-word; background:var(--color-bg-code); color:#CDD6F4; padding:var(--space-4); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:var(--text-sm); line-height:1.7;"><code>"""
+Newegg Motherboard Scraper
+Fetches ASRock, ASUS, Gigabyte, MSI motherboard listings and saves to motherboard_reviews.json
+"""</code></pre>
+        </div>
+        <div class="pattern-card animate-in" style="border-top: 3px solid var(--color-actor-3)">
+          <h4 class="pattern-title">danawa_scraper.py</h4>
+          <pre style="white-space:pre-wrap; word-break:break-word; background:var(--color-bg-code); color:#CDD6F4; padding:var(--space-4); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:var(--text-sm); line-height:1.7;"><code>"""
+Danawa Motherboard Scraper
+Fetches ASRock, ASUS, MSI, Gigabyte motherboard listings and saves to danawa_reviews.json
+
+Output format mirrors motherboard_reviews.json (Newegg scraper) except:
+  - price field is price_krw (Korean Won) instead of price_usd
+  - rating/review_count replaced by store_count (number of stores carrying the product)
+  - source is "Danawa"
+
+Uses the AJAX endpoint that backs the Danawa listing page JS pagination.
+"""</code></pre>
+        </div>
+      </div>
+
+      <p class="animate-in">Danawa's label goes further. It spells out every way its cargo differs from Newegg's, right down to the <span class="term" data-definition="An endpoint is a specific web address a program calls to fetch or send data, like a numbered service window at a counter.">endpoint</span> the scraper quietly calls with <span class="term" data-definition="AJAX is a technique websites use to fetch new data in the background without reloading the whole page. It's often the hidden data source a scraper taps into.">AJAX</span> instead of loading a plain page.</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading animate-in">The Casting List</h3>
+      <p class="animate-in">Not every difference between brands needs a whole separate file. Inside scraper.py, one small <span class="term" data-definition="A dictionary (or dict) is a lookup table pairing each key with a value, like a phone book where a name (key) points to a number (value).">dictionary</span> decides which brands get scraped and how far.</p>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">CODE</span>
+          <pre><code>
+<span class="code-line">BRANDS = {</span>
+<span class="code-line">    <span class="code-string">"ASRock"</span>:  {<span class="code-property">"n_val"</span>: <span class="code-number">50001944</span>, <span class="code-property">"max_pages"</span>: <span class="code-number">3</span>},</span>
+<span class="code-line">    <span class="code-string">"ASUS"</span>:    {<span class="code-property">"n_val"</span>: <span class="code-number">50001315</span>, <span class="code-property">"max_pages"</span>: <span class="code-number">5</span>},</span>
+<span class="code-line">    <span class="code-string">"MSI"</span>:     {<span class="code-property">"n_val"</span>: <span class="code-number">50001312</span>, <span class="code-property">"max_pages"</span>: <span class="code-number">5</span>},</span>
+<span class="code-line">    <span class="code-string">"Gigabyte"</span>:{<span class="code-property">"n_val"</span>: <span class="code-number">50001314</span>, <span class="code-property">"max_pages"</span>: <span class="code-number">5</span>},</span>
+<span class="code-line">}</span>
+          </code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">PLAIN ENGLISH</span>
+          <div class="translation-lines">
+            <p class="tl">This defines a dictionary named BRANDS. Every brand name is a key that points to its own settings, one small <span class="term" data-definition="A config, short for configuration, is a block of settings a program reads before it runs, like a dial panel it checks before starting work.">config</span> block per brand.</p>
+            <p class="tl">ASRock maps to n_val 50001944, Newegg's internal ID number for that brand's filter, plus a cap of 3 pages to scrape.</p>
+            <p class="tl">ASUS, MSI, and Gigabyte each get their own n_val, but all three are allowed up to 5 pages, more than ASRock.</p>
+            <p class="tl">The closing brace ends the table. Four brands, four settings, one place to look.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading animate-in">Naming the Cast Pays Off</h3>
+      <p class="animate-in">Once you can say Scraper, Generator, or Sender out loud, you can steer AI with precision: "add a min_reviews filter to the generator, not the scraper." Vague instructions let AI guess, and guesses sometimes land in the wrong file.</p>
+      <p class="animate-in">Next up, we'll follow one actual motherboard through this exact cast, start to finish.</p>
+    </div>
+
+  </div>
+</section>

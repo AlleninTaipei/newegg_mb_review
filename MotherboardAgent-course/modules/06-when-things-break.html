@@ -1,0 +1,162 @@
+<section class="module" id="module-6">
+  <div class="module-content">
+
+    <div class="module-header">
+      <span class="module-number">06</span>
+      <h2 class="module-title">When Things Break</h2>
+      <p class="module-subtitle">Every pipeline in this course has worked so far. Real ones don't always. Here's how this codebase tells you what went wrong, and how to read it like a flight recorder.</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">The black box, not the crash</h3>
+      <p class="animate-in">When a plane has a bad flight, investigators don't rebuild the plane from scratch. They pull the <span class="term" data-definition="A flight recorder (often called a 'black box') is a device that logs exactly what a plane's systems were doing right before something went wrong, so investigators can pinpoint the moment and the cause.">flight recorder</span> and check exactly which system logged an anomaly, and when.</p>
+      <p class="animate-in">This codebase leaves the same kind of breadcrumbs: print statements, per-region failure messages, and quiet skips instead of guesses. This module teaches you to read them.</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">Everything worked. Until it doesn't.</h3>
+      <p class="animate-in">Across five modules, every scraper ran, every dashboard built, every email sent. In the real world, websites redesign their pages, network requests time out, and one region's step can fail while the other two succeed fine.</p>
+      <p class="animate-in">This module is about the signals this codebase already gives you for exactly that moment, so you never have to guess what broke.</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">Three simple shapes, not one clever framework</h3>
+      <p class="animate-in">This codebase's failure handling is intentionally simple and visible, not clever and hidden. Missing data is silently skipped, one region failing doesn't take down the other two, and a failed step is reported by name.</p>
+      <p class="animate-in">Recognizing these three shapes helps you tell normal, expected degraded operation apart from an actual bug.</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">Shape 1: skip, don't guess</h3>
+      <p class="animate-in">When a product's price or rating can't be parsed, the scraper drops that one item rather than saving it with a made-up value like $0.00. It would rather under-report than lie.</p>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">CODE</span>
+          <pre><code><span class="code-line">            price  = parse_price(item)</span>
+<span class="code-line">            rating = parse_rating(item)</span>
+<span class="code-line">            <span class="code-keyword">if</span> price <span class="code-keyword">is</span> <span class="code-keyword">None</span> <span class="code-keyword">or</span> rating <span class="code-keyword">is</span> <span class="code-keyword">None</span>:</span>
+<span class="code-line">                <span class="code-keyword">continue</span></span></code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">PLAIN ENGLISH</span>
+          <div class="translation-lines">
+            <p class="tl">Try to read this item's price, and try to read its rating.</p>
+            <p class="tl">If either one couldn't be read, meaning it came back empty...</p>
+            <p class="tl">...skip this one item entirely and move to the next. Don't save it with a fake or blank number.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="animate-in">This is a deliberate design choice. A missing motherboard in tomorrow's dashboard is a minor gap; a motherboard listed at a fake $0.00 price is a lie that spreads into every downstream chart and email.</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">Shape 2: one region's failure stays contained</h3>
+      <p class="animate-in">A network hiccup while scraping one brand is caught as an <span class="term" data-definition="An exception is what a program 'raises' when something goes wrong while it's running, like a network request failing. A try/except block catches it so the program can respond instead of crashing outright.">exception</span> instead of crashing the whole program. It's logged with the brand's name attached, then that one brand's loop stops early.</p>
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">CODE</span>
+          <pre><code><span class="code-line">        <span class="code-keyword">try</span>:</span>
+<span class="code-line">            resp = requests.get(url, headers=HEADERS, timeout=20)</span>
+<span class="code-line">            resp.raise_for_status()</span>
+<span class="code-line">        <span class="code-keyword">except</span> requests.RequestException <span class="code-keyword">as</span> exc:</span>
+<span class="code-line">            <span class="code-function">print</span>(<span class="code-string">f"  [{brand}] Request error: {exc}"</span>)</span>
+<span class="code-line">            <span class="code-keyword">break</span></span></code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">PLAIN ENGLISH</span>
+          <div class="translation-lines">
+            <p class="tl">Attempt the request, and check that the response wasn't an error page.</p>
+            <p class="tl">If the request itself failed, catch that failure by name instead of letting the program die.</p>
+            <p class="tl">Print exactly which brand failed and why, then stop just that brand's scrape.</p>
+          </div>
+        </div>
+      </div>
+      <p class="animate-in">Zoom out one level and the same shape repeats at the shell script level. Each region's chain of scripts reports its own name if it fails, and the final step waits on all three regions individually so one failure never hides the other two's results.</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">Shape 3: failures are logged by name</h3>
+      <p class="animate-in"><code>run_all.sh</code> never just says "something failed." It says which region and which script, so you know exactly where to look first.</p>
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">CODE</span>
+          <pre><code><span class="code-line">run_pipeline() {</span>
+<span class="code-line">    local region=$1; shift</span>
+<span class="code-line">    for script in "$@"; do</span>
+<span class="code-line">        echo "[${region}] ${script} ..."</span>
+<span class="code-line">        if ! python3 "${script}"; then</span>
+<span class="code-line">            echo "[${region}] FAILED at ${script}" >&2</span>
+<span class="code-line">            return 1</span>
+<span class="code-line">        fi</span>
+<span class="code-line">    done</span>
+<span class="code-line">    echo "[${region}] all done"</span>
+<span class="code-line">}</span></code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">PLAIN ENGLISH</span>
+          <div class="translation-lines">
+            <p class="tl">This function runs one region's chain of scripts in order, one at a time.</p>
+            <p class="tl">If any single script in that chain fails, print exactly which region and which script.</p>
+            <p class="tl">Stop that region's chain right there, but don't touch the other regions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">How to debug a failure</h3>
+      <p class="animate-in">When something looks wrong tomorrow morning, work through these four questions in order. Each one points at a specific place to look, not the whole system.</p>
+
+      <div class="step-cards stagger-children">
+        <div class="step-card animate-in">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Which region failed?</strong>
+            <p>Check <code>run_all.sh</code>'s output for a line like <code>[Kakaku] FAILED at generate_kakaku_dashboard.py</code>. That names the exact region and exact script, so you only need AI to look at that one log.</p>
+          </div>
+        </div>
+        <div class="step-card animate-in">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Did a product just go missing?</strong>
+            <p>That's usually not a crash. Check whether its price or rating parsed as <code>None</code> and got silently skipped, the same shape you saw above, not a sign the scraper is broken.</p>
+          </div>
+        </div>
+        <div class="step-card animate-in">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Did the whole scrape return zero products?</strong>
+            <p>That's a bigger signal. It usually means the website changed its layout, breaking a <span class="term" data-definition="A CSS selector is a pattern used to find specific elements on a web page, like '.item-container' meaning 'find every element with this label.' Scrapers depend on selectors matching the page's actual structure.">CSS selector</span> like <code>.item-container</code> or <code>.item-rating i</code> that the scraper depends on to find things on the page.</p>
+          </div>
+        </div>
+        <div class="step-card animate-in">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Want to add a 4th region?</strong>
+            <p>Copy the scraper, generator, and sender trio from an existing region, adjust the schema fields for that market's metric (like Danawa's store_count), then add one line to <code>run_all.sh</code> and one recipient variable to the GitHub Actions workflow.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <p class="animate-in">A website <span class="term" data-definition="A redesign or breaking change is when a website changes its page layout or structure. Any code that depended on the old structure, like a scraper's selectors, stops working until it's updated to match the new layout.">redesign</span> is the one failure this codebase can't route around on its own, because it changes the shape of the page the <span class="term" data-definition="A selector is the general term for a pattern used to pick out specific pieces of data or elements, whether from a web page, a file, or a database.">selector</span> was written for. Everything else, missing fields, one bad request, one failed script, is handled by the three shapes above.</p>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">💡</div>
+        <div class="callout-content">
+          <strong class="callout-title">Key Insight</strong>
+          <p>This system's resilience doesn't come from one big clever error-handling framework. It comes from small, boring choices made consistently: skip instead of guess, isolate failures per region, and log every failure by name. The simplest failure handling is usually the most debuggable one.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">What you now know</h3>
+      <p class="animate-in">Back in Module 1, the hook was a 9am email arriving automatically, with nobody touching a keyboard. Now you know everything standing behind that one email: three regions running as <span class="term" data-definition="Concurrency means running multiple things at the same time instead of one after another, like three regions scraping simultaneously instead of waiting in line.">concurrency</span>, each one hitting its own <span class="term" data-definition="An endpoint is a specific web address a program requests data or a page from, like a particular Newegg category page.">endpoint</span>, structuring results into a <span class="term" data-definition="A schema is the agreed shape of a piece of data, which fields it has and what type each one is, so every part of the pipeline can read it the same way.">schema</span>, running <span class="term" data-definition="Dedup, short for deduplication, means removing duplicate entries so the same item isn't counted or shown twice.">dedup</span> and <span class="term" data-definition="A diff is a comparison between two versions of something that highlights only what changed, like today's prices against yesterday's.">diff</span> to catch what changed, and finally getting scheduled by <span class="term" data-definition="Cron is a scheduler that runs a program automatically at a set time, like every weekday at 9am, without anyone starting it by hand.">cron</span> so it all happens while you're asleep.</p>
+      <p class="animate-in">And now, when one morning that email doesn't look right, you know exactly where to look: the per-region log, the silent skips, or the selectors, instead of just "the scraper is broken."</p>
+    </div>
+
+  </div>
+</section>

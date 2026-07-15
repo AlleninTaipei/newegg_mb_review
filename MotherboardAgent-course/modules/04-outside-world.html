@@ -1,0 +1,273 @@
+<section class="module" id="module-4">
+
+  <div class="module-header animate-in">
+    <span class="module-number">04</span>
+    <h2 class="module-title">Talking to the Outside World</h2>
+    <p class="module-subtitle">Every trip outside this codebase is a border crossing, and every border crossing needs the right paperwork.</p>
+  </div>
+
+  <div class="screen">
+    <h3 class="screen-heading animate-in">A courier crossing borders</h3>
+    <p class="animate-in">Picture a courier who has to cross several international borders in one trip. At every border, she needs a passport that looks legitimate, a customs form filled out in that country's exact format, a mailbox key nobody else is allowed to hold, and a train that leaves on schedule whether she's ready or not.</p>
+    <p class="animate-in">That courier is this codebase. The borders are the outside services it has to deal with.</p>
+  </div>
+
+  <div class="screen">
+    <h3 class="screen-heading animate-in">Module 3 stayed inside the building</h3>
+    <p class="animate-in">Everything in Module 3 happened inside files this project owns, one function handing data to the next. But the very first step, getting data at all, means reaching out to three websites this project does NOT own. The very last step, sending an email, means handing a message to a mail server it doesn't own either.</p>
+    <p class="animate-in">This module is about those two edges, plus the clock that starts the whole trip.</p>
+  </div>
+
+  <div class="screen">
+    <h3 class="screen-heading animate-in">The map: this codebase vs. the outside world</h3>
+    <p class="animate-in">Click any building below to see what it does at that border crossing.</p>
+
+    <div class="arch-diagram animate-in">
+      <div class="arch-zone">
+        <h4 class="arch-zone-label">This Codebase</h4>
+        <div class="arch-component" data-desc="Scrapes Newegg's motherboard listing pages using plain GET requests with disguised browser headers. Simplest of the three scrapers.">
+          <div class="arch-icon">🛒</div>
+          <span>scraper.py</span>
+        </div>
+        <div class="arch-component" data-desc="Scrapes Danawa by POSTing a form payload to an AJAX endpoint, since Danawa's product list loads via JavaScript rather than a plain page URL.">
+          <div class="arch-icon">🧾</div>
+          <span>danawa_scraper.py</span>
+        </div>
+        <div class="arch-component" data-desc="Builds the report email and hands it to Gmail's mail server using the SMTP protocol, reading the sender, password and recipients from environment variables.">
+          <div class="arch-icon">📧</div>
+          <span>send_email.py</span>
+        </div>
+      </div>
+
+      <div class="arch-zone">
+        <h4 class="arch-zone-label">External Services</h4>
+        <div class="arch-component" data-desc="A normal e-commerce site. Answers a plain GET request with a full HTML page, as long as the request looks like it came from a real browser.">
+          <div class="arch-icon">🌐</div>
+          <span>Newegg.com</span>
+        </div>
+        <div class="arch-component" data-desc="A Japanese price-comparison site scraped for motherboard listings. Same idea as Newegg: request a page, parse the HTML that comes back.">
+          <div class="arch-icon">🌐</div>
+          <span>Kakaku.com</span>
+        </div>
+        <div class="arch-component" data-desc="An AJAX endpoint returning HTML fragments per page. The scraper POSTs form data here instead of just requesting a URL, so it has to speak Danawa's specific dialect.">
+          <div class="arch-icon">🌐</div>
+          <span>Danawa.com</span>
+        </div>
+        <div class="arch-component" data-desc="The mail server that actually delivers the report. This codebase never touches an inbox directly, it just hands the finished message to Gmail over SMTP and trusts Gmail to deliver it.">
+          <div class="arch-icon">📬</div>
+          <span>Gmail SMTP</span>
+        </div>
+        <div class="arch-component" data-desc="Runs bash run_all.sh automatically every weekday at 9am Taipei time, using cron syntax, whether or not anyone is at a keyboard.">
+          <div class="arch-icon">⏰</div>
+          <span>GitHub Actions scheduler</span>
+        </div>
+      </div>
+
+      <div class="arch-description" id="arch-desc">Click any component to learn what it does</div>
+    </div>
+  </div>
+
+  <div class="screen">
+    <h3 class="screen-heading animate-in">Four things every crossing needs</h3>
+    <p class="animate-in">Talking to a system you don't own always comes down to the same four concerns.</p>
+
+    <div class="icon-rows stagger-children">
+      <div class="icon-row animate-in">
+        <div class="icon-circle" style="background: var(--color-accent)">🛂</div>
+        <div>
+          <strong>The right paperwork</strong>
+          <p>An <span class="term" data-definition="An HTTP header is a small piece of metadata sent along with a web request, describing who's asking or what they're asking for. Think of it as the label on the outside of a package, before anyone opens it.">HTTP header</span> called <span class="term" data-definition="A User-Agent is the header a browser (or script pretending to be one) sends to identify itself, e.g. 'Chrome on a Mac.' Sites use it to decide whether to serve the page or reject the request.">User-Agent</span> disguises the script as a real browser so the site doesn't reject it.</p>
+        </div>
+      </div>
+      <div class="icon-row animate-in">
+        <div class="icon-circle" style="background: var(--color-accent)">🗣️</div>
+        <div>
+          <strong>Each country's own dialect</strong>
+          <p>Newegg wants a URL with query parameters attached. Danawa wants a <span class="term" data-definition="POST is a way of sending a request that includes a chunk of data (the payload), instead of just asking to view something. It's the difference between mailing a filled-out form and just asking to see a blank one.">POST</span> payload sent to a specific <span class="term" data-definition="An endpoint is a specific address a service listens on for a particular kind of request, like a specific teller window at a bank rather than the bank's front door.">endpoint</span>.</p>
+        </div>
+      </div>
+      <div class="icon-row animate-in">
+        <div class="icon-circle" style="background: var(--color-accent)">🔑</div>
+        <div>
+          <strong>A key nobody else holds</strong>
+          <p>Passwords and recipient lists live in <span class="term" data-definition="An environment variable is a named value stored outside the code itself, provided by whatever system runs the program. Code reads it by name instead of having the value typed directly into a file.">environment variables</span>, never hard-coded into a file anyone could read.</p>
+        </div>
+      </div>
+      <div class="icon-row animate-in">
+        <div class="icon-circle" style="background: var(--color-accent)">🚆</div>
+        <div>
+          <strong>A train that leaves on schedule</strong>
+          <p>A <span class="term" data-definition="Cron is a very old, very standard way of describing a recurring schedule, like 'every weekday at 9am.' The scheduling syntax looks cryptic but every developer recognizes it on sight.">cron</span> schedule kicks the whole pipeline off automatically, with no human required.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen">
+    <h3 class="screen-heading animate-in">Different countries, different customs forms</h3>
+    <p class="animate-in">Newegg only needs a passport at the door. Danawa asks for a filled-out customs form too, a POST payload describing exactly which category, page, and manufacturer to fetch.</p>
+
+    <div class="translation-block animate-in">
+      <div class="translation-code">
+        <span class="translation-label">CODE</span>
+        <pre><code>HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/120.0.0.0 Safari/537.36"
+    ),
+    "Accept": "text/html, */*; q=0.01",
+    "Accept-Language": "ko,en-US;q=0.7,en;q=0.5",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "X-Requested-With": "XMLHttpRequest",
+    "Referer": "https://prod.danawa.com/list/?cate=112751",
+    "Origin": "https://prod.danawa.com",
+}
+
+AJAX_URL   = "https://prod.danawa.com/list/ajax/getProductList.ajax.php"
+CATE_CODE  = "112751"  # 메인보드 (Motherboard) UI category</code></pre>
+      </div>
+      <div class="translation-english">
+        <span class="translation-label">PLAIN ENGLISH</span>
+        <div class="translation-lines">
+          <p class="tl">Pretend to be a Chrome browser on a Mac, same disguise Newegg's scraper wears.</p>
+          <p class="tl">Ask for HTML back, in Korean-first language preference, since Danawa is a Korean site.</p>
+          <p class="tl">Warn Danawa that this is a form submission (not JSON) and that it's an <span class="term" data-definition="AJAX is a technique where a web page fetches new data in the background without reloading the whole page. Sites that use it don't serve a full page per request, so a scraper has to call the same background endpoint the page's own JavaScript would call.">AJAX</span> request, one made by the page's own JavaScript rather than a normal click-a-link page load.</p>
+          <p class="tl">Claim to be arriving from Danawa's own listing page, since some sites reject requests that don't look like they came from inside the site.</p>
+          <p class="tl">This is the address of the "customs window," the exact endpoint the scraper POSTs its form to.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="animate-in">And here is the actual form the courier hands over at that window.</p>
+
+    <div class="translation-block animate-in">
+      <div class="translation-code">
+        <span class="translation-label">CODE</span>
+        <pre><code>        payload = {
+            "page":            str(page),
+            "listCategoryCode": "751",
+            "categoryCode":    "751",
+            "physicsCate1":    "861",
+            "physicsCate2":    "875",
+            "physicsCate3":    "0",
+            "physicsCate4":    "0",
+            "viewMethod":      "LIST",
+            "sortMethod":      "",
+            "listCount":       "30",
+            "group":           "11",
+            "depth":           "2",
+            "searchMaker[]":   str(maker_id),
+            "listType":        "priceCompare",
+        }</code></pre>
+      </div>
+      <div class="translation-english">
+        <span class="translation-label">PLAIN ENGLISH</span>
+        <div class="translation-lines">
+          <p class="tl">Which page of results to fetch, and which product category codes narrow it down to motherboards.</p>
+          <p class="tl">Show results as a list, unsorted, 30 items per page.</p>
+          <p class="tl">Which manufacturer to filter for, and that this should behave like Danawa's own price-compare view.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen">
+    <h3 class="screen-heading animate-in">Handing over the mail: the SMTP handshake</h3>
+    <p class="animate-in">Sending the finished report isn't one instruction, it's a short conversation with the mail server, step by step.</p>
+
+    <div class="translation-block animate-in">
+      <div class="translation-code">
+        <span class="translation-label">CODE</span>
+        <pre><code>    with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+        server.ehlo()
+        server.starttls()
+        server.ehlo()
+        server.login(SENDER, PASSWORD)
+        server.sendmail(SENDER, recipients, msg.as_string())</code></pre>
+      </div>
+      <div class="translation-english">
+        <span class="translation-label">PLAIN ENGLISH</span>
+        <div class="translation-lines">
+          <p class="tl">Connect to Gmail's mail server over <span class="term" data-definition="SMTP (Simple Mail Transfer Protocol) is the standard set of steps computers use to hand off an email to a mail server for delivery. It's the postal system's official procedure, not a specific app.">SMTP</span>, the standard protocol for handing off email.</p>
+          <p class="tl">Say hello, and introduce yourself in plain, unencrypted text, for now.</p>
+          <p class="tl">Ask to upgrade the connection to an encrypted one before anything sensitive is sent.</p>
+          <p class="tl">Say hello again, this time over the encrypted connection.</p>
+          <p class="tl">Log in with the sender's address and password, now that eavesdroppers can't read them.</p>
+          <p class="tl">Hand over the finished message and the recipient list. The server takes it from here.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="animate-in">Those credentials come from environment variables, never written into the code itself.</p>
+
+    <div class="translation-block animate-in">
+      <div class="translation-code">
+        <span class="translation-label">CODE</span>
+        <pre><code>SENDER     = os.environ.get("EMAIL_SENDER", "")
+PASSWORD   = os.environ.get("EMAIL_PASSWORD", "")
+RECIPIENT  = os.environ.get("EMAIL_RECIPIENT_NEWEGG", "")
+SMTP_HOST  = os.environ.get("SMTP_HOST", "smtp.gmail.com")
+SMTP_PORT  = int(os.environ.get("SMTP_PORT", "587"))</code></pre>
+      </div>
+      <div class="translation-english">
+        <span class="translation-label">PLAIN ENGLISH</span>
+        <div class="translation-lines">
+          <p class="tl">Read the sender address, password, and recipient from whatever the running system provides, not from a file in this repository.</p>
+          <p class="tl">If nothing is provided, fall back to Gmail's own standard server address and port.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen">
+    <h3 class="screen-heading animate-in">Variables you can see, secrets you can't</h3>
+    <p class="animate-in">GitHub Actions is the train conductor: it wakes the whole pipeline up on a fixed timetable and hands each job its credentials. It draws a hard line between two kinds of values.</p>
+
+    <div class="translation-block animate-in">
+      <div class="translation-code">
+        <span class="translation-label">CODE</span>
+        <pre><code>on:
+  schedule:
+    - cron: '0 1 * * 1-5'  # 週一至週五 UTC 01:00（台灣時間早上 9 點）
+  workflow_dispatch:       # 允許在 GitHub UI 手動觸發
+
+jobs:
+  send-reports:
+    steps:
+      - name: Run all region pipelines
+        run: bash run_all.sh
+        env:
+          EMAIL_SENDER:           ${{ vars.EMAIL_SENDER }}
+          EMAIL_PASSWORD:         ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECIPIENT_NEWEGG: ${{ vars.EMAIL_RECIPIENT_NEWEGG }}
+          EMAIL_RECIPIENT_KAKAKU: ${{ vars.EMAIL_RECIPIENT_KAKAKU }}
+          EMAIL_RECIPIENT_DANAWA: ${{ vars.EMAIL_RECIPIENT_DANAWA }}</code></pre>
+      </div>
+      <div class="translation-english">
+        <span class="translation-label">PLAIN ENGLISH</span>
+        <div class="translation-lines">
+          <p class="tl">Run automatically at 1am UTC (9am Taipei) every Monday through Friday, using cron's five-field schedule syntax. Also allow a human to press a button and trigger it manually via <span class="term" data-definition="workflow_dispatch is the setting that adds a manual 'Run workflow' button in GitHub's UI, so a human can trigger an automated job on demand instead of waiting for its schedule.">workflow_dispatch</span>.</p>
+          <p class="tl">Run the exact same script the schedule would have run.</p>
+          <p class="tl">The sender address and recipient lists come from <code>vars</code>, plain configuration values anyone with repo access can see in GitHub's UI.</p>
+          <p class="tl">The password comes from <code>secrets</code>, an encrypted value that GitHub shows once when saved and never again, not even to the person who set it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-accent animate-in">
+      <div class="callout-icon">💡</div>
+      <div class="callout-content">
+        <strong class="callout-title">Variable vs. secret</strong>
+        <p>A <span class="term" data-definition="An environment variable set through a CI/CD system's 'variables' feature, visible in the UI to anyone with repo access. Used for values that aren't sensitive, like a recipient's email address.">Variable</span> is fine to see in plain text, like a recipient's address. A <span class="term" data-definition="A value stored in an encrypted vault by a CI/CD system. It can be used by workflows but never displayed again once saved, even to admins. Used for passwords, API keys, and anything that grants access.">Secret</span> is never fine to see in plain text, like a password. Mixing the two up is one of the most common real-world security mistakes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen">
+    <h3 class="screen-heading animate-in">Why this matters</h3>
+    <p class="animate-in">Recognizing "this is talking to an external system" tells you where things are fragile and outside this project's control. A site redesign can break scraping overnight, and that's not a bug in this codebase, it's an external dependency risk.</p>
+    <p class="animate-in">It also hands you the vocabulary, headers, endpoints, payloads, environment variables, secrets, cron, to precisely ask an AI coding agent to "add retry logic around this external call" or "rotate this secret."</p>
+  </div>
+
+</section>

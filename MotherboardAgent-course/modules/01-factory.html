@@ -1,0 +1,183 @@
+<section class="module" id="module-1">
+  <div class="module-content">
+
+    <div class="module-header">
+      <span class="module-number">01</span>
+      <h2 class="module-title">The Report Factory</h2>
+      <p class="module-subtitle">How one small script turns three websites, in three countries, into three inboxes, every single morning.</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">Three Countries, One Job</h3>
+      <p class="animate-in">MotherboardAgent watches motherboard listings on three online marketplaces, one based in the United States, one in Japan, one in Korea. Every day, without anyone touching a keyboard, it turns what it finds into a <span class="term" data-definition="A dashboard is a single web page that sums up data visually, like a car's dashboard shows your speed and fuel at a glance instead of raw engine numbers.">dashboard</span> and emails it out.</p>
+      <div class="icon-rows stagger-children">
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: var(--color-actor-1)">🔎</div>
+          <div>
+            <strong>Scrape</strong>
+            <p>A program visits each marketplace and copies down prices, ratings, and listings, the kind of <span class="term" data-definition="Scraping means having a program automatically visit a website and copy the information it finds, instead of a person copying it by hand.">scraping</span> a person would otherwise do by hand.</p>
+          </div>
+        </div>
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: var(--color-actor-2)">📊</div>
+          <div>
+            <strong>Build a dashboard</strong>
+            <p>The scraped data gets turned into one clean web page that ranks what's new and what's trending.</p>
+          </div>
+        </div>
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: var(--color-actor-5)">📧</div>
+          <div>
+            <strong>Email the report</strong>
+            <p>That dashboard gets emailed to the people who need to see it, with zero manual steps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">Three Foreign Bureaus</h3>
+      <p class="animate-in">Picture a newspaper that runs three foreign bureaus: one in New York, one in Tokyo, one in Seoul. Every bureau follows the same editorial template and the same deadline, but each one reads its local instruments differently, star ratings in one city, review counts in another, store counts in a third.</p>
+      <p class="animate-in">In the code, that's three regions running the exact same steps on three different marketplaces.</p>
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in" style="border-top: 3px solid var(--color-actor-1)">
+          <div class="pattern-icon" style="background: var(--color-actor-1)">🇺🇸</div>
+          <h4 class="pattern-title">North America</h4>
+          <p class="pattern-desc">Source: Newegg. Currency: USD. What matters: star rating and review count.</p>
+        </div>
+        <div class="pattern-card animate-in" style="border-top: 3px solid var(--color-actor-2)">
+          <div class="pattern-icon" style="background: var(--color-actor-2)">🇯🇵</div>
+          <h4 class="pattern-title">Japan</h4>
+          <p class="pattern-desc">Source: Kakaku.com. Currency: JPY. What matters: review count.</p>
+        </div>
+        <div class="pattern-card animate-in" style="border-top: 3px solid var(--color-actor-3)">
+          <div class="pattern-icon" style="background: var(--color-actor-3)">🇰🇷</div>
+          <h4 class="pattern-title">Korea</h4>
+          <p class="pattern-desc">Source: Danawa. Currency: KRW. What matters: store count, how many shops list the board.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">While You're Still Asleep</h3>
+      <p class="animate-in">Every weekday morning at 9am Taipei time, without anyone touching a keyboard, a handful of people find an email waiting in their inbox: a ranked list of the newest motherboards in their market. The rest of this module traces exactly how that email gets made.</p>
+      <p class="animate-in">One project file spells out the whole shape of it, the same four-step <span class="term" data-definition="A pipeline is a series of steps where the output of one step becomes the input of the next, like an assembly line for data.">pipeline</span> written out three times, once per region.</p>
+      <div class="translation-code animate-in" style="border-radius: var(--radius-md); margin: var(--space-8) 0;">
+        <span class="translation-label">README.md</span>
+        <pre><code><span class="code-line"><span class="code-comment"># North America (Newegg)</span></span>
+<span class="code-line">scraper.py  →  motherboard_reviews.json  →  generate_dashboard.py  →  dashboard.html</span>
+<span class="code-line">                                                                              ↓</span>
+<span class="code-line">                                                                       send_email.py</span>
+<span class="code-line">
+</span>
+<span class="code-line"><span class="code-comment"># Japan (Kakaku)</span></span>
+<span class="code-line">kakaku_scraper.py  →  kakaku_reviews.json  →  generate_kakaku_dashboard.py  →  kakaku_dashboard.html</span>
+<span class="code-line">                                                                                        ↓</span>
+<span class="code-line">                                                                               kakaku_send_email.py</span>
+<span class="code-line">
+</span>
+<span class="code-line"><span class="code-comment"># Korea (Danawa)</span></span>
+<span class="code-line">danawa_scraper.py  →  danawa_reviews.json  →  generate_danawa_dashboard.py  →  danawa_dashboard.html</span>
+<span class="code-line">                                                                                        ↓</span>
+<span class="code-line">                                                                               danawa_send_email.py</span>
+</code></pre>
+      </div>
+      <p class="animate-in">Scrape, structure it into <span class="term" data-definition="JSON is a plain-text way of organizing data into labeled fields, like a digital index card. It's the format the scraped motherboard data gets stored in before anything else can use it.">JSON</span>, build a dashboard, email it. Three regions, one pattern.</p>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">One Pattern, Run Three Times At Once</h3>
+      <p class="animate-in">Here's the part that makes it fast: all three regions start at the same moment and none of them waits around for the other two to finish first. Press "Next Step" to watch <code>run_all.sh</code>, the <span class="term" data-definition="A script is a text file listing commands for the computer to run in order, like a recipe. Bash is the specific language this one is written in.">script</span> behind all of this, kick the three bureaus off and watch their reports land in the inboxes.</p>
+      <div class="flow-animation animate-in" data-steps='[
+        {"highlight":"flow-actor-1","label":"You run bash run_all.sh"},
+        {"highlight":"flow-actor-2","label":"Newegg bureau starts scraping in the background","packet":true,"from":"actor-1","to":"actor-2"},
+        {"highlight":"flow-actor-3","label":"Kakaku bureau starts scraping in the background","packet":true,"from":"actor-1","to":"actor-3"},
+        {"highlight":"flow-actor-4","label":"Danawa bureau starts scraping in the background","packet":true,"from":"actor-1","to":"actor-4"},
+        {"label":"All three run at once; none waits for the others."},
+        {"highlight":"flow-actor-5","label":"Newegg emails its dashboard when it is done","packet":true,"from":"actor-2","to":"actor-5"},
+        {"highlight":"flow-actor-5","label":"Kakaku emails its dashboard when it is done","packet":true,"from":"actor-3","to":"actor-5"},
+        {"highlight":"flow-actor-5","label":"Danawa emails its dashboard when it is done","packet":true,"from":"actor-4","to":"actor-5"},
+        {"highlight":"flow-actor-5","label":"By breakfast, every region has delivered its report, independently, and each one possibly at a different time."}
+      ]'>
+        <div class="flow-actors">
+          <div class="flow-actor" id="flow-actor-1">
+            <div class="flow-actor-icon" style="background: var(--color-actor-4)">📜</div>
+            <span>run_all.sh</span>
+          </div>
+          <div class="flow-actor" id="flow-actor-2">
+            <div class="flow-actor-icon" style="background: var(--color-actor-1)">🇺🇸</div>
+            <span>Newegg Bureau</span>
+          </div>
+          <div class="flow-actor" id="flow-actor-3">
+            <div class="flow-actor-icon" style="background: var(--color-actor-2)">🇯🇵</div>
+            <span>Kakaku Bureau</span>
+          </div>
+          <div class="flow-actor" id="flow-actor-4">
+            <div class="flow-actor-icon" style="background: var(--color-actor-3)">🇰🇷</div>
+            <span>Danawa Bureau</span>
+          </div>
+          <div class="flow-actor" id="flow-actor-5">
+            <div class="flow-actor-icon" style="background: var(--color-actor-5)">📬</div>
+            <span>Inboxes</span>
+          </div>
+        </div>
+        <div class="flow-packet" id="flow-packet"></div>
+        <div class="flow-step-label" id="flow-label">Click "Next Step" to begin</div>
+        <div class="flow-controls">
+          <button class="btn flow-next-btn">Next Step</button>
+          <button class="btn flow-reset-btn">Restart</button>
+          <span class="flow-progress"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">Reading run_all.sh</h3>
+      <p class="animate-in">The whole trick lives in six lines. Each region's <span class="term" data-definition="A function is a named, reusable block of instructions. Instead of retyping the same steps, you just call the function by name and hand it whatever details change each time.">function</span> call ends with a trailing <code>&amp;</code>, which turns it into a <span class="term" data-definition="A background process is a task the computer starts and then immediately moves on from, instead of freezing everything else until that task finishes.">background process</span>, and <code>$!</code> hands back its <span class="term" data-definition="PID stands for Process ID, a unique number the operating system gives a running program so you can check on it, or stop it, later.">PID</span> so the script can check on it later.</p>
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">CODE</span>
+          <pre><code>
+<span class="code-line"><span class="code-function">run_pipeline</span> <span class="code-string">"Newegg"</span> scraper.py generate_dashboard.py send_email.py <span class="code-operator">&amp;</span></span>
+<span class="code-line"><span class="code-property">PID_NEWEGG</span><span class="code-operator">=</span><span class="code-keyword">$!</span></span>
+<span class="code-line"><span class="code-function">run_pipeline</span> <span class="code-string">"Kakaku"</span> kakaku_scraper.py generate_kakaku_dashboard.py kakaku_send_email.py <span class="code-operator">&amp;</span></span>
+<span class="code-line"><span class="code-property">PID_KAKAKU</span><span class="code-operator">=</span><span class="code-keyword">$!</span></span>
+<span class="code-line"><span class="code-function">run_pipeline</span> <span class="code-string">"Danawa"</span> danawa_scraper.py generate_danawa_dashboard.py danawa_send_email.py <span class="code-operator">&amp;</span></span>
+<span class="code-line"><span class="code-property">PID_DANAWA</span><span class="code-operator">=</span><span class="code-keyword">$!</span></span>
+</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">PLAIN ENGLISH</span>
+          <div class="translation-lines">
+            <p class="tl">Kick off the whole Newegg pipeline, scrape then dashboard then email, but the trailing & backgrounds it so the script doesn't wait for it to finish before moving on.</p>
+            <p class="tl">$! is the PID of the job we just backgrounded. Save it as PID_NEWEGG so we can check on it in a moment.</p>
+            <p class="tl">Same idea, for Kakaku: start its pipeline in the background too.</p>
+            <p class="tl">Save Kakaku's PID as well, as PID_KAKAKU.</p>
+            <p class="tl">And again for Danawa: start its pipeline in the background.</p>
+            <p class="tl">Save Danawa's PID as PID_DANAWA.</p>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">💡</div>
+        <div class="callout-content">
+          <strong class="callout-title">Key Insight</strong>
+          <p>Starting a task in the background and checking on it later, instead of doing everything one at a time, is called <span class="term" data-definition="Concurrency means multiple tasks make progress during the same span of time, because none of them has to wait for the others to finish first.">concurrency</span>. It's the entire reason all three regions can finish around the same time instead of one after another.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h3 class="screen-heading">Why This Matters When You Talk to AI</h3>
+      <p class="animate-in">Once you can see "one pattern, repeated three times," you know exactly what to ask for next. Adding a fourth region means telling an AI assistant to clone the existing pattern, not invent a new one from scratch.</p>
+      <div class="callout callout-warning animate-in">
+        <div class="callout-icon">🚩</div>
+        <div class="callout-content">
+          <strong class="callout-title">Red Flag</strong>
+          <p>If you ever see an AI assistant try to make the three regions share <span class="term" data-definition="State is the data a program is currently holding onto, like variables in memory. Sharing state means two parts of a program read and write the same data instead of keeping their own separate copies.">state</span>, or <span class="term" data-definition="Blocking means a task has to stop and wait for something else before it can continue, the opposite of running in the background.">block</span> on each other, that's worth questioning. They were designed to be independent, and forcing them to coordinate defeats the entire point of running them at once.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

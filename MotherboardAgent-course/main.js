@@ -8,12 +8,9 @@
  *  - Scroll-triggered reveal animations
  *  - Keyboard navigation
  *  - Glossary tooltips
- *  - Quiz (multiple-choice & scenario)
- *  - Drag-and-drop matching
  *  - Group chat animation
  *  - Data flow / message flow animation
  *  - Architecture diagram
- *  - "Spot the bug" challenge
  *  - Layer toggle
  */
 (function () {
@@ -163,155 +160,6 @@
   document.addEventListener('click', () => {
     if (activeTooltip) { activeTooltip.classList.remove('visible'); activeTooltip.remove(); activeTooltip = null; }
   });
-
-  /* ── QUIZ ENGINE ───────────────────────────────────────────── */
-  window.selectOption = function (btn) {
-    const block = btn.closest('.quiz-question-block');
-    $$('.quiz-option', block).forEach(o => o.classList.remove('selected'));
-    btn.classList.add('selected');
-  };
-
-  window.checkQuiz = function (containerId) {
-    const container = $('#' + containerId);
-    if (!container) return;
-    $$('.quiz-question-block', container).forEach(q => {
-      const selected  = $('.quiz-option.selected', q);
-      const feedback  = $('.quiz-feedback', q);
-      const correct   = q.dataset.correct;
-      const rightExp  = q.dataset.explanationRight  || '';
-      const wrongExp  = q.dataset.explanationWrong  || '';
-
-      if (!selected) {
-        feedback.textContent = 'Pick an answer first!';
-        feedback.className = 'quiz-feedback show warning';
-        return;
-      }
-      $$('.quiz-option', q).forEach(o => o.disabled = true);
-
-      if (selected.dataset.value === correct) {
-        selected.classList.add('correct');
-        feedback.innerHTML = '<strong>Exactly!</strong> ' + rightExp;
-        feedback.className = 'quiz-feedback show success';
-      } else {
-        selected.classList.add('incorrect');
-        const correctBtn = $(`.quiz-option[data-value="${correct}"]`, q);
-        if (correctBtn) correctBtn.classList.add('correct');
-        feedback.innerHTML = '<strong>Not quite.</strong> ' + wrongExp;
-        feedback.className = 'quiz-feedback show error';
-      }
-    });
-  };
-
-  window.resetQuiz = function (containerId) {
-    const container = $('#' + containerId);
-    if (!container) return;
-    $$('.quiz-option', container).forEach(o => {
-      o.classList.remove('selected', 'correct', 'incorrect');
-      o.disabled = false;
-    });
-    $$('.quiz-feedback', container).forEach(f => { f.className = 'quiz-feedback'; f.textContent = ''; });
-  };
-
-  /* ── DRAG-AND-DROP ENGINE ──────────────────────────────────── */
-  function initDnD(containerEl) {
-    if (!containerEl) return;
-    const chips = $$('.dnd-chip', containerEl);
-    const zones = $$('.dnd-zone', containerEl);
-
-    // Mouse (HTML5 Drag API)
-    chips.forEach(chip => {
-      chip.addEventListener('dragstart', e => {
-        e.dataTransfer.setData('text/plain', chip.dataset.answer);
-        chip.classList.add('dragging');
-      });
-      chip.addEventListener('dragend', () => chip.classList.remove('dragging'));
-    });
-
-    zones.forEach(zone => {
-      const target = $('.dnd-zone-target', zone);
-      if (!target) return;
-      target.addEventListener('dragover',  e => { e.preventDefault(); target.classList.add('drag-over'); });
-      target.addEventListener('dragleave', ()  => target.classList.remove('drag-over'));
-      target.addEventListener('drop', e => {
-        e.preventDefault();
-        target.classList.remove('drag-over');
-        const answer = e.dataTransfer.getData('text/plain');
-        const chip   = $(`.dnd-chip[data-answer="${answer}"]`, containerEl);
-        if (!chip) return;
-        target.textContent    = chip.textContent;
-        target.dataset.placed = answer;
-        chip.classList.add('placed');
-      });
-    });
-
-    // Touch
-    chips.forEach(chip => {
-      chip.addEventListener('touchstart', e => {
-        e.preventDefault();
-        const touch = e.touches[0];
-        const ghost = chip.cloneNode(true);
-        ghost.classList.add('touch-ghost');
-        ghost.style.cssText = `position:fixed;z-index:9999;pointer-events:none;left:${touch.clientX - 40}px;top:${touch.clientY - 20}px;`;
-        document.body.appendChild(ghost);
-        chip._ghost  = ghost;
-        chip._answer = chip.dataset.answer;
-      }, { passive: false });
-
-      chip.addEventListener('touchmove', e => {
-        e.preventDefault();
-        const touch = e.touches[0];
-        if (chip._ghost) {
-          chip._ghost.style.left = (touch.clientX - 40) + 'px';
-          chip._ghost.style.top  = (touch.clientY - 20) + 'px';
-        }
-        zones.forEach(z => { const t = $('.dnd-zone-target', z); if (t) t.classList.remove('drag-over'); });
-        const el = document.elementFromPoint(touch.clientX, touch.clientY);
-        const zt = el && el.closest('.dnd-zone-target');
-        if (zt) zt.classList.add('drag-over');
-      }, { passive: false });
-
-      chip.addEventListener('touchend', e => {
-        if (chip._ghost) { chip._ghost.remove(); chip._ghost = null; }
-        const touch = e.changedTouches[0];
-        const el    = document.elementFromPoint(touch.clientX, touch.clientY);
-        const zt    = el && el.closest('.dnd-zone-target');
-        if (zt) {
-          zt.textContent    = chip.textContent;
-          zt.dataset.placed = chip._answer;
-          chip.classList.add('placed');
-        }
-        zones.forEach(z => { const t = $('.dnd-zone-target', z); if (t) t.classList.remove('drag-over'); });
-      });
-    });
-  }
-
-  window.checkDnD = function (containerId) {
-    const container = $('#' + containerId);
-    if (!container) return;
-    $$('.dnd-zone', container).forEach(zone => {
-      const target  = $('.dnd-zone-target', zone);
-      if (!target || !target.dataset.placed) return;
-      if (target.dataset.placed === zone.dataset.correct) {
-        target.classList.add('correct-placed');
-      } else {
-        target.classList.add('incorrect-placed');
-      }
-    });
-  };
-
-  window.resetDnD = function (containerId) {
-    const container = $('#' + containerId);
-    if (!container) return;
-    $$('.dnd-zone-target', container).forEach(t => {
-      t.textContent = 'Drop here';
-      delete t.dataset.placed;
-      t.classList.remove('correct-placed', 'incorrect-placed');
-    });
-    $$('.dnd-chip', container).forEach(c => c.classList.remove('placed', 'dragging'));
-  };
-
-  // Auto-init all dnd containers
-  $$('.dnd-container').forEach(el => initDnD(el));
 
   /* ── GROUP CHAT ENGINE ─────────────────────────────────────── */
   function initChat(containerEl) {
@@ -463,26 +311,6 @@
       if (descEl) descEl.textContent = this.dataset.desc || '';
     });
   });
-
-  /* ── BUG CHALLENGE ─────────────────────────────────────────── */
-  window.checkBugLine = function (el, isCorrect) {
-    const challenge = el.closest('.bug-challenge');
-    const feedback  = $('.bug-feedback', challenge);
-    if (isCorrect) {
-      el.classList.add('correct');
-      feedback.innerHTML  = '<strong>Found it!</strong> ' + (el.dataset.explanation || '');
-      feedback.className  = 'bug-feedback show success';
-      $$('.bug-line', challenge).forEach(l => l.style.pointerEvents = 'none');
-    } else {
-      el.classList.add('incorrect');
-      feedback.innerHTML  = (el.dataset.hint || 'Not this line — keep looking...');
-      feedback.className  = 'bug-feedback show error';
-      setTimeout(() => {
-        el.classList.remove('incorrect');
-        feedback.className = 'bug-feedback';
-      }, 1800);
-    }
-  };
 
   /* ── LAYER TOGGLE ──────────────────────────────────────────── */
   window.showLayer = function (layerId, btn) {
