@@ -1,6 +1,6 @@
 {
   "source": "Danawa",
-  "retrieved_date": "2026-08-17",
+  "retrieved_date": "2026-08-18",
   "currency": "KRW",
   "brands": {
     "ASRock": {
@@ -12,7 +12,7 @@
           "chipset": "B650",
           "form_factor": "Micro ATX",
           "price_krw": 125650,
-          "store_count": 193,
+          "store_count": 192,
           "category": "AMD",
           "pcode": "76509641"
         },
@@ -21,40 +21,30 @@
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 129990,
-          "store_count": 111,
+          "price_krw": 130000,
+          "store_count": 110,
           "category": "Intel",
           "pcode": "109483313"
         },
         {
-          "name": "ASRock B650M PG Lightning",
+          "name": "ASRock B860M LiveMixer WiFi",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "price_krw": 206860,
+          "store_count": 128,
+          "category": "Intel",
+          "pcode": "74116334"
+        },
+        {
+          "name": "ASRock B650M PG Lightning + WiFi6E 모듈 패키지",
           "socket": "AM5",
           "chipset": "B650",
           "form_factor": "Micro ATX",
-          "price_krw": 107500,
-          "store_count": 182,
+          "price_krw": 142000,
+          "store_count": 21,
           "category": "AMD",
-          "pcode": "28603964"
-        },
-        {
-          "name": "ASRock B860I WiFi",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Unknown",
-          "price_krw": 276990,
-          "store_count": 133,
-          "category": "Intel",
-          "pcode": "75935729"
-        },
-        {
-          "name": "ASRock Z890 Pro RS WiFi White",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 340880,
-          "store_count": 144,
-          "category": "Intel",
-          "pcode": "71010251"
+          "pcode": "30167879"
         },
         {
           "name": "ASRock Z890 Pro RS WiFi",
@@ -62,9 +52,29 @@
           "chipset": "Z890",
           "form_factor": "ATX",
           "price_krw": 304000,
-          "store_count": 123,
+          "store_count": 122,
           "category": "Intel",
           "pcode": "69868478"
+        },
+        {
+          "name": "ASRock B850M Pro-A WiFi",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 180830,
+          "store_count": 175,
+          "category": "AMD",
+          "pcode": "75540665"
+        },
+        {
+          "name": "ASRock Z890 Pro RS WiFi White",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "price_krw": 340850,
+          "store_count": 143,
+          "category": "Intel",
+          "pcode": "71010251"
         },
         {
           "name": "ASRock Z890 스틸레전드 WIFI",
@@ -87,24 +97,24 @@
           "pcode": "69471320"
         },
         {
-          "name": "ASRock B860M LiveMixer WiFi",
-          "socket": "LGA1851",
-          "chipset": "B860",
+          "name": "ASRock B650M PG Lightning",
+          "socket": "AM5",
+          "chipset": "B650",
           "form_factor": "Micro ATX",
-          "price_krw": 206860,
-          "store_count": 129,
-          "category": "Intel",
-          "pcode": "74116334"
+          "price_krw": 107500,
+          "store_count": 182,
+          "category": "AMD",
+          "pcode": "28603964"
         },
         {
-          "name": "ASRock B850M Pro-A WiFi",
+          "name": "ASRock B850M Pro RS WiFi WHITE",
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 180820,
-          "store_count": 176,
+          "price_krw": 192730,
+          "store_count": 152,
           "category": "AMD",
-          "pcode": "75540665"
+          "pcode": "94028396"
         },
         {
           "name": "ASRock B850M Pro-A",
@@ -112,9 +122,29 @@
           "chipset": "B850",
           "form_factor": "Micro ATX",
           "price_krw": 160860,
-          "store_count": 171,
+          "store_count": 169,
           "category": "AMD",
           "pcode": "74341163"
+        },
+        {
+          "name": "ASRock B650M Pro X3D + WiFi6E 모듈 패키지",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Micro ATX",
+          "price_krw": 161500,
+          "store_count": 43,
+          "category": "AMD",
+          "pcode": "122678326"
+        },
+        {
+          "name": "ASRock B860I WiFi",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Unknown",
+          "price_krw": 276990,
+          "store_count": 132,
+          "category": "Intel",
+          "pcode": "75935729"
         },
         {
           "name": "ASRock X870 스틸레전드 WiFi",
@@ -122,7 +152,7 @@
           "chipset": "X870",
           "form_factor": "ATX",
           "price_krw": 279000,
-          "store_count": 158,
+          "store_count": 159,
           "category": "AMD",
           "pcode": "68242061"
         },
@@ -132,19 +162,9 @@
           "chipset": "B850",
           "form_factor": "Micro ATX",
           "price_krw": 178230,
-          "store_count": 114,
+          "store_count": 113,
           "category": "AMD",
           "pcode": "107960645"
-        },
-        {
-          "name": "ASRock B650M PG Lightning + WiFi6E 모듈 패키지",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "price_krw": 142000,
-          "store_count": 21,
-          "category": "AMD",
-          "pcode": "30167879"
         },
         {
           "name": "ASRock B860 Rock WiFi7",
@@ -162,19 +182,9 @@
           "chipset": "B860",
           "form_factor": "Micro ATX",
           "price_krw": 174100,
-          "store_count": 114,
+          "store_count": 113,
           "category": "Intel",
           "pcode": "108456887"
-        },
-        {
-          "name": "ASRock B760M Pro RS D5",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 146530,
-          "store_count": 189,
-          "category": "Intel",
-          "pcode": "19536062"
         },
         {
           "name": "ASRock X870E Taichi",
@@ -192,89 +202,9 @@
           "chipset": "B860",
           "form_factor": "Micro ATX",
           "price_krw": 154200,
-          "store_count": 111,
+          "store_count": 110,
           "category": "Intel",
           "pcode": "75856643"
-        },
-        {
-          "name": "ASRock B850M Challenger WiFi 7 White",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 229480,
-          "store_count": 120,
-          "category": "AMD",
-          "pcode": "107956478"
-        },
-        {
-          "name": "ASRock B860M-X Gen5 에즈윈 (벌크)",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Micro ATX",
-          "price_krw": 144270,
-          "store_count": 101,
-          "category": "Intel",
-          "pcode": "103415765"
-        },
-        {
-          "name": "ASRock B850M Pro RS WiFi WHITE",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 192730,
-          "store_count": 153,
-          "category": "AMD",
-          "pcode": "94028396"
-        },
-        {
-          "name": "ASRock Z890I Nova WiFi",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "Unknown",
-          "price_krw": 645000,
-          "store_count": 6,
-          "category": "Intel",
-          "pcode": "69471116"
-        },
-        {
-          "name": "ASRock B650M PG Riptide",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "price_krw": 159500,
-          "store_count": 42,
-          "category": "AMD",
-          "pcode": "17971604"
-        },
-        {
-          "name": "ASRock B850I Lightning WiFi",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Unknown",
-          "price_krw": 335220,
-          "store_count": 135,
-          "category": "AMD",
-          "pcode": "77278676"
-        },
-        {
-          "name": "ASRock B850 스틸레전드 WiFi",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "ATX",
-          "price_krw": 282420,
-          "store_count": 171,
-          "category": "AMD",
-          "pcode": "74340710"
-        },
-        {
-          "name": "ASRock B860M Challenger WiFi 7 White",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Micro ATX",
-          "price_krw": 256170,
-          "store_count": 73,
-          "category": "Intel",
-          "pcode": "122726205"
         },
         {
           "name": "ASRock Z890 LiveMixer WiFi",
@@ -287,24 +217,24 @@
           "pcode": "69868430"
         },
         {
-          "name": "ASRock B850 Rock WiFi 7",
+          "name": "ASRock B850M Challenger WiFi 7 White",
           "socket": "AM5",
           "chipset": "B850",
-          "form_factor": "ATX",
-          "price_krw": 227240,
-          "store_count": 115,
+          "form_factor": "Micro ATX",
+          "price_krw": 229490,
+          "store_count": 120,
           "category": "AMD",
-          "pcode": "122694871"
+          "pcode": "107956478"
         },
         {
-          "name": "ASRock B860M Pro RS",
-          "socket": "LGA1851",
-          "chipset": "B860",
+          "name": "ASRock B760M Pro RS D5",
+          "socket": "LGA1700",
+          "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 194400,
-          "store_count": 155,
+          "price_krw": 146530,
+          "store_count": 187,
           "category": "Intel",
-          "pcode": "74013710"
+          "pcode": "19536062"
         },
         {
           "name": "ASRock X870 Pro RS",
@@ -312,19 +242,99 @@
           "chipset": "X870",
           "form_factor": "ATX",
           "price_krw": 278000,
-          "store_count": 146,
+          "store_count": 145,
           "category": "AMD",
           "pcode": "67695641"
         },
         {
-          "name": "ASRock Z890 Taichi",
+          "name": "ASRock B850 Pro-A",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "ATX",
+          "price_krw": 214740,
+          "store_count": 166,
+          "category": "AMD",
+          "pcode": "74250455"
+        },
+        {
+          "name": "ASRock B860M Challenger WiFi 7 White",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "price_krw": 256180,
+          "store_count": 72,
+          "category": "Intel",
+          "pcode": "122726205"
+        },
+        {
+          "name": "ASRock B650M PG Riptide",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Micro ATX",
+          "price_krw": 159500,
+          "store_count": 41,
+          "category": "AMD",
+          "pcode": "17971604"
+        },
+        {
+          "name": "ASRock B850 Rock WiFi 7",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "ATX",
+          "price_krw": 227240,
+          "store_count": 114,
+          "category": "AMD",
+          "pcode": "122694871"
+        },
+        {
+          "name": "ASRock Z890I Nova WiFi",
           "socket": "LGA1851",
           "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 665500,
-          "store_count": 146,
+          "form_factor": "Unknown",
+          "price_krw": 645000,
+          "store_count": 6,
           "category": "Intel",
-          "pcode": "68776211"
+          "pcode": "69471116"
+        },
+        {
+          "name": "ASRock B860M Pro RS",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "price_krw": 194400,
+          "store_count": 154,
+          "category": "Intel",
+          "pcode": "74013710"
+        },
+        {
+          "name": "ASRock B850I Lightning WiFi",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Unknown",
+          "price_krw": 335220,
+          "store_count": 134,
+          "category": "AMD",
+          "pcode": "77278676"
+        },
+        {
+          "name": "ASRock B850 스틸레전드 WiFi",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "ATX",
+          "price_krw": 282420,
+          "store_count": 170,
+          "category": "AMD",
+          "pcode": "74340710"
+        },
+        {
+          "name": "ASRock B860M-X Gen5 에즈윈 (벌크)",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "price_krw": 144270,
+          "store_count": 100,
+          "category": "Intel",
+          "pcode": "103415765"
         },
         {
           "name": "ASRock X870E Nova WiFi",
@@ -337,21 +347,21 @@
           "pcode": "67852967"
         },
         {
-          "name": "ASRock B850 Pro-A",
-          "socket": "AM5",
-          "chipset": "B850",
+          "name": "ASRock Z890 Taichi",
+          "socket": "LGA1851",
+          "chipset": "Z890",
           "form_factor": "ATX",
-          "price_krw": 214740,
-          "store_count": 167,
-          "category": "AMD",
-          "pcode": "74250455"
+          "price_krw": 665500,
+          "store_count": 146,
+          "category": "Intel",
+          "pcode": "68776211"
         },
         {
           "name": "ASRock B850M 스틸레전드 WiFi",
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 219810,
+          "price_krw": 219820,
           "store_count": 177,
           "category": "AMD",
           "pcode": "78102476"
@@ -367,14 +377,14 @@
           "pcode": "75935675"
         },
         {
-          "name": "ASRock B860M-X Gen5",
-          "socket": "LGA1851",
-          "chipset": "B860",
+          "name": "ASRock B650M PG Riptide WiFi White",
+          "socket": "AM5",
+          "chipset": "B650",
           "form_factor": "Micro ATX",
-          "price_krw": 157190,
-          "store_count": 130,
-          "category": "Intel",
-          "pcode": "102412694"
+          "price_krw": 219430,
+          "store_count": 152,
+          "category": "AMD",
+          "pcode": "62791640"
         },
         {
           "name": "ASRock B850 Pro-A WiFi",
@@ -382,9 +392,19 @@
           "chipset": "B850",
           "form_factor": "ATX",
           "price_krw": 215360,
-          "store_count": 142,
+          "store_count": 141,
           "category": "AMD",
           "pcode": "79410761"
+        },
+        {
+          "name": "ASRock B860M-X Gen5",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "price_krw": 157190,
+          "store_count": 131,
+          "category": "Intel",
+          "pcode": "102412694"
         },
         {
           "name": "ASRock B860 Rock WiFi 7",
@@ -392,29 +412,9 @@
           "chipset": "B860",
           "form_factor": "ATX",
           "price_krw": 216700,
-          "store_count": 110,
+          "store_count": 109,
           "category": "Intel",
           "pcode": "106748744"
-        },
-        {
-          "name": "ASRock B650M PG Riptide WiFi White",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "price_krw": 219430,
-          "store_count": 153,
-          "category": "AMD",
-          "pcode": "62791640"
-        },
-        {
-          "name": "ASRock H810TM-ITX 에즈윈 (벌크)",
-          "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Unknown",
-          "price_krw": 182270,
-          "store_count": 19,
-          "category": "Intel",
-          "pcode": "103877579"
         },
         {
           "name": "ASRock B650M Pro X3D WiFi",
@@ -422,39 +422,19 @@
           "chipset": "B650",
           "form_factor": "Micro ATX",
           "price_krw": 172620,
-          "store_count": 164,
+          "store_count": 162,
           "category": "AMD",
           "pcode": "77786621"
         },
         {
-          "name": "ASRock B860 LiveMixer WiFi",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "ATX",
-          "price_krw": 271060,
-          "store_count": 110,
-          "category": "Intel",
-          "pcode": "74116181"
-        },
-        {
-          "name": "ASRock H810M-P Gen5",
+          "name": "ASRock H810TM-ITX 에즈윈 (벌크)",
           "socket": "LGA1851",
           "chipset": "H810",
-          "form_factor": "Micro ATX",
-          "price_krw": 100000,
-          "store_count": 120,
+          "form_factor": "Unknown",
+          "price_krw": 182150,
+          "store_count": 19,
           "category": "Intel",
-          "pcode": "106746197"
-        },
-        {
-          "name": "ASRock B850M-X R2.0",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 151580,
-          "store_count": 168,
-          "category": "AMD",
-          "pcode": "79553456"
+          "pcode": "103877579"
         },
         {
           "name": "ASRock B850M-X",
@@ -462,19 +442,29 @@
           "chipset": "B850",
           "form_factor": "Micro ATX",
           "price_krw": 147390,
-          "store_count": 125,
+          "store_count": 124,
           "category": "AMD",
           "pcode": "74341787"
         },
         {
-          "name": "ASRock B850M Pro RS",
+          "name": "ASRock B650M PRO-A Gen5",
           "socket": "AM5",
-          "chipset": "B850",
+          "chipset": "B650",
           "form_factor": "Micro ATX",
-          "price_krw": 196990,
-          "store_count": 177,
+          "price_krw": 135000,
+          "store_count": 82,
           "category": "AMD",
-          "pcode": "75600842"
+          "pcode": "122697250"
+        },
+        {
+          "name": "ASRock Z890 Pro-A",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "price_krw": 316480,
+          "store_count": 150,
+          "category": "Intel",
+          "pcode": "70006610"
         },
         {
           "name": "ASRock B650 스틸레전드 WiFi",
@@ -482,9 +472,39 @@
           "chipset": "B650",
           "form_factor": "ATX",
           "price_krw": 220490,
-          "store_count": 119,
+          "store_count": 118,
           "category": "AMD",
           "pcode": "72304610"
+        },
+        {
+          "name": "ASRock B850M-X R2.0",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 151590,
+          "store_count": 167,
+          "category": "AMD",
+          "pcode": "79553456"
+        },
+        {
+          "name": "ASRock H810M-P Gen5",
+          "socket": "LGA1851",
+          "chipset": "H810",
+          "form_factor": "Micro ATX",
+          "price_krw": 100000,
+          "store_count": 119,
+          "category": "Intel",
+          "pcode": "106746197"
+        },
+        {
+          "name": "ASRock B860 LiveMixer WiFi",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "ATX",
+          "price_krw": 286050,
+          "store_count": 109,
+          "category": "Intel",
+          "pcode": "74116181"
         },
         {
           "name": "ASRock X870 Pro-A WiFi",
@@ -492,9 +512,19 @@
           "chipset": "X870",
           "form_factor": "ATX",
           "price_krw": 286470,
-          "store_count": 136,
+          "store_count": 134,
           "category": "AMD",
           "pcode": "97224935"
+        },
+        {
+          "name": "ASRock B850M Pro RS",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 196990,
+          "store_count": 175,
+          "category": "AMD",
+          "pcode": "75600842"
         },
         {
           "name": "ASRock Z890 Pro-A WiFi",
@@ -512,7 +542,7 @@
           "chipset": "B860",
           "form_factor": "Micro ATX",
           "price_krw": 146670,
-          "store_count": 86,
+          "store_count": 85,
           "category": "Intel",
           "pcode": "122620820"
         },
@@ -527,24 +557,14 @@
           "pcode": "74415038"
         },
         {
-          "name": "ASRock Z890 Pro-A",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 316480,
-          "store_count": 151,
-          "category": "Intel",
-          "pcode": "70006610"
-        },
-        {
-          "name": "ASRock B650M PRO-A Gen5",
+          "name": "ASRock B850M Pro Plus WiFi",
           "socket": "AM5",
-          "chipset": "B650",
+          "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 134990,
-          "store_count": 81,
+          "price_krw": 216670,
+          "store_count": 160,
           "category": "AMD",
-          "pcode": "122697250"
+          "pcode": "93804581"
         },
         {
           "name": "ASRock B850M Pro RS WiFi",
@@ -557,14 +577,14 @@
           "pcode": "75600851"
         },
         {
-          "name": "ASRock B850M Riptide WiFi",
+          "name": "ASRock B850 Challenger WiFi 7 White",
           "socket": "AM5",
           "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 247040,
-          "store_count": 132,
+          "form_factor": "ATX",
+          "price_krw": 250090,
+          "store_count": 122,
           "category": "AMD",
-          "pcode": "77705072"
+          "pcode": "99054896"
         },
         {
           "name": "ASRock X870 Taichi Creator",
@@ -577,84 +597,24 @@
           "pcode": "98415254"
         },
         {
-          "name": "ASRock B860 Pro RS",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "ATX",
-          "price_krw": 247590,
-          "store_count": 161,
-          "category": "Intel",
-          "pcode": "74415482"
-        },
-        {
-          "name": "ASRock B850 Challenger WiFi 7 White",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "ATX",
-          "price_krw": 250090,
-          "store_count": 124,
-          "category": "AMD",
-          "pcode": "99054896"
-        },
-        {
-          "name": "ASRock B850M Pro Plus WiFi",
+          "name": "ASRock B850M Riptide WiFi",
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 216670,
-          "store_count": 160,
+          "price_krw": 247040,
+          "store_count": 131,
           "category": "AMD",
-          "pcode": "93804581"
+          "pcode": "77705072"
         },
         {
           "name": "ASRock B850 Pro RS",
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "ATX",
-          "price_krw": 238860,
-          "store_count": 160,
+          "price_krw": 241430,
+          "store_count": 159,
           "category": "AMD",
           "pcode": "73952525"
-        },
-        {
-          "name": "ASRock B760M-HDVP D5 에즈윈 (벌크)",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 121320,
-          "store_count": 138,
-          "category": "Intel",
-          "pcode": "20536331"
-        },
-        {
-          "name": "ASRock B650M Pro RS",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "price_krw": 165000,
-          "store_count": 1,
-          "category": "AMD",
-          "pcode": "21627827"
-        },
-        {
-          "name": "ASRock X870 Riptide WiFi",
-          "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "ATX",
-          "price_krw": 315590,
-          "store_count": 78,
-          "category": "AMD",
-          "pcode": "75541040"
-        },
-        {
-          "name": "ASRock B760M Pro RS D5 + WiFi7 모듈 패키지",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 204360,
-          "store_count": 130,
-          "category": "Intel",
-          "pcode": "31959920"
         },
         {
           "name": "ASRock Z890 Taichi AQUA",
@@ -667,34 +627,64 @@
           "pcode": "69868004"
         },
         {
-          "name": "ASRock B860 Pro RS WiFi",
-          "socket": "LGA1851",
-          "chipset": "B860",
+          "name": "ASRock X870 Riptide WiFi",
+          "socket": "AM5",
+          "chipset": "X870",
           "form_factor": "ATX",
-          "price_krw": 256170,
-          "store_count": 158,
-          "category": "Intel",
-          "pcode": "74415509"
+          "price_krw": 315590,
+          "store_count": 79,
+          "category": "AMD",
+          "pcode": "75541040"
         },
         {
-          "name": "ASRock Z890 Lightning WiFi",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 403290,
-          "store_count": 144,
+          "name": "ASRock B760M-HDVP D5 에즈윈 (벌크)",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 121320,
+          "store_count": 137,
           "category": "Intel",
-          "pcode": "71007920"
+          "pcode": "20536331"
         },
         {
           "name": "ASRock B760M Pro-A",
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 138500,
-          "store_count": 137,
+          "price_krw": 124900,
+          "store_count": 136,
           "category": "Intel",
           "pcode": "69468977"
+        },
+        {
+          "name": "ASRock B860 Pro RS",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "ATX",
+          "price_krw": 247470,
+          "store_count": 159,
+          "category": "Intel",
+          "pcode": "74415482"
+        },
+        {
+          "name": "ASRock B760M Pro RS D5 + WiFi7 모듈 패키지",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 204370,
+          "store_count": 130,
+          "category": "Intel",
+          "pcode": "31959920"
+        },
+        {
+          "name": "ASRock B860 Pro RS WiFi",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "ATX",
+          "price_krw": 256180,
+          "store_count": 157,
+          "category": "Intel",
+          "pcode": "74415509"
         },
         {
           "name": "ASRock B760M Pro-A 에즈윈 (벌크)",
@@ -702,29 +692,19 @@
           "chipset": "B760",
           "form_factor": "Micro ATX",
           "price_krw": 134490,
-          "store_count": 86,
+          "store_count": 87,
           "category": "Intel",
           "pcode": "106717613"
         },
         {
-          "name": "ASRock H810M-HDVP 에즈윈 (벌크)",
+          "name": "ASRock Z890 Lightning WiFi",
           "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Micro ATX",
-          "price_krw": 134970,
-          "store_count": 99,
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "price_krw": 403290,
+          "store_count": 143,
           "category": "Intel",
-          "pcode": "106717637"
-        },
-        {
-          "name": "ASRock H810M-X",
-          "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Micro ATX",
-          "price_krw": 126490,
-          "store_count": 146,
-          "category": "Intel",
-          "pcode": "74885192"
+          "pcode": "71007920"
         },
         {
           "name": "ASRock B850 Pro RS WiFi",
@@ -732,9 +712,29 @@
           "chipset": "B850",
           "form_factor": "ATX",
           "price_krw": 237660,
-          "store_count": 158,
+          "store_count": 156,
           "category": "AMD",
           "pcode": "73952600"
+        },
+        {
+          "name": "ASRock H810M-HDVP 에즈윈 (벌크)",
+          "socket": "LGA1851",
+          "chipset": "H810",
+          "form_factor": "Micro ATX",
+          "price_krw": 134970,
+          "store_count": 97,
+          "category": "Intel",
+          "pcode": "106717637"
+        },
+        {
+          "name": "ASRock B650M Pro RS",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Micro ATX",
+          "price_krw": 165000,
+          "store_count": 1,
+          "category": "AMD",
+          "pcode": "21627827"
         },
         {
           "name": "ASRock B860 Pro-A WiFi",
@@ -742,7 +742,7 @@
           "chipset": "B860",
           "form_factor": "ATX",
           "price_krw": 239000,
-          "store_count": 149,
+          "store_count": 147,
           "category": "Intel",
           "pcode": "82470941"
         },
@@ -751,8 +751,8 @@
           "socket": "AM5",
           "chipset": "X870",
           "form_factor": "ATX",
-          "price_krw": 317910,
-          "store_count": 150,
+          "price_krw": 314000,
+          "store_count": 148,
           "category": "AMD",
           "pcode": "70101260"
         },
@@ -761,30 +761,20 @@
           "socket": "LGA1851",
           "chipset": "B860",
           "form_factor": "Micro ATX",
-          "price_krw": 162400,
+          "price_krw": 166080,
           "store_count": 117,
           "category": "Intel",
           "pcode": "74122352"
         },
         {
-          "name": "ASRock B760M-X Gen5 에즈윈 (벌크)",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 123890,
-          "store_count": 99,
-          "category": "Intel",
-          "pcode": "99714806"
-        },
-        {
-          "name": "ASRock H810M-P Gen5 + WiFi7 랜카드 패키지",
+          "name": "ASRock H810M-X",
           "socket": "LGA1851",
           "chipset": "H810",
           "form_factor": "Micro ATX",
-          "price_krw": 158370,
-          "store_count": 91,
+          "price_krw": 126490,
+          "store_count": 145,
           "category": "Intel",
-          "pcode": "106729403"
+          "pcode": "74885192"
         },
         {
           "name": "ASRock H810M-X Gen5",
@@ -792,9 +782,29 @@
           "chipset": "H810",
           "form_factor": "Micro ATX",
           "price_krw": 127250,
-          "store_count": 117,
+          "store_count": 115,
           "category": "Intel",
           "pcode": "106689353"
+        },
+        {
+          "name": "ASRock H810M-P Gen5 + WiFi7 랜카드 패키지",
+          "socket": "LGA1851",
+          "chipset": "H810",
+          "form_factor": "Micro ATX",
+          "price_krw": 158380,
+          "store_count": 96,
+          "category": "Intel",
+          "pcode": "106729403"
+        },
+        {
+          "name": "ASRock B760M-X Gen5 에즈윈 (벌크)",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 123890,
+          "store_count": 98,
+          "category": "Intel",
+          "pcode": "99714806"
         },
         {
           "name": "ASRock B850 Riptide WiFi",
@@ -802,7 +812,7 @@
           "chipset": "B850",
           "form_factor": "ATX",
           "price_krw": 287530,
-          "store_count": 99,
+          "store_count": 98,
           "category": "AMD",
           "pcode": "74250557"
         },
@@ -812,9 +822,19 @@
           "chipset": "B860",
           "form_factor": "ATX",
           "price_krw": 227480,
-          "store_count": 115,
+          "store_count": 114,
           "category": "Intel",
           "pcode": "92360492"
+        },
+        {
+          "name": "ASRock B850 Challenger WiFi 7",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "ATX",
+          "price_krw": 239000,
+          "store_count": 92,
+          "category": "AMD",
+          "pcode": "97702418"
         },
         {
           "name": "ASRock H810M-HDVP",
@@ -831,20 +851,10 @@
           "socket": "LGA1851",
           "chipset": "H810",
           "form_factor": "Micro ATX",
-          "price_krw": 151960,
-          "store_count": 112,
+          "price_krw": 151970,
+          "store_count": 111,
           "category": "Intel",
           "pcode": "78307670"
-        },
-        {
-          "name": "ASRock B850 Challenger WiFi 7",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "ATX",
-          "price_krw": 239000,
-          "store_count": 91,
-          "category": "AMD",
-          "pcode": "97702418"
         },
         {
           "name": "ASRock B860 스틸레전드 WiFi",
@@ -857,12 +867,22 @@
           "pcode": "74116589"
         },
         {
+          "name": "ASRock Z890 Taichi OCF",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "price_krw": 938990,
+          "store_count": 3,
+          "category": "Intel",
+          "pcode": "69868175"
+        },
+        {
           "name": "ASRock B760M Pro RS D5 + WiFi6E 모듈 패키지",
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
           "price_krw": 185480,
-          "store_count": 103,
+          "store_count": 102,
           "category": "Intel",
           "pcode": "20103287"
         },
@@ -877,16 +897,6 @@
           "pcode": "106729391"
         },
         {
-          "name": "ASRock H810M-P Gen5 디앤디컴 (벌크)",
-          "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Micro ATX",
-          "price_krw": 108290,
-          "store_count": 98,
-          "category": "Intel",
-          "pcode": "106689347"
-        },
-        {
           "name": "ASRock H810M-X 디앤디컴 (벌크)",
           "socket": "LGA1851",
           "chipset": "H810",
@@ -897,12 +907,22 @@
           "pcode": "78312209"
         },
         {
+          "name": "ASRock H810M-P Gen5 디앤디컴 (벌크)",
+          "socket": "LGA1851",
+          "chipset": "H810",
+          "form_factor": "Micro ATX",
+          "price_krw": 108290,
+          "store_count": 97,
+          "category": "Intel",
+          "pcode": "106689347"
+        },
+        {
           "name": "ASRock H810M-H",
           "socket": "LGA1851",
           "chipset": "H810",
           "form_factor": "Micro ATX",
           "price_krw": 114170,
-          "store_count": 85,
+          "store_count": 83,
           "category": "Intel",
           "pcode": "92971409"
         },
@@ -911,40 +931,10 @@
           "socket": "LGA1851",
           "chipset": "H810",
           "form_factor": "Micro ATX",
-          "price_krw": 131960,
-          "store_count": 93,
+          "price_krw": 131970,
+          "store_count": 91,
           "category": "Intel",
           "pcode": "106689356"
-        },
-        {
-          "name": "ASRock Z890 Taichi OCF",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 938990,
-          "store_count": 3,
-          "category": "Intel",
-          "pcode": "69868175"
-        },
-        {
-          "name": "ASRock H810M-X Gen5 + WiFi6E 랜카드 패키지",
-          "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Micro ATX",
-          "price_krw": 156990,
-          "store_count": 89,
-          "category": "Intel",
-          "pcode": "106710032"
-        },
-        {
-          "name": "ASRock H810M-P Gen5 + WiFi6E 랜카드 패키지",
-          "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Micro ATX",
-          "price_krw": 137990,
-          "store_count": 88,
-          "category": "Intel",
-          "pcode": "106709246"
         },
         {
           "name": "ASRock H810M-X 에즈윈 (벌크)",
@@ -952,19 +942,19 @@
           "chipset": "H810",
           "form_factor": "Micro ATX",
           "price_krw": 131080,
-          "store_count": 89,
+          "store_count": 91,
           "category": "Intel",
           "pcode": "74885201"
         },
         {
-          "name": "ASRock Z890 Pro RS",
+          "name": "ASRock H810M-P Gen5 + WiFi6E 랜카드 패키지",
           "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 331370,
-          "store_count": 87,
+          "chipset": "H810",
+          "form_factor": "Micro ATX",
+          "price_krw": 138000,
+          "store_count": 91,
           "category": "Intel",
-          "pcode": "68687615"
+          "pcode": "106709246"
         },
         {
           "name": "ASRock B850M Pro RS + WiFi6E 모듈 패키지",
@@ -977,14 +967,54 @@
           "pcode": "78534680"
         },
         {
+          "name": "ASRock H810M-X Gen5 + WiFi6E 랜카드 패키지",
+          "socket": "LGA1851",
+          "chipset": "H810",
+          "form_factor": "Micro ATX",
+          "price_krw": 157000,
+          "store_count": 89,
+          "category": "Intel",
+          "pcode": "106710032"
+        },
+        {
+          "name": "ASRock Z890 Pro RS",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "price_krw": 331370,
+          "store_count": 86,
+          "category": "Intel",
+          "pcode": "68687615"
+        },
+        {
           "name": "ASRock H810M-X Gen5 에즈윈 (벌크)",
           "socket": "LGA1851",
           "chipset": "H810",
           "form_factor": "Micro ATX",
           "price_krw": 128660,
-          "store_count": 63,
+          "store_count": 62,
           "category": "Intel",
           "pcode": "122663744"
+        },
+        {
+          "name": "ASRock B760M PG SONIC WiFi D5",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 180000,
+          "store_count": 1,
+          "category": "Intel",
+          "pcode": "18646154"
+        },
+        {
+          "name": "ASRock B850 LiveMixer WiFi",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "ATX",
+          "price_krw": 282970,
+          "store_count": 2,
+          "category": "AMD",
+          "pcode": "74250353"
         },
         {
           "name": "ASRock Z790 Pro RS D5 + WiFi7 모듈 패키지",
@@ -1007,24 +1037,14 @@
           "pcode": "18060353"
         },
         {
-          "name": "ASRock B850 LiveMixer WiFi",
+          "name": "ASRock B650M-HDV/M.2",
           "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "ATX",
-          "price_krw": 282970,
-          "store_count": 2,
+          "chipset": "B650",
+          "form_factor": "Micro ATX",
+          "price_krw": 196500,
+          "store_count": 1,
           "category": "AMD",
-          "pcode": "74250353"
-        },
-        {
-          "name": "ASRock Z790 Pro RS D5 + WiFi6E 모듈 패키지",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "ATX",
-          "price_krw": 386000,
-          "store_count": 3,
-          "category": "Intel",
-          "pcode": "20012147"
+          "pcode": "19536692"
         },
         {
           "name": "ASRock B650 Pro RS",
@@ -1037,16 +1057,6 @@
           "pcode": "17971202"
         },
         {
-          "name": "ASRock B760M PG SONIC WiFi D5",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 180000,
-          "store_count": 1,
-          "category": "Intel",
-          "pcode": "18646154"
-        },
-        {
           "name": "ASRock Z790 Pro RS WiFi D5",
           "socket": "LGA1700",
           "chipset": "Z790",
@@ -1057,24 +1067,34 @@
           "pcode": "18348485"
         },
         {
-          "name": "ASRock B650M-HDV/M.2",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "price_krw": 196500,
-          "store_count": 1,
-          "category": "AMD",
-          "pcode": "19536692"
-        },
-        {
           "name": "ASRock Z790 PG Lightning D5",
           "socket": "LGA1700",
           "chipset": "Z790",
           "form_factor": "ATX",
-          "price_krw": 333000,
+          "price_krw": 346800,
           "store_count": 6,
           "category": "Intel",
-          "pcode": "90643517"
+          "pcode": "18052340"
+        },
+        {
+          "name": "ASRock Z790 Pro RS D5 + WiFi6E 모듈 패키지",
+          "socket": "LGA1700",
+          "chipset": "Z790",
+          "form_factor": "ATX",
+          "price_krw": 386000,
+          "store_count": 3,
+          "category": "Intel",
+          "pcode": "20012147"
+        },
+        {
+          "name": "ASRock B650 PG Lightning",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "price_krw": 323750,
+          "store_count": 2,
+          "category": "AMD",
+          "pcode": "17971196"
         },
         {
           "name": "ASRock B650E 스틸레전드 WiFi",
@@ -1107,16 +1127,6 @@
           "pcode": "19648718"
         },
         {
-          "name": "ASRock B650 PG Lightning",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "ATX",
-          "price_krw": 323750,
-          "store_count": 2,
-          "category": "AMD",
-          "pcode": "17971196"
-        },
-        {
           "name": "ASRock B650E PG Riptide WiFi",
           "socket": "AM5",
           "chipset": "B650E",
@@ -1137,22 +1147,12 @@
           "pcode": "19649354"
         },
         {
-          "name": "ASRock B650M Pro X3D + WiFi6E 모듈 패키지",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "price_krw": 161500,
-          "store_count": 43,
-          "category": "AMD",
-          "pcode": "122678326"
-        },
-        {
           "name": "ASRock B760M Pro-A/D4 + WiFi7 모듈 패키지",
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 189970,
-          "store_count": 57,
+          "price_krw": 189980,
+          "store_count": 58,
           "category": "Intel",
           "pcode": "122678434"
         },
@@ -1161,10 +1161,20 @@
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 167550,
-          "store_count": 56,
+          "price_krw": 167560,
+          "store_count": 57,
           "category": "Intel",
           "pcode": "122678463"
+        },
+        {
+          "name": "ASRock B650M PG Riptide WiFi White 디앤디컴 (중고)",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Micro ATX",
+          "price_krw": 211680,
+          "store_count": 1,
+          "category": "AMD",
+          "pcode": "94998482"
         }
       ]
     },
@@ -1172,24 +1182,24 @@
       "brand": "ASUS",
       "products": [
         {
+          "name": "ASUS TUF Gaming B850M-PLUS WIFI7",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 259310,
+          "store_count": 194,
+          "category": "AMD",
+          "pcode": "95988710"
+        },
+        {
           "name": "ASUS PRIME B860M-A-CSM",
           "socket": "LGA1851",
           "chipset": "B860",
           "form_factor": "Micro ATX",
           "price_krw": 178990,
-          "store_count": 172,
+          "store_count": 171,
           "category": "Intel",
           "pcode": "74337680"
-        },
-        {
-          "name": "ASUS TUF Gaming B850M-PLUS WIFI7",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 259300,
-          "store_count": 197,
-          "category": "AMD",
-          "pcode": "95988710"
         },
         {
           "name": "ASUS ROG STRIX B860-G GAMING WIFI",
@@ -1197,7 +1207,7 @@
           "chipset": "B860",
           "form_factor": "Micro ATX",
           "price_krw": 280300,
-          "store_count": 188,
+          "store_count": 189,
           "category": "Intel",
           "pcode": "74338115"
         },
@@ -1217,7 +1227,7 @@
           "chipset": "B850",
           "form_factor": "ATX",
           "price_krw": 306420,
-          "store_count": 218,
+          "store_count": 216,
           "category": "AMD",
           "pcode": "73884083"
         },
@@ -1227,7 +1237,7 @@
           "chipset": "B850",
           "form_factor": "Micro ATX",
           "price_krw": 230240,
-          "store_count": 179,
+          "store_count": 178,
           "category": "AMD",
           "pcode": "97119116"
         },
@@ -1242,12 +1252,32 @@
           "pcode": "97119959"
         },
         {
+          "name": "ASUS ROG STRIX B850-I GAMING WIFI",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Unknown",
+          "price_krw": 381220,
+          "store_count": 154,
+          "category": "AMD",
+          "pcode": "76946525"
+        },
+        {
+          "name": "ASUS ROG CROSSHAIR X870E DARK HERO",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "price_krw": 1051170,
+          "store_count": 113,
+          "category": "AMD",
+          "pcode": "104989463"
+        },
+        {
           "name": "ASUS TUF Gaming B850M-PLUS WIFI7 W",
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 268280,
-          "store_count": 205,
+          "price_krw": 268160,
+          "store_count": 199,
           "category": "AMD",
           "pcode": "95988944"
         },
@@ -1262,14 +1292,14 @@
           "pcode": "67852106"
         },
         {
-          "name": "ASUS ROG STRIX B850-I GAMING WIFI",
+          "name": "ASUS ROG STRIX X870E-E GAMING WIFI7 NEO",
           "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Unknown",
-          "price_krw": 381220,
-          "store_count": 155,
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "price_krw": 913790,
+          "store_count": 104,
           "category": "AMD",
-          "pcode": "76946525"
+          "pcode": "122684807"
         },
         {
           "name": "ASUS TUF Gaming Z890-PLUS WIFI",
@@ -1277,39 +1307,19 @@
           "chipset": "Z890",
           "form_factor": "ATX",
           "price_krw": 397460,
-          "store_count": 133,
+          "store_count": 134,
           "category": "Intel",
           "pcode": "69697058"
         },
         {
-          "name": "ASUS ROG CROSSHAIR X870E DARK HERO",
-          "socket": "AM5",
-          "chipset": "X870E",
+          "name": "ASUS TUF Gaming B860-PLUS WIFI",
+          "socket": "LGA1851",
+          "chipset": "B860",
           "form_factor": "ATX",
-          "price_krw": 1051180,
-          "store_count": 113,
-          "category": "AMD",
-          "pcode": "104989463"
-        },
-        {
-          "name": "ASUS TUF Gaming B760M-PLUS II",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 160990,
-          "store_count": 146,
+          "price_krw": 318990,
+          "store_count": 149,
           "category": "Intel",
-          "pcode": "34815659"
-        },
-        {
-          "name": "ASUS PRIME B760-PLUS",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "ATX",
-          "price_krw": 71200,
-          "store_count": 118,
-          "category": "Intel",
-          "pcode": "19756130"
+          "pcode": "74254724"
         },
         {
           "name": "ASUS PRIME H810M-X 2.5G Gen5",
@@ -1317,7 +1327,7 @@
           "chipset": "H810",
           "form_factor": "Micro ATX",
           "price_krw": 121470,
-          "store_count": 79,
+          "store_count": 75,
           "category": "Intel",
           "pcode": "108167225"
         },
@@ -1326,20 +1336,10 @@
           "socket": "LGA1851",
           "chipset": "B860",
           "form_factor": "ATX",
-          "price_krw": 288170,
+          "price_krw": 288180,
           "store_count": 145,
           "category": "Intel",
           "pcode": "74255114"
-        },
-        {
-          "name": "ASUS ROG STRIX X870E-E GAMING WIFI7 NEO",
-          "socket": "AM5",
-          "chipset": "X870E",
-          "form_factor": "ATX",
-          "price_krw": 913790,
-          "store_count": 106,
-          "category": "AMD",
-          "pcode": "122684807"
         },
         {
           "name": "ASUS ROG CROSSHAIR X870E APEX",
@@ -1352,16 +1352,6 @@
           "pcode": "93019088"
         },
         {
-          "name": "ASUS ROG STRIX X870-I GAMING WIFI",
-          "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "Unknown",
-          "price_krw": 540880,
-          "store_count": 130,
-          "category": "AMD",
-          "pcode": "122930700"
-        },
-        {
           "name": "ASUS ProArt B850-CREATOR WIFI NEO",
           "socket": "AM5",
           "chipset": "B850",
@@ -1372,34 +1362,24 @@
           "pcode": "122670803"
         },
         {
+          "name": "ASUS ROG STRIX X870-I GAMING WIFI",
+          "socket": "AM5",
+          "chipset": "X870",
+          "form_factor": "Unknown",
+          "price_krw": 540880,
+          "store_count": 130,
+          "category": "AMD",
+          "pcode": "122930700"
+        },
+        {
           "name": "ASUS ROG STRIX B850-A GAMING WIFI7 NEO",
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "ATX",
           "price_krw": 384410,
-          "store_count": 89,
+          "store_count": 86,
           "category": "AMD",
           "pcode": "122670765"
-        },
-        {
-          "name": "ASUS TUF Gaming X870E-PLUS WIFI7",
-          "socket": "AM5",
-          "chipset": "X870E",
-          "form_factor": "ATX",
-          "price_krw": 387780,
-          "store_count": 136,
-          "category": "AMD",
-          "pcode": "99288923"
-        },
-        {
-          "name": "ASUS PRIME Z790-P-CSM",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "ATX",
-          "price_krw": 354000,
-          "store_count": 6,
-          "category": "Intel",
-          "pcode": "18054803"
         },
         {
           "name": "ASUS ROG STRIX B850-F GAMING WIFI7 NEO",
@@ -1407,7 +1387,7 @@
           "chipset": "B850",
           "form_factor": "ATX",
           "price_krw": 424200,
-          "store_count": 90,
+          "store_count": 89,
           "category": "AMD",
           "pcode": "122637941"
         },
@@ -1417,29 +1397,29 @@
           "chipset": "X870E",
           "form_factor": "ATX",
           "price_krw": 663670,
-          "store_count": 101,
+          "store_count": 98,
           "category": "AMD",
           "pcode": "122663659"
         },
         {
-          "name": "ASUS PRIME H810M-A",
-          "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Micro ATX",
-          "price_krw": 122260,
-          "store_count": 144,
+          "name": "ASUS PRIME B760-PLUS",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "ATX",
+          "price_krw": 75000,
+          "store_count": 118,
           "category": "Intel",
-          "pcode": "77083181"
+          "pcode": "19756130"
         },
         {
-          "name": "ASUS TUF Gaming B860-PLUS WIFI",
-          "socket": "LGA1851",
-          "chipset": "B860",
+          "name": "ASUS TUF Gaming X870E-PLUS WIFI7",
+          "socket": "AM5",
+          "chipset": "X870E",
           "form_factor": "ATX",
-          "price_krw": 299130,
-          "store_count": 151,
-          "category": "Intel",
-          "pcode": "74254724"
+          "price_krw": 396990,
+          "store_count": 135,
+          "category": "AMD",
+          "pcode": "97475957"
         },
         {
           "name": "ASUS B860M AYW GAMING WIFI",
@@ -1447,7 +1427,7 @@
           "chipset": "B860",
           "form_factor": "Micro ATX",
           "price_krw": 174710,
-          "store_count": 158,
+          "store_count": 157,
           "category": "Intel",
           "pcode": "75536555"
         },
@@ -1462,16 +1442,6 @@
           "pcode": "122690875"
         },
         {
-          "name": "ASUS ROG STRIX B850-G GAMING WIFI",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 334700,
-          "store_count": 4,
-          "category": "AMD",
-          "pcode": "95420465"
-        },
-        {
           "name": "ASUS PRIME B760M-A D4",
           "socket": "LGA1700",
           "chipset": "B760",
@@ -1482,44 +1452,24 @@
           "pcode": "18652898"
         },
         {
+          "name": "ASUS ROG STRIX B850-G GAMING WIFI",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 334700,
+          "store_count": 4,
+          "category": "AMD",
+          "pcode": "95420465"
+        },
+        {
           "name": "ASUS ROG CROSSHAIR X870E EXTREME",
           "socket": "AM5",
           "chipset": "X870E",
           "form_factor": "E-ATX",
           "price_krw": 1449000,
-          "store_count": 81,
+          "store_count": 78,
           "category": "AMD",
           "pcode": "93018986"
-        },
-        {
-          "name": "ASUS ProArt Z890-CREATOR WIFI",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 815000,
-          "store_count": 89,
-          "category": "Intel",
-          "pcode": "69696563"
-        },
-        {
-          "name": "ASUS ROG MAXIMUS Z890 APEX",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 729610,
-          "store_count": 124,
-          "category": "Intel",
-          "pcode": "69566399"
-        },
-        {
-          "name": "ASUS ROG STRIX B850-E GAMING WIFI",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "ATX",
-          "price_krw": 382471,
-          "store_count": 160,
-          "category": "AMD",
-          "pcode": "77460890"
         },
         {
           "name": "ASUS ROG STRIX Z890-A GAMING WIFI",
@@ -1532,14 +1482,14 @@
           "pcode": "69656168"
         },
         {
-          "name": "ASUS TUF Gaming B850-PRO WIFI7 W NEO",
-          "socket": "AM5",
-          "chipset": "B850",
+          "name": "ASUS ROG MAXIMUS Z890 APEX",
+          "socket": "LGA1851",
+          "chipset": "Z890",
           "form_factor": "ATX",
-          "price_krw": 333580,
-          "store_count": 97,
-          "category": "AMD",
-          "pcode": "122670820"
+          "price_krw": 729610,
+          "store_count": 124,
+          "category": "Intel",
+          "pcode": "69566399"
         },
         {
           "name": "ASUS TUF Gaming X870-PLUS WIFI",
@@ -1547,19 +1497,49 @@
           "chipset": "X870",
           "form_factor": "ATX",
           "price_krw": 342020,
-          "store_count": 117,
+          "store_count": 116,
           "category": "AMD",
           "pcode": "74814188"
         },
         {
-          "name": "ASUS TUF Gaming B760-PLUS WIFI",
+          "name": "ASUS ROG STRIX B850-E GAMING WIFI",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "ATX",
+          "price_krw": 395010,
+          "store_count": 159,
+          "category": "AMD",
+          "pcode": "77460890"
+        },
+        {
+          "name": "ASUS TUF Gaming B760M-PLUS II",
           "socket": "LGA1700",
           "chipset": "B760",
-          "form_factor": "ATX",
-          "price_krw": 270350,
-          "store_count": 129,
+          "form_factor": "Micro ATX",
+          "price_krw": 155990,
+          "store_count": 145,
           "category": "Intel",
-          "pcode": "19756199"
+          "pcode": "34815659"
+        },
+        {
+          "name": "ASUS ProArt Z890-CREATOR WIFI",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "price_krw": 815000,
+          "store_count": 89,
+          "category": "Intel",
+          "pcode": "69696563"
+        },
+        {
+          "name": "ASUS TUF Gaming B850-PRO WIFI7 W NEO",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "ATX",
+          "price_krw": 333580,
+          "store_count": 95,
+          "category": "AMD",
+          "pcode": "122670820"
         },
         {
           "name": "ASUS TUF Gaming B860M-PLUS",
@@ -1567,7 +1547,7 @@
           "chipset": "B860",
           "form_factor": "Micro ATX",
           "price_krw": 240520,
-          "store_count": 167,
+          "store_count": 166,
           "category": "Intel",
           "pcode": "74254832"
         },
@@ -1582,44 +1562,54 @@
           "pcode": "74253203"
         },
         {
+          "name": "ASUS TUF Gaming B860M-PLUS WIFI",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "price_krw": 278400,
+          "store_count": 151,
+          "category": "Intel",
+          "pcode": "74254814"
+        },
+        {
           "name": "ASUS ROG CROSSHAIR X870E HERO BTF",
           "socket": "AM5",
           "chipset": "X870E",
           "form_factor": "ATX",
-          "price_krw": 1120710,
+          "price_krw": 1120700,
           "store_count": 113,
           "category": "AMD",
           "pcode": "97476398"
+        },
+        {
+          "name": "ASUS TUF Gaming B760-PLUS WIFI",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "ATX",
+          "price_krw": 270350,
+          "store_count": 129,
+          "category": "Intel",
+          "pcode": "19756199"
         },
         {
           "name": "ASUS TUF Gaming X870-PRO WIFI7 W NEO",
           "socket": "AM5",
           "chipset": "X870",
           "form_factor": "ATX",
-          "price_krw": 396230,
-          "store_count": 114,
+          "price_krw": 396220,
+          "store_count": 112,
           "category": "AMD",
           "pcode": "122621357"
         },
         {
-          "name": "ASUS TUF Gaming B860M-PLUS WIFI",
-          "socket": "LGA1851",
-          "chipset": "B860",
+          "name": "ASUS B850M MAX GAMING WIFI",
+          "socket": "AM5",
+          "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 278400,
-          "store_count": 152,
-          "category": "Intel",
-          "pcode": "74254814"
-        },
-        {
-          "name": "ASUS TUF Gaming Z890-PRO WIFI",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 440230,
-          "store_count": 127,
-          "category": "Intel",
-          "pcode": "69662171"
+          "price_krw": 188500,
+          "store_count": 142,
+          "category": "AMD",
+          "pcode": "93071258"
         },
         {
           "name": "ASUS ROG STRIX B760-G GAMING WIFI",
@@ -1632,41 +1622,61 @@
           "pcode": "19903481"
         },
         {
-          "name": "ASUS B850M MAX GAMING WIFI",
+          "name": "ASUS TUF Gaming B850-BTF WIFI W",
           "socket": "AM5",
           "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 188660,
-          "store_count": 144,
+          "form_factor": "ATX",
+          "price_krw": 390740,
+          "store_count": 127,
           "category": "AMD",
-          "pcode": "93071258"
+          "pcode": "96656717"
+        },
+        {
+          "name": "ASUS PRO WS Z890-ACE SE",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "price_krw": 852980,
+          "store_count": 124,
+          "category": "Intel",
+          "pcode": "77382695"
+        },
+        {
+          "name": "ASUS TUF Gaming Z890-PRO WIFI",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "price_krw": 440180,
+          "store_count": 128,
+          "category": "Intel",
+          "pcode": "69662171"
+        },
+        {
+          "name": "ASUS PRIME Z790-P WIFI-CSM",
+          "socket": "LGA1700",
+          "chipset": "Z790",
+          "form_factor": "ATX",
+          "price_krw": 386390,
+          "store_count": 110,
+          "category": "Intel",
+          "pcode": "18054881"
         },
         {
           "name": "ASUS ROG STRIX X870E-H GAMING WIFI7",
           "socket": "AM5",
           "chipset": "X870E",
           "form_factor": "ATX",
-          "price_krw": 562290,
-          "store_count": 122,
+          "price_krw": 562280,
+          "store_count": 121,
           "category": "AMD",
           "pcode": "97476215"
-        },
-        {
-          "name": "ASUS TUF Gaming B850-BTF WIFI W",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "ATX",
-          "price_krw": 390740,
-          "store_count": 129,
-          "category": "AMD",
-          "pcode": "96656717"
         },
         {
           "name": "ASUS ROG MAXIMUS Z890 EXTREME",
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "E-ATX",
-          "price_krw": 1817000,
+          "price_krw": 1793000,
           "store_count": 2,
           "category": "Intel",
           "pcode": "69696641"
@@ -1682,46 +1692,6 @@
           "pcode": "97121303"
         },
         {
-          "name": "ASUS PRIME Z790-P WIFI-CSM",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "ATX",
-          "price_krw": 386390,
-          "store_count": 110,
-          "category": "Intel",
-          "pcode": "18054881"
-        },
-        {
-          "name": "ASUS PRO WS Z890-ACE SE",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 852990,
-          "store_count": 120,
-          "category": "Intel",
-          "pcode": "77382695"
-        },
-        {
-          "name": "ASUS PRIME B760M-K D4",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 124020,
-          "store_count": 117,
-          "category": "Intel",
-          "pcode": "18652442"
-        },
-        {
-          "name": "ASUS ROG STRIX Z890-I GAMING WIFI",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "Unknown",
-          "price_krw": 738290,
-          "store_count": 79,
-          "category": "Intel",
-          "pcode": "69697016"
-        },
-        {
           "name": "ASUS PRIME Z890M-PLUS WIFI-CSM",
           "socket": "LGA1851",
           "chipset": "Z890",
@@ -1730,6 +1700,36 @@
           "store_count": 122,
           "category": "Intel",
           "pcode": "69696464"
+        },
+        {
+          "name": "ASUS ROG STRIX X870-A GAMING WIFI",
+          "socket": "AM5",
+          "chipset": "X870",
+          "form_factor": "ATX",
+          "price_krw": 523180,
+          "store_count": 97,
+          "category": "AMD",
+          "pcode": "67852265"
+        },
+        {
+          "name": "ASUS PRIME H810M-A",
+          "socket": "LGA1851",
+          "chipset": "H810",
+          "form_factor": "Micro ATX",
+          "price_krw": 122260,
+          "store_count": 143,
+          "category": "Intel",
+          "pcode": "77083181"
+        },
+        {
+          "name": "ASUS ROG MAXIMUS Z790 APEX ENCORE",
+          "socket": "LGA1700",
+          "chipset": "Z790",
+          "form_factor": "ATX",
+          "price_krw": 897990,
+          "store_count": 117,
+          "category": "Intel",
+          "pcode": "28803482"
         },
         {
           "name": "ASUS TUF Gaming B650M-PLUS WIFI",
@@ -1742,6 +1742,36 @@
           "pcode": "18044522"
         },
         {
+          "name": "ASUS ROG STRIX Z890-I GAMING WIFI",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "Unknown",
+          "price_krw": 744540,
+          "store_count": 79,
+          "category": "Intel",
+          "pcode": "69697016"
+        },
+        {
+          "name": "ASUS PRIME Z790-P-CSM",
+          "socket": "LGA1700",
+          "chipset": "Z790",
+          "form_factor": "ATX",
+          "price_krw": 354000,
+          "store_count": 6,
+          "category": "Intel",
+          "pcode": "18054803"
+        },
+        {
+          "name": "ASUS PRIME B760M-K D4",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 124030,
+          "store_count": 117,
+          "category": "Intel",
+          "pcode": "18652895"
+        },
+        {
           "name": "ASUS EX B760M-V5 D4",
           "socket": "LGA1700",
           "chipset": "B760",
@@ -1752,14 +1782,14 @@
           "pcode": "18652511"
         },
         {
-          "name": "ASUS ROG STRIX X870-A GAMING WIFI",
+          "name": "ASUS ROG STRIX B650-A GAMING WIFI",
           "socket": "AM5",
-          "chipset": "X870",
+          "chipset": "B650",
           "form_factor": "ATX",
-          "price_krw": 523190,
-          "store_count": 97,
+          "price_krw": 285230,
+          "store_count": 105,
           "category": "AMD",
-          "pcode": "67852265"
+          "pcode": "18021842"
         },
         {
           "name": "ASUS ROG CROSSHAIR X870E HERO",
@@ -1772,24 +1802,14 @@
           "pcode": "67694456"
         },
         {
-          "name": "ASUS ROG MAXIMUS Z790 APEX ENCORE",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "ATX",
-          "price_krw": 895540,
-          "store_count": 119,
+          "name": "ASUS PRIME H810M-K",
+          "socket": "LGA1851",
+          "chipset": "H810",
+          "form_factor": "Micro ATX",
+          "price_krw": 104940,
+          "store_count": 108,
           "category": "Intel",
-          "pcode": "28803482"
-        },
-        {
-          "name": "ASUS ROG STRIX B650-A GAMING WIFI",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "ATX",
-          "price_krw": 285230,
-          "store_count": 105,
-          "category": "AMD",
-          "pcode": "18021842"
+          "pcode": "104616128"
         },
         {
           "name": "ASUS ROG STRIX B760-I GAMING WIFI",
@@ -1806,20 +1826,10 @@
           "socket": "LGA1851",
           "chipset": "B860",
           "form_factor": "Micro ATX",
-          "price_krw": 198910,
+          "price_krw": 198920,
           "store_count": 144,
           "category": "Intel",
           "pcode": "74255084"
-        },
-        {
-          "name": "ASUS ROG STRIX B860-A GAMING WIFI",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "ATX",
-          "price_krw": 386370,
-          "store_count": 154,
-          "category": "Intel",
-          "pcode": "74254586"
         },
         {
           "name": "ASUS PRIME Z890-P-CSM",
@@ -1832,6 +1842,16 @@
           "pcode": "69696269"
         },
         {
+          "name": "ASUS ROG STRIX B860-A GAMING WIFI",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "ATX",
+          "price_krw": 378880,
+          "store_count": 153,
+          "category": "Intel",
+          "pcode": "74254586"
+        },
+        {
           "name": "ASUS TUF Gaming B850M-PLUS WIFI",
           "socket": "AM5",
           "chipset": "B850",
@@ -1842,14 +1862,34 @@
           "pcode": "74491250"
         },
         {
+          "name": "ASUS ROG STRIX Z890-E GAMING WIFI",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "price_krw": 791700,
+          "store_count": 119,
+          "category": "Intel",
+          "pcode": "69696863"
+        },
+        {
           "name": "ASUS PRIME B760M-K",
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
           "price_krw": 126300,
-          "store_count": 156,
+          "store_count": 155,
           "category": "Intel",
           "pcode": "20710217"
+        },
+        {
+          "name": "ASUS PRIME B650M-A II",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Micro ATX",
+          "price_krw": 129810,
+          "store_count": 35,
+          "category": "AMD",
+          "pcode": "19691519"
         },
         {
           "name": "ASUS Z890 AYW GAMING WIFI W",
@@ -1857,7 +1897,7 @@
           "chipset": "Z890",
           "form_factor": "ATX",
           "price_krw": 395700,
-          "store_count": 156,
+          "store_count": 155,
           "category": "Intel",
           "pcode": "69662327"
         },
@@ -1872,26 +1912,6 @@
           "pcode": "69661799"
         },
         {
-          "name": "ASUS ROG STRIX Z890-E GAMING WIFI",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 791700,
-          "store_count": 119,
-          "category": "Intel",
-          "pcode": "69696863"
-        },
-        {
-          "name": "ASUS PRIME B850M-A-CSM",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 192130,
-          "store_count": 109,
-          "category": "AMD",
-          "pcode": "93022751"
-        },
-        {
           "name": "ASUS PRIME H810M-E",
           "socket": "LGA1851",
           "chipset": "H810",
@@ -1902,34 +1922,24 @@
           "pcode": "100691990"
         },
         {
-          "name": "ASUS PRIME B650M-A II",
+          "name": "ASUS PRIME B850M-A-CSM",
           "socket": "AM5",
-          "chipset": "B650",
+          "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 129810,
-          "store_count": 36,
+          "price_krw": 192140,
+          "store_count": 108,
           "category": "AMD",
-          "pcode": "19691519"
+          "pcode": "93022751"
         },
         {
-          "name": "ASUS PRIME H810M-K",
-          "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Micro ATX",
-          "price_krw": 104940,
-          "store_count": 109,
-          "category": "Intel",
-          "pcode": "104616128"
-        },
-        {
-          "name": "ASUS PRIME B760M-A",
+          "name": "ASUS ROG MAXIMUS Z790 HERO",
           "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 148320,
-          "store_count": 137,
+          "chipset": "Z790",
+          "form_factor": "ATX",
+          "price_krw": 1038490,
+          "store_count": 86,
           "category": "Intel",
-          "pcode": "19605602"
+          "pcode": "18254819"
         },
         {
           "name": "ASUS PRIME X870-P WIFI-CSM",
@@ -1937,9 +1947,39 @@
           "chipset": "X870",
           "form_factor": "ATX",
           "price_krw": 331880,
-          "store_count": 146,
+          "store_count": 143,
           "category": "AMD",
           "pcode": "67693886"
+        },
+        {
+          "name": "ASUS PRO WS B850M-ACE SE",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 608480,
+          "store_count": 89,
+          "category": "AMD",
+          "pcode": "99913676"
+        },
+        {
+          "name": "ASUS PRIME Z790M-PLUS-CSM",
+          "socket": "LGA1700",
+          "chipset": "Z790",
+          "form_factor": "Micro ATX",
+          "price_krw": 355000,
+          "store_count": 5,
+          "category": "Intel",
+          "pcode": "20079008"
+        },
+        {
+          "name": "ASUS PRIME B760M-A",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 148320,
+          "store_count": 136,
+          "category": "Intel",
+          "pcode": "19605602"
         },
         {
           "name": "ASUS ROG STRIX X870-F GAMING WIFI",
@@ -1962,14 +2002,24 @@
           "pcode": "77083265"
         },
         {
-          "name": "ASUS PRO WS B850M-ACE SE",
+          "name": "ASUS TUF Gaming B650M-PLUS",
           "socket": "AM5",
-          "chipset": "B850",
+          "chipset": "B650",
           "form_factor": "Micro ATX",
-          "price_krw": 608490,
-          "store_count": 91,
+          "price_krw": 273000,
+          "store_count": 2,
           "category": "AMD",
-          "pcode": "99913676"
+          "pcode": "18044519"
+        },
+        {
+          "name": "ASUS ROG STRIX B860-F GAMING WIFI",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "ATX",
+          "price_krw": 428140,
+          "store_count": 145,
+          "category": "Intel",
+          "pcode": "74253692"
         },
         {
           "name": "ASUS PRIME X870-P-CSM",
@@ -1980,36 +2030,6 @@
           "store_count": 158,
           "category": "AMD",
           "pcode": "67693952"
-        },
-        {
-          "name": "ASUS PRIME Z790M-PLUS-CSM",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "Micro ATX",
-          "price_krw": 355000,
-          "store_count": 5,
-          "category": "Intel",
-          "pcode": "20079008"
-        },
-        {
-          "name": "ASUS ROG STRIX B860-F GAMING WIFI",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "ATX",
-          "price_krw": 428140,
-          "store_count": 146,
-          "category": "Intel",
-          "pcode": "74253692"
-        },
-        {
-          "name": "ASUS ROG MAXIMUS Z790 HERO",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "ATX",
-          "price_krw": 1038490,
-          "store_count": 87,
-          "category": "Intel",
-          "pcode": "18254819"
         },
         {
           "name": "ASUS ROG STRIX X870E-E GAMING WIFI",
@@ -2026,8 +2046,8 @@
           "socket": "LGA1851",
           "chipset": "H810",
           "form_factor": "Micro ATX",
-          "price_krw": 158910,
-          "store_count": 136,
+          "price_krw": 158920,
+          "store_count": 134,
           "category": "Intel",
           "pcode": "74336894"
         },
@@ -2037,29 +2057,9 @@
           "chipset": "H810",
           "form_factor": "Micro ATX",
           "price_krw": 144000,
-          "store_count": 130,
+          "store_count": 128,
           "category": "Intel",
           "pcode": "74336888"
-        },
-        {
-          "name": "ASUS PRIME H810M-A-CSM",
-          "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Micro ATX",
-          "price_krw": 143760,
-          "store_count": 135,
-          "category": "Intel",
-          "pcode": "74336102"
-        },
-        {
-          "name": "ASUS TUF Gaming B650M-PLUS",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "price_krw": 273000,
-          "store_count": 2,
-          "category": "AMD",
-          "pcode": "18044519"
         },
         {
           "name": "ASUS PRIME Z890-P WIFI-CSM",
@@ -2067,7 +2067,7 @@
           "chipset": "Z890",
           "form_factor": "ATX",
           "price_krw": 383250,
-          "store_count": 127,
+          "store_count": 132,
           "category": "Intel",
           "pcode": "69661250"
         },
@@ -2076,40 +2076,10 @@
           "socket": "LGA1851",
           "chipset": "H810",
           "form_factor": "Micro ATX",
-          "price_krw": 159870,
-          "store_count": 130,
+          "price_krw": 159880,
+          "store_count": 127,
           "category": "Intel",
           "pcode": "76463777"
-        },
-        {
-          "name": "ASUS PRIME B860-PLUS WIFI-CSM",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "ATX",
-          "price_krw": 225870,
-          "store_count": 57,
-          "category": "Intel",
-          "pcode": "74255327"
-        },
-        {
-          "name": "ASUS TUF Gaming B850M-PLUS",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 254000,
-          "store_count": 18,
-          "category": "AMD",
-          "pcode": "73884029"
-        },
-        {
-          "name": "ASUS TUF Gaming B760M-PLUS",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 190890,
-          "store_count": 81,
-          "category": "Intel",
-          "pcode": "19628207"
         },
         {
           "name": "ASUS PRIME B760M-KS 코잇 (벌크)",
@@ -2122,6 +2092,36 @@
           "pcode": "20612690"
         },
         {
+          "name": "ASUS PRIME H810M-A-CSM",
+          "socket": "LGA1851",
+          "chipset": "H810",
+          "form_factor": "Micro ATX",
+          "price_krw": 143770,
+          "store_count": 134,
+          "category": "Intel",
+          "pcode": "74336102"
+        },
+        {
+          "name": "ASUS ROG STRIX Z890-F GAMING WIFI",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "price_krw": 689000,
+          "store_count": 42,
+          "category": "Intel",
+          "pcode": "69662114"
+        },
+        {
+          "name": "ASUS TUF Gaming B760M-PLUS",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 190890,
+          "store_count": 81,
+          "category": "Intel",
+          "pcode": "19628207"
+        },
+        {
           "name": "ASUS ROG STRIX B650E-E GAMING WIFI",
           "socket": "AM5",
           "chipset": "B650E",
@@ -2132,6 +2132,16 @@
           "pcode": "18044582"
         },
         {
+          "name": "ASUS TUF Gaming B850M-PLUS",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 254000,
+          "store_count": 18,
+          "category": "AMD",
+          "pcode": "73884029"
+        },
+        {
           "name": "ASUS PRIME B860M-A WIFI-CSM",
           "socket": "LGA1851",
           "chipset": "B860",
@@ -2139,7 +2149,17 @@
           "price_krw": 207680,
           "store_count": 93,
           "category": "Intel",
-          "pcode": "74255033"
+          "pcode": "74255204"
+        },
+        {
+          "name": "ASUS PRIME B860-PLUS WIFI-CSM",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "ATX",
+          "price_krw": 228794,
+          "store_count": 57,
+          "category": "Intel",
+          "pcode": "74255120"
         },
         {
           "name": "ASUS ROG STRIX X670E-A GAMING WIFI",
@@ -2162,16 +2182,6 @@
           "pcode": "34810925"
         },
         {
-          "name": "ASUS ROG STRIX Z890-F GAMING WIFI",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 689000,
-          "store_count": 44,
-          "category": "Intel",
-          "pcode": "69662114"
-        },
-        {
           "name": "ASUS TUF Gaming B650-PLUS WIFI",
           "socket": "AM5",
           "chipset": "B650",
@@ -2186,20 +2196,10 @@
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "ATX",
-          "price_krw": 408990,
+          "price_krw": 408770,
           "store_count": 11,
           "category": "AMD",
           "pcode": "73764137"
-        },
-        {
-          "name": "ASUS ROG STRIX B850-F GAMING WIFI",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "ATX",
-          "price_krw": 399000,
-          "store_count": 15,
-          "category": "AMD",
-          "pcode": "73767989"
         },
         {
           "name": "ASUS TUF Gaming B650M-E WIFI",
@@ -2210,6 +2210,16 @@
           "store_count": 1,
           "category": "AMD",
           "pcode": "21427535"
+        },
+        {
+          "name": "ASUS ROG STRIX B850-F GAMING WIFI",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "ATX",
+          "price_krw": 399000,
+          "store_count": 15,
+          "category": "AMD",
+          "pcode": "76944080"
         },
         {
           "name": "ASUS ROG STRIX B650E-F GAMING WIFI",
@@ -2267,12 +2277,22 @@
       "brand": "MSI",
       "products": [
         {
+          "name": "MSI MAG B860M 박격포 WIFI",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "price_krw": 268990,
+          "store_count": 185,
+          "category": "Intel",
+          "pcode": "74340266"
+        },
+        {
           "name": "MSI MAG B850M 박격포 WIFI",
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 267000,
-          "store_count": 230,
+          "price_krw": 267980,
+          "store_count": 229,
           "category": "AMD",
           "pcode": "79397648"
         },
@@ -2281,28 +2301,18 @@
           "socket": "AM5",
           "chipset": "X870E",
           "form_factor": "ATX",
-          "price_krw": 444300,
+          "price_krw": 444310,
           "store_count": 204,
           "category": "AMD",
           "pcode": "75857021"
-        },
-        {
-          "name": "MSI MAG B860M 박격포 WIFI",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Micro ATX",
-          "price_krw": 265000,
-          "store_count": 186,
-          "category": "Intel",
-          "pcode": "74340266"
         },
         {
           "name": "MSI PRO B760M-A DDR4 II",
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 143000,
-          "store_count": 174,
+          "price_krw": 145000,
+          "store_count": 173,
           "category": "Intel",
           "pcode": "27474755"
         },
@@ -2311,7 +2321,7 @@
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "ATX",
-          "price_krw": 316470,
+          "price_krw": 318980,
           "store_count": 197,
           "category": "AMD",
           "pcode": "74814341"
@@ -2321,48 +2331,38 @@
           "socket": "AM5",
           "chipset": "B650",
           "form_factor": "Micro ATX",
-          "price_krw": 204310,
-          "store_count": 271,
+          "price_krw": 205630,
+          "store_count": 270,
           "category": "AMD",
           "pcode": "17971187"
-        },
-        {
-          "name": "MSI PRO B650M-A WIFI",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "price_krw": 163980,
-          "store_count": 248,
-          "category": "AMD",
-          "pcode": "17971184"
         },
         {
           "name": "MSI MAG Z890 토마호크 WIFI",
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "ATX",
-          "price_krw": 450000,
-          "store_count": 157,
+          "price_krw": 458990,
+          "store_count": 155,
           "category": "Intel",
           "pcode": "69697766"
         },
         {
-          "name": "MSI MAG B760M 박격포 II",
-          "socket": "LGA1700",
-          "chipset": "B760",
+          "name": "MSI PRO B650M-A WIFI",
+          "socket": "AM5",
+          "chipset": "B650",
           "form_factor": "Micro ATX",
-          "price_krw": 172280,
-          "store_count": 208,
-          "category": "Intel",
-          "pcode": "37226114"
+          "price_krw": 164000,
+          "store_count": 246,
+          "category": "AMD",
+          "pcode": "17971184"
         },
         {
           "name": "MSI MPG X870E 엣지 TI WIFI",
           "socket": "AM5",
           "chipset": "X870E",
           "form_factor": "ATX",
-          "price_krw": 495000,
-          "store_count": 171,
+          "price_krw": 498990,
+          "store_count": 170,
           "category": "AMD",
           "pcode": "75538472"
         },
@@ -2371,27 +2371,27 @@
           "socket": "AM5",
           "chipset": "B650",
           "form_factor": "ATX",
-          "price_krw": 253900,
-          "store_count": 201,
+          "price_krw": 253890,
+          "store_count": 199,
           "category": "AMD",
           "pcode": "17971181"
         },
         {
-          "name": "MSI PRO B760M-P DDR4",
-          "socket": "LGA1700",
-          "chipset": "B760",
+          "name": "MSI MAG B850M 박격포",
+          "socket": "AM5",
+          "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 127000,
-          "store_count": 119,
-          "category": "Intel",
-          "pcode": "18652889"
+          "price_krw": 241440,
+          "store_count": 214,
+          "category": "AMD",
+          "pcode": "91493696"
         },
         {
           "name": "MSI MPG X870E 카본 WIFI",
           "socket": "AM5",
           "chipset": "X870E",
           "form_factor": "ATX",
-          "price_krw": 665000,
+          "price_krw": 668990,
           "store_count": 162,
           "category": "AMD",
           "pcode": "67852652"
@@ -2401,18 +2401,28 @@
           "socket": "AM5",
           "chipset": "B650",
           "form_factor": "Micro ATX",
-          "price_krw": 149100,
-          "store_count": 211,
+          "price_krw": 149120,
+          "store_count": 210,
           "category": "AMD",
           "pcode": "62568890"
+        },
+        {
+          "name": "MSI MAG B760M 박격포 II",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 172300,
+          "store_count": 155,
+          "category": "Intel",
+          "pcode": "37226114"
         },
         {
           "name": "MSI MAG B860 토마호크 WIFI",
           "socket": "LGA1851",
           "chipset": "B860",
           "form_factor": "ATX",
-          "price_krw": 281000,
-          "store_count": 188,
+          "price_krw": 276490,
+          "store_count": 187,
           "category": "Intel",
           "pcode": "74340455"
         },
@@ -2421,28 +2431,28 @@
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 134980,
-          "store_count": 179,
+          "price_krw": 134990,
+          "store_count": 178,
           "category": "Intel",
           "pcode": "20171636"
         },
         {
-          "name": "MSI MAG B850M 박격포",
-          "socket": "AM5",
-          "chipset": "B850",
+          "name": "MSI PRO H810M-B",
+          "socket": "LGA1851",
+          "chipset": "H810",
           "form_factor": "Micro ATX",
-          "price_krw": 241430,
-          "store_count": 215,
-          "category": "AMD",
-          "pcode": "91493696"
+          "price_krw": 124920,
+          "store_count": 182,
+          "category": "Intel",
+          "pcode": "97121798"
         },
         {
           "name": "MSI MAG B760 토마호크 WIFI",
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "ATX",
-          "price_krw": 227990,
-          "store_count": 194,
+          "price_krw": 228000,
+          "store_count": 193,
           "category": "Intel",
           "pcode": "18652865"
         },
@@ -2455,6 +2465,16 @@
           "store_count": 45,
           "category": "AMD",
           "pcode": "67852370"
+        },
+        {
+          "name": "MSI PRO B760M-P DDR4",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 129000,
+          "store_count": 118,
+          "category": "Intel",
+          "pcode": "18652889"
         },
         {
           "name": "MSI B850M 게이밍 플러스 WIFI6E",
@@ -2472,7 +2492,7 @@
           "chipset": "B650",
           "form_factor": "Micro ATX",
           "price_krw": 115900,
-          "store_count": 187,
+          "store_count": 189,
           "category": "AMD",
           "pcode": "20108249"
         },
@@ -2481,8 +2501,8 @@
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 183110,
-          "store_count": 197,
+          "price_krw": 183120,
+          "store_count": 196,
           "category": "AMD",
           "pcode": "93502442"
         },
@@ -2491,8 +2511,8 @@
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "Unknown",
-          "price_krw": 375000,
-          "store_count": 160,
+          "price_krw": 378990,
+          "store_count": 159,
           "category": "AMD",
           "pcode": "97121510"
         },
@@ -2507,21 +2527,11 @@
           "pcode": "74339975"
         },
         {
-          "name": "MSI MPG B850 엣지 TI WIFI",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "ATX",
-          "price_krw": 363000,
-          "store_count": 183,
-          "category": "AMD",
-          "pcode": "74814380"
-        },
-        {
           "name": "MSI MAG X870E 토마호크 맥스 WIFI PZ",
           "socket": "AM5",
           "chipset": "X870E",
           "form_factor": "ATX",
-          "price_krw": 526000,
+          "price_krw": 528990,
           "store_count": 127,
           "category": "AMD",
           "pcode": "104325440"
@@ -2531,18 +2541,28 @@
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "ATX",
-          "price_krw": 691480,
-          "store_count": 139,
+          "price_krw": 691490,
+          "store_count": 137,
           "category": "Intel",
           "pcode": "69698594"
+        },
+        {
+          "name": "MSI MPG B850 엣지 TI WIFI",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "ATX",
+          "price_krw": 367620,
+          "store_count": 182,
+          "category": "AMD",
+          "pcode": "74814380"
         },
         {
           "name": "MSI MPG Z890 카본 WIFI",
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "ATX",
-          "price_krw": 594000,
-          "store_count": 159,
+          "price_krw": 598990,
+          "store_count": 157,
           "category": "Intel",
           "pcode": "69698066"
         },
@@ -2552,47 +2572,27 @@
           "chipset": "B850",
           "form_factor": "Micro ATX",
           "price_krw": 175390,
-          "store_count": 171,
+          "store_count": 172,
           "category": "AMD",
           "pcode": "98544692"
-        },
-        {
-          "name": "MSI MAG B860M 박격포",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Micro ATX",
-          "price_krw": 245580,
-          "store_count": 41,
-          "category": "Intel",
-          "pcode": "122636609"
         },
         {
           "name": "MSI PRO B760M-A WIFI",
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 153900,
-          "store_count": 222,
+          "price_krw": 158990,
+          "store_count": 220,
           "category": "Intel",
           "pcode": "19241759"
-        },
-        {
-          "name": "MSI PRO H810M-B",
-          "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Micro ATX",
-          "price_krw": 124910,
-          "store_count": 187,
-          "category": "Intel",
-          "pcode": "97121798"
         },
         {
           "name": "MSI B650M 프로젝트 제로",
           "socket": "AM5",
           "chipset": "B650",
           "form_factor": "Micro ATX",
-          "price_krw": 223240,
-          "store_count": 184,
+          "price_krw": 229000,
+          "store_count": 182,
           "category": "AMD",
           "pcode": "53418977"
         },
@@ -2601,7 +2601,7 @@
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "ATX",
-          "price_krw": 385000,
+          "price_krw": 388880,
           "store_count": 164,
           "category": "Intel",
           "pcode": "69697916"
@@ -2611,40 +2611,60 @@
           "socket": "AM5",
           "chipset": "B650",
           "form_factor": "Micro ATX",
-          "price_krw": 109990,
+          "price_krw": 110000,
           "store_count": 160,
           "category": "AMD",
           "pcode": "57295043"
+        },
+        {
+          "name": "MSI MAG B860M 박격포",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "price_krw": 245580,
+          "store_count": 40,
+          "category": "Intel",
+          "pcode": "122636609"
         },
         {
           "name": "MSI MPG Z890 엣지 TI WIFI",
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "ATX",
-          "price_krw": 545000,
-          "store_count": 148,
+          "price_krw": 549000,
+          "store_count": 147,
           "category": "Intel",
           "pcode": "69698492"
-        },
-        {
-          "name": "MSI B760M 프로젝트 제로",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 236300,
-          "store_count": 74,
-          "category": "Intel",
-          "pcode": "53419463"
         },
         {
           "name": "MSI MEG Z890 에이스",
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "ATX",
-          "price_krw": 948820,
+          "price_krw": 949000,
           "store_count": 67,
           "category": "Intel",
           "pcode": "69697592"
+        },
+        {
+          "name": "MSI B760M 프로젝트 제로",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 238800,
+          "store_count": 74,
+          "category": "Intel",
+          "pcode": "53419463"
+        },
+        {
+          "name": "MSI MPG B650 엣지 WIFI",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "price_krw": 392490,
+          "store_count": 3,
+          "category": "AMD",
+          "pcode": "18172115"
         },
         {
           "name": "MSI MAG X670E 토마호크 WIFI",
@@ -2657,14 +2677,14 @@
           "pcode": "27475223"
         },
         {
-          "name": "MSI MPG B650 엣지 WIFI",
-          "socket": "AM5",
-          "chipset": "B650",
+          "name": "MSI PRO Z790-P WIFI",
+          "socket": "LGA1700",
+          "chipset": "Z790",
           "form_factor": "ATX",
-          "price_krw": 374490,
-          "store_count": 3,
-          "category": "AMD",
-          "pcode": "18172115"
+          "price_krw": 350000,
+          "store_count": 1,
+          "category": "Intel",
+          "pcode": "27475169"
         },
         {
           "name": "MSI PRO X870-P WIFI",
@@ -2677,21 +2697,11 @@
           "pcode": "67852469"
         },
         {
-          "name": "MSI PRO Z790-P WIFI",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "ATX",
-          "price_krw": 350000,
-          "store_count": 1,
-          "category": "Intel",
-          "pcode": "27475169"
-        },
-        {
           "name": "MSI MPG B650 카본 WIFI",
           "socket": "AM5",
           "chipset": "B650",
           "form_factor": "ATX",
-          "price_krw": 885000,
+          "price_krw": 861000,
           "store_count": 1,
           "category": "AMD",
           "pcode": "17971178"
@@ -2712,7 +2722,7 @@
           "chipset": "B860",
           "form_factor": "Micro ATX",
           "price_krw": 198550,
-          "store_count": 97,
+          "store_count": 98,
           "category": "Intel",
           "pcode": "123668879"
         },
@@ -2721,8 +2731,8 @@
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 117490,
-          "store_count": 135,
+          "price_krw": 117500,
+          "store_count": 134,
           "category": "Intel",
           "pcode": "122637313"
         },
@@ -2731,8 +2741,8 @@
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "ATX",
-          "price_krw": 345000,
-          "store_count": 161,
+          "price_krw": 348990,
+          "store_count": 153,
           "category": "Intel",
           "pcode": "71216543"
         },
@@ -2741,20 +2751,10 @@
           "socket": "LGA1851",
           "chipset": "H810",
           "form_factor": "Micro ATX",
-          "price_krw": 132490,
-          "store_count": 145,
+          "price_krw": 132500,
+          "store_count": 143,
           "category": "Intel",
           "pcode": "105969161"
-        },
-        {
-          "name": "MSI MPG B650I 엣지 WIFI (해외구매)",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Unknown",
-          "price_krw": 426150,
-          "store_count": 3,
-          "category": "AMD",
-          "pcode": "18449468"
         },
         {
           "name": "MSI PRO B760M-A WIFI (중고)",
@@ -2765,6 +2765,16 @@
           "store_count": 3,
           "category": "Intel",
           "pcode": "97904522"
+        },
+        {
+          "name": "MSI MPG B650I 엣지 WIFI (해외구매)",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Unknown",
+          "price_krw": 426150,
+          "store_count": 3,
+          "category": "AMD",
+          "pcode": "18449468"
         },
         {
           "name": "MSI MPG X670E 카본 WiFi (중고)",
@@ -2797,6 +2807,16 @@
           "pcode": "18222359"
         },
         {
+          "name": "MSI MPG B650 엣지 WIFI (해외구매)",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "price_krw": 310800,
+          "store_count": 2,
+          "category": "AMD",
+          "pcode": "18204728"
+        },
+        {
           "name": "MSI MAG B650 토마호크 WIFI (해외구매)",
           "socket": "AM5",
           "chipset": "B650",
@@ -2815,16 +2835,6 @@
           "store_count": 1,
           "category": "AMD",
           "pcode": "27576677"
-        },
-        {
-          "name": "MSI MPG B650 엣지 WIFI (해외구매)",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "ATX",
-          "price_krw": 310800,
-          "store_count": 2,
-          "category": "AMD",
-          "pcode": "18204728"
         }
       ]
     },
@@ -2832,24 +2842,34 @@
       "brand": "Gigabyte",
       "products": [
         {
+          "name": "GIGABYTE B850M GAMING X WIFI6E",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 191990,
+          "store_count": 122,
+          "category": "AMD",
+          "pcode": "122697197"
+        },
+        {
           "name": "GIGABYTE B650M K",
           "socket": "AM5",
           "chipset": "B650",
           "form_factor": "Micro ATX",
           "price_krw": 111900,
-          "store_count": 254,
+          "store_count": 252,
           "category": "AMD",
           "pcode": "21727307"
         },
         {
-          "name": "GIGABYTE B850M GAMING X WIFI6E",
+          "name": "GIGABYTE B850M AORUS ELITE WIFI6E ICE",
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 191980,
-          "store_count": 121,
+          "price_krw": 224490,
+          "store_count": 255,
           "category": "AMD",
-          "pcode": "122697197"
+          "pcode": "73892423"
         },
         {
           "name": "GIGABYTE X870E AORUS ELITE X3D",
@@ -2866,30 +2886,30 @@
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 176290,
+          "price_krw": 176300,
           "store_count": 129,
           "category": "Intel",
           "pcode": "105813494"
-        },
-        {
-          "name": "GIGABYTE B850M AORUS ELITE WIFI6E ICE",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 224490,
-          "store_count": 257,
-          "category": "AMD",
-          "pcode": "73892423"
         },
         {
           "name": "GIGABYTE X870E AORUS ELITE X3D ICE",
           "socket": "AM5",
           "chipset": "X870E",
           "form_factor": "ATX",
-          "price_krw": 425860,
-          "store_count": 138,
+          "price_krw": 426920,
+          "store_count": 136,
           "category": "AMD",
           "pcode": "106767464"
+        },
+        {
+          "name": "GIGABYTE X870E AERO X3D WOOD",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "price_krw": 567700,
+          "store_count": 95,
+          "category": "AMD",
+          "pcode": "122829806"
         },
         {
           "name": "GIGABYTE B850I AORUS PRO",
@@ -2907,19 +2927,9 @@
           "chipset": "B760",
           "form_factor": "Micro ATX",
           "price_krw": 128280,
-          "store_count": 235,
+          "store_count": 233,
           "category": "Intel",
           "pcode": "18650483"
-        },
-        {
-          "name": "GIGABYTE X870E AERO X3D WOOD",
-          "socket": "AM5",
-          "chipset": "X870E",
-          "form_factor": "ATX",
-          "price_krw": 567710,
-          "store_count": 96,
-          "category": "AMD",
-          "pcode": "122829806"
         },
         {
           "name": "GIGABYTE B860M AORUS ELITE WIFI6E ICE",
@@ -2936,18 +2946,28 @@
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 153610,
-          "store_count": 122,
+          "price_krw": 153650,
+          "store_count": 123,
           "category": "Intel",
           "pcode": "105968915"
+        },
+        {
+          "name": "GIGABYTE B860M AORUS ELITE",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "price_krw": 213000,
+          "store_count": 205,
+          "category": "Intel",
+          "pcode": "74251253"
         },
         {
           "name": "GIGABYTE B850 AORUS ELITE X3D",
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "ATX",
-          "price_krw": 314210,
-          "store_count": 92,
+          "price_krw": 314220,
+          "store_count": 91,
           "category": "AMD",
           "pcode": "122726156"
         },
@@ -2956,8 +2976,8 @@
           "socket": "LGA1851",
           "chipset": "B860",
           "form_factor": "Micro ATX",
-          "price_krw": 169690,
-          "store_count": 223,
+          "price_krw": 169680,
+          "store_count": 221,
           "category": "Intel",
           "pcode": "74251349"
         },
@@ -2967,29 +2987,9 @@
           "chipset": "B850",
           "form_factor": "ATX",
           "price_krw": 279340,
-          "store_count": 178,
+          "store_count": 177,
           "category": "AMD",
           "pcode": "73892309"
-        },
-        {
-          "name": "GIGABYTE Z890 AORUS ELITE WIFI7",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 347300,
-          "store_count": 199,
-          "category": "Intel",
-          "pcode": "69699182"
-        },
-        {
-          "name": "GIGABYTE B860M AORUS ELITE",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Micro ATX",
-          "price_krw": 219780,
-          "store_count": 206,
-          "category": "Intel",
-          "pcode": "74251253"
         },
         {
           "name": "GIGABYTE B850M FORCE",
@@ -2997,39 +2997,39 @@
           "chipset": "B850",
           "form_factor": "Micro ATX",
           "price_krw": 151400,
-          "store_count": 211,
+          "store_count": 210,
           "category": "AMD",
           "pcode": "95280263"
-        },
-        {
-          "name": "GIGABYTE B760M DS3H GEN5",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 120520,
-          "store_count": 180,
-          "category": "Intel",
-          "pcode": "91871951"
         },
         {
           "name": "GIGABYTE H810M K GEN5",
           "socket": "LGA1851",
           "chipset": "H810",
           "form_factor": "Micro ATX",
-          "price_krw": 103370,
+          "price_krw": 103360,
           "store_count": 132,
           "category": "Intel",
           "pcode": "108401528"
         },
         {
-          "name": "GIGABYTE X870E AORUS MASTER X3D ICE",
+          "name": "GIGABYTE Z890M AORUS ELITE WIFI7",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "Micro ATX",
+          "price_krw": 295000,
+          "store_count": 118,
+          "category": "Intel",
+          "pcode": "122617914"
+        },
+        {
+          "name": "GIGABYTE B850M AORUS PRO WIFI7",
           "socket": "AM5",
-          "chipset": "X870E",
-          "form_factor": "ATX",
-          "price_krw": 798220,
-          "store_count": 81,
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 249990,
+          "store_count": 131,
           "category": "AMD",
-          "pcode": "98613731"
+          "pcode": "106695713"
         },
         {
           "name": "GIGABYTE X870 AORUS ELITE WIFI7",
@@ -3042,14 +3042,14 @@
           "pcode": "67847474"
         },
         {
-          "name": "GIGABYTE Z890M AORUS ELITE WIFI7",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "Micro ATX",
-          "price_krw": 294990,
-          "store_count": 118,
-          "category": "Intel",
-          "pcode": "122617914"
+          "name": "GIGABYTE X870E AORUS MASTER X3D ICE",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "price_krw": 792220,
+          "store_count": 81,
+          "category": "AMD",
+          "pcode": "98613731"
         },
         {
           "name": "GIGABYTE Z890 AORUS ELITE WIFI7 ICE",
@@ -3057,19 +3057,19 @@
           "chipset": "Z890",
           "form_factor": "ATX",
           "price_krw": 337000,
-          "store_count": 190,
+          "store_count": 189,
           "category": "Intel",
           "pcode": "69699599"
         },
         {
-          "name": "GIGABYTE B850M AORUS PRO WIFI7",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 249990,
-          "store_count": 130,
-          "category": "AMD",
-          "pcode": "106695713"
+          "name": "GIGABYTE Z890 AORUS ELITE WIFI7",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "ATX",
+          "price_krw": 309000,
+          "store_count": 199,
+          "category": "Intel",
+          "pcode": "69699182"
         },
         {
           "name": "GIGABYTE B860M GAMING X",
@@ -3086,7 +3086,7 @@
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "ATX",
-          "price_krw": 343960,
+          "price_krw": 343970,
           "store_count": 121,
           "category": "Intel",
           "pcode": "122617802"
@@ -3106,30 +3106,30 @@
           "socket": "AM5",
           "chipset": "X870",
           "form_factor": "Unknown",
-          "price_krw": 459500,
+          "price_krw": 475000,
           "store_count": 129,
           "category": "AMD",
           "pcode": "77791190"
+        },
+        {
+          "name": "GIGABYTE B760M DS3H GEN5",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 120520,
+          "store_count": 180,
+          "category": "Intel",
+          "pcode": "91871951"
         },
         {
           "name": "GIGABYTE B760M DS3H D4 GEN5",
           "socket": "LGA1700",
           "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 133570,
+          "price_krw": 133580,
           "store_count": 144,
           "category": "Intel",
           "pcode": "106044725"
-        },
-        {
-          "name": "GIGABYTE X870 AORUS ELITE WIFI7 ICE",
-          "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "ATX",
-          "price_krw": 353340,
-          "store_count": 227,
-          "category": "AMD",
-          "pcode": "67847492"
         },
         {
           "name": "GIGABYTE X870E AORUS PRO X3D ICE",
@@ -3137,9 +3137,19 @@
           "chipset": "X870E",
           "form_factor": "ATX",
           "price_krw": 593990,
-          "store_count": 164,
+          "store_count": 165,
           "category": "AMD",
           "pcode": "98229074"
+        },
+        {
+          "name": "GIGABYTE H810M S2H GEN5",
+          "socket": "LGA1851",
+          "chipset": "H810",
+          "form_factor": "Micro ATX",
+          "price_krw": 118360,
+          "store_count": 119,
+          "category": "Intel",
+          "pcode": "106688174"
         },
         {
           "name": "GIGABYTE B850M AORUS ELITE WIFI6E",
@@ -3147,39 +3157,19 @@
           "chipset": "B850",
           "form_factor": "Micro ATX",
           "price_krw": 223490,
-          "store_count": 231,
+          "store_count": 230,
           "category": "AMD",
           "pcode": "78843671"
         },
         {
-          "name": "GIGABYTE H810M S2H GEN5",
-          "socket": "LGA1851",
-          "chipset": "H810",
-          "form_factor": "Micro ATX",
-          "price_krw": 118350,
-          "store_count": 119,
-          "category": "Intel",
-          "pcode": "106688174"
-        },
-        {
-          "name": "GIGABYTE B850M AORUS STEALTH ICE",
+          "name": "GIGABYTE X870 AORUS STEALTH ICE",
           "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 287050,
-          "store_count": 94,
-          "category": "AMD",
-          "pcode": "122710775"
-        },
-        {
-          "name": "GIGABYTE Z890 AORUS PRO ICE",
-          "socket": "LGA1851",
-          "chipset": "Z890",
+          "chipset": "X870",
           "form_factor": "ATX",
-          "price_krw": 399000,
-          "store_count": 181,
-          "category": "Intel",
-          "pcode": "69699584"
+          "price_krw": 441000,
+          "store_count": 142,
+          "category": "AMD",
+          "pcode": "93073367"
         },
         {
           "name": "GIGABYTE Z890 UD",
@@ -3192,31 +3182,31 @@
           "pcode": "69699425"
         },
         {
-          "name": "GIGABYTE B850 AORUS ELITE WIFI7 ICE",
-          "socket": "AM5",
-          "chipset": "B850",
+          "name": "GIGABYTE Z890 AORUS PRO ICE",
+          "socket": "LGA1851",
+          "chipset": "Z890",
           "form_factor": "ATX",
-          "price_krw": 288810,
-          "store_count": 197,
-          "category": "AMD",
-          "pcode": "73891778"
+          "price_krw": 399000,
+          "store_count": 180,
+          "category": "Intel",
+          "pcode": "69699584"
         },
         {
-          "name": "GIGABYTE X870 AORUS STEALTH ICE",
+          "name": "GIGABYTE B850M AORUS STEALTH ICE",
           "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "ATX",
-          "price_krw": 441690,
-          "store_count": 142,
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 287060,
+          "store_count": 96,
           "category": "AMD",
-          "pcode": "93073367"
+          "pcode": "122710775"
         },
         {
           "name": "GIGABYTE B850M FORCE V2",
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 164940,
+          "price_krw": 164950,
           "store_count": 117,
           "category": "AMD",
           "pcode": "122699665"
@@ -3226,20 +3216,30 @@
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "ATX",
-          "price_krw": 224980,
-          "store_count": 158,
+          "price_krw": 221000,
+          "store_count": 157,
           "category": "AMD",
           "pcode": "100192475"
         },
         {
-          "name": "GIGABYTE X870E AORUS PRO",
+          "name": "GIGABYTE B850 AORUS ELITE WIFI7 ICE",
           "socket": "AM5",
-          "chipset": "X870E",
+          "chipset": "B850",
           "form_factor": "ATX",
-          "price_krw": 412040,
-          "store_count": 165,
+          "price_krw": 295220,
+          "store_count": 196,
           "category": "AMD",
-          "pcode": "73560548"
+          "pcode": "73891778"
+        },
+        {
+          "name": "GIGABYTE B850 AORUS STEALTH ICE",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "ATX",
+          "price_krw": 378990,
+          "store_count": 129,
+          "category": "AMD",
+          "pcode": "93442604"
         },
         {
           "name": "GIGABYTE B850M DS3H ICE",
@@ -3247,7 +3247,7 @@
           "chipset": "B850",
           "form_factor": "Micro ATX",
           "price_krw": 168350,
-          "store_count": 211,
+          "store_count": 209,
           "category": "AMD",
           "pcode": "77620880"
         },
@@ -3262,6 +3262,36 @@
           "pcode": "18261245"
         },
         {
+          "name": "GIGABYTE X870E AORUS PRO",
+          "socket": "AM5",
+          "chipset": "X870E",
+          "form_factor": "ATX",
+          "price_krw": 412040,
+          "store_count": 163,
+          "category": "AMD",
+          "pcode": "73560548"
+        },
+        {
+          "name": "GIGABYTE B850M AORUS ELITE WIFI7 ICE-P",
+          "socket": "AM5",
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 258300,
+          "store_count": 125,
+          "category": "AMD",
+          "pcode": "99945386"
+        },
+        {
+          "name": "GIGABYTE B650 AORUS ELITE V2",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "price_krw": 203970,
+          "store_count": 115,
+          "category": "AMD",
+          "pcode": "32071067"
+        },
+        {
           "name": "GIGABYTE Z790 AORUS ELITE",
           "socket": "LGA1700",
           "chipset": "Z790",
@@ -3272,74 +3302,64 @@
           "pcode": "18112316"
         },
         {
-          "name": "GIGABYTE B650 AORUS ELITE V2",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "ATX",
-          "price_krw": 203970,
-          "store_count": 119,
-          "category": "AMD",
-          "pcode": "32071067"
+          "name": "GIGABYTE B860M AORUS ELITE WIFI6E",
+          "socket": "LGA1851",
+          "chipset": "B860",
+          "form_factor": "Micro ATX",
+          "price_krw": 243490,
+          "store_count": 210,
+          "category": "Intel",
+          "pcode": "74255390"
         },
         {
-          "name": "GIGABYTE B850 AORUS STEALTH ICE",
+          "name": "GIGABYTE X870 AORUS ELITE WIFI7 ICE",
           "socket": "AM5",
-          "chipset": "B850",
+          "chipset": "X870",
           "form_factor": "ATX",
-          "price_krw": 376490,
-          "store_count": 130,
+          "price_krw": 353340,
+          "store_count": 227,
           "category": "AMD",
-          "pcode": "93442604"
+          "pcode": "67847492"
         },
         {
           "name": "GIGABYTE B850M AORUS STEALTH",
           "socket": "AM5",
           "chipset": "B850",
           "form_factor": "Micro ATX",
-          "price_krw": 287060,
-          "store_count": 93,
+          "price_krw": 287070,
+          "store_count": 94,
           "category": "AMD",
           "pcode": "122711072"
         },
         {
-          "name": "GIGABYTE B860M AORUS ELITE WIFI6E",
-          "socket": "LGA1851",
-          "chipset": "B860",
-          "form_factor": "Micro ATX",
-          "price_krw": 243480,
-          "store_count": 210,
-          "category": "Intel",
-          "pcode": "74255390"
-        },
-        {
-          "name": "GIGABYTE Z890I AORUS ULTRA",
+          "name": "GIGABYTE Z890 AORUS MASTER",
           "socket": "LGA1851",
           "chipset": "Z890",
-          "form_factor": "Unknown",
-          "price_krw": 485490,
-          "store_count": 135,
+          "form_factor": "ATX",
+          "price_krw": 654140,
+          "store_count": 118,
           "category": "Intel",
-          "pcode": "69699695"
-        },
-        {
-          "name": "GIGABYTE B850M AORUS ELITE WIFI7 ICE-P",
-          "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 258280,
-          "store_count": 125,
-          "category": "AMD",
-          "pcode": "99945386"
+          "pcode": "69699467"
         },
         {
           "name": "GIGABYTE Z890M AORUS ELITE WIFI7 ICE",
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "Micro ATX",
-          "price_krw": 326500,
+          "price_krw": 326510,
           "store_count": 127,
           "category": "Intel",
           "pcode": "122617854"
+        },
+        {
+          "name": "GIGABYTE Z890I AORUS ULTRA",
+          "socket": "LGA1851",
+          "chipset": "Z890",
+          "form_factor": "Unknown",
+          "price_krw": 485440,
+          "store_count": 135,
+          "category": "Intel",
+          "pcode": "69699695"
         },
         {
           "name": "GIGABYTE X870E AORUS XTREME AI TOP",
@@ -3352,34 +3372,14 @@
           "pcode": "73770854"
         },
         {
-          "name": "GIGABYTE X870 AORUS INFINITY",
+          "name": "GIGABYTE B850M DS3H",
           "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "E-ATX",
-          "price_krw": 1051320,
-          "store_count": 88,
+          "chipset": "B850",
+          "form_factor": "Micro ATX",
+          "price_krw": 162760,
+          "store_count": 233,
           "category": "AMD",
-          "pcode": "122726583"
-        },
-        {
-          "name": "GIGABYTE Z890 AORUS MASTER",
-          "socket": "LGA1851",
-          "chipset": "Z890",
-          "form_factor": "ATX",
-          "price_krw": 654180,
-          "store_count": 118,
-          "category": "Intel",
-          "pcode": "69699467"
-        },
-        {
-          "name": "GIGABYTE B650 AORUS ELITE",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "ATX",
-          "price_krw": 214500,
-          "store_count": 9,
-          "category": "AMD",
-          "pcode": "18189497"
+          "pcode": "73892354"
         },
         {
           "name": "GIGABYTE B850 AORUS STEALTH",
@@ -3392,14 +3392,24 @@
           "pcode": "108227489"
         },
         {
-          "name": "GIGABYTE B850M DS3H",
+          "name": "GIGABYTE B650 AORUS ELITE",
           "socket": "AM5",
-          "chipset": "B850",
-          "form_factor": "Micro ATX",
-          "price_krw": 162760,
-          "store_count": 234,
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "price_krw": 214500,
+          "store_count": 9,
           "category": "AMD",
-          "pcode": "73892354"
+          "pcode": "18189497"
+        },
+        {
+          "name": "GIGABYTE X870 AORUS INFINITY",
+          "socket": "AM5",
+          "chipset": "X870",
+          "form_factor": "E-ATX",
+          "price_krw": 1051310,
+          "store_count": 91,
+          "category": "AMD",
+          "pcode": "122726583"
         },
         {
           "name": "GIGABYTE B860 AORUS ELITE WIFI7 ICE",
@@ -3416,10 +3426,20 @@
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "E-ATX",
-          "price_krw": 1487940,
+          "price_krw": 1497000,
           "store_count": 124,
           "category": "Intel",
           "pcode": "72227675"
+        },
+        {
+          "name": "GIGABYTE X870 EAGLE WIFI7",
+          "socket": "AM5",
+          "chipset": "X870",
+          "form_factor": "ATX",
+          "price_krw": 296900,
+          "store_count": 158,
+          "category": "AMD",
+          "pcode": "67852706"
         },
         {
           "name": "GIGABYTE X870 AORUS STEALTH",
@@ -3432,34 +3452,24 @@
           "pcode": "104966306"
         },
         {
-          "name": "GIGABYTE X870 EAGLE WIFI7",
-          "socket": "AM5",
-          "chipset": "X870",
-          "form_factor": "ATX",
-          "price_krw": 297000,
-          "store_count": 158,
-          "category": "AMD",
-          "pcode": "67852706"
+          "name": "GIGABYTE B760M AORUS ELITE GEN5",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 172800,
+          "store_count": 168,
+          "category": "Intel",
+          "pcode": "90502931"
         },
         {
           "name": "GIGABYTE Z890 AORUS ELITE DUO X",
           "socket": "LGA1851",
           "chipset": "Z890",
           "form_factor": "ATX",
-          "price_krw": 407990,
+          "price_krw": 408000,
           "store_count": 123,
           "category": "Intel",
-          "pcode": "109680482"
-        },
-        {
-          "name": "GIGABYTE B760M AORUS ELITE GEN5",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 172800,
-          "store_count": 170,
-          "category": "Intel",
-          "pcode": "90502931"
+          "pcode": "122618006"
         },
         {
           "name": "GIGABYTE B650E AORUS ELITE X AX ICE",
@@ -3492,16 +3502,6 @@
           "pcode": "76942073"
         },
         {
-          "name": "GIGABYTE B650M AORUS ELITE",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "price_krw": 166000,
-          "store_count": 8,
-          "category": "AMD",
-          "pcode": "18165161"
-        },
-        {
           "name": "GIGABYTE B650M AORUS ELITE AX ICE",
           "socket": "AM5",
           "chipset": "B650",
@@ -3512,12 +3512,22 @@
           "pcode": "29863127"
         },
         {
+          "name": "GIGABYTE B650M AORUS ELITE",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "Micro ATX",
+          "price_krw": 166000,
+          "store_count": 8,
+          "category": "AMD",
+          "pcode": "18165161"
+        },
+        {
           "name": "GIGABYTE H810M D2HX SI GEN5",
           "socket": "LGA1851",
           "chipset": "H810",
           "form_factor": "Micro ATX",
-          "price_krw": 115390,
-          "store_count": 131,
+          "price_krw": 115400,
+          "store_count": 132,
           "category": "Intel",
           "pcode": "106454201"
         },
@@ -3547,19 +3557,9 @@
           "chipset": "Z790",
           "form_factor": "E-ATX",
           "price_krw": 3115260,
-          "store_count": 54,
+          "store_count": 53,
           "category": "Intel",
           "pcode": "54326606"
-        },
-        {
-          "name": "GIGABYTE Z790 AORUS ELITE AX",
-          "socket": "LGA1700",
-          "chipset": "Z790",
-          "form_factor": "ATX",
-          "price_krw": 450000,
-          "store_count": 1,
-          "category": "Intel",
-          "pcode": "18261176"
         },
         {
           "name": "GIGABYTE H810M S2H",
@@ -3576,7 +3576,7 @@
           "socket": "LGA1851",
           "chipset": "H810",
           "form_factor": "Micro ATX",
-          "price_krw": 115140,
+          "price_krw": 115170,
           "store_count": 116,
           "category": "Intel",
           "pcode": "106045001"
@@ -3592,6 +3592,16 @@
           "pcode": "30070400"
         },
         {
+          "name": "GIGABYTE Z790 AORUS ELITE AX",
+          "socket": "LGA1700",
+          "chipset": "Z790",
+          "form_factor": "ATX",
+          "price_krw": 450000,
+          "store_count": 1,
+          "category": "Intel",
+          "pcode": "18261176"
+        },
+        {
           "name": "GIGABYTE B760M AORUS ELITE D4",
           "socket": "LGA1700",
           "chipset": "B760",
@@ -3600,16 +3610,6 @@
           "store_count": 2,
           "category": "Intel",
           "pcode": "18651545"
-        },
-        {
-          "name": "GIGABYTE B650M AORUS ELITE AX",
-          "socket": "AM5",
-          "chipset": "B650",
-          "form_factor": "Micro ATX",
-          "price_krw": 314900,
-          "store_count": 2,
-          "category": "AMD",
-          "pcode": "18113015"
         },
         {
           "name": "GIGABYTE B650 AORUS ELITE AX",
@@ -3632,24 +3632,14 @@
           "pcode": "17915426"
         },
         {
-          "name": "GIGABYTE B650 AORUS ELITE AX V2",
+          "name": "GIGABYTE B650M AORUS ELITE AX",
           "socket": "AM5",
           "chipset": "B650",
-          "form_factor": "ATX",
-          "price_krw": 261720,
-          "store_count": 3,
-          "category": "AMD",
-          "pcode": "32070719"
-        },
-        {
-          "name": "GIGABYTE B760M DS3H",
-          "socket": "LGA1700",
-          "chipset": "B760",
           "form_factor": "Micro ATX",
-          "price_krw": 139000,
-          "store_count": 18,
-          "category": "Intel",
-          "pcode": "18781991"
+          "price_krw": 314900,
+          "store_count": 2,
+          "category": "AMD",
+          "pcode": "18113015"
         },
         {
           "name": "GIGABYTE B760M AORUS ELITE AX",
@@ -3660,6 +3650,36 @@
           "store_count": 2,
           "category": "Intel",
           "pcode": "18651506"
+        },
+        {
+          "name": "GIGABYTE B760M DS3H",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 139000,
+          "store_count": 17,
+          "category": "Intel",
+          "pcode": "18781991"
+        },
+        {
+          "name": "GIGABYTE B760M AORUS ELITE",
+          "socket": "LGA1700",
+          "chipset": "B760",
+          "form_factor": "Micro ATX",
+          "price_krw": 190000,
+          "store_count": 11,
+          "category": "Intel",
+          "pcode": "18649997"
+        },
+        {
+          "name": "GIGABYTE B650 AORUS ELITE AX V2",
+          "socket": "AM5",
+          "chipset": "B650",
+          "form_factor": "ATX",
+          "price_krw": 260580,
+          "store_count": 3,
+          "category": "AMD",
+          "pcode": "32070719"
         },
         {
           "name": "GIGABYTE Z790 AORUS XTREME",
@@ -3680,16 +3700,6 @@
           "store_count": 2,
           "category": "AMD",
           "pcode": "21731021"
-        },
-        {
-          "name": "GIGABYTE B760M AORUS ELITE",
-          "socket": "LGA1700",
-          "chipset": "B760",
-          "form_factor": "Micro ATX",
-          "price_krw": 190000,
-          "store_count": 11,
-          "category": "Intel",
-          "pcode": "18649997"
         },
         {
           "name": "GIGABYTE X870E AORUS ELITE WIFI7 (해외구매)",
