@@ -5,7 +5,8 @@ Fetches ASRock, ASUS, Gigabyte, MSI motherboard listings and saves to motherboar
 
 import os
 import shutil
-import requests
+from curl_cffi import requests
+from curl_cffi.requests.exceptions import RequestException
 from bs4 import BeautifulSoup
 import json
 import re
@@ -118,8 +119,8 @@ def parse_category(socket: str) -> str:
 
 
 def parse_price(item) -> float | None:
-    strong = item.select_one(".price-current strong")
-    sup    = item.select_one(".price-current sup")
+    strong = item.select_one(".goods-price-value strong")
+    sup    = item.select_one(".goods-price-value sup")
     if strong:
         try:
             dollars = strong.get_text(strip=True).replace(",", "")
@@ -131,7 +132,7 @@ def parse_price(item) -> float | None:
 
 
 def parse_rating(item) -> float | None:
-    el = item.select_one(".item-rating i")
+    el = item.select_one(".goods-rating i")
     if el:
         m = re.search(r"rated ([\d.]+) out of", el.get("aria-label", ""))
         if m:
@@ -148,7 +149,7 @@ def parse_rating(item) -> float | None:
 
 
 def parse_review_count(item) -> int:
-    el = item.select_one(".item-rating-num")
+    el = item.select_one(".goods-rating-num")
     if el:
         m = re.search(r"\((\d+)\)", el.get_text())
         if m:
@@ -172,32 +173,32 @@ def scrape_brand(brand: str, n_val: int, max_pages: int) -> list[dict]:
         )
         print(f"  [{brand}] Page {page}: {url}")
         try:
-            resp = requests.get(url, headers=HEADERS, timeout=20)
+            resp = requests.get(url, headers=HEADERS, impersonate="chrome", timeout=20)
             resp.raise_for_status()
-        except requests.RequestException as exc:
+        except RequestException as exc:
             print(f"  [{brand}] Request error: {exc}")
             break
 
         soup  = BeautifulSoup(resp.text, "lxml")
-        items = soup.select(".item-container")
+        items = soup.select(".goods-container")
         if not items:
             print(f"  [{brand}] No items found – stopping.")
             break
 
         page_scraped = 0
         for item in items:
-            title_el = item.select_one(".item-title")
+            title_el = item.select_one(".goods-title")
             if not title_el:
+                continue
+
+            # Skip non-new listings (condition is shown in the open-box italic span)
+            if any(kw in title_el.get_text(" ", strip=True) for kw in SKIP_KEYWORDS):
                 continue
 
             # Strip the open-box italic span from title text
             for span in title_el.select(".item-open-box-italic"):
                 span.decompose()
             title = title_el.get_text(strip=True)
-
-            # Skip non-new listings
-            if any(kw in title for kw in SKIP_KEYWORDS):
-                continue
 
             price  = parse_price(item)
             rating = parse_rating(item)
@@ -243,7 +244,7 @@ def scrape_brand(brand: str, n_val: int, max_pages: int) -> list[dict]:
         print(f"  [{brand}] Scraped {page_scraped} new products this page")
 
         # Stop when we've reached the last page
-        page_info_el = soup.select_one(".list-tool-pagination-text strong")
+        page_info_el = soup.select_one(".plp-pagination-count strong")
         if page_info_el:
             m = re.match(r"(\d+)/(\d+)", page_info_el.get_text())
             if m and int(m.group(1)) >= int(m.group(2)):
